@@ -1,0 +1,95 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+      <h2 class="text-dark-blue"><strong>Mensaje</strong></h2>
+      <ol class="breadcrumb">
+        <li>
+          <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+        </li>
+        <li>
+          <a href="/mensajes">Listado</a>
+        </li>
+        <li class="active">
+          <% if @mensaje.new_record? %>
+            <strong class="text-blue">Registrar Mensaje</strong>
+          <% else %>
+            <strong class="text-blue">Editar Mensaje</strong>
+          <% end %>
+        </li>
+    </ol>
+  </div>
+</div>
+<div class="wrapper wrapper-content">
+  <div class="row">   
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h4 class="text-dark-blue"><strong>Mensaje</strong></h4>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-sm-12">
+
+
+
+<%= form_for(@mensaje) do |f| %>
+  <% if @mensaje.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mensaje.errors.count, "error") %> prohibited this mensaje from being saved:</h2>
+
+      <ul>
+      <% @mensaje.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ <div class="form-group">
+        <label class="control-label">Nombre <label for="mensaje_nombre" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :nombre,:required => true, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+        <label class="control-label">Correo <label for="mensaje_correo" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :correo,:required => true, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+        <label class="control-label">Mensaje <label for="mensaje_mensaje" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_area :mensaje,:required => true, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+                  <div class="col-lg-offset-3 col-lg-2">
+                    <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
+                  </div>
+                  <% if (@mensaje.new_record?) %>
+                    <div class="col-lg-2">
+                      <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
+                    </div>
+                  <% end %>
+                  <div class="col-lg-2">
+                    <%= link_to 'Atrás', mensajes_path, :class => "btn btn-sm btn-default" %>
+                  </div>
+                </div>
+<% end %>
+ </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</div>
+
+<% content_for :javascript do %>
+  <script type="text/javascript">
+
+    $('#form-generic').validate({
+      rules: {
+        'mensaje[nombre]': {  
+            required: true,
+            solo_letras: true
+        }
+      }
+    });
+
+  </script>
+<% end %>

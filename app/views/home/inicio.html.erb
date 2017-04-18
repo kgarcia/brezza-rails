@@ -1,0 +1,734 @@
+<div class="navbar-wrapper">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="" href="/">
+                    <img width="240" height="40" class="navbar-brand" src="<%= image_url 'logo_horizontal.png' %>">
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="page-scroll" href="#page-top">Inicio</a></li>
+                    <li><a class="page-scroll" href="#features">Productos</a></li>
+                    <li><a class="page-scroll" href="#team">Equipo</a></li>
+                    <li><a class="page-scroll" href="#testimonials">Testimonios</a></li>
+                    <li><a class="page-scroll" href="#pricing">Aliarse</a></li>
+                    <li><a class="page-scroll" href="#contact">Contacto</a></li>
+                    <li><a class="page-scroll" href="#">Iniciar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+<ol class="carousel-indicators">
+    <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+    <li data-target="#inSlider" data-slide-to="1"></li>
+</ol>
+<div class="carousel-inner" role="listbox">
+    <div class="item active">
+        <div class="container">
+            <div class="carousel-caption">
+                <h1>Nosotros impulsamos<br/>
+                    Marcas, aplicaciones,<br/>
+                    y proyectos innovadores<br/>
+                    Nosotros somos Brezza</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="#" role="button">Leer Más</a>
+                    
+                </p>
+            </div>
+            <div class="carousel-image wow zoomIn">
+                <img src="<%= image_path('landing/laptop.png') %>" alt="laptop"/>
+            </div>
+        </div>
+        <!-- Set background for slide in css -->
+        <div class="header-back one"></div>
+
+    </div>
+    <div class="item">
+        <div class="container">
+            <div class="carousel-caption blank">
+                <h1>Nosotros desarrollamos <br/> productos que inspiran.</h1>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                <p><a class="btn btn-lg btn-primary" href="#" role="button">Aprender Más</a></p>
+            </div>
+        </div>
+        <!-- Set background for slide in css -->
+        <div class="header-back two"></div>
+    </div>
+</div>
+<a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Anterior</span>
+</a>
+<a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Siguiente</span>
+</a>
+</div>
+
+
+<section id="features" class="container services">
+<div class="row">
+    <div class="col-sm-3">
+        <h2>Innovación</h2>
+        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
+        <p><a class="navy-link" href="#" role="button">Detalles &raquo;</a></p>
+    </div>
+    <div class="col-sm-3">
+        <h2>Creativas</h2>
+        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
+        <p><a class="navy-link" href="#" role="button">Detalles &raquo;</a></p>
+    </div>
+    <div class="col-sm-3">
+        <h2>Impacto</h2>
+        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
+        <p><a class="navy-link" href="#" role="button">Detalles &raquo;</a></p>
+    </div>
+    <div class="col-sm-3">
+        <h2>Tendencias</h2>
+        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
+        <p><a class="navy-link" href="#" role="button">Detalles &raquo;</a></p>
+    </div>
+</div>
+</section>
+
+<section  class="container features">
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <div class="navy-line"></div>
+        <h1>Más de 10 productos<br/> <span class="navy"> que cambiarán el mundo</span> </h1>
+        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 text-center wow fadeInLeft">
+        <div>
+            <%= link_to products_path do %>
+            <i class="fa fa-mobile features-icon"></i>
+            <h2><%= link_to 'Aplicaciones', products_path %></h2>
+            <% end %>
+            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
+        </div>
+        <div class="m-t-lg">
+            <%= link_to root_path do %> 
+            <i class="fa fa-bar-chart features-icon"></i>
+            <h2><%= link_to 'Responsabilidad Social', root_path %></h2>
+            <% end %>
+            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
+        </div>
+    </div>
+    <div class="col-md-6 text-center  wow zoomIn">
+        <img src="<%= image_path('landing/perspective.png') %>" alt="dashboard" class="img-responsive">
+    </div>
+    <div class="col-md-3 text-center wow fadeInRight">
+        <div>
+         <%= link_to root_path do %>
+            <i class="fa fa-users features-icon"></i>
+             <h2><%= link_to 'Franquicias', root_path %></h2>
+            <% end %>
+            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
+        </div>
+        <div class="m-t-lg">
+            <%= link_to root_path do %>
+            <i class="fa fa-laptop features-icon"></i>
+             <h2><%= link_to 'Multiplataformas', root_path %></h2>
+            <% end %>
+            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <div class="navy-line"></div>
+        <h1>Descubre grandes características</h1>
+        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
+    </div>
+</div>
+<div class="row features-block">
+    <div class="col-lg-6 features-text wow fadeInLeft">
+        <small>Brezza</small>
+        <h2>Cambiando el mundo</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.</p>
+        <a href="" class="btn btn-primary">Aprende más</a>
+    </div>
+    <div class="col-lg-6 text-right wow fadeInRight">
+        <img src="<%= image_path('landing/dashboard.png') %>" alt="dashboard" class="img-responsive pull-right">
+    </div>
+</div>
+</section>
+
+<section id="team" class="gray-section team">
+<div class="container">
+    <div class="row m-b-lg">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1>Nuestro Equipo</h1>
+            <p>Especialistas en ______ con más de 10 años de experiencia.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 wow fadeInLeft">
+            <div class="team-member">
+                <img src="<%= image_path('landing/avatar3.jpg') %>" class="img-responsive img-circle img-small" alt="">
+                <h4><span class="navy">Amelia</span> Smith</h4>
+                <p>Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus. </p>
+                <ul class="list-inline social-icon">
+                    <li><a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="team-member wow zoomIn">
+                <img src="<%= image_path('landing/ss.jpg') %>" class="img-responsive img-circle" alt="" style="max-width: 140px;">
+                <h4><span class="navy">Samuel</span> Scarpato</h4>
+                <p>Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus.</p>
+                <ul class="list-inline social-icon">
+                    <li><a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-4 wow fadeInRight">
+            <div class="team-member">
+                <img src="<%= image_path('landing/avatar2.jpg') %>" class="img-responsive img-circle img-small" alt="">
+                <h4><span class="navy">Peter</span> Johnson</h4>
+                <p>Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus.</p>
+                <ul class="list-inline social-icon">
+                    <li><a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+        </div>
+    </div>
+</div>
+</section>
+
+<section class="features">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1>Quienes Somos</h1>
+            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
+        </div>
+    </div>
+    <div class="row features-block">
+        <div class="col-lg-3 features-text wow fadeInLeft">
+            <small>Brezza</small>
+            <h2>Misión</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.</p>
+            <a href="" class="btn btn-primary">Leer más</a>
+        </div>
+        <div class="col-lg-6 text-right m-t-n-lg wow zoomIn">
+            <img src="<%= image_path('landing/iphone.jpg') %>" class="img-responsive" alt="dashboard">
+        </div>
+        <div class="col-lg-3 features-text text-right wow fadeInRight">
+            <small>Brezza</small>
+            <h2>Visión</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.</p>
+            <a href="" class="btn btn-primary">Leer más</a>
+        </div>
+    </div>
+</div>
+
+</section>
+
+<section class="timeline gray-section">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1>Cómo ser parte de Brezza</h1>
+            <p>En 4 simples pasos puedes unirte a alguno de nuestros productos</p>
+        </div>
+    </div>
+    <div class="row features-block">
+
+        <div class="col-lg-12">
+            <div id="vertical-timeline" class="vertical-container light-timeline center-orientation">
+                <div class="vertical-timeline-block">
+                    <div class="vertical-timeline-icon navy-bg">
+                        <i class="fa fa-briefcase"></i>
+                    </div>
+
+                    <div class="vertical-timeline-content">
+                        <h2>Registrate</h2>
+                        <p>Llena el formulario de registro y selecciona el proyecto en el que estás interesado en formar parte
+                        </p>
+                        <a href="#" class="btn btn-xs btn-primary"> Registrarse</a>
+                        <span class="vertical-date"> Hoy <br/> <small>24 Dic</small> </span>
+                    </div>
+                </div>
+                <div class="vertical-timeline-block">
+                    <div class="vertical-timeline-icon navy-bg">
+                        <i class="fa fa-briefcase"></i>
+                    </div>
+
+                    <div class="vertical-timeline-content">
+                        <h2>Evaluación</h2>
+                        <p>Nuestros expertos evaluarán tu solicitud, y se pondrán en contacto contigo para confirmar la información.
+                        </p>
+                        <span class="vertical-date"> Hoy <br/> <small>24 Dic</small> </span>
+                    </div>
+                </div>
+                <div class="vertical-timeline-block">
+                    <div class="vertical-timeline-icon navy-bg">
+                        <i class="fa fa-file-text"></i>
+                    </div>
+
+                    <div class="vertical-timeline-content">
+                        <h2>Confirmación</h2>
+                        <p>Valida tu información y confirma tu participación .</p>
+                    </div>
+                </div>
+
+                <div class="vertical-timeline-block">
+                    <div class="vertical-timeline-icon navy-bg">
+                        <i class="fa fa-cogs"></i>
+                    </div>
+
+                    <div class="vertical-timeline-content">
+                        <h2>Implementación</h2>
+                        <p>Ya eres parte de uno de los productos que cambiarán el mundo, podrás recibir actualizaciones y seguir el progreso del mismo. </p>
+                        <a href="#" class="btn btn-xs btn-primary"> Registrarse</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</section>
+
+<section id="testimonials" class="navy-section testimonials" style="margin-top: 0">
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center wow zoomIn">
+            <i class="fa fa-comment big-icon"></i>
+            <h1>
+                Lo que dicen los medios
+            </h1>
+            <div class="testimonials-text">
+                <i>"Brezza es un proyecto que cambiará la manera como vemos el mundo brindando las herramientas necesarias para innovar."</i>
+            </div>
+            <small>
+                <strong>12.04.2017 - Times</strong>
+            </small>
+        </div>
+    </div>
+</div>
+
+</section>
+
+<section class="comments gray-section" style="margin-top: 0">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1>Lo que dicen nuestros aliados</h1>
+            <p>Donec sed odio dui. Etiam porta sem malesuada. </p>
+        </div>
+    </div>
+    <div class="row features-block">
+        <div class="col-lg-4">
+            <div class="bubble">
+                "De niña siempre quise cambiar el mundo, formar parte de Brezza me da la oportunidad de hacerlo realidad"
+            </div>
+            <div class="comments-avatar">
+                <a href="" class="pull-left">
+                    <img alt="image" src="<%= image_path('landing/avatar3.jpg') %>">
+                </a>
+                <div class="media-body">
+                    <div class="commens-name">
+                        Andrew Williams
+                    </div>
+                    <small class="text-muted">Compañia X de California</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="bubble">
+                "Brezza me dió la oportunidad de invertir en una herramienta que genera un bienestar social, no hay mayor ganancia que eso."
+            </div>
+            <div class="comments-avatar">
+                <a href="" class="pull-left">
+                    <img alt="image" src="<%= image_path('landing/avatar1.jpg') %>">
+                </a>
+                <div class="media-body">
+                    <div class="commens-name">
+                        Andrew Williams
+                    </div>
+                    <small class="text-muted">Compañia Y from Madrid</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="bubble">
+                "Descubrí un lugar donde podría aplicar todos mis conocimientos y seguir aprendiendo trabajando en ideas creativas e innovadoras."
+            </div>
+            <div class="comments-avatar">
+                <a href="" class="pull-left">
+                    <img alt="image" src="<%= image_path('landing/avatar2.jpg') %>">
+                </a>
+                <div class="media-body">
+                    <div class="commens-name">
+                        Andrew Williams
+                    </div>
+                    <small class="text-muted">Desarrolador X from Santiago de Chile</small>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+</section>
+
+<section class="features">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1>Más y más beneficios</h1>
+            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5 col-lg-offset-1 features-text">
+            <small>Brezza</small>
+            <h2>Beneficio 1</h2>
+            <i class="fa fa-bar-chart big-icon pull-right"></i>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.</p>
+        </div>
+        <div class="col-lg-5 features-text">
+            <small>Brezza</small>
+            <h2>Beneficio 2</h2>
+            <i class="fa fa-bolt big-icon pull-right"></i>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5 col-lg-offset-1 features-text">
+            <small>Brezza</small>
+            <h2>Beneficio 3</h2>
+            <i class="fa fa-clock-o big-icon pull-right"></i>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.</p>
+        </div>
+        <div class="col-lg-5 features-text">
+            <small>Brezza</small>
+            <h2>Beneficio 4</h2>
+            <i class="fa fa-users big-icon pull-right"></i>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.</p>
+        </div>
+    </div>
+</div>
+
+</section>
+<section id="pricing" class="pricing">
+<div class="container">
+    <div class="row m-b-lg">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1>Aliarse</h1>
+            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 wow zoomIn">
+            <ul class="pricing-plan list-unstyled">
+                <li class="pricing-title">
+                    Técnico
+                </li>
+                <li class="pricing-desc">
+                    Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus.
+                </li>
+                <li class="pricing-price">
+                    Desarrollador
+                </li>
+                <li>
+                    Diseñador
+                </li>
+                <li>
+                    Marketing
+                </li>
+                <li>
+                    Analista
+                </li>
+                <li>
+                    Voluntario
+                </li>
+                <li>
+                    Colaborador
+                </li>
+                <li>
+                    <a class="btn btn-primary btn-xs" href="/aliarse">Registrarse</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-lg-4 wow zoomIn">
+            <ul class="pricing-plan list-unstyled selected">
+                <li class="pricing-title">
+                    Inversionista
+                </li>
+                <li class="pricing-desc">
+                    Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus.
+                </li>
+                <li class="pricing-price">
+                    Reducción de Impuestos
+                </li>
+                <li>
+                    Dashboards
+                </li>
+                <li>
+                    Seguimiento de proyectos
+                </li>
+                <li>
+                    Contacto directo
+                </li>
+                <li>
+                    Notificaciones
+                </li>
+                <li>
+                    Tiempos
+                </li>
+                <li>
+                    <strong>Ganancias</strong>
+                </li>
+                <li class="plan-action">
+                    <a class="btn btn-primary btn-xs" href="/aliarse">Registrarse</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-lg-4 wow zoomIn">
+            <ul class="pricing-plan list-unstyled">
+                <li class="pricing-title">
+                    Socio
+                </li>
+                <li class="pricing-desc">
+                    Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus.
+                </li>
+                <li class="pricing-price">
+                    <span>Crowd</span>lending
+                </li>
+                <li>
+                    Dashboards
+                </li>
+                <li>
+                    Seguimiento de proyectos
+                </li>
+                <li>
+                    Contacto directo
+                </li>
+                <li>
+                    Notificaciones
+                </li>
+                <li>
+                    Tiempos
+                </li>
+                <li>
+                    <a class="btn btn-primary btn-xs" href="/aliarse">Registrarse</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row m-t-lg">
+        <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg">
+            <p>* Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+</div>
+
+</section>
+
+<section id="contact" class="gray-section contact">
+<div class="container">
+    <div class="row m-b-lg">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1>Contactanos</h1>
+            <p>Dejanos tu mensaje y te atenderemos a la brevedad.</p>
+        </div>
+    </div>
+
+    <div class="row m-b-lg">
+        <div class="col-lg-3 col-lg-offset-2">
+            <br><br>
+            <address>
+                <strong><span class="navy">Brezza C.A.</span></strong><br/>
+                Av. Lara con Av. Los Leones<br/>
+                Barquisimeto, Lara, Venezuela<br/>
+                <abbr title="Phone">Telefono:</abbr> +58(251) 456-7890
+            </address>
+            <br><br>
+            <div class="col-lg-12 text-center">
+            <p class="m-t-sm">
+                O siguenos en nuestras redes sociales
+            </p>
+            <ul class="list-inline social-icon">
+                <li><a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li><a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+            </ul>
+        </div>
+        </div>
+        <div class="col-lg-5">
+            <div>
+                <%= form_tag(root_path, {:class => "form"}) do %>
+                        <div class="form-group">
+                            <label class="control-label">Nombre</label>
+                            <input type="text" name="nombre" placeholder="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Correo</label>
+                            <input type="email" name="email" placeholder="ejemplo@alice.net" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Mensaje</label>
+                            <textarea name="mensaje" class="form-control"></textarea>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Enviar</button>
+
+                <% end -%>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+            <p><strong>&copy; 2017 Brezza</strong><br/> consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+        </div>
+    </div>
+</div>
+</section>
+<% content_for :javascript do %>
+
+<script type="text/javascript">
+
+
+$(function() {
+
+    $('body').addClass('landing-page');
+    $('body').attr('id', 'page-top');
+
+    $('body').scrollspy({
+        target: '.navbar-fixed-top',
+        offset: 80
+    });
+
+    // Page scrolling feature
+    $('a.page-scroll').bind('click', function(event) {
+        var link = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $(link.attr('href')).offset().top - 50
+        }, 500);
+        event.preventDefault();
+        $("#navbar").collapse('hide');
+    });
+
+    var cbpAnimatedHeader = (function() {
+        var docElem = document.documentElement,
+                header = document.querySelector( '.navbar-default' ),
+                didScroll = false,
+                changeHeaderOn = 200;
+        function init() {
+            window.addEventListener( 'scroll', function( event ) {
+                if( !didScroll ) {
+                    didScroll = true;
+                    setTimeout( scrollPage, 250 );
+                }
+            }, false );
+        }
+        function scrollPage() {
+            var sy = scrollY();
+            if ( sy >= changeHeaderOn ) {
+                $(header).addClass('navbar-scroll')
+            }
+            else {
+                $(header).removeClass('navbar-scroll')
+            }
+            didScroll = false;
+        }
+        function scrollY() {
+            return window.pageYOffset || docElem.scrollTop;
+        }
+        init();
+
+    })();
+
+
+    // Activate WOW.js plugin for animation on scrol
+    new WOW().init();
+
+
+});
+
+</script>
+
+<% end %>

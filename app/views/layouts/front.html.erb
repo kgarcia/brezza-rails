@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Brezza | Cambiamos el mundo</title>
+
+    <!-- Include style per-controller - vendor plugins -->
+    <%= stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.css") %>
+
+    <!-- Main css styles -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+    <!-- Main javascript files -->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+
+
+</head>
+<body class="gray-bg">
+ <!-- Wrapper-->
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <%= render 'layouts/frontnav' %>
+        <%= image_tag 'landing/header_one.jpg', style: "width: 100%; max-height: 180px;" %>
+
+		<!-- Main view  -->
+		<%= yield %>
+
+
+            <!-- Footer -->
+            <%= render 'layouts/footer' %>
+
+    </div>
+    <!-- End wrapper-->
+
+
+    <!-- Include javascript per-controller - vendor plugins -->
+    <%= javascript_include_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.js") %>
+
+    <!-- Include javascript per-view -->
+    <!-- For demo purpose we include javascript in view but you can easily start SeedProject and organize it with Rails asset pipeline as you want -->
+    <%= yield :javascript %>
+
+</body>
+</html>
+<style type="text/css">
+	
+/* FOOTER */
+
+.footer {
+
+  background: none repeat scroll 0 0 white;
+  border-top: 1px solid $border-color;
+  bottom: 0;
+  left: 0;
+  padding: 10px 20px;
+  position: fixed;
+  right: 0;
+}
+
+.footer.fixed_full {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 10px 20px;
+  background: white;
+  border-top: 1px solid $border-color;
+}
+
+.footer.fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 10px 20px;
+  background: white;
+  border-top: 1px solid $border-color;
+  margin-left: $sidebar-width;
+}
+
+</style>
+
+
+<script type="text/javascript">
+
+
+$(function() {
+
+    $('body').addClass('landing-page');
+    $('body').attr('id', 'page-top');
+
+    $('body').scrollspy({
+        target: '.navbar-fixed-top',
+        offset: 80
+    });
+
+    // Page scrolling feature
+    $('a.page-scroll').bind('click', function(event) {
+        var link = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $(link.attr('href')).offset().top - 50
+        }, 500);
+        event.preventDefault();
+        $("#navbar").collapse('hide');
+    });
+
+    var cbpAnimatedHeader = (function() {
+        var docElem = document.documentElement,
+                header = document.querySelector( '.navbar-default' ),
+                didScroll = false,
+                changeHeaderOn = 170;
+        function init() {
+            window.addEventListener( 'scroll', function( event ) {
+                if( !didScroll ) {
+                    didScroll = true;
+                    setTimeout( scrollPage, 250 );
+                }
+            }, false );
+        }
+        function scrollPage() {
+            var sy = scrollY();
+            if ( sy >= changeHeaderOn ) {
+                $(header).addClass('navbar-scroll')
+            }
+            else {
+                $(header).removeClass('navbar-scroll')
+            }
+            didScroll = false;
+        }
+        function scrollY() {
+            return window.pageYOffset || docElem.scrollTop;
+        }
+        init();
+
+    })();
+
+
+    // Activate WOW.js plugin for animation on scrol
+    new WOW().init();
+
+
+});
+
+</script>

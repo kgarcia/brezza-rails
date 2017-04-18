@@ -1,0 +1,40 @@
+<div>
+    <div class="loginColumns animated fadeInDown">
+        <div class="row">
+
+            <div class="col-md-6" style="color: white;">
+                <h2 class="font-bold">Bienvenido a</h2>
+
+                <%= image_tag 'landing/laptop.png', class: "img-responsive" %>
+
+                <p>
+                    Perfectamente diseñado y preparado con precisión para la administración y toma de decisiones gracias a las funciones que te brindamos.
+                </p>
+     
+
+            </div>
+            <div class="col-md-6">
+                <div class="ibox-content">
+                <h2> Iniciar Sesión </h2>
+                    <form>
+                    
+                        <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="usuario@ejemplo.com">
+                        </div>
+                        <div class="form-group">
+                        <input type="password" name="password" class="form-control" autocomplete="off">
+                        </div>
+                        <%= submit_tag 'Entrar' , class: "btn btn-primary block full-width m-b" %>
+                    </form>                      
+                       
+                    </form>
+                    <p class="m-t">
+                        <small>Brezza</small>
+                    </p>	
+                </div>
+            </div>
+        </div>
+        <hr />
+    </div>
+    <%= render "layouts/footer" %>
+    </div>

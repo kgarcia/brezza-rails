@@ -1,0 +1,191 @@
+<br><br><br><div class="row">
+    <div class="col-lg-12">
+        <div class="ibox">
+            
+            <div class="ibox-content">
+                <h2>
+                    Solicitud de Alianza Brezza
+                </h2>
+                <p>
+                    Provee tus datos para comenzar el proceso de alianza Brezza.
+                </p>
+
+                <form id="form" action="#" class="wizard-big">
+                    <h1>Cuenta</h1>
+                    <fieldset>
+                        <h2>Cuenta de Usuario</h2>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="form-group">
+                                    <label>Correo *</label>
+                                    <input id="email" name="email" type="text" class="form-control required email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Contraseña *</label>
+                                    <input id="password" name="password" type="password" class="form-control required">
+                                </div>
+                                <div class="form-group">
+                                    <label>Confirmar Contraseña *</label>
+                                    <input id="confirm" name="confirm" type="password" class="form-control required">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="text-center">
+                                    <div style="margin-top: 20px">
+                                        <i class="fa fa-sign-in" style="font-size: 180px;color: #e5e5e5 "></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                    <h1>Perfil</h1>
+                    <fieldset>
+                        <h2>Información de Perfil</h2>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Nombre *</label>
+                                    <input id="name" name="name" type="text" class="form-control required">
+                                </div>
+                                <div class="form-group">
+                                    <label>Apellido *</label>
+                                    <input id="surname" name="surname" type="text" class="form-control required">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Teléfono *</label>
+                                    <input id="phone" name="phone" type="text" class="form-control required">
+                                </div>
+                                <div class="form-group">
+                                    <label>Dirección *</label>
+                                    <input id="address" name="address" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <h1>Productos</h1>
+                    <fieldset>
+                        <div class="text-center" style="margin-top: 20px">
+                          
+                <p>
+                	Selecciona los productos de los que te interesa ser aliado (max. 3)
+                </p>
+                
+                <div class="form-group">
+                    <label class="font-normal">Productos</label>
+                    <div>
+                        <select data-placeholder="Selecciona un producto" class="chosen-select" multiple tabindex="4">
+                            <option value="">Select</option>
+                            <option value="Valoración de Plataformas">Valoración de Plataformas</option>
+                            <option value="Nuevo Scoring Crediticio">Nuevo Scoring Crediticio</option>
+                            <option value="Participacion Ciudadana">Participacion Ciudadana</option>
+                            <option value="Innova Café">Innova Café</option>
+                            <option value="Multiplataforma Sector Energético">Multiplataforma Sector Energético</option>
+                            <option value="Multiplataforma Sector Agroalimentario">Multiplataforma Sector Agroalimentario</option>
+                            <option value="Multiplataforma Sector Salud">Multiplataforma Sector Salud</option>
+                            <option value="Multiplataforma Sector Turismo">Multiplataforma Sector Turismo</option>
+                            <option value="Multiplataforma Sector Inmobiliario">Multiplataforma Sector Inmobiliario</option>
+                            <option value="Plataforma para pre-emprendedores">Plataforma para pre-emprendedores</option>
+                            <option value="Plataforma para desahuciados inmobiliarios">Plataforma para desahuciados inmobiliarios</option>
+                            <option value="Plataforma para recuperación de áreas naturales">Plataforma para recuperación de áreas naturales</option>
+                        </select>
+                    </div>
+                </div>
+
+                        </div>
+                    </fieldset>
+
+                    <h1>Finalizar</h1>
+                    <fieldset>
+                        <h2>Términos y Condiciones</h2>
+                        <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms">Estoy de acuerdo con los términos y condiciones.</label>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<% content_for :javascript do %>
+
+<script type="text/javascript">
+
+
+$(function() {
+
+    $("#wizard").steps();
+    $("#form").steps({
+        bodyTag: "fieldset",
+        onStepChanging: function (event, currentIndex, newIndex) {
+            // Always allow going backward even if the current step contains invalid fields!
+            if (currentIndex > newIndex) {
+                return true;
+            }
+
+            // Forbid suppressing "Warning" step if the user is to young
+            if (newIndex === 3 && Number($("#age").val()) < 18) {
+                return false;
+            }
+
+            var form = $(this);
+
+            // Clean up if user went backward before
+            if (currentIndex < newIndex) {
+                // To remove error styles
+                $(".body:eq(" + newIndex + ") label.error", form).remove();
+                $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+            }
+
+            // Disable validation on fields that are disabled or hidden.
+            form.validate().settings.ignore = ":disabled,:hidden";
+
+            // Start validation; Prevent going forward if false
+            return form.valid();
+        },
+        onStepChanged: function (event, currentIndex, priorIndex) {
+            // Suppress (skip) "Warning" step if the user is old enough.
+            if (currentIndex === 2 && Number($("#age").val()) >= 18) {
+                $(this).steps("next");
+            }
+
+            // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
+            if (currentIndex === 2 && priorIndex === 3) {
+                $(this).steps("previous");
+            }
+        },
+        onFinishing: function (event, currentIndex) {
+            var form = $(this);
+
+            // Disable validation on fields that are disabled.
+            // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+            form.validate().settings.ignore = ":disabled";
+
+            // Start validation; Prevent form submission if false
+            return form.valid();
+        },
+        onFinished: function (event, currentIndex) {
+            var form = $(this);
+
+            // Submit form input
+            form.submit();
+        }
+    }).validate({
+                errorPlacement: function (error, element) {
+                    element.before(error);
+                },
+                rules: {
+                    confirm: {
+                        equalTo: "#password"
+                    }
+                }
+            });
+
+});
+
+</script>
+
+<% end %>
