@@ -31,6 +31,15 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :production do
+# Use unicorn as the app server
+  gem 'unicorn'
+  gem 'mysql2'
+end
+
+
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
