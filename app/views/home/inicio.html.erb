@@ -115,14 +115,14 @@
         <div>
             <%= link_to products_path do %>
             <i class="fa fa-mobile features-icon"></i>
-            <h2><%= link_to 'Aplicaciones', products_path %></h2>
+            <h2><%= link_to 'Aplicaciones', products_path, class: "btn btn-primary"  %></h2>
             <% end %>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
         </div>
         <div class="m-t-lg">
             <%= link_to root_path do %> 
             <i class="fa fa-bar-chart features-icon"></i>
-            <h2><%= link_to 'Responsabilidad Social', root_path %></h2>
+            <h2><%= link_to 'Responsabilidad Social', root_path, class: "btn btn-primary"  %></h2>
             <% end %>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
         </div>
@@ -134,14 +134,14 @@
         <div>
          <%= link_to root_path do %>
             <i class="fa fa-users features-icon"></i>
-             <h2><%= link_to 'Franquicias', root_path %></h2>
+             <h2><%= link_to 'Franquicias', root_path, class: "btn btn-primary"  %></h2>
             <% end %>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
         </div>
         <div class="m-t-lg">
             <%= link_to root_path do %>
             <i class="fa fa-laptop features-icon"></i>
-             <h2><%= link_to 'Multiplataformas', root_path %></h2>
+             <h2><%= link_to 'Multiplataformas', root_path, class: "btn btn-primary" %></h2>
             <% end %>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
         </div>
@@ -157,11 +157,8 @@
 <div class="row features-block">
     <div class="col-lg-6 features-text wow fadeInLeft">
         <small>Brezza</small>
-        <h2>Cambiando el mundo</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.</p>
+        <h2>Somos una red de investigadores formados en áreas multidisciplinarias</h2>
+        <p>Ponemos en marcha el ingenio y la integración innovadora, para cooperar y apalancar la transición de nuestras sociedades a modos de vida y de negocios más sustentables.</p>
         <a href="" class="btn btn-primary">Aprende más</a>
     </div>
     <div class="col-lg-6 text-right wow fadeInRight">
@@ -239,7 +236,7 @@
     <div class="row">
         <div class="col-lg-12 text-center">
             <div class="navy-line"></div>
-            <h1>Quienes Somos</h1>
+            <h1>Quiénes Somos</h1>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
         </div>
     </div>
@@ -247,11 +244,8 @@
         <div class="col-lg-3 features-text wow fadeInLeft">
             <small>Brezza</small>
             <h2>Misión</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.</p>
-            <a href="" class="btn btn-primary">Leer más</a>
+            <p>Facilitar el intercambio de información y la integración entre personas, organizaciones y mercados, a través del diseño y puesta en funcionamiento de innovaciones tecnológicas que contribuyan a su vez con el incremento de la eficiencia, el mejoramiento continuo, la transparencia y la calidad de vida en los segmentos y espacios hacia los que enfocamos nuestra cooperación.</p>
+            <a href="" class="btn btn-primary">Organización</a>
         </div>
         <div class="col-lg-6 text-right m-t-n-lg wow zoomIn">
             <img src="<%= image_path('landing/iphone.jpg') %>" class="img-responsive" alt="dashboard">
@@ -259,11 +253,8 @@
         <div class="col-lg-3 features-text text-right wow fadeInRight">
             <small>Brezza</small>
             <h2>Visión</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.</p>
-            <a href="" class="btn btn-primary">Leer más</a>
+            <p>Destacar en la generación de productos y servicios innovadores que dinamicen diferentes nichos de mercado, en torno a los nuevos modos de participación social, la nueva arquitectura financiera mundial y el desarrollo local.</p>
+            <a href="" class="btn btn-primary">Reseña Histórica</a>
         </div>
     </div>
 </div>
@@ -646,7 +637,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Correo</label>
-                            <input type="email" name="email" placeholder="ejemplo@alice.net" class="form-control">
+                            <input type="email" name="email" placeholder="ejemplo@mail.net" class="form-control">
                         </div>
                         <div class="form-group">
                             <label class="control-label">Mensaje</label>
