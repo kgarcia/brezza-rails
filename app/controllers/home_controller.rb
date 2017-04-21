@@ -5,6 +5,7 @@ class HomeController < ApplicationController
   end
 
   def minor
+    render :layout => "admin"
   end
 
   def home
