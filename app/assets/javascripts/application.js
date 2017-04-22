@@ -17,7 +17,6 @@
 //= require slimscroll/jquery.slimscroll.min.js
 //= require steps/jquery.steps.min.js
 //= require validate/jquery.validate.min.js
-//= require chosen/chosen.jquery.js
 //= require_tree .
 
 
