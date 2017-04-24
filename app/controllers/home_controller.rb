@@ -12,7 +12,6 @@ class HomeController < ApplicationController
     render :layout => "empty"
   end
 
-
   def inicio
     render :layout => "empty"
   end
