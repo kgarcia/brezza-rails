@@ -28,4 +28,7 @@ class HomeController < ApplicationController
   def aliarse
     render :layout => "front"
   end
+  def soon
+    render :layout => "empty"
+  end
 end
