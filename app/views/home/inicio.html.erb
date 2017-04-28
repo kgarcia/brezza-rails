@@ -423,33 +423,57 @@ $(window).load(function(){
 
 
 <section id="team" class="features">
+
 <div class="container">
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            <div class="navy-line"></div>
+     <div class="col-lg-12 text-center">
+        <div class="navy-line"></div>
             <h1>Quiénes Somos</h1>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
         </div>
-    </div>
-    <div class="row features-block">
-        <div class="col-lg-3 features-text wow fadeInLeft">
-            <small>Brezza Project</small>
-            <h2>Misión</h2>
-            <p>Facilitar el intercambio de información y la integración entre personas, organizaciones y mercados, a través del diseño y puesta en funcionamiento de innovaciones tecnológicas que contribuyan a su vez con el incremento de la eficiencia, el mejoramiento continuo, la transparencia y la calidad de vida en los segmentos y espacios hacia los que enfocamos nuestra cooperación.</p>
-            <a href="" class="btn btn-primary">Organización</a>
-        </div>
-        <div class="col-lg-6 text-right m-t-n-lg wow zoomIn">
+    <div class="col-lg-6 text-center">
+       
+        <div class="col-lg-12 text-center m-t-n-lg wow zoomIn">
+            </br>
+            </br>
             <img src="<%= image_path('landing/iphone.jpg') %>" class="img-responsive" alt="dashboard">
         </div>
-        <div class="col-lg-3 features-text text-right wow fadeInRight">
-            <small>Brezza Project</small>
-            <h2>Visión</h2>
-            <p>Destacar en la generación de productos y servicios innovadores que dinamicen diferentes nichos de mercado, en torno a los nuevos modos de participación social, la nueva arquitectura financiera mundial y el desarrollo local.</p>
-            <a href="" class="btn btn-primary">Reseña Histórica</a>
+    </div>
+    <div class="col-lg-6 text-center">
+    <!--FILOSOFIA DE GESTION-->
+    </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+        <div class="block">
+            <input type="radio" name="city" id="cityA" checked />   
+            <label for="cityA"><span>Brezza Project</span></label>
+            <div class="info">
+                <p>Somos una red de investigadores formados en áreas multidisciplinarias que pone en   marcha el ingenio y la integración innovadora, para cooperar y apalancar la transición de nuestras sociedades a modos de vida y de negocios más sustentables.
+                </p>
+            </div>
+        </div>
+        <div class="block">
+            <input type="radio" name="city" id="cityB"/>
+            <label for="cityB"><span>Misión</span></label>
+            <div class="info">
+                <p> Facilitar el intercambio de información y la integración entre personas, organizaciones y mercados, a través del diseño y puesta en funcionamiento de innovaciones tecnológicas que contribuyan a su vez con el incremento de la eficiencia, el mejoramiento continuo, la transparencia y la calidad de vida en los segmentos y espacios hacia los que enfocamos nuestra cooperación.</p>
+            </div>
+        </div>
+        <div class="block">
+            <input type="radio" name="city" id="cityC" />
+            <label for="cityC"><span>Visión</span></label>
+            <div class="info">
+                <p>Destacar en la generación de productos y servicios innovadores que dinamicen diferentes nichos de mercado, en torno a los nuevos modos de participación social, la nueva arquitectura financiera mundial y el desarrollo local.
+                </p>  
+            </div>
         </div>
     </div>
 </div>
-
 </section>
 
 <section id="Steps" class="steps-section timeline gray-section">
@@ -511,26 +535,60 @@ $(window).load(function(){
 
 </section>
 
-<section id="testimonials" class="navy-section testimonials" style="margin-top: 0">
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12 text-center wow zoomIn">
-            <i class="fa fa-comment big-icon"></i>
-            <h1>
-                Lo que dicen los medios
-            </h1>
-            <div class="testimonials-text">
-                <i>"Brezza Project es un proyecto que cambiará la manera como vemos el mundo brindando las herramientas necesarias para innovar."</i>
-            </div>
-            <small>
-                <strong>12.04.2017 - Times</strong>
-            </small>
+<section id="testimonials" class="navy-section testimonials" style="margin-top: 0">
+ 
+    
+    
+    
+    <div id="carousel">
+        <div class=" text-center wow zoomIn ">
+           <i class="fa fa-comment big-icon"></i>
+        </div>
+  
+    <div id="slides">
+        <ul>
+            <li class="slide">
+                <div class="quoteContainer">
+                    <p class="quote-phrase">" I was literally BLOWN AWAY by Company A's work! They went above and beyond all of our expectations with design, usability. and branding, I will reccommend them to everyone I know!"
+
+                    </p>
+                </div>
+                <div class="authorContainer">
+                    <p class="quote-author">John Doe // Local Business Owner</p>
+                </div>
+            </li>
+            <li class="slide">
+                <div class="quoteContainer">
+                    <p class="quote-phrase">"I could not stop staring! Company A's Web Solutions are by far the most elegant solutions, you can't beat their quality and attention to detail!"
+
+                    </p>
+                </div>
+                <div class="authorContainer">
+                    <p class="quote-author">Andy Fakename // CEO: Andy's Camping Supplies</p>
+                </div>
+            </li>
+            <li class="slide">
+                <div class="quoteContainer">
+                    <p class="quote-phrase">"Carl Fakeguy, was the most helpful designer I've ever hired. He listened to my ideas and advised against things that could negatively affect my CEO. Company A is by far the most generous and helpful company, 5/5!"
+
+                    </p>
+                </div>
+                <div class="authorContainer">
+                    <p class="quote-author">Janice Falsename</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+        <div class="btn-bar">
+            <div id="buttons"><a id="prev" href="#"></a><a id="next" href="#"></a> </div>
         </div>
     </div>
-</div>
-
 </section>
+
+
+
+
 
 <section id="pricing" class="pricing">
 <div class="container">
