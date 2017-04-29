@@ -324,7 +324,7 @@ width: 100%;
 }
 
 .block input[type='radio']:checked ~ .info{
-  height: 130px;
+  height: 150px;
   transition: .3s ease-in;
 }
 
@@ -619,8 +619,8 @@ h4 a{
     font-weight: 600;
   }
   .testimonials {
-    padding-top: 80px;
-    padding-bottom: 90px;
+    padding-top: 20px;
+    padding-bottom: 25px;
     background-color: $navy;
     background-image: image-url("landing/avatar_all.png");
   }
