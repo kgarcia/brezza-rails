@@ -85,6 +85,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
+    mixitup_rails (0.0.3)
     multi_json (1.12.1)
     multi_xml (0.6.0)
     mysql2 (0.4.6)
@@ -168,6 +169,7 @@ GEM
     will_paginate (3.1.5)
     will_paginate-bootstrap (1.0.1)
       will_paginate (>= 3.0.3)
+    wow-rails (0.0.1)
 
 PLATFORMS
   ruby
@@ -182,6 +184,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   jquery-validation-rails
+  mixitup_rails
   mysql2
   puma (~> 3.0)
   rails (~> 5.0.1)
@@ -197,6 +200,7 @@ DEPENDENCIES
   unicorn
   will_paginate (~> 3.0)
   will_paginate-bootstrap (~> 1.0, >= 1.0.1)
+  wow-rails
 
 BUNDLED WITH
    1.14.4
