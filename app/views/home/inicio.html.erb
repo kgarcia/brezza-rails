@@ -216,11 +216,117 @@
             <div class="col-lg-12 text-center wow zoomIn">
                  <div class="navy-line"></div>
                 <h1>Catálogo</h1>
-                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
+                <p>Frescos y novedosos a tu alcance.</p>
             </div>
         </div>    
-        <div class="row">
-                
+        <div class="row" style="    margin-bottom: 40px;">
+                <ul id="filters" class="clearfix">
+                <li><span class="filter active" data-filter=".startup, .finanzas, .turismo, .ecologia, .web">Todos</span></li>
+                <li><span class="filter" data-filter=".startup">Startup</span></li>
+                <li><span class="filter" data-filter=".finanzas">Finanzas</span></li>
+                <li><span class="filter" data-filter=".turismo">Turismo</span></li>
+                <li><span class="filter" data-filter=".ecologia">Ecología</span></li>
+                <li><span class="filter" data-filter=".web">Web</span></li>
+                </ul>
+
+                <div id="portfoliolist">
+                  <div class="portfolio startup" data-cat="startup">
+                    <div class="portfolio-wrapper">
+                      <img src="<%= image_url '/assets/portfolio/valor.jpg' %>" alt="" />
+                      <div class="label">
+                        <div class="label-text">
+                          <a class="text-title">Ideal Value</a> 
+                          <span class="text-category">#Startup</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio finanzas web" data-cat="finanzas web">
+                    <div class="portfolio-wrapper">
+                      <img src="<%= image_url '/assets/portfolio/scoring.jpeg' %>" alt="" />
+                      <div class="label">
+                        <div class="label-text">
+                          <a class="text-title">New-Scoring</a> 
+                          <span class="text-category">#finanzas #web</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio startup" data-cat="startup">
+                    <div class="portfolio-wrapper">
+                      <img src="<%= image_url '/assets/portfolio/crowd2.jpg' %>" alt="" />
+                      <div class="label">
+                        <div class="label-text">
+                          <a class="text-title">Crowd-Pocket</a> 
+                          <span class="text-category">#Startup</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio web ecologia" data-cat="web ecologia">
+                    <div class="portfolio-wrapper">
+                      <img src="<%= image_url '/assets/portfolio/Portfolio-pic6.jpg' %>" alt="" />
+                      <div class="label">
+                        <div class="label-text">
+                          <a class="text-title">Brezza Energy</a> 
+                          <span class="text-category">#Web - #Ecologia</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio turismo startup" data-cat="turismo startup">
+                    <div class="portfolio-wrapper">
+                      <img src="<%= image_url '/assets/portfolio/cafe.jpg' %>" alt="" />
+                      <div class="label">
+                        <div class="label-text">
+                          <a class="text-title">Innova-Café</a> 
+                          <span class="text-category">Turismo - Startup</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio turismo ecologia" data-cat="turismo ecologia">
+                    <div class="portfolio-wrapper">
+                      <img src="<%= image_url '/assets/portfolio/bosque.jpg' %>" alt="" />
+                      <div class="label">
+                        <div class="label-text">
+                          <a class="text-title">Habitat-Voice</a> 
+                          <span class="text-category">Ecologia</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio turismo ecologia" data-cat="turismo ecologia">
+                    <div class="portfolio-wrapper">
+                      <img src="<%= image_url '/assets/p7.jpg' %>" alt="" />
+                      <div class="label">
+                        <div class="label-text">
+                          <a class="text-title">Hill Climb</a> 
+                          <span class="text-category">#Turismo #Ecologia</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio turismo ecologia web" data-cat="turismo ecologia web">
+                    <div class="portfolio-wrapper">
+                      <img src="<%= image_url '/assets/p8.jpg' %>" alt="" />
+                      <div class="label">
+                        <div class="label-text">
+                          <a class="text-title">Sea Watcher</a> 
+                          <span class="text-category">Turismo Ecologia</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
         </div>
         
     </div>
