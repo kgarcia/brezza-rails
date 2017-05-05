@@ -206,190 +206,6 @@ body.landing-page {
   .header-back.two {
     background: image-url("landing/header_two.jpg") 50% 0 no-repeat;
   }
-
-  
-  /* CUSTOMIZE THE CAROUSEL TEXTO TESTIMONIO
-  -------------------------------------------------- */
-  #carouseltext {
-position: relative;
-width:60%;
-margin:0 auto;
-}
-
-
-#slides {
-overflow: hidden;
-position: relative;
-width: 100%;
-height: 250px;
-}
-
-#slides ul {
-list-style: none;
-width:100%;
-height:250px;
-margin: 0;
-padding: 0;
-position: relative;
-}
-
- #slides li {
-width:100%;
-height:250px;
-float:left;
-text-align: center;
-position: relative;
-font-family:lato, sans-serif;
-}
-/* Styling for prev and next buttons */
-.btn-bar{
-    max-width: 346px;
-    margin: 0 auto;
-    display: block;
-    position: relative;
-    top: 40px;
-    width: 100%;
-}
-
- #buttons {
-padding:0 0 5px 0;
-float:right;
-}
-
-#buttons a {
-text-align:center;
-display:block;
-font-size:50px;
-float:left;
-outline:0;
-margin:0 60px;
-color:#b14943;
-text-decoration:none;
-display:block;
-padding:9px;
-width:35px;
-}
-
-a#prev:hover, a#next:hover {
-color:#FFF;
-text-shadow:.5px 0px #b14943;  
-}
-
-.quote-phrase, .quote-author {
-font-family:sans-serif;
-font-weight:300;
-display: table-cell;
-vertical-align: middle;
-padding: 5px 20px;
-font-family:'Lato', Calibri, Arial, sans-serif;
-}
-
-.quote-phrase {
-height: 200px;
-font-size:24px;
-color:#FFF;
-font-style:italic;
-text-shadow:.5px 0px #b14943;  
-}
-
-.quote-marks {
-font-size:30px;
-padding:0 3px 3px;
-position:inherit;
-}
-
-.quote-author {
-font-style:normal;
-font-size:20px;
-color:fff;
-font-weight:400;
-height: 30px;
-}
-
-.quoteContainer, .authorContainer {
-display: table;
-width: 100%;
-}
-
-
-
-  /* CUSTOMIZE ACORDEON FILOSOFIA DE GESTION
-  -------------------------------------------------- */
-
-.block{
-  background:  #21526f;
-  color: #fff;
-  padding-top: 5px;
-  box-shadow: 0 1px 2px #ccc;
-}
-.block input[type='radio']:checked ~ .block{
-  background:  $navy;
-}
-.block input[type='radio']:checked ~ .info{
-  height: 150px;
-  transition: .3s ease-in;
-}
-
-input[type='radio']{
-  width: 100%;
-  display: none;
-}
-
-label{
-  width: 450px;
-  max-width: 100%;
-  cursor: pointer;
-}
-
-span{
-  font-family: 'Arial';
-  font-weight: bold;
-  display: block;
-  padding: 10px 12px 12px 15px;
-  margin: 0;
-  cursor: pointer;
-}
-
-.info{
-  background: #fff;
-  color: #222;
-  width: 100%;
-  height: 0;
-  line-height: 2;
-  padding-left: 15px;
-  display: block;
-  overflow: hidden;
-  box-sizing: border-box;
-  transition: .3s ease-out;
-} 
-
-h4{
-  color: #111;
-  text-align: right;
-  text-shadow: 2px 2px 3px #fff;
-  position: absolute;
-  bottom: 20px;
-  right: 15px;
-}
-
-h4 a{
-  color: #111;
-  text-decoration: none;
-}
-
-::selection{
-  background: #222;
-  color: #fff;
-}
-
-  
-  
-  
-  
-  
-  
-  
- 
   .header-back.three {
     background: image-url("landing/3.jpg") 50% 0 no-repeat;
   }
@@ -874,7 +690,7 @@ h4 a{
 $outline-width: 0;
 $break-point: 500px;
 
-@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+//@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
 
 html {
   box-sizing: border-box;
@@ -896,12 +712,12 @@ $brand-primary: #3498DB; //Zen Blue
 }
 
 
-.steps-header {
+.pasos-header {
   @extend .section-header;
   margin-bottom: 20px;  
   text-align: center;
 }
-.steps-timeline {
+.pasos-timeline {
   outline: 1px dashed rgba(red, $outline-width);
   
   @media screen and (max-width: $break-point) {
@@ -923,10 +739,10 @@ $brand-primary: #3498DB; //Zen Blue
     clear: both;
   }
 }
-.steps-one,
-.steps-two,
-.steps-three,
-.steps-four {
+.pasos-one,
+.pasos-two,
+.pasos-three,
+.pasos-four {
   outline: 1px dashed rgba(green, $outline-width);
   
   @media screen and (max-width: $break-point) {
@@ -939,26 +755,26 @@ $brand-primary: #3498DB; //Zen Blue
     margin-top: -50px;
   }
 }
-.steps-one,
-.steps-two,
-.steps-three {
+.pasos-one,
+.pasos-two,
+.pasos-three {
   @media screen and (max-width: $break-point) {
     padding-bottom: 40px;
   }
 }
-.steps-one {
+.pasos-one {
   @media screen and (min-width: $break-point) {
     margin-left: -16.65%;
     margin-right: 0.65%;
   }
 }
-.steps-two{
+.pasos-two{
   margin-left: 10.65%;
 }
-.steps-three{
+.pasos-three{
   margin-left: 10.65%;
 }
-.steps-four {
+.pasos-four {
   @media screen and (max-width: $break-point) {
     margin-bottom: -100%;
   }
@@ -968,7 +784,7 @@ $brand-primary: #3498DB; //Zen Blue
   }
 }
 
-.steps-img {
+.pasos-img {
   display: block;
   margin: auto;
   width: 120px;
@@ -981,12 +797,12 @@ $brand-primary: #3498DB; //Zen Blue
   }
 }
 
-.steps-name,
-.steps-description {
+.pasos-name,
+.pasos-description {
   margin: 0;
         
 }
-.steps-name {
+.pasos-name {
 
   @extend .section-header;
         padding-top: 15px;
@@ -994,10 +810,209 @@ $brand-primary: #3498DB; //Zen Blue
     text-align: center;
   }
 }
-.steps-description {
+.pasos-description {
   overflow: hidden;
   
   @media screen and (min-width: $break-point) {
     text-align: center;
   }
+}
+
+
+  
+  
+  /* CUSTOMIZE THE CAROUSEL TEXTO TESTIMONIO
+  -------------------------------------------------- */
+  #carouseltext {
+position: relative;
+width:60%;
+margin:0 auto;
+}
+
+
+#slides {
+overflow: hidden;
+position: relative;
+width: 100%;
+height: 250px;
+}
+
+#slides ul {
+list-style: none;
+width:100%;
+height:250px;
+margin: 0;
+padding: 0;
+position: relative;
+}
+
+ #slides li {
+width:100%;
+height:250px;
+float:left;
+text-align: center;
+position: relative;
+font-family:lato, sans-serif;
+}
+/* Styling for prev and next buttons */
+.btn-bar{
+    max-width: 346px;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    top: 40px;
+    width: 100%;
+}
+
+ #buttons {
+padding:0 0 5px 0;
+float:right;
+}
+
+#buttons a {
+text-align:center;
+display:block;
+font-size:50px;
+float:left;
+outline:0;
+margin:0 60px;
+color:#b14943;
+text-decoration:none;
+display:block;
+padding:9px;
+width:35px;
+}
+
+a#prev:hover, a#next:hover {
+color:#FFF;
+text-shadow:.5px 0px #b14943;  
+}
+
+.quote-phrase, .quote-author {
+font-family:sans-serif;
+font-weight:300;
+display: table-cell;
+vertical-align: middle;
+padding: 5px 20px;
+font-family:'Lato', Calibri, Arial, sans-serif;
+}
+
+.quote-phrase {
+height: 200px;
+font-size:24px;
+color:#FFF;
+font-style:italic;
+text-shadow:.5px 0px #b14943;  
+}
+
+.quote-marks {
+font-size:30px;
+padding:0 3px 3px;
+position:inherit;
+}
+
+.quote-author {
+font-style:normal;
+font-size:20px;
+color:fff;
+font-weight:400;
+height: 30px;
+}
+
+.quoteContainer, .authorContainer {
+display: table;
+width: 100%;
+}
+
+//////////////////////////////////////////////////////////////////
+//Portfolio
+
+
+
+/* Portfolio
+---------------------------------*/
+.Portfolio-nav{
+    padding: 10px;
+    margin:0 0 15px 0;
+    list-style:none;
+    text-align:center;
+}
+.Portfolio-nav li{
+    margin:0 10px;
+    display:inline;
+}
+.Portfolio-nav li a{
+    border-bottom: 2px solid #00257b;
+    display:inline-block;
+    padding:10px 22px;
+    font-size:12px;
+    line-height:20px;
+    color:#222222;
+    background: none;
+    border-radius: 0px;
+    text-transform:uppercase;
+    margin-bottom:5px;
+    transition:all 0.3s ease-in-out;
+    -moz-transition:all 0.3s ease-in-out;
+    -webkit-transition:all 0.3s ease-in-out;
+}
+.Portfolio-nav li a:hover{
+    background:#00257b;
+    color:#fff;
+    text-decoration:none;
+}
+
+.portfolioContainer{
+    margin:0 auto;
+    padding-left:15px;
+}
+
+.Portfolio-box{
+    text-align:center;
+    margin-bottom:30px;
+    height:350px;
+    width:350px;
+    overflow:hidden;
+    float:left;
+    padding:0;
+}
+.Portfolio-box img{
+    margin-bottom:25px;
+    transition:all 0.3s ease-in-out;
+    -moz-transition:all 0.3s ease-in-out;
+    -webkit-transition:all 0.3s ease-in-out;    
+}
+
+.Portfolio-box img:hover {
+    opacity: 0.6;
+}
+
+.Portfolio-nav li a.current{
+    border-top: 3px solid #00257b;
+    border-bottom: none;
+    background:none;
+    color:#222222;
+    text-decoration:none;
+}
+img {
+   max-width:100%;
+}
+
+/* no transition on .isotope container */
+
+.isotope .isotope-item {
+  /* change duration value to whatever you like */
+  -webkit-transition-duration: 0.6s;
+     -moz-transition-duration: 0.6s;
+          transition-duration: 0.6s;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+.main-section.paddind{
+    padding: 0px;
 }

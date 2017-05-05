@@ -12,6 +12,7 @@
 //
 //= require jquery/jquery-3.1.1.min.js
 //= require bootstrap-sprockets
+//= require bootstrap
 //= require metisMenu/jquery.metisMenu.js
 //= require pace/pace.min.js
 //= require slimscroll/jquery.slimscroll.min.js
@@ -32,12 +33,12 @@ $(document).ready(function () {
     var speed = 9000;
     
     var run = setInterval(rotate, speed);
-    var slides = $('.slide');
-    var container = $('#slides ul');
+    var slides = $('.elslide');
+    var container = $('#losslides ul');
     var elm = container.find(':first-child').prop("tagName");
     var item_width = container.width();
-    var previous = 'prev'; //id of previous button
-    var next = 'next'; //id of next button
+    var previous = 'elprev'; //id of previous button
+    var next = 'elnext'; //id of next button
     slides.width(item_width); //set the slides to the correct pixel width
     container.parent().width(item_width);
     container.width(slides.length * item_width); //set the slides container to the correct total width
@@ -47,7 +48,7 @@ $(document).ready(function () {
     
     //if user clicked on prev button
     
-    $('#buttons a').click(function (e) {
+    $('#losbuttons a').click(function (e) {
         //slide the item
         
         if (container.is(':animated')) {

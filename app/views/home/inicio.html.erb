@@ -98,11 +98,11 @@
         <div class="header-back four"></div>
     </div>
 </div>
-<a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+<a class="left carousel-control" href="#inSlider" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     <span class="sr-only">Anterior</span>
 </a>
-<a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+<a class="right carousel-control" href="#inSlider" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Siguiente</span>
 </a>
@@ -120,7 +120,7 @@
     </div>
     <div class="row">
         <div class="col-lg-5 col-lg-offset-1 features-text">
-            <small>Brezza Project</small>
+            
             <h2>Beneficio 1</h2>
             <i class="fa fa-bar-chart big-icon pull-right"></i>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -129,7 +129,7 @@
             consequat.</p>
         </div>
         <div class="col-lg-5 features-text">
-            <small>Brezza Project</small>
+            
             <h2>Beneficio 2</h2>
             <i class="fa fa-bolt big-icon pull-right"></i>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -140,7 +140,7 @@
     </div>
     <div class="row">
         <div class="col-lg-5 col-lg-offset-1 features-text">
-            <small>Brezza Project</small>
+            
             <h2>Beneficio 3</h2>
             <i class="fa fa-clock-o big-icon pull-right"></i>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -149,7 +149,7 @@
             consequat.</p>
         </div>
         <div class="col-lg-5 features-text">
-            <small>Brezza Project</small>
+            
             <h2>Beneficio 4</h2>
             <i class="fa fa-users big-icon pull-right"></i>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -212,12 +212,12 @@
 </section>
 
 
-
-<link href="../knight/css/bootstrap.css" rel="stylesheet" type="text/css">
+<!--<link href="../knight/css/bootstrap.css" rel="stylesheet" type="text/css"> -->
 <link href="../knight/css/style.css" rel="stylesheet" type="text/css">
 <link href="../knight/css/font-awesome.css" rel="stylesheet" type="text/css">
 <link href="../knight/css/responsive.css" rel="stylesheet" type="text/css">
 <link href="../knight/css/animate.css" rel="stylesheet" type="text/css">
+
 
 <!--[if IE]><style type="text/css">.pie {behavior:url(PIE.htc);}</style><![endif]-->
 
@@ -434,43 +434,67 @@ $(window).load(function(){
            <i class="fa fa-comment big-icon"></i>
         </div>
     <div id="slides">
-        <ul>
-            <li class="slide">
-                <div class="quoteContainer">
-                    <p class="quote-phrase" >" I was literally BLOWN AWAY by Company A's work! They went above and beyond all of our expectations with design, usability. and branding, I will reccommend them to everyone I know!"
+      <p class="item-1">This is your last chance. After this, there is no turning back.</p>
 
-                    </p>
-                </div>
-                <div class="authorContainer">
-                    <p class="quote-author">John Doe // Local Business Owner</p>
-                </div>
-            </li>
-            <li class="slide">
-                <div class="quoteContainer">
-                    <p class="quote-phrase">"I could not stop staring! Company A's Web Solutions are by far the most elegant solutions, you can't beat their quality and attention to detail!"
+<p class="item-2">You take the blue pill - the story ends, you wake up in your bed and believe whatever you want to believe.</p>
 
-                    </p>
-                </div>
-                <div class="authorContainer">
-                    <p class="quote-author">Andy Fakename // CEO: Andy's Camping Supplies</p>
-                </div>
-            </li>
-            <li class="slide">
-                <div class="quoteContainer">
-                    <p class="quote-phrase">"Carl Fakeguy, was the most helpful designer I've ever hired. He listened to my ideas and advised against things that could negatively affect my CEO. Company A is by far the most generous and helpful company, 5/5!"
-
-                    </p>
-                </div>
-                <div class="authorContainer">
-                    <p class="quote-author">Janice Falsename</p>
-                </div>
-            </li>
-        </ul>
+<p class="item-3">You take the red pill - you stay in Wonderland and I show you how deep the rabbit-hole goes.</p>
     </div>
         <div class="btn-bar">
             <div id="buttons"><a id="prev" href="#"></a><a id="next" href="#"></a> </div>
         </div>
     </div>
+    
+    <style type="text/css">
+        
+    
+
+.item-1, 
+.item-2, 
+.item-3 {
+    position: absolute;
+  display: block;
+    top: 2em;
+  
+  width: 60%;
+  
+  font-size: 2em;
+
+    animation-duration: 20s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.item-1{
+    animation-name: anim-1;
+}
+
+.item-2{
+    animation-name: anim-2;
+}
+
+.item-3{
+    animation-name: anim-3;
+}
+
+@keyframes anim-1 {
+    0%, 8.3% { left: -100%; opacity: 0; }
+  8.3%,25% { left: 25%; opacity: 1; }
+  33.33%, 100% { left: 110%; opacity: 0; }
+}
+
+@keyframes anim-2 {
+    0%, 33.33% { left: -100%; opacity: 0; }
+  41.63%, 58.29% { left: 25%; opacity: 1; }
+  66.66%, 100% { left: 110%; opacity: 0; }
+}
+
+@keyframes anim-3 {
+    0%, 66.66% { left: -100%; opacity: 0; }
+  74.96%, 91.62% { left: 25%; opacity: 1; }
+  100% { left: 110%; opacity: 0; }
+}
+    </style>
 </section>
 
 
@@ -490,37 +514,166 @@ $(window).load(function(){
             <img src="<%= image_path('landing/iphone.jpg') %>" class="img-responsive" alt="dashboard">
         </div>
     </div>
-    <div class="col-lg-6 text-center">
+    <div class="col-lg-6 text-center wow fadeInDown">
     <!--FILOSOFIA DE GESTION-->
 <br><br>
-        <div class="block">
-            <input type="radio" name="city" id="cityA" checked />   
-            <label for="cityA"><span>Brezza Project</span></label>
-            <div class="info">
-                <p style="margin: 15px">Somos una red de investigadores formados en áreas multidisciplinarias que pone en   marcha el ingenio y la integración innovadora, para cooperar y apalancar la transición de nuestras sociedades a modos de vida y de negocios más sustentables.
-                </p>
-            </div>
-        </div>
-        <div class="block">
-            <input type="radio" name="city" id="cityB"/>
-            <label for="cityB"><span>Misión</span></label>
-            <div class="info">
-                <p style="margin: 15px"> Facilitar el intercambio de información y la integración entre personas, organizaciones y mercados, a través del diseño y puesta en funcionamiento de innovaciones tecnológicas que contribuyan a su vez con el incremento de la eficiencia, el mejoramiento continuo, la transparencia y la calidad de vida en los segmentos y espacios hacia los que enfocamos nuestra cooperación.</p>
-            </div>
-        </div>
-        <div class="block">
-            <input type="radio" name="city" id="cityC" />
-            <label for="cityC"><span>Visión</span></label>
-            <div class="info">
-                <p style="margin: 15px">Destacar en la generación de productos y servicios innovadores que dinamicen diferentes nichos de mercado, en torno a los nuevos modos de participación social, la nueva arquitectura financiera mundial y el desarrollo local.
-                </p>  
-            </div>
-        </div>
+                    <div class="accordion">
+                        <div class="panel-group" id="accordion1">
+                          <div class="panel panel-default">
+                            <div class="panel-heading active">
+                              <h3 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne1">
+                                  Brezza Project S.A.
+                                  <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                              </h3>
+                            </div>
+
+                            <div id="collapseOne1" class="panel-collapse collapse in">
+                              <div class="panel-body">
+                                  <div class="media accordion-inner">
+                                        <div class="media-body">
+                                             <p>Somos una red de investigadores formados en áreas multidisciplinarias que pone en marcha el ingenio y la integración innovadora, para cooperar y apalancar la transición de nuestras sociedades a modos de vida y de negocios más sustentables.</p>
+                                        </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h3 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo1">
+                                  Misión
+                                  <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                              </h3>
+                            </div>
+                            <div id="collapseTwo1" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>Facilitar el intercambio de información y la integración entre personas, organizaciones y mercados, a través del diseño y puesta en funcionamiento de innovaciones tecnológicas que contribuyan a su vez con el incremento de la eficiencia, el mejoramiento continuo, la transparencia y la calidad de vida en los segmentos y espacios hacia los que enfocamos nuestra cooperación.
+                                    </p>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h3 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree1">
+                                  Visión
+                                  <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                              </h3>
+                            </div>
+                            <div id="collapseThree1" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                <p>Destacar en la generación de productos y servicios innovadores que dinamicen diferentes nichos de mercado, en torno a los nuevos modos de participación social, la nueva arquitectura financiera mundial y el desarrollo local.</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h3 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseFour1">
+                                  Reseña Histórica
+                                  <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                              </h3>
+                            </div>
+                            <div id="collapseFour1" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <%= image_tag "bz1.png" %>
+                                   <p><a class="btn-primary fa fa-play"> Ver Video.<a></p>
+                                </div>
+                            </div>
+                          </div>
+                        </div><!--/#accordion1-->
+                    </div>
+                
+
+                <style type="text/css">
+                    
+
+.panel-default{
+  border-color: transparent;
+}
+
+.panel-default>.panel-heading,
+.panel{
+  background-color: #e6e6e6; 
+  border:0 none;
+  box-shadow:none;
+}
+
+.panel-default>.panel-heading+.panel-collapse .panel-body{
+  background: #fff;
+  color: #858586;
+}
+
+.panel-body{
+  padding: 20px 20px 10px;
+}
+
+.panel-group .panel+.panel{
+  margin-top: 20px;
+  border-top: 1px solid #fff;
+}
+
+.panel-group .panel{
+  border-radius: 0;
+}
+
+.panel-heading{
+    border-radius: 0;
+}
+
+.panel-title>a{
+  color: #4e4e4e;
+}
+
+.accordion-inner img{
+  border-radius: 4px;
+}
+
+
+.panel-heading.active{
+  background: #2487cd;
+}
+
+.panel-heading.active .panel-title>a{
+  color:#fff;
+}
+
+a.accordion-toggle  i{
+  width: 40px;
+  line-height: 35px;
+  font-size: 20px;
+  margin-top: -10px;
+  text-align: center;
+  margin-right: -15px;
+  background: #00257b;
+  color:#fff;
+}
+
+.panel-heading.active a.accordion-toggle i{
+  background: #00257b;
+  color: #fff;
+}
+
+.panel-heading.active a.accordion-toggle.collapsed i{
+  background: #00257b;
+  color: #fff;
+}
+
+
+                </style>
     </div>
 </div>
 </section>
 
-<section id="Steps" class="steps-section timeline gray-section">
+<section id="Steps" class="pasos-section timeline gray-section">
 <div class="container">
     <div class="row">
         <div class="col-lg-12 text-center">
@@ -532,48 +685,48 @@ $(window).load(function(){
     <div class="row features-block">
           <!-- STEPS -->
 
-        <div class="steps-timeline">
+        <div class="pasos-timeline">
 
-          <div class="steps-one wow slideInLeft" data-wow-duration="1s" data-wow-delay="0s">
-            <img class="steps-img" src="<%= image_url '/assets/step0.jpg' %>" alt="" />
-            <h3 class="steps-name">
+          <div class="pasos-one wow slideInLeft" data-wow-duration="1s" data-wow-delay="0s">
+            <img class="pasos-img" src="<%= image_url '/assets/step0.jpg' %>" alt="" />
+            <h3 class="pasos-name">
               Regístrate
             </h3>
-            <p class="steps-description">
+            <p class="pasos-description">
                 Llena el formulario de registro y selecciona el proyecto en el que estás interesado en formar parte.        
             </p>
           </div>
 
-          <div class="steps-two wow slideInDown" data-wow-duration="2s" data-wow-delay="1.5s">
-            <img class="steps-img" src="<%= image_url '/assets/step2.jpg' %>" alt="" />
-            <h3 class="steps-name">
+          <div class="pasos-two wow slideInDown" data-wow-duration="2s" data-wow-delay="1s">
+            <img class="pasos-img" src="<%= image_url '/assets/step2.jpg' %>" alt="" />
+            <h3 class="pasos-name">
               Evaluación
             </h3>
-            <p class="steps-description">
+            <p class="pasos-description">
                Nuestros expertos evaluarán tu solicitud, y se pondrán en contacto contigo para confirmar la información.
             </p>
           </div>
 
-          <div class="steps-three wow slideInUp" data-wow-duration="2s" data-wow-delay="3s">
-            <img class="steps-img" src="<%= image_url '/assets/step3-0.jpg' %>" alt="" />
-            <h3 class="steps-name">
+          <div class="pasos-three wow slideInUp" data-wow-duration="2s" data-wow-delay="2s">
+            <img class="pasos-img" src="<%= image_url '/assets/step3-0.jpg' %>" alt="" />
+            <h3 class="pasos-name">
               Confirmación
             </h3>
-            <p class="steps-description">
+            <p class="pasos-description">
                Valida tu información y confirma tu participación.
             </p>
           </div>
-          <div class="steps-four wow slideInRight" data-wow-duration="2s" data-wow-delay="4.5s">
-            <img class="steps-img" src="<%= image_url '/assets/step5.jpg' %>" alt="" />
-            <h3 class="steps-name">
+          <div class="pasos-four wow slideInRight" data-wow-duration="2s" data-wow-delay="3s">
+            <img class="pasos-img" src="<%= image_url '/assets/step5.jpg' %>" alt="" />
+            <h3 class="pasos-name">
               Asociación
             </h3>
-            <p class="steps-description">
+            <p class="pasos-description">
                Ya eres parte de uno de los productos que cambiarán el mundo, podrás recibir actualizaciones y seguir el progreso del mismo.
             </p>
           </div>
 
-        </div><!-- /.steps-timeline -->
+        </div><!-- /.pasos-timeline -->
     </div>
 </div>
 
