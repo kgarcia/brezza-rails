@@ -11,12 +11,16 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery/jquery-3.1.1.min.js
+//= require jquery_ujs
 //= require bootstrap-sprockets
 //= require metisMenu/jquery.metisMenu.js
 //= require pace/pace.min.js
 //= require slimscroll/jquery.slimscroll.min.js
 //= require steps/jquery.steps.min.js
 //= require validate/jquery.validate.min.js
+//= require wow
+//= require mixitup
+//= require turbolinks
 //= require_tree .
 
 
