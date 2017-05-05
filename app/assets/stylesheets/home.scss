@@ -5,6 +5,189 @@
 /*************************************************************
 					KEVIN
 *************************************************************/					
+//////////////////////////////////////////////////////////////////////////////
+$outline-width: 0;
+$break-point: 500px;
+
+//@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  font-family: lato;
+}
+
+$gray-base:     #999999;
+$brand-primary: #3498DB; //Zen Blue
+
+.section-header {
+  color: $brand-primary;
+  font-weight: 400;
+  font-size: 1.4em;
+}
+
+
+.pasos-header {
+  @extend .section-header;
+  margin-bottom: 20px;  
+  text-align: center;
+}
+.pasos-timeline {
+  outline: 1px dashed rgba(red, $outline-width);
+  
+  @media screen and (max-width: $break-point) {
+    border-left: 2px solid $brand-primary;
+    margin-left: 15px;
+  }
+  
+  @media screen and (min-width: $break-point) {
+    //border-top: 2px solid $brand-primary;
+    padding-top: 0px;
+    margin-top: 40px;
+    margin-left: 16.65%;
+    margin-right: 16.65%;
+  }
+  
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+.pasos-one,
+.pasos-two,
+.pasos-three,
+.pasos-four {
+  outline: 1px dashed rgba(green, $outline-width);
+  
+  @media screen and (max-width: $break-point) {
+    margin-left: -25px;
+  }
+  
+  @media screen and (min-width: $break-point) {
+    float: left;
+    width: 25%;  
+    margin-top: -50px;
+  }
+}
+.pasos-one,
+.pasos-two,
+.pasos-three {
+  @media screen and (max-width: $break-point) {
+    padding-bottom: 40px;
+  }
+}
+.pasos-one {
+  @media screen and (min-width: $break-point) {
+    margin-left: -16.65%;
+    margin-right: 0.65%;
+  }
+}
+.pasos-two{
+  margin-left: 10.65%;
+}
+.pasos-three{
+  margin-left: 10.65%;
+}
+.pasos-four {
+  @media screen and (max-width: $break-point) {
+    margin-bottom: -100%;
+  }
+  @media screen and (min-width: $break-point) {
+    margin-left: 10.65%;
+    margin-right: -16.65%;
+  }
+}
+
+.pasos-img {
+  display: block;
+  margin: auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; 
+  
+  @media screen and (max-width: $break-point) {
+    float: left;
+    margin-right: 20px;
+  }
+}
+
+.pasos-name,
+.pasos-description {
+  margin: 0;
+        
+}
+.pasos-name {
+
+  @extend .section-header;
+        padding-top: 15px;
+  @media screen and (min-width: $break-point) {
+    text-align: center;
+  }
+}
+.pasos-description {
+  overflow: hidden;
+  
+  @media screen and (min-width: $break-point) {
+    text-align: center;
+  }
+}
+
+/////////////////////
+
+
+.cool-link.start {
+    display: inline-block;
+    color: #00257b;
+    text-decoration: none;
+        -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 10s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-delay: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 10s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.cool-link::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    transition: width .10s;
+}
+
+
+@-webkit-keyframes example {
+    0%   { content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #00257b;
+    transition: width .10s;}
+    25%  { width: 10%;}
+    50%  { width: 45%;}
+    75%  { width: 50%;}
+    100% { width: 100%;}
+}
+
+@keyframes example {
+    0%   { //content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #00257b;
+    transition: width .10s;}
+    15%  { width: 12%;}
+    40%  { width: 40%;}
+    50%  { width: 60%;}
+    70% { width: 90%;}
+    100%{ width: 100%;}
+}
 
 
 /*************************************************************

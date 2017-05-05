@@ -91,3 +91,4 @@ gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
 # gem 'debugger', group: [:development, :test]
 
 gem 'wow-rails'
+gem 'mixitup_rails'
