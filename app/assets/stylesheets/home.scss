@@ -315,6 +315,34 @@ $brand-primary: #3498DB; //Zen Blue
 	}
 }
 
+
+/*/////////////////////////////////////////////////////////////
+              pre-loader
+////////////////////////////////////////////////////////////*/
+
+.preloader{
+    position: fixed;
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    z-index: 99999;
+}
+
+.preloader .preloader-gif{
+    display: block;
+    width: 300px;
+    height: 150px;
+    position: absolute;
+    top: 42%;
+    left: 42%;
+    margin: -40px 0 0 -40px;
+    background: url('loader.gif') no-repeat; 
+    background-size: contain;
+  
+}              
+
 /*************************************************************
 					CARLOS
 *************************************************************/
@@ -324,7 +352,7 @@ $brand-primary: #3498DB; //Zen Blue
 
 .panel-default>.panel-heading,
 .panel{
-  background-color: #e6e6e6; 
+  
   border:0 none;
   box-shadow:none;
 }
@@ -370,7 +398,7 @@ $brand-primary: #3498DB; //Zen Blue
 
 a.accordion-toggle  i{
   width: 40px;
-  line-height: 35px;
+  line-height: 34px;
   font-size: 20px;
   margin-top: -10px;
   text-align: center;
@@ -390,4 +418,8 @@ a.accordion-toggle  i{
 }
 
 
-                
+//active
+
+.actives {
+  background-color: #3498DB !important;
+}

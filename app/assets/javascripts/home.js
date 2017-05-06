@@ -74,3 +74,27 @@ $(window).on('page:before-change', function(){
 $(window).on('page:load', function(){
     $('#portfoliolist').mixItUp(); // We can now reinstantiate without being blocked
 });
+
+
+
+///////PRELOADER
+$(document).ready(function() {
+   window.setTimeout("fadeMyDiv();", 1500); //call fade in 1 seconds
+ }
+)
+
+function fadeMyDiv() {
+   $("#preloader").fadeOut('slow');
+}
+
+// acordeon
+
+
+$('.panel-heading a').click(function() {
+    $('.panel-heading').removeClass('actives');
+    $(this).parents('.panel-heading').addClass('actives');
+    
+    $('.panel-title').removeClass('actives'); //just to make a visual sense
+    //$(this).parent().addClass('actives'); //just to make a visual sense
+
+ });
