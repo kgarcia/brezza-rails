@@ -1,0 +1,2 @@
+class Whoare < ApplicationRecord
+end

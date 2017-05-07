@@ -1,0 +1,42 @@
+<%= form_for(whoare) do |f| %>
+  <% if whoare.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(whoare.errors.count, "error") %> prohibited this whoare from being saved:</h2>
+
+      <ul>
+      <% whoare.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :brezzastory %>
+    <%= f.text_field :brezzastory %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mission %>
+    <%= f.text_field :mission %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vision %>
+    <%= f.text_field :vision %>
+  </div>
+
+  <div class="field">
+    <%= f.label :history %>
+    <%= f.text_field :history %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

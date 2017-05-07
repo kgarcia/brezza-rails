@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @whoare.description %>
+</p>
+
+<p>
+  <strong>Brezzastory:</strong>
+  <%= @whoare.brezzastory %>
+</p>
+
+<p>
+  <strong>Mission:</strong>
+  <%= @whoare.mission %>
+</p>
+
+<p>
+  <strong>Vision:</strong>
+  <%= @whoare.vision %>
+</p>
+
+<p>
+  <strong>History:</strong>
+  <%= @whoare.history %>
+</p>
+
+<%= link_to 'Edit', edit_whoare_path(@whoare) %> |
+<%= link_to 'Back', whoares_path %>
