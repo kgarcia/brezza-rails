@@ -342,38 +342,22 @@
             </h1>
             
             
-            <div class="text-center">
-               
-               
-                <div id="slides">
-                  <ul>
-                    <li class="slide">
+            <dv class="text-center">
+               </br></br>
+        <div id="slides">
+            <ul>
+                <% @testimonials.each do |testimonial| %>
+                <li class="slide">
                       <div class="testimonials-text">
-                        <i>"Brezza Project es un proyecto que cambiará la manera como vemos el mundo brindando las herramientas necesarias para innovar."</i>
+                        <h3>"<%= testimonial.quote %>"</h3>
                       </div>
                       <small>
-                        <strong>MENGANO / 12.04.2017 - Times</strong>
+                        <strong><%= testimonial.autor %> - <%= testimonial.date %></strong>
                       </small>
-                    </li>
-                    <li class="slide">
-                      <div class="testimonials-text">
-                        <i>"Brezza Project es un proyecto que cambiará la manera como vemos el mundo brindando las herramientas necesarias para innovar."</i>
-                      </div>
-                      <small>
-                        <strong>SUTANITO / 12.04.2017 - Times</strong>
-                      </small>
-                    </li>
-                    <li class="slide">
-                      <div class="testimonials-text">
-                        <i>"Brezza Project es un proyecto que cambiará la manera como vemos el mundo brindando las herramientas necesarias para innovar."</i>
-                      </div>
-                      <small>
-                        <strong>FULANO DE TAL / 12.04.2017 - Times</strong>
-                      </small>
-                    </li>
-                  </ul>
-                </div>
-               
+                </li>
+                <% end %>
+            </ul>
+        </div>
                 <div class="btn-bar">
                   <div id="buttons">
                     <a id="prev" href="#">.</a>
@@ -396,7 +380,7 @@
       <div class="col-lg-12 text-center">
          <div class="navy-line"></div>
          <h1>Quiénes Somos</h1>
-         <p>Un crisol de investigaciones e intentos por más de veinte años, confluyeron en lo que hoy es Brezza Project, S.A.. </p>
+         <p><%= @whoare.description %> </p>
       </div>
       <div class="col-lg-6 text-center">
          <div class="col-lg-12 text-center m-t-n-lg wow zoomIn">
@@ -423,7 +407,7 @@
                      <div class="panel-body">
                         <div class="media accordion-inner">
                            <div class="media-body">
-                              <p>Somos una red de investigadores formados en áreas multidisciplinarias que pone en marcha el ingenio y la integración innovadora, para cooperar y apalancar la transición de nuestras sociedades a modos de vida y de negocios más sustentables.</p>
+                              <p><%= @whoare.brezzastory%> </p>
                            </div>
                         </div>
                      </div>
@@ -440,8 +424,7 @@
                   </div>
                   <div id="collapseTwo1" class="panel-collapse collapse">
                      <div class="panel-body">
-                        <p>Facilitar el intercambio de información y la integración entre personas, organizaciones y mercados, a través del diseño y puesta en funcionamiento de innovaciones tecnológicas que contribuyan a su vez con el incremento de la eficiencia, el mejoramiento continuo, la transparencia y la calidad de vida en los segmentos y espacios hacia los que enfocamos nuestra cooperación.
-                        </p>
+                        <p><%= @whoare.mission %> </p>
                      </div>
                   </div>
                </div>
@@ -456,7 +439,7 @@
                   </div>
                   <div id="collapseThree1" class="panel-collapse collapse">
                      <div class="panel-body">
-                        <p>Destacar en la generación de productos y servicios innovadores que dinamicen diferentes nichos de mercado, en torno a los nuevos modos de participación social, la nueva arquitectura financiera mundial y el desarrollo local.</p>
+                        <p><%= @whoare.vision %> </p>
                      </div>
                   </div>
                </div>
@@ -472,7 +455,7 @@
                   <div id="collapseFour1" class="panel-collapse collapse">
                      <div class="panel-body">
                         <%= image_tag "bz1.png" %>
-                        <p><a class="btn-primary fa fa-play"> Ver Video.<a></p>
+                        <p><a class="btn-primary fa fa-play" href="<%= @whoare.history %> "  > Ver Video.<a></p>
                      </div>
                   </div>
                </div>

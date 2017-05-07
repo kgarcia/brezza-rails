@@ -13,7 +13,11 @@ class HomeController < ApplicationController
   end
 
   def inicio
+    @testimonials = Testimonial.all
+    @whoare = Whoare.first
+    
     render :layout => "empty"
+
   end
   def login
     render :layout => "sinmenu"

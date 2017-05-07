@@ -1,4 +1,6 @@
 Myapp::Application.routes.draw do
+  resources :whoares
+  resources :testimonials
   resources :mensajes
   resources :mensajes
   get "home/index"
