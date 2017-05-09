@@ -455,7 +455,34 @@
                   <div id="collapseFour1" class="panel-collapse collapse">
                      <div class="panel-body">
                         <%= image_tag "bz1.png" %>
-                        <p><a class="btn-primary fa fa-play" href="<%= @whoare.history %> "  > Ver Video.<a></p>
+                        <h3 class="panel-title"><%= @whoare.history %>
+                        
+                    <button type="button" class="btn btn-primary btn-lg fa fa-play" data-toggle="modal" data-target="#myModal"> Ver Video</button>
+                        
+                          <!-- Modal -->
+                          <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+                            
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Reseña Histórica</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <iframe id="cartoonVideo" width="560" height="315" src="<%= "https://www.youtube.com/"+@whoare.final_url %>" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                              </div>
+                              
+                            </div>
+                          </div>
+                        
+                        
+                        
+                        
                      </div>
                   </div>
                </div>
