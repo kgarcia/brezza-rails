@@ -315,6 +315,34 @@ $brand-primary: #3498DB; //Zen Blue
 	}
 }
 
+
+/*/////////////////////////////////////////////////////////////
+              pre-loader
+////////////////////////////////////////////////////////////*/
+
+.preloader{
+    position: fixed;
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    z-index: 99999;
+}
+
+.preloader .preloader-gif{
+    display: block;
+    width: 300px;
+    height: 150px;
+    position: absolute;
+    top: 42%;
+    left: 42%;
+    margin: -40px 0 0 -40px;
+    background: url('loader.gif') no-repeat; 
+    background-size: contain;
+  
+}              
+
 /*************************************************************
 					CARLOS
 *************************************************************/
@@ -324,7 +352,7 @@ $brand-primary: #3498DB; //Zen Blue
 
 .panel-default>.panel-heading,
 .panel{
-  background-color: #e6e6e6; 
+  
   border:0 none;
   box-shadow:none;
 }
@@ -370,7 +398,7 @@ $brand-primary: #3498DB; //Zen Blue
 
 a.accordion-toggle  i{
   width: 40px;
-  line-height: 35px;
+  line-height: 34px;
   font-size: 20px;
   margin-top: -10px;
   text-align: center;
@@ -389,59 +417,8 @@ a.accordion-toggle  i{
   color: #fff;
 }
 
+//active
 
-#slides {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-#slides ul {
-  list-style: none;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  position: relative;
-}
-
-#slides li {
-  width: 100%;
-  float: left;
-  text-align: center;
-  position: relative;
-  font-family: lato, sans-serif;
-}                
-
-
-.btn-bar {
-  width: 60%;
-  margin: 0 auto;
-  display: block;
-  position: relative;
-  top: 40px;
-}
-
-#buttons {
-  padding: 0 0 5px 0;
-  float: right;
-}
-
-#buttons a {
-  text-align: center;
-  display: block;
-  font-size: 50px;
-  float: left;
-  outline: 0;
-  margin: 0 60px;
-  color: #b14943;
-  text-decoration: none;
-  display: block;
-  padding: 9px;
-  width: 35px;
-}
-
-a#prev:hover,
-a#next:hover {
-  color: #FFF;
-  text-shadow: .5px 0px #b14943;
+.actives {
+  background-color: #3498DB !important;
 }
