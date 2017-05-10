@@ -455,7 +455,6 @@
                   <div id="collapseFour1" class="panel-collapse collapse">
                      <div class="panel-body">
                         <%= image_tag "bz1.png" %>
-                        <h3 class="panel-title"><%= @whoare.history %>
                         
                     <button type="button" class="btn btn-primary btn-lg fa fa-play" data-toggle="modal" data-target="#myModal"> Ver Video</button>
                         
@@ -470,10 +469,10 @@
                                   <h4 class="modal-title">Reseña Histórica</h4>
                                 </div>
                                 <div class="modal-body">
-                                  <iframe id="cartoonVideo" width="560" height="315" src="<%= "https://www.youtube.com/"+@whoare.final_url %>" frameborder="0" allowfullscreen></iframe>
+                                  <iframe id="cartoonVideo" width="560" height="315" src="<%="//www.youtube.com/embed/"+@whoare.final_url %>" frameborder="0" allowfullscreen></iframe>
                                 </div>
                                 <div class="modal-footer">
-                                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                  <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                                 </div>
                               </div>
                               
@@ -671,7 +670,7 @@
         <div class="col-lg-3 col-lg-offset-2">
             <br><br>
             <address>
-                <strong><span class="navy">Brezza Project C.A.</span></strong><br/>
+                <strong><span class="navy">Brezza Project S.A.</span></strong><br/>
                 Av. Lara con Av. Los Leones<br/>
                 Barquisimeto, Lara, Venezuela<br/>
                 <abbr title="Phone">Teléfono:</abbr> +58(251) 456-7890

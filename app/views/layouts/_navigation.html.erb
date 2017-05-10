@@ -84,19 +84,25 @@
             
             <li> 
                 <%= link_to "#" do %>
-                        <i class="fa fa-paint-brush"></i> <span class="nav-label">Contenido</span><span class="fa arrow"></span>
+                        <i class="fa fa-paint-brush"></i> <span class="nav-label">Gestión de Contenido</span><span class="fa arrow"></span>
                 <% end %>
                 <ul class="nav nav-second-level">
+                    <li class="<%= 'active' if current_page?('/benefits') %>">
+                        <%= link_to benefits_path do %>
+                        <i class="fa fa-cube"></i> <span class="nav-label">Beneficios</span>
+                        <% end %>
+                    </li>
                     <li class="<%= 'active' if current_page?('/testimonials') %>">
                         <%= link_to testimonials_path do %>
                         <i class="fa fa-cube"></i> <span class="nav-label">Testimonios</span>
                         <% end %>
                     </li>
-                    <li class="<%= 'active' if current_page?('/whoare') %>">
+                    <li class="<%= 'active' if current_page?('/whoares') %>">
                         <%= link_to whoares_path do %>
                         <i class="fa fa-cube"></i> <span class="nav-label">Quienes Somos</span>
                         <% end %>
                     </li>
+                    
                     
                 </ul>
             </li>

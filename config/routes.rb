@@ -1,4 +1,5 @@
 Myapp::Application.routes.draw do
+  resources :benefits
   resources :whoares
   resources :testimonials
   resources :mensajes

@@ -1,7 +1,7 @@
 <%= form_for(testimonial) do |f| %>
   <% if testimonial.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(testimonial.errors.count, "error") %> prohibited this testimonial from being saved:</h2>
+      <h2><%= pluralize(testimonial.errors.count, "error") %> No pudo ser guardado este registro:</h2>
 
       <ul>
       <% testimonial.errors.full_messages.each do |message| %>
@@ -13,21 +13,21 @@
 
 
   <div class="field">
-    <%= f.label :quote %>
+    <%= f.label :Cita %>
     <%= f.text_area :quote %>
   </div>
 
   <div class="field">
-    <%= f.label :autor %>
+    <%= f.label :Autor %>
     <%= f.text_field :autor %>
   </div>
 
   <div class="field">
-    <%= f.label :date %>
+    <%= f.label :Fecha %>
     <%= f.text_field :date %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary'%>
   </div>
 <% end %>

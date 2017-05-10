@@ -15,6 +15,8 @@ class HomeController < ApplicationController
   def inicio
     @testimonials = Testimonial.all
     @whoare = Whoare.first
+    @Benefits = Benefit.first
+    
     
     render :layout => "empty"
 

@@ -39,9 +39,8 @@
         <td><%= testimonial.quote %></td>
         <td><%= testimonial.autor %></td>
         <td><%= testimonial.date %></td>
-        <td><%= link_to 'Ver', testimonial, :class => "btn btn-primary btn-sm" %></td>
         <td><%= link_to 'Editar', edit_testimonial_path(testimonial) , :class => "btn btn-warning btn-sm" %></td>
-        <td><%= link_to 'Eliminar', testimonial, method: :delete, data: { confirm: '¿Está seguro que desea eliminar la cita del testimonio?' } %></td>
+        <td><%= link_to 'Eliminar', testimonial, :class => "btn btn-danger btn-sm", method: :delete, data: { confirm: '¿Está seguro que desea eliminar la cita del testimonio?' } %></td>
 
       </tr>
     <% end %>
