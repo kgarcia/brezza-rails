@@ -1,0 +1,82 @@
+<%= form_for(benefit) do |f| %>
+  <% if benefit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(benefit.errors.count, "error") %> prohibited this benefit from being saved:</h2>
+
+      <ul>
+      <% benefit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title1 %>
+    <%= f.text_field :title1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :desc1 %>
+    <%= f.text_field :desc1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :icon1 %>
+    <%= f.text_field :icon1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title2 %>
+    <%= f.text_field :title2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :desc2 %>
+    <%= f.text_field :desc2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :icon2 %>
+    <%= f.text_field :icon2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title3 %>
+    <%= f.text_field :title3 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :desc3 %>
+    <%= f.text_field :desc3 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :icon3 %>
+    <%= f.text_field :icon3 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title4 %>
+    <%= f.text_field :title4 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :desc4 %>
+    <%= f.text_field :desc4 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :icon4 %>
+    <%= f.text_field :icon4 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
