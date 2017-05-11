@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cita:</strong>
+  <%= @testimonial.quote %>
+</p>
+
+<p>
+  <strong>Autor:</strong>
+  <%= @testimonial.autor %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @testimonial.date %>
+</p>
+
+<%= link_to 'Editar testimonio', edit_testimonial_path(@testimonial) %> |
+<%= link_to 'Regresar', testimonials_path %>

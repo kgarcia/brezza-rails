@@ -12,9 +12,14 @@ class HomeController < ApplicationController
     render :layout => "empty"
   end
 
-
   def inicio
+    @testimonials = Testimonial.all
+    @whoare = Whoare.first
+    @Benefits = Benefit.first
+    
+    
     render :layout => "empty"
+
   end
   def login
     render :layout => "sinmenu"
@@ -27,5 +32,8 @@ class HomeController < ApplicationController
   end
   def aliarse
     render :layout => "front"
+  end
+  def soon
+    render :layout => "empty"
   end
 end

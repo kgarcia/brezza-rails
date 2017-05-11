@@ -1,4 +1,4 @@
-<div class="navbar-wrapper">
+  <div class="navbar-wrapper">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
@@ -10,18 +10,17 @@
                 </button>
 
                 <a class="" href="/">
-                    <img width="240" height="40" class="navbar-brand" src="<%= image_url 'bz2.png' %>">
+                    <img width="240" height="40" class="navbar-brand" style="background-color: #FFFFFF;" src="<%= image_url '/assets/logo/brezza-logo.png' %>">
                 </a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a class="page-scroll" href="#page-top">Inicio</a></li>
-                    <li><a class="page-scroll" href="#features">Productos</a></li>
+                    <li><a class="page-scroll" href="#productos">Productos</a></li>
                     <li><a class="page-scroll" href="#team">Equipo</a></li>
-                    <li><a class="page-scroll" href="#testimonials">Testimonios</a></li>
                     <li><a class="page-scroll" href="#pricing">Únete</a></li>
                     <li><a class="page-scroll" href="#contact">Contacto</a></li>
-                    <li><a class="page-scroll" href="#">Iniciar Sesión</a></li>
+                    <li><a class="page-scroll" href="/login">Iniciar Sesión</a></li>
                 </ul>
             </div>
         </div>
@@ -31,22 +30,24 @@
 <ol class="carousel-indicators">
     <li data-target="#inSlider" data-slide-to="0" class="active"></li>
     <li data-target="#inSlider" data-slide-to="1"></li>
+    <li data-target="#inSlider" data-slide-to="2"></li>
+    <li data-target="#inSlider" data-slide-to="3"></li>
 </ol>
 <div class="carousel-inner" role="listbox">
     <div class="item active">
         <div class="container">
             <div class="carousel-caption">
-                <h1>Nosotros impulsamos<br/>
-                    Marcas, aplicaciones,<br/>
-                    y proyectos innovadores<br/>
-                    Nosotros somos Brezza</h1>
-                <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                <h1>Impulsamos marcas,<br/>
+                    aplicaciones y proyectos<br/>
+                    innovadores
+                    </h1>
+                <p>Hazte partícipe de los beneficios y del crecimiento corporativo.</p>
                 <p>
-                    <a class="btn btn-lg btn-primary" href="#" role="button">Leer Más</a>
+                    <a class="btn btn-lg btn-primary" href="#" role="button">Conoce como</a>
                     
                 </p>
             </div>
-            <div class="carousel-image wow zoomIn">
+            <div class="carousel-image wow slideInRight" data-wow-delay="1.2s">
                 <img src="<%= image_path('landing/laptop.png') %>" alt="laptop"/>
             </div>
         </div>
@@ -57,13 +58,44 @@
     <div class="item">
         <div class="container">
             <div class="carousel-caption blank">
-                <h1>Nosotros desarrollamos <br/> productos que inspiran.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Aprender Más</a></p>
+                <h1>Desarrollamos <br/> tu pasión</h1>
+                <p>Trabaja con nosotros y sé parte de proyectos<br/> que cambiarán el mundo
+                </p>
+                <p><a class="btn btn-lg btn-primary" href="#" role="button">Únete al equipo</a></p>
             </div>
         </div>
         <!-- Set background for slide in css -->
         <div class="header-back two"></div>
+    </div>
+    <div class="item">
+        <div class="container">
+            <div class="carousel-caption blank">
+                <h1>Brezza <br/> Energy</h1>
+                <p>Vive el aroma de crecer en equipo
+                </p>
+                <p><a class="btn btn-lg btn-primary" href="#" role="button">Aliarse</a></p>
+            </div>
+             <div class="carousel-image wow slideInRight">
+                <img src="<%= image_path('landing/bombillo.png') %>" alt="energy"/>
+            </div>
+        </div>
+        <!-- Set background for slide in css -->
+        <div class="header-back three"></div>
+    </div>
+    <div class="item">
+        <div class="container">
+            <div class="carousel-caption blank">
+                <h1>Innova <br/> Café</h1>
+                <p>Vive el aroma de crecer en equipo
+                </p>
+                <p><a class="btn btn-lg btn-primary" href="#" role="button">Aliarse</a></p>
+            </div>
+             <div class="carousel-image wow slideInRight">
+                <img src="<%= image_path('landing/cafe.png') %>"  width="430px" alt="cafe"/>
+            </div>
+        </div>
+        <!-- Set background for slide in css -->
+        <div class="header-back four"></div>
     </div>
 </div>
 <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
@@ -77,360 +109,18 @@
 </div>
 
 
-<section id="features" class="container services">
-<div class="row">
-    <div class="col-sm-3">
-        <h2>Innovación</h2>
-        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
-        <p><a class="navy-link" href="#" role="button">Detalles &raquo;</a></p>
-    </div>
-    <div class="col-sm-3">
-        <h2>Creativas</h2>
-        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
-        <p><a class="navy-link" href="#" role="button">Detalles &raquo;</a></p>
-    </div>
-    <div class="col-sm-3">
-        <h2>Impacto</h2>
-        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
-        <p><a class="navy-link" href="#" role="button">Detalles &raquo;</a></p>
-    </div>
-    <div class="col-sm-3">
-        <h2>Tendencias</h2>
-        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
-        <p><a class="navy-link" href="#" role="button">Detalles &raquo;</a></p>
-    </div>
-</div>
-</section>
-
-<section  class="container features">
-<div class="row">
-    <div class="col-lg-12 text-center">
-        <div class="navy-line"></div>
-        <h1>Más de 10 productos<br/> <span class="navy"> que cambiarán el mundo</span> </h1>
-        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-3 text-center wow fadeInLeft">
-        <div>
-            <%= link_to products_path do %>
-            <i class="fa fa-mobile features-icon"></i>
-            <h2><%= link_to 'Aplicaciones', products_path, class: "btn btn-primary"  %></h2>
-            <% end %>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
-        </div>
-        <div class="m-t-lg">
-            <%= link_to root_path do %> 
-            <i class="fa fa-street-view features-icon"></i>
-            <h2><%= link_to 'Responsabilidad Social', root_path, class: "btn btn-primary"  %></h2>
-            <% end %>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
-        </div>
-    </div>
-    <div class="col-md-6 text-center  wow zoomIn">
-        <img src="<%= image_path('landing/perspective.png') %>" alt="dashboard" class="img-responsive">
-    </div>
-    <div class="col-md-3 text-center wow fadeInRight">
-        <div>
-         <%= link_to root_path do %>
-            <i class="fa fa-connectdevelop features-icon"></i>
-             <h2><%= link_to 'Franquicias', root_path, class: "btn btn-primary"  %></h2>
-            <% end %>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
-        </div>
-        <div class="m-t-lg">
-            <%= link_to root_path do %>
-            <i class="fa fa-skyatlas features-icon"></i>
-             <h2><%= link_to 'Multiplataformas', root_path, class: "btn btn-primary" %></h2>
-            <% end %>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
-        </div>
-    </div>
-</div>
-<div    class="row">
-    <div class="col-lg-12 text-center">
-        <div class="navy-line"></div>
-        <h1>Descubre grandes características</h1>
-        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
-    </div>
-</div>
-<div class="row features-block">
-    <div class="col-lg-6 features-text wow fadeInLeft">
-        <small>Brezza</small>
-        <h2>Somos una red de investigadores formados en áreas multidisciplinarias</h2>
-        <p>Ponemos en marcha el ingenio y la integración innovadora, para cooperar y apalancar la transición de nuestras sociedades a modos de vida y de negocios más sustentables.</p>
-        <a href="" class="btn btn-primary">Aprende más</a>
-    </div>
-    <div class="col-lg-6 text-right wow fadeInRight">
-        <img src="<%= image_path('landing/dashboard.png') %>" alt="dashboard" class="img-responsive pull-right">
-    </div>
-</div>
-</section>
-
-<section id="team" class="gray-section team">
-<div class="container">
-    <div class="row m-b-lg">
-        <div class="col-lg-12 text-center">
-            <div class="navy-line"></div>
-            <h1>Nuestro Equipo</h1>
-            <p>Especialistas en ______ con más de 10 años de experiencia.</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4 wow fadeInLeft">
-            <div class="team-member">
-                <img src="<%= image_path('landing/avatar3.jpg') %>" class="img-responsive img-circle img-small" alt="">
-                <h4><span class="navy">Amelia</span> Smith</h4>
-                <p>Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus. </p>
-                <ul class="list-inline social-icon">
-                    <li><a href="#"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="team-member wow zoomIn">
-                <img src="<%= image_path('landing/ss.jpg') %>" class="img-responsive img-circle" alt="" style="max-width: 140px;">
-                <h4><span class="navy">Samuel</span> Scarpato</h4>
-                <p>Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus.</p>
-                <ul class="list-inline social-icon">
-                    <li><a href="#"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-sm-4 wow fadeInRight">
-            <div class="team-member">
-                <img src="<%= image_path('landing/avatar2.jpg') %>" class="img-responsive img-circle img-small" alt="">
-                <h4><span class="navy">Peter</span> Johnson</h4>
-                <p>Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus.</p>
-                <ul class="list-inline social-icon">
-                    <li><a href="#"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-        </div>
-    </div>
-</div>
-</section>
-
 <section class="features">
 <div class="container">
     <div class="row">
         <div class="col-lg-12 text-center">
             <div class="navy-line"></div>
-            <h1>Quiénes Somos</h1>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
-        </div>
-    </div>
-    <div class="row features-block">
-        <div class="col-lg-3 features-text wow fadeInLeft">
-            <small>Brezza</small>
-            <h2>Misión</h2>
-            <p>Facilitar el intercambio de información y la integración entre personas, organizaciones y mercados, a través del diseño y puesta en funcionamiento de innovaciones tecnológicas que contribuyan a su vez con el incremento de la eficiencia, el mejoramiento continuo, la transparencia y la calidad de vida en los segmentos y espacios hacia los que enfocamos nuestra cooperación.</p>
-            <a href="" class="btn btn-primary">Organización</a>
-        </div>
-        <div class="col-lg-6 text-right m-t-n-lg wow zoomIn">
-            <img src="<%= image_path('landing/iphone.jpg') %>" class="img-responsive" alt="dashboard">
-        </div>
-        <div class="col-lg-3 features-text text-right wow fadeInRight">
-            <small>Brezza</small>
-            <h2>Visión</h2>
-            <p>Destacar en la generación de productos y servicios innovadores que dinamicen diferentes nichos de mercado, en torno a los nuevos modos de participación social, la nueva arquitectura financiera mundial y el desarrollo local.</p>
-            <a href="" class="btn btn-primary">Reseña Histórica</a>
-        </div>
-    </div>
-</div>
-
-</section>
-
-<section class="timeline gray-section">
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            <div class="navy-line"></div>
-            <h1>Cómo ser parte de Brezza</h1>
-            <p>En 4 simples pasos puedes unirte a alguno de nuestros productos</p>
-        </div>
-    </div>
-    <div class="row features-block">
-
-        <div class="col-lg-12">
-            <div id="vertical-timeline" class="vertical-container light-timeline center-orientation">
-                <div class="vertical-timeline-block">
-                    <div class="vertical-timeline-icon navy-bg">
-                        <i class="fa fa-briefcase"></i>
-                    </div>
-
-                    <div class="vertical-timeline-content">
-                        <h2>Registrate</h2>
-                        <p>Llena el formulario de registro y selecciona el proyecto en el que estás interesado en formar parte
-                        </p>
-                        <a href="#" class="btn btn-xs btn-primary"> Registrarse</a>
-                        <span class="vertical-date"> Hoy <br/> <small>24 Dic</small> </span>
-                    </div>
-                </div>
-                <div class="vertical-timeline-block">
-                    <div class="vertical-timeline-icon navy-bg">
-                        <i class="fa fa-briefcase"></i>
-                    </div>
-
-                    <div class="vertical-timeline-content">
-                        <h2>Evaluación</h2>
-                        <p>Nuestros expertos evaluarán tu solicitud, y se pondrán en contacto contigo para confirmar la información.
-                        </p>
-                        <span class="vertical-date"> Hoy <br/> <small>24 Dic</small> </span>
-                    </div>
-                </div>
-                <div class="vertical-timeline-block">
-                    <div class="vertical-timeline-icon navy-bg">
-                        <i class="fa fa-file-text"></i>
-                    </div>
-
-                    <div class="vertical-timeline-content">
-                        <h2>Confirmación</h2>
-                        <p>Valida tu información y confirma tu participación .</p>
-                    </div>
-                </div>
-
-                <div class="vertical-timeline-block">
-                    <div class="vertical-timeline-icon navy-bg">
-                        <i class="fa fa-cogs"></i>
-                    </div>
-
-                    <div class="vertical-timeline-content">
-                        <h2>Implementación</h2>
-                        <p>Ya eres parte de uno de los productos que cambiarán el mundo, podrás recibir actualizaciones y seguir el progreso del mismo. </p>
-                        <a href="#" class="btn btn-xs btn-primary"> Registrarse</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-</div>
-
-</section>
-
-<section id="testimonials" class="navy-section testimonials" style="margin-top: 0">
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12 text-center wow zoomIn">
-            <i class="fa fa-comment big-icon"></i>
-            <h1>
-                Lo que dicen los medios
-            </h1>
-            <div class="testimonials-text">
-                <i>"Brezza es un proyecto que cambiará la manera como vemos el mundo brindando las herramientas necesarias para innovar."</i>
-            </div>
-            <small>
-                <strong>12.04.2017 - Times</strong>
-            </small>
-        </div>
-    </div>
-</div>
-
-</section>
-
-<section class="comments gray-section" style="margin-top: 0">
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            <div class="navy-line"></div>
-            <h1>Lo que dicen nuestros aliados</h1>
-            <p>Donec sed odio dui. Etiam porta sem malesuada. </p>
-        </div>
-    </div>
-    <div class="row features-block">
-        <div class="col-lg-4">
-            <div class="bubble">
-                "De niña siempre quise cambiar el mundo, formar parte de Brezza me da la oportunidad de hacerlo realidad"
-            </div>
-            <div class="comments-avatar">
-                <a href="" class="pull-left">
-                    <img alt="image" src="<%= image_path('landing/avatar3.jpg') %>">
-                </a>
-                <div class="media-body">
-                    <div class="commens-name">
-                        Andrew Williams
-                    </div>
-                    <small class="text-muted">Compañia X de California</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="bubble">
-                "Brezza me dió la oportunidad de invertir en una herramienta que genera un bienestar social, no hay mayor ganancia que eso."
-            </div>
-            <div class="comments-avatar">
-                <a href="" class="pull-left">
-                    <img alt="image" src="<%= image_path('landing/avatar1.jpg') %>">
-                </a>
-                <div class="media-body">
-                    <div class="commens-name">
-                        Andrew Williams
-                    </div>
-                    <small class="text-muted">Compañia Y from Madrid</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="bubble">
-                "Descubrí un lugar donde podría aplicar todos mis conocimientos y seguir aprendiendo trabajando en ideas creativas e innovadoras."
-            </div>
-            <div class="comments-avatar">
-                <a href="" class="pull-left">
-                    <img alt="image" src="<%= image_path('landing/avatar2.jpg') %>">
-                </a>
-                <div class="media-body">
-                    <div class="commens-name">
-                        Andrew Williams
-                    </div>
-                    <small class="text-muted">Desarrolador X from Santiago de Chile</small>
-                </div>
-            </div>
-        </div>
-
-
-
-    </div>
-</div>
-
-</section>
-
-<section class="features">
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            <div class="navy-line"></div>
-            <h1>Más y más beneficios</h1>
+            <h1>Beneficios</h1>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-5 col-lg-offset-1 features-text">
-            <small>Brezza</small>
+            <small>Brezza Project</small>
             <h2>Beneficio 1</h2>
             <i class="fa fa-bar-chart big-icon pull-right"></i>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -439,7 +129,7 @@
             consequat.</p>
         </div>
         <div class="col-lg-5 features-text">
-            <small>Brezza</small>
+            <small>Brezza Project</small>
             <h2>Beneficio 2</h2>
             <i class="fa fa-bolt big-icon pull-right"></i>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -450,7 +140,7 @@
     </div>
     <div class="row">
         <div class="col-lg-5 col-lg-offset-1 features-text">
-            <small>Brezza</small>
+            <small>Brezza Project</small>
             <h2>Beneficio 3</h2>
             <i class="fa fa-clock-o big-icon pull-right"></i>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -459,7 +149,7 @@
             consequat.</p>
         </div>
         <div class="col-lg-5 features-text">
-            <small>Brezza</small>
+            <small>Brezza Project</small>
             <h2>Beneficio 4</h2>
             <i class="fa fa-users big-icon pull-right"></i>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -471,6 +161,428 @@
 </div>
 
 </section>
+
+<section id="productos" class=" gray-section">
+<div class="container">
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <div class="navy-line"></div>
+        <h1>Más de 10 productos<br/> <span class="navy"> que cambiarán el mundo</span> </h1>
+        <p>Correspondiendo a servicios diferenciados, diseñados para abordar nichos desatendidos<br/> dentro de mega tendencias globales relacionadas con la nueva arquitectura financiera mundial. </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 text-center wow fadeInLeft">
+        <div>
+            <%= link_to products_path do %>
+            <i class="fa fa-mobile features-icon"></i>
+            <h2><%= link_to 'Aplicaciones', products_path, class: "btn btn-primary"  %></h2>
+            <% end %>
+            <p>Desarrolladas por gente joven y con un mercado en continuo crecimiento.</p>
+        </div>
+        <div class="m-t-lg">
+            <%= link_to root_path do %> 
+            <i class="fa fa-street-view features-icon"></i>
+            <h2><%= link_to 'Responsabilidad Social', root_path, class: "btn btn-primary"  %></h2>
+            <% end %>
+            <p>Ya no es una moda o tendencia, sino es un factor decisivo para el desarrollo sostenible de un país.</p>
+        </div>
+    </div>
+    <div class="col-md-6 text-center  wow zoomIn">
+        <img src="<%= image_path('landing/perspective.png') %>" alt="dashboard" class="img-responsive">
+    </div>
+    <div class="col-md-3 text-center wow fadeInRight">
+        <div>
+         <%= link_to root_path do %>
+            <i class="fa fa-connectdevelop features-icon"></i>
+             <h2><%= link_to 'Franquicias', root_path, class: "btn btn-primary"  %></h2>
+            <% end %>
+            <p>Una de las claves para llevar con éxito el negocio es el trabajo en equipo.</p>
+        </div>
+        <div class="m-t-lg">
+            <%= link_to root_path do %>
+            <i class="fa fa-skyatlas features-icon"></i>
+             <h2><%= link_to 'Multiplataformas', root_path, class: "btn btn-primary" %></h2>
+            <% end %>
+            <p>Creando, desarrollando y/o adaptando nuestras estrategias para amoldarnos a los nuevos hábitos.</p>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+<section class="features">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center wow zoomIn">
+                 <div class="navy-line"></div>
+                <h1>Catálogo</h1>
+                <p>Frescos y novedosos a tu alcance.</p>
+            </div>
+        </div>    
+        <div class="row" style="margin-bottom: 40px;">
+          
+                <ul id="filters" class="clearfix">
+                <li><span class="filter active" data-filter=".startup, .finanzas, .turismo, .ecologia, .web">Todos</span></li>
+                <li><span class="filter" data-filter=".startup">Startup</span></li>
+                <li><span class="filter" data-filter=".finanzas">Finanzas</span></li>
+                <li><span class="filter" data-filter=".turismo">Turismo</span></li>
+                <li><span class="filter" data-filter=".ecologia">Ecología</span></li>
+                <li><span class="filter" data-filter=".web">Web</span></li>
+                </ul>
+            <div style=" height: 400px;vertical-align:middle;">
+                <div id="portfoliolist">
+                  <div class="portfolio startup" data-cat="startup">
+                    <div class="portfolio-wrapper">
+                      <img src="<%= image_url '/assets/portfolio/valor.jpg' %>" alt="" />
+                      <div class="label">
+                        <div class="label-text">
+                          <a class="text-title">Ideal Value</a> 
+                          <span class="text-category">#Startup</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio finanzas web" data-cat="finanzas web">
+                    <div class="portfolio-wrapper">
+                      <img src="<%= image_url '/assets/portfolio/scoring.jpeg' %>" alt="" />
+                      <div class="label">
+                        <div class="label-text">
+                          <a class="text-title">New-Scoring</a> 
+                          <span class="text-category">#finanzas #web</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio startup" data-cat="startup">
+                    <div class="portfolio-wrapper">
+                      <img src="<%= image_url '/assets/portfolio/crowd2.jpg' %>" alt="" />
+                      <div class="label">
+                        <div class="label-text">
+                          <a class="text-title">Crowd-Pocket</a> 
+                          <span class="text-category">#Startup</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio web ecologia" data-cat="web ecologia">
+                    <div class="portfolio-wrapper">
+                      <img src="<%= image_url '/assets/portfolio/Portfolio-pic6.jpg' %>" alt="" />
+                      <div class="label">
+                        <div class="label-text">
+                          <a class="text-title">Brezza Energy</a> 
+                          <span class="text-category">#Web - #Ecologia</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio turismo startup" data-cat="turismo startup">
+                    <div class="portfolio-wrapper">
+                      <img src="<%= image_url '/assets/portfolio/cafe.jpg' %>" alt="" />
+                      <div class="label">
+                        <div class="label-text">
+                          <a class="text-title">Innova-Café</a> 
+                          <span class="text-category">Turismo - Startup</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio turismo ecologia" data-cat="turismo ecologia">
+                    <div class="portfolio-wrapper">
+                      <img src="<%= image_url '/assets/portfolio/bosque.jpg' %>" alt="" />
+                      <div class="label">
+                        <div class="label-text">
+                          <a class="text-title">Habitat-Voice</a> 
+                          <span class="text-category">Ecologia</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio turismo ecologia" data-cat="turismo ecologia">
+                    <div class="portfolio-wrapper">
+                      <img src="<%= image_url '/assets/p7.jpg' %>" alt="" />
+                      <div class="label">
+                        <div class="label-text">
+                          <a class="text-title">Hill Climb</a> 
+                          <span class="text-category">#Turismo #Ecologia</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio turismo ecologia web" data-cat="turismo ecologia web">
+                    <div class="portfolio-wrapper">
+                      <img src="<%= image_url '/assets/p8.jpg' %>" alt="" />
+                      <div class="label">
+                        <div class="label-text">
+                          <a class="text-title">Sea Watcher</a> 
+                          <span class="text-category">Turismo Ecologia</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+        </div>
+        
+    </div>
+</section>
+<section id="testimonials" class="navy-section testimonials" style="margin-top: 0">
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center wow zoomIn">
+            <i class="fa fa-comment big-icon"></i>
+            <h1>
+                Lo que dicen los medios
+            </h1>
+            
+            
+            <dv class="text-center">
+               </br></br>
+        <div id="slides">
+            <ul>
+                <% @testimonials.each do |testimonial| %>
+                <li class="slide">
+                      <div class="testimonials-text">
+                        <h3>"<%= testimonial.quote %>"</h3>
+                      </div>
+                      <small>
+                        <strong><%= testimonial.autor %> - <%= testimonial.date %></strong>
+                      </small>
+                </li>
+                <% end %>
+            </ul>
+        </div>
+                <div class="btn-bar">
+                  <div id="buttons">
+                    <a id="prev" href="#">.</a>
+                    <a id="next" href="#">.</a> 
+                  </div>
+                </div>
+             
+             
+                    
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+</section>
+
+<section id="team" class="features">
+   <div class="container">
+      <div class="col-lg-12 text-center">
+         <div class="navy-line"></div>
+         <h1>Quiénes Somos</h1>
+         <p><%= @whoare.description %> </p>
+      </div>
+      <div class="col-lg-6 text-center">
+         <div class="col-lg-12 text-center m-t-n-lg wow zoomIn">
+            </br>
+            </br>
+            <img src="<%= image_path('landing/iphone.jpg') %>" class="img-responsive" alt="dashboard">
+         </div>
+      </div>
+      <div class="col-lg-6 text-center wow fadeInDown">
+         <!--FILOSOFIA DE GESTION-->
+         <br><br><br><br>
+         <div class="accordion">
+            <div class="panel-group" id="accordion1">
+               <div class="panel panel-default">
+
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne1">
+
+                  <div class="panel-heading actives">
+
+                     <h3 class="panel-title">
+                        Brezza Project S.A.
+                        <i class="fa fa-angle-right pull-right"></i>
+                     </h3>
+                    </a>
+                  </div>
+                  <div id="collapseOne1" class="panel-collapse collapse in">
+                     <div class="panel-body">
+                        <div class="media accordion-inner">
+                           <div class="media-body">
+                              <p><%= @whoare.brezzastory%> </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo1">
+                     <h3 class="panel-title">
+                        Misión
+                        <i class="fa fa-angle-right pull-right"></i>
+                     </h3>
+                     </a>
+                  </div>
+                  <div id="collapseTwo1" class="panel-collapse collapse">
+                     <div class="panel-body">
+                        <p><%= @whoare.mission %> </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree1">
+                     <h3 class="panel-title">
+                        Visión
+                        <i class="fa fa-angle-right pull-right"></i>
+                     </h3>
+                     </a>
+                  </div>
+                  <div id="collapseThree1" class="panel-collapse collapse">
+                     <div class="panel-body">
+                        <p><%= @whoare.vision %> </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseFour1">
+                     <h3 class="panel-title">
+                        Reseña Histórica
+                        <i class="fa fa-angle-right pull-right"></i>
+                     </h3>
+                     </a>
+                  </div>
+                  <div id="collapseFour1" class="panel-collapse collapse">
+                     <div class="panel-body">
+
+                        <%= image_tag "bz1.png" %>
+                        
+                    <button type="button" class="btn btn-primary btn-lg fa fa-play" data-toggle="modal" data-target="#myModal"> Ver Video</button>
+                        
+                          <!-- Modal -->
+                          <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+                            
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Reseña Histórica</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <iframe id="cartoonVideo" width="560" height="315" src="<%="//www.youtube.com/embed/"+@whoare.final_url %>" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                                </div>
+                              </div>
+                              
+                            </div>
+                          </div>
+                        
+                        
+                        
+                        
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!--/#accordion1-->
+         </div>
+      </div>
+   </div>
+               <div class="modal inmodal fade" id="myModal5" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title">Reseña Historica</h4>
+                            <small class="font-bold">Intégrate y prospera.</small>
+                        </div>
+                        <div class="modal-body">
+                            <figure align="center">
+                                <iframe width="75%" height="380" src="https://www.youtube.com/embed/8MQwjoHu7Ik" frameborder="0"></iframe>
+                            </figure>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</section>
+
+<section id="Steps" class="pasos-section timeline gray-section">
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1>Cómo ser parte de Brezza Project</h1>
+            <p>En 4 simples pasos puedes unirte a alguno de nuestros productos</p>
+          
+</div>
+        </div>
+    </div>
+
+    <div class="row features-block">
+          <!-- STEPS -->
+        <span class="cool-link"></span>
+        <div class="pasos-timeline">
+        
+          <div class="pasos-one wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+            <img class="pasos-img" src="<%= image_url '/assets/step0.jpg' %>" alt="" />
+            <h3 class="pasos-name">
+              Regístrate
+            </h3>
+            <p class="pasos-description">
+                Llena el formulario de registro y selecciona el proyecto en el que estás interesado en formar parte.        
+            </p>
+          </div>
+
+          <div class="pasos-two wow slideInLeft" data-wow-duration="2s" data-wow-delay="1.5s">
+            <img class="pasos-img" src="<%= image_url '/assets/step2.jpg' %>" alt="" />
+            <h3 class="pasos-name">
+              Evaluación
+            </h3>
+            <p class="pasos-description">
+               Nuestros expertos evaluarán tu solicitud, y se pondrán en contacto contigo para confirmar la información.
+            </p>
+          </div>
+
+          <div class="pasos-three wow slideInRight" data-wow-duration="2s" data-wow-delay="2.5s">
+            <img class="pasos-img" src="<%= image_url '/assets/step3-0.jpg' %>" alt="" />
+            <h3 class="pasos-name">
+              Confirmación
+            </h3>
+            <p class="pasos-description">
+               Valida tu información y confirma tu participación.
+            </p>
+          </div>
+          <div class="pasos-four wow slideInRight" data-wow-duration="2s" data-wow-delay="3.5s">
+            <img class="pasos-img" src="<%= image_url '/assets/step5.jpg' %>" alt="" />
+            <h3 class="pasos-name">
+              Asociación
+            </h3>
+            <p class="pasos-description">
+               Ya eres parte de uno de los productos que cambiarán el mundo, podrás recibir actualizaciones y seguir el progreso del mismo.
+            </p>
+          </div>
+
+        </div><!-- /.pasos-timeline -->
+    </div>
+</div>
+</section>
+
+
+
 <section id="pricing" class="pricing">
 <div class="container">
     <div class="row m-b-lg">
@@ -487,7 +599,7 @@
                     Técnico
                 </li>
                 <li class="pricing-desc">
-                    Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus.
+                    Trabaja con nosotros y sé parte de proyectos que cambiarán el mundo.
                 </li>
                 <li class="pricing-price">
                     Desarrollador
@@ -502,12 +614,6 @@
                     Analista
                 </li>
                 <li>
-                    Voluntario
-                </li>
-                <li>
-                    Colaborador
-                </li>
-                <li>
                     <a class="btn btn-primary btn-xs" href="/aliarse">Registrarse</a>
                 </li>
             </ul>
@@ -516,16 +622,10 @@
         <div class="col-lg-4 wow zoomIn">
             <ul class="pricing-plan list-unstyled selected">
                 <li class="pricing-title">
-                    Inversionista
+                    Financiero
                 </li>
                 <li class="pricing-desc">
-                    Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus.
-                </li>
-                <li class="pricing-price">
-                    Reducción de Impuestos
-                </li>
-                <li>
-                    Dashboards
+                    Invierte y conviértete en accionista o anunciante exitoso.
                 </li>
                 <li>
                     Seguimiento de proyectos
@@ -551,16 +651,10 @@
         <div class="col-lg-4 wow zoomIn">
             <ul class="pricing-plan list-unstyled">
                 <li class="pricing-title">
-                    Socio
+                    Comercial
                 </li>
                 <li class="pricing-desc">
-                    Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus.
-                </li>
-                <li class="pricing-price">
-                    <span>Crowd</span>lending
-                </li>
-                <li>
-                    Dashboards
+                    Opera y representa nuestros productos y servicios en la ciudad o país que desees.
                 </li>
                 <li>
                     Seguimiento de proyectos
@@ -582,24 +676,19 @@
     </div>
     <div class="row m-t-lg">
         <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg">
-            <p>* Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>* Al registrarse usted debe aceptar un acuerdo de confidencialidad bajo nuestros terminos y condiciones.</p>
         </div>
     </div>
 </div>
-
 </section>
+
 
 <section id="contact" class="gray-section contact">
 <div class="container">
     <div class="row m-b-lg">
         <div class="col-lg-12 text-center">
             <div class="navy-line"></div>
-            <h1>Contactanos</h1>
+            <h1>Contáctanos</h1>
             <p>Dejanos tu mensaje y te atenderemos a la brevedad.</p>
         </div>
     </div>
@@ -608,10 +697,10 @@
         <div class="col-lg-3 col-lg-offset-2">
             <br><br>
             <address>
-                <strong><span class="navy">Brezza C.A.</span></strong><br/>
+                <strong><span class="navy">Brezza Project S.A.</span></strong><br/>
                 Av. Lara con Av. Los Leones<br/>
                 Barquisimeto, Lara, Venezuela<br/>
-                <abbr title="Phone">Telefono:</abbr> +58(251) 456-7890
+                <abbr title="Phone">Teléfono:</abbr> +58(251) 456-7890
             </address>
             <br><br>
             <div class="col-lg-12 text-center">
@@ -653,7 +742,7 @@
 
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
-            <p><strong>&copy; 2017 Brezza</strong><br/> consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+            <p><strong>&copy; 2016-2017 Brezza Project S.A.</strong><br/> consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
         </div>
     </div>
 </div>

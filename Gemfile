@@ -15,8 +15,8 @@ gem 'httparty', '~> 0.14.0'
 
 # Use mysql as the database for Active Record
 #gem 'mysql2'
-gem 'pg'
-#gem 'sqlite3'
+#gem 'pg'
+gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -89,3 +89,6 @@ gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'wow-rails'
+gem 'mixitup_rails'

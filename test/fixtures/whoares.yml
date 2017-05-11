@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  brezzastory: MyString
+  mission: MyString
+  vision: MyString
+  history: MyString
+
+two:
+  description: MyString
+  brezzastory: MyString
+  mission: MyString
+  vision: MyString
+  history: MyString

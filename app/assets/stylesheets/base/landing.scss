@@ -188,10 +188,10 @@ body.landing-page {
   }
 
   .navbar.navbar-scroll .navbar-brand {
-    margin-top: 15px;
+    margin-top: 10px;
     border-radius: 5px;
     font-size: 12px;
-    padding: 10px;
+    padding: 0px;
     height: auto;
   }
   /* BACKGROUNDS SLIDER
@@ -205,6 +205,12 @@ body.landing-page {
   }
   .header-back.two {
     background: image-url("landing/header_two.jpg") 50% 0 no-repeat;
+  }
+  .header-back.three {
+    background: image-url("landing/3.jpg") 50% 0 no-repeat;
+  }
+   .header-back.four {
+    background: image-url("landing/4.jpg") 50% 0 no-repeat;
   }
   /* CUSTOMIZE THE CAROUSEL
   -------------------------------------------------- */
@@ -294,13 +300,13 @@ body.landing-page {
     font-weight: 700;
     font-size: 38px;
     text-transform: uppercase;
-    text-shadow: none;
+    text-shadow: 0 0 3px $navy;
     letter-spacing: -1.5px;
   }
   .carousel-caption p {
     font-weight: 700;
     text-transform: uppercase;
-    text-shadow: none;
+    text-shadow: 0 0 3px $navy;
   }
   .caption-link {
     color: #fff;
@@ -312,6 +318,25 @@ body.landing-page {
     text-decoration: none;
     color: inherit;
   }
+  .carousel-indicators li {
+   display: inline-block;
+   width: 10px;
+   height: 10px;
+   margin: 1px;
+   text-indent: -999px;
+   border: 1px solid $navy;
+   border-radius: 10px;
+   cursor: pointer;
+   background-color: #000 \9;
+   background-color: transparent;
+ }
+ 
+ .carousel-indicators .active {
+   margin: 0;
+   width: 12px;
+   height: 12px;
+   background-color: $navy;
+ }
   /* Sections
   ------------------------- */
   .services {
