@@ -4,7 +4,7 @@ class WhoaresController < ApplicationController
   # GET /whoares
   # GET /whoares.json
   def index
-    @whoares = Whoare.all
+    @whoare = Whoare.first
   end
 
   # GET /whoares/1

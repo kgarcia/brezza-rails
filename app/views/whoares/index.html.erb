@@ -21,36 +21,29 @@
               </h4>
           </div>
           <div class="ibox-content">
-            <%= link_to "Registrar Campos", new_whoare_path, :class => "btn btn-primary btn-sm", style: 'position: absolute; z-index: 9999; margin-top: -30px;'%>
+            <%= link_to "Editar Campos", edit_whoare_path(@whoare), :class => "btn btn-warning btn-sm", style: 'position: absolute; z-index: 9999; margin-top: -30px;'%>
 
-  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
-  <thead>
-    <tr>
-      <th>Descrición</th>
-      <th>Brezza Project</th>
-      <th>Misión</th>
-      <th>Visión</th>
-      <th>Reseña historica</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @whoares.each do |whoare| %>
-      <tr>
-        <td><%= whoare.description %></td>
-        <td><%= whoare.brezzastory %></td>
-        <td><%= whoare.mission %></td>
-        <td><%= whoare.vision %></td>
-        <td><%= whoare.history %></td>
-        <td><%= link_to 'Ver', whoare, :class => "btn btn-primary btn-sm" %></td>
-        <td><%= link_to 'Editar', edit_whoare_path(whoare) , :class => "btn btn-warning btn-sm" %></td>
-        <td><%= link_to 'Eliminar', whoare, method: :delete, data: { confirm: '¿Está seguro que desea eliminar las descripciones?' } %></td>
-
-      </tr>
-    <% end %>
-  </tbody>
- </table>
+            <div class="row">
+                <div class="col-md-6">
+                        <h2>Brezza Project S.A.</h2>
+                        <p><%= @whoare.brezzastory %></p>
+                </div>       
+                <div class="col-md-6">
+                        <h2>Misión</h2>
+                        <p><%= @whoare.mission %></p>
+                </div>  
+              </div>
+              <br><br>
+              <div class="row">
+                <div class="col-md-6">
+                      <h2>Vision</h2>
+                        <p><%= @whoare.vision %></p>
+                </div>       
+                <div class="col-md-6">
+                      <h2>Reseña Histórica</h2>
+                        <iframe id="cartoonVideo" width="400" height="250" src="<%="//www.youtube.com/embed/"+@whoare.final_url %>" frameborder="0" allowfullscreen></iframe>
+                </div>        
+              </div>   
           </div>
         </div>
       </div> 
@@ -58,41 +51,3 @@
 </div>
 
 
-
-
-
-<p id="notice"><%= notice %></p>
-
-<h1>Whoares</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Brezzastory</th>
-      <th>Mission</th>
-      <th>Vision</th>
-      <th>History</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @whoares.each do |whoare| %>
-      <tr>
-        <td><%= whoare.description %></td>
-        <td><%= whoare.brezzastory %></td>
-        <td><%= whoare.mission %></td>
-        <td><%= whoare.vision %></td>
-        <td><%= whoare.history %></td>
-        <td><%= link_to 'Show', whoare %></td>
-        <td><%= link_to 'Edit', edit_whoare_path(whoare) %></td>
-        <td><%= link_to 'Destroy', whoare, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Whoare', new_whoare_path %>
