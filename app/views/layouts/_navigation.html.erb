@@ -21,8 +21,8 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a href="">Cuenta</a></li>
-                        <li><a href="">Cerrar Sesión</a></li>
+                        <li><%= link_to "Mi Cuenta", edit_user_registration_path %></li>
+                        <li><%= link_to "Cerrar Sesión", destroy_user_session_path , method: :delete%></li>
                     </ul>
                 </div>
                 <div class="logo-element">

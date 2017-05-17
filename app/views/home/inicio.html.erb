@@ -10,7 +10,7 @@
                 </button>
 
                 <a class="" href="/">
-                    <img width="240" height="40" class="navbar-brand" style="background-color: #FFFFFF;" src="<%= image_url '/assets/logo/brezza-logo.png' %>">
+                    <img width="240" height="40" class="navbar-brand" src="<%= image_url '/assets/logo/brezza-logo.png' %>">
                 </a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
@@ -20,7 +20,11 @@
                     <li><a class="page-scroll" href="#team">Equipo</a></li>
                     <li><a class="page-scroll" href="#pricing">Únete</a></li>
                     <li><a class="page-scroll" href="#contact">Contacto</a></li>
-                    <li><a class="page-scroll" href="/login">Iniciar Sesión</a></li>
+                    <% if user_signed_in? %>
+                    <li><%= link_to "Administración", home_minor_path, :class => "page-scroll" %></li>
+                    <%else %>
+                    <li><%= link_to "Iniciar Sesión", new_user_session_path, :class => "page-scroll" %></li>
+                    <%end %>
                 </ul>
             </div>
         </div>
