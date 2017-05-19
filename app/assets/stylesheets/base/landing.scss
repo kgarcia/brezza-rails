@@ -126,7 +126,7 @@ body.landing-page {
 
   .navbar-default .navbar-nav > .active > a:focus {
     background: transparent;
-    color: #ffffff;
+    color: $navy;// #ffffff;
   }
 
   .navbar-default.navbar-scroll .navbar-nav > .active > a:focus {
@@ -199,7 +199,7 @@ body.landing-page {
   /* BACKGROUNDS SLIDER
   -------------------------------------------------- */
   .header-back {
-    height: 470px;
+    height: 600px;
     width: 100%;
   }
   .header-back.one {
@@ -218,7 +218,7 @@ body.landing-page {
   -------------------------------------------------- */
   /* Carousel base class */
   .carousel {
-    height: 470px;
+    height: 600px;
   }
   /* Since positioning the image, we need to help out the caption */
   .carousel-caption {
@@ -226,7 +226,7 @@ body.landing-page {
   }
   /* Declare heights because of positioning of img element */
   .carousel .item {
-    height: 470px;
+    height: 600px;
     background-color: #777;
   }
   .carousel-inner > .item > img {
@@ -234,7 +234,7 @@ body.landing-page {
     top: 0;
     left: 0;
     min-width: 100%;
-    height: 470px;
+    height: 600px;
   }
   .carousel-fade .carousel-inner .item {
     opacity: 0;
@@ -281,7 +281,7 @@ body.landing-page {
   }
   .carousel-caption {
     position: absolute;
-    top: 100px;
+    top: 130px;
     left: 0;
     bottom: auto;
     right: auto;
@@ -291,23 +291,23 @@ body.landing-page {
     top: 140px;
   }
   .carousel-image {
-    position: absolute;
+    position: fixed;
     right: 10px;
-    top: 150px;
+    top: 270px;
   }
   .carousel-indicators {
     padding-right: 60px;
   }
   .carousel-caption h1 {
     font-weight: 700;
-    font-size: 38px;
+    font-size: 44px;
     text-transform: uppercase;
     text-shadow: 0 0 3px $navy;
     letter-spacing: -1.5px;
   }
   .carousel-caption p {
     font-weight: 700;
-    text-transform: uppercase;
+    text-transform: initial; //uppercase;
     text-shadow: 0 0 3px $navy;
   }
   .caption-link {
@@ -338,6 +338,7 @@ body.landing-page {
    width: 12px;
    height: 12px;
    background-color: $navy;
+   text-shadow: 0 0 10px #FFFFFF;
  }
   /* Sections
   ------------------------- */
@@ -580,8 +581,12 @@ body.landing-page {
     /* Bump up size of carousel content */
     .carousel-caption p {
       margin-bottom: 20px;
-      font-size: 14px;
+      font-size: 18px;
       line-height: 1.4;
+    }
+    
+    .carousel-caption a {
+          font-size: 16px;
     }
 
     .featurette-heading {
