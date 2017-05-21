@@ -90,6 +90,7 @@ gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'meta-tags'
 gem 'wow-rails'
 gem 'mixitup_rails'
 gem 'devise'
