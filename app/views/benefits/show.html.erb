@@ -1,3 +1,29 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+   <div class="col-lg-10">
+      <h2 class="text-dark-blue"><strong>Slider</strong></h2>
+      <ol class="breadcrumb">
+         <li>
+            <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+         </li>
+         <li>
+            <a href="/benefits">Listado</a>
+         </li>
+         <li class="active">
+            <% if @slider.new_record? %>
+            <strong class="text-blue">Registrar Slider</strong>
+            <% else %>
+            <strong class="text-blue">Editar Slider</strong>
+            <% end %>
+         </li>
+      </ol>
+   </div>
+</div>
+
+
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 <p>

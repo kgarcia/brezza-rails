@@ -41,7 +41,7 @@
         <td><%= mensaje.mensaje %></td>
         <td><%= link_to 'Ver', mensaje, :class => "btn btn-primary btn-sm" %></td>
         <td><%= link_to 'Editar', edit_mensaje_path(mensaje) , :class => "btn btn-warning btn-sm" %></td>
-        <td><%= link_to 'Eliminar', mensaje, method: :delete, data: { confirm: '¿Está seguro que desea eliminar el pais?' } %></td>
+        <td><%= link_to 'Eliminar', mensaje, method: :delete,:class => "btn btn-danger btn-sm", data: { confirm: '¿Está seguro que desea eliminar el slider?' } %></td>
 
       </tr>
     <% end %>

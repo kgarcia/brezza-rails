@@ -1,0 +1,180 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+      <h2 class="text-dark-blue"><strong>Aliados</strong></h2>
+      <ol class="breadcrumb">
+        <li>
+          <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+        </li>
+        <li>
+          <a href="/mensajes">Listado</a>
+        </li>
+        <li class="active">
+          <% if @ally.new_record? %>
+            <strong class="text-blue">Registrar Aliados</strong>
+          <% else %>
+            <strong class="text-blue">Editar Aliados</strong>
+          <% end %>
+        </li>
+    </ol>
+  </div>
+</div>
+<div class="wrapper wrapper-content">
+  <div class="row">   
+    
+    <div class="col-sm-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h4 class="text-dark-blue"><strong>Aliados</strong></h4>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-sm-12">
+
+
+<%= form_for(@ally) do |f| %>
+  <% if @ally.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ally.errors.count, "error") %> prohibited this ally from being saved:</h2>
+
+      <ul>
+      <% @ally.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="form-group">
+        <label class="control-label">Titulo <label for="ally_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :title,:required => true, :class => "form-control" %>
+  </div>
+
+ <div class="form-group">
+        <label class="control-label">Descripción <label for="ally_description" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :description,:required => true, :class => "form-control" %>
+  </div>
+<div class="col-md-4">
+  <h2 align="center">Técnico</h2>
+ <div class="form-group">
+        <label class="control-label">Descripción <label for="ally_t1" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :t1,:required => true, :class => "form-control" %>
+  </div>
+
+ <div class="form-group">
+        <label class="control-label">Item 1 <label for="ally_t2" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :t2,:required => true, :class => "form-control" %>
+  </div>
+
+ <div class="form-group">
+        <label class="control-label">Item 2 <label for="ally_t3" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :t3,:required => true, :class => "form-control" %>
+  </div>
+
+ <div class="form-group">
+        <label class="control-label">Item 3 <label for="ally_t4" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :t4,:required => true, :class => "form-control" %>
+  </div>
+
+ <div class="form-group">
+        <label class="control-label">Item 4 <label for="ally_t5" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :t5,:required => true, :class => "form-control" %>
+  </div>
+</div>
+<div class="col-md-4" >
+  <h2 align="center">Financiero</h2>
+ <div class="form-group">
+        <label class="control-label">Descripción <label for="ally_f1" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :f1,:required => true, :class => "form-control" %>
+  </div>
+
+ <div class="form-group">
+        <label class="control-label">Item 1 <label for="ally_f2" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :f2,:required => true, :class => "form-control" %>
+  </div>
+
+ <div class="form-group">
+        <label class="control-label">Item 2 <label for="ally_f3" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :f3,:required => true, :class => "form-control" %>
+  </div>
+
+ <div class="form-group">
+        <label class="control-label">Item 3 <label for="ally_f4" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :f4,:required => true, :class => "form-control" %>
+  </div>
+
+ <div class="form-group">
+        <label class="control-label">Item 4 <label for="ally_f5" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :f5,:required => true, :class => "form-control" %>
+  </div>
+
+
+  <div class="form-group">
+        <label class="control-label">Item 5 <label for="ally_f6" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :f6,:required => true, :class => "form-control" %>
+  </div>
+</div>
+<div class="col-md-4">
+  <h2 align="center">Comercial</h2>
+  <div class="form-group">
+        <label class="control-label">Descripción <label for="ally_c1" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :c1,:required => true, :class => "form-control" %>
+  </div>
+
+ <div class="form-group">
+        <label class="control-label">Item 1 <label for="ally_c2" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :c2,:required => true, :class => "form-control" %>
+  </div>
+
+ <div class="form-group">
+        <label class="control-label">Item 2 <label for="ally_c3" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :c3,:required => true, :class => "form-control" %>
+  </div>
+
+ <div class="form-group">
+        <label class="control-label">Item 3 <label for="ally_c4" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :c4,:required => true, :class => "form-control" %>
+  </div>
+
+ <div class="form-group">
+        <label class="control-label">Item 4 <label for="ally_c5" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :c5,:required => true, :class => "form-control" %>
+  </div>
+</div>
+
+  <div class="form-group">
+                  <div class="col-lg-offset-3 col-lg-2">
+                    <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
+                  </div>
+                  <% if (@ally.new_record?) %>
+                    <div class="col-lg-2">
+                      <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
+                    </div>
+                  <% end %>
+                  <div class="col-lg-2">
+                    <%= link_to 'Atrás', allies_path, :class => "btn btn-sm btn-default" %>
+                  </div>
+                </div>
+<% end %>
+ </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</div>
+
+<% content_for :javascript do %>
+  <script type="text/javascript">
+
+    $('#form-generic').validate({
+      rules: {
+        'mensaje[nombre]': {  
+            required: true,
+            solo_letras: true
+        }
+      }
+    });
+
+  </script>
+<% end %>

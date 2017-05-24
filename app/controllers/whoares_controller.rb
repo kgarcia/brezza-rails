@@ -1,5 +1,6 @@
 class WhoaresController < ApplicationController
   before_action :set_whoare, only: [:show, :edit, :update, :destroy]
+  before_action :set_meta
 
   # GET /whoares
   # GET /whoares.json

@@ -13,4 +13,6 @@
  *= require animate/animate.css
  *= require steps/jquery.steps.css
  *= require style
+ *= require bootstrap-colorpicker
+ *= require jquery.minicolors
  */

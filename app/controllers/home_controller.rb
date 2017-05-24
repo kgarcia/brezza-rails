@@ -13,11 +13,34 @@ class HomeController < ApplicationController
   end
 
   def inicio
+    set_meta_tags title: 'Intégrate y prospera',
+              site: 'Brezza Project',
+              description: 'Somos más que un equipo de investigadores, somos economía integrativa - Intégrate y prospera',
+              keywords: 'Brezza Project S.A., crowfunding ,crowlending, emprendimiento, proyectos, multiplataforma, venezuela, Brezza Project S.A.',
+              charset: 'utf-8',
+              canonical: 'https://www.brezzaproject.com/', 
+              author: "https://www.brezzaproject.com",
+              publisher: "https://www.brezzaproject.com",
+              nofollow: true ,
+              noindex: true,
+              twitter: {
+                card: "summary",
+                title: "Brezza Project S.A.",
+                description: "Somos más que un equipo de investigadores, somos economía integrativa - Intégrate y prospera",
+              },
+              og: {
+                title: "Brezza Project S.A",
+                description: "Somos más que un equipo de investigadores, somos economía integrativa - Intégrate y prospera",
+                type: "website",
+                url: "https://brezzaproject.com/",
+              }
+            
     @testimonials = Testimonial.all
     @whoare = Whoare.first
     @benefit = Benefit.first
     @step = Step.first
-    
+    @sliders = Slider.all
+    @ally = Ally.first
     render :layout => "empty"
 
   end

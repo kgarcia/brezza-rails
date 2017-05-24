@@ -1,6 +1,7 @@
 class BenefitsController < ApplicationController
   before_action :set_benefit, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_meta
+  
   # GET /benefits
   # GET /benefits.json
   def index
@@ -28,7 +29,7 @@ class BenefitsController < ApplicationController
 
     respond_to do |format|
       if @benefit.save
-        format.html { redirect_to @benefit, notice: 'Benefit was successfully created.' }
+        format.html { redirect_to benefits_url, notice: 'Benefit was successfully created.' }
         format.json { render :show, status: :created, location: @benefit }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class BenefitsController < ApplicationController
   def update
     respond_to do |format|
       if @benefit.update(benefit_params)
-        format.html { redirect_to @benefit, notice: 'Benefit was successfully updated.' }
+        format.html { redirect_to benefits_url, notice: 'Benefit was successfully updated.' }
         format.json { render :show, status: :ok, location: @benefit }
       else
         format.html { render :edit }
