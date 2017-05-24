@@ -1,29 +1,31 @@
-<div class="navbar-wrapper">
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <a class="" href="/">
-                    <img width="240" height="40" class="navbar-brand" style="background-color: #FFFFFF;" src="<%= image_url '/assets/logo/brezza-logo.png' %>">
-                </a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="/">Inicio</a></li>
-                    <li><a class="page-scroll" href="/#productos">Productos</a></li>
-                    <li><a class="page-scroll" href="/#team">Equipo</a></li>
-                    <li><a class="page-scroll" href="/#testimonials">Testimonios</a></li>
-                    <li><a class="page-scroll" href="/#pricing">Únete</a></li>
-                    <li><a class="page-scroll" href="/#contact">Contacto</a></li>
-                    <li><a class="page-scroll" href="/login">Iniciar Sesión</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<div class="navbar-wrapper"  height="70">
+   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+         <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="" href="/">
+            <img width="240" height="70" class="navbar-brand" src="<%= image_url '/assets/logo/brezza-logo.png' %>">
+            </a>
+         </div>
+         <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+               <li><a class="page-scroll" href="/#page-top">Inicio</a></li>
+               <li><a class="page-scroll" href="/#productos">Productos</a></li>
+               <li><a class="page-scroll" href="/#team">Nosotros</a></li>
+               <li><a class="page-scroll" href="/#pricing">Únete</a></li>
+               <li><a class="page-scroll" href="/#contact">Contacto</a></li>
+               <% if user_signed_in? %>
+               <li><%= link_to "Administración", home_minor_path, :class => "page-scroll" %></li>
+               <%else %>
+               <li><%= link_to "Iniciar Sesión", new_user_session_path, :class => "page-scroll" %></li>
+               <%end %>
+            </ul>
+         </div>
+      </div>
+   </nav>
 </div>
