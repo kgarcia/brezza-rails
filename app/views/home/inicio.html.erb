@@ -1,382 +1,345 @@
-  <div class="navbar-wrapper">
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <a class="" href="/">
-                    <img width="240" height="40" class="navbar-brand" style="background-color: #FFFFFF;" src="<%= image_url '/assets/logo/brezza-logo.png' %>">
-                </a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="#page-top">Inicio</a></li>
-                    <li><a class="page-scroll" href="#productos">Productos</a></li>
-                    <li><a class="page-scroll" href="#team">Equipo</a></li>
-                    <li><a class="page-scroll" href="#pricing">Únete</a></li>
-                    <li><a class="page-scroll" href="#contact">Contacto</a></li>
-                    <li><a class="page-scroll" href="/login">Iniciar Sesión</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<div class="navbar-wrapper">
+   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+         <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="" href="/">
+            <img width="240" height="40" class="navbar-brand" src="<%= image_url '/assets/logo/brezza-logo.png' %>">
+            </a>
+         </div>
+         <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+               <li><a class="page-scroll" href="#page-top">Inicio</a></li>
+               <li><a class="page-scroll" href="#productos">Productos</a></li>
+               <li><a class="page-scroll" href="#team">Nosotros</a></li>
+               <li><a class="page-scroll" href="#pricing">Únete</a></li>
+               <li><a class="page-scroll" href="#contact">Contacto</a></li>
+               <% if user_signed_in? %>
+               <li><%= link_to "Administración", home_minor_path, :class => "page-scroll" %></li>
+               <%else %>
+               <li><%= link_to "Iniciar Sesión", new_user_session_path, :class => "page-scroll" %></li>
+               <%end %>
+            </ul>
+         </div>
+      </div>
+   </nav>
 </div>
 <div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
-<ol class="carousel-indicators">
-    <li data-target="#inSlider" data-slide-to="0" class="active"></li>
-    <li data-target="#inSlider" data-slide-to="1"></li>
-    <li data-target="#inSlider" data-slide-to="2"></li>
-    <li data-target="#inSlider" data-slide-to="3"></li>
-</ol>
-<div class="carousel-inner" role="listbox">
-    <div class="item active">
-        <div class="container">
-            <div class="carousel-caption">
-                <h1>Impulsamos marcas,<br/>
-                    aplicaciones y proyectos<br/>
-                    innovadores
-                    </h1>
-                <p>Hazte partícipe de los beneficios y del crecimiento corporativo.</p>
-                <p>
-                    <a class="btn btn-lg btn-primary" href="#" role="button">Conoce como</a>
-                    
-                </p>
+   <ol class="carousel-indicators">
+      <% @numslider = 0 %>
+      <% @sliders.each do %>
+         <% if @numslider == 0 %>
+
+            <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+         <% else %>
+            <li data-target="#inSlider" data-slide-to="<%= @numslider %>"></li>
+         <% end %>
+         <% @numslider = @numslider + 1 %>
+      <% end %>
+   </ol>
+   <div class="carousel-inner" role="listbox">
+   <% @numslider2 = 0 %>
+      <% @sliders.each do |slider| %>
+         
+         <% if @numslider2 == 0 %>
+         <div class="item active">
+         <div class="container">
+            <div class="carousel-caption" style="color: <%= slider.color %>">
+               <h1><%= slider.title%>
+               </h1>
+               <p><%= slider.description %></p>
+               <p>
+                  <a class="btn btn-lg btn-primary" href="<%= slider.link %>" role="button"><%= slider.buttontext %></a>
+               </p>
             </div>
             <div class="carousel-image wow slideInRight" data-wow-delay="1.2s">
-                <img src="<%= image_path('landing/laptop.png') %>" alt="laptop"/>
+               <%= image_tag slider.imagen.url %>
             </div>
-        </div>
-        <!-- Set background for slide in css -->
-        <div class="header-back one"></div>
+         </div>
+         <!-- Set background for slide in css -->
+         <div class="header-back one" style="background-image: url('<%= slider.fondo.url %>');"></div>
+      </div>
+         <% else %>
+      <div class="item">
+         <div class="container">
+            <div class="carousel-caption" style="color: <%= slider.color %>">
+               <h1><%= slider.title%>
+               </h1>
+               <p><%= slider.description %></p>
+               <p>
+                  <a class="btn btn-lg btn-primary" href="<%= slider.link %>" role="button"><%= slider.buttontext %></a>
+               </p>
+            </div>
+            <% if !slider.imagen_file_name.nil? %>
+            <div class="carousel-image wow slideInRight" data-wow-delay="1.2s">
+                  <%= image_tag slider.imagen.url(:medium) %>
+            </div>
+            <% end %>
+         </div>
+         <!-- Set background for slide in css -->
+         <div class="header-back one" style="background-image: url('<%= slider.fondo.url %>');"></div>
+      </div>
+      <% end %>
+      <% @numslider2 = @numslider2 + 1 %>
+      <% end %>
+   </div>
+   <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+   <span class="glyphicon glyphicon-chevron-left" style="text-shadow: 0 0 10px #00257b;" aria-hidden="true"></span>
+   <span class="sr-only">Anterior</span>
+   </a>
+   <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+   <span class="glyphicon glyphicon-chevron-right" style="text-shadow: 0 0 10px #00257b;" aria-hidden="true"></span>
+   <span class="sr-only">Siguiente</span>
+   </a>
+</div>
 
-    </div>
-    <div class="item">
-        <div class="container">
-            <div class="carousel-caption blank">
-                <h1>Desarrollamos <br/> tu pasión</h1>
-                <p>Trabaja con nosotros y sé parte de proyectos<br/> que cambiarán el mundo
-                </p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Únete al equipo</a></p>
-            </div>
-        </div>
-        <!-- Set background for slide in css -->
-        <div class="header-back two"></div>
-    </div>
-    <div class="item">
-        <div class="container">
-            <div class="carousel-caption blank">
-                <h1>Brezza <br/> Energy</h1>
-                <p>Vive el aroma de crecer en equipo
-                </p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Aliarse</a></p>
-            </div>
-             <div class="carousel-image wow slideInRight">
-                <img src="<%= image_path('landing/bombillo.png') %>" alt="energy"/>
-            </div>
-        </div>
-        <!-- Set background for slide in css -->
-        <div class="header-back three"></div>
-    </div>
-    <div class="item">
-        <div class="container">
-            <div class="carousel-caption blank">
-                <h1>Innova <br/> Café</h1>
-                <p>Vive el aroma de crecer en equipo
-                </p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Aliarse</a></p>
-            </div>
-             <div class="carousel-image wow slideInRight">
-                <img src="<%= image_path('landing/cafe.png') %>"  width="430px" alt="cafe"/>
-            </div>
-        </div>
-        <!-- Set background for slide in css -->
-        <div class="header-back four"></div>
-    </div>
-</div>
-<a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Anterior</span>
-</a>
-<a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Siguiente</span>
-</a>
-</div>
 
 
 <section class="features">
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12 text-center">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-12 text-center">
             <div class="navy-line"></div>
             <h1>Beneficios</h1>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-5 col-lg-offset-1 features-text">
-            <small>Brezza Project</small>
-            <h2>Beneficio 1</h2>
-            <i class="fa fa-bar-chart big-icon pull-right"></i>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.</p>
-        </div>
-        <div class="col-lg-5 features-text">
-            <small>Brezza Project</small>
-            <h2>Beneficio 2</h2>
-            <i class="fa fa-bolt big-icon pull-right"></i>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-5 col-lg-offset-1 features-text">
-            <small>Brezza Project</small>
-            <h2>Beneficio 3</h2>
-            <i class="fa fa-clock-o big-icon pull-right"></i>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.</p>
-        </div>
-        <div class="col-lg-5 features-text">
-            <small>Brezza Project</small>
-            <h2>Beneficio 4</h2>
-            <i class="fa fa-users big-icon pull-right"></i>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.</p>
-        </div>
-    </div>
-</div>
-
+            <p><%= @benefit.description %></p>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-lg-5 col-lg-offset-1 features-text wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+            <h2><%= @benefit.title1 %></h2>
+            <i class="fa <%= @benefit.icon1 %> big-icon pull-right"></i>
+            <p><%= @benefit.desc1 %></p>
+         </div>
+         <div class="col-lg-5 features-text wow slideInRight" data-wow-duration="1s" data-wow-delay="1s">
+            <h2><%= @benefit.title2 %></h2>
+            <i class="fa <%= @benefit.icon2 %> big-icon pull-right"></i>
+            <p><%= @benefit.desc2 %></p>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-lg-5 col-lg-offset-1 features-text wow slideInLeft" data-wow-duration="1s" data-wow-delay="1.5s">
+            <h2><%= @benefit.title3 %></h2>
+            <i class="fa <%= @benefit.icon3 %> big-icon pull-right"></i>
+            <p><%= @benefit.desc3 %></p>
+         </div>
+         <div class="col-lg-5 features-text wow slideInRight" data-wow-duration="1s" data-wow-delay="2s">
+            <h2><%= @benefit.title4 %></h2>
+            <i class="fa <%= @benefit.icon4 %> big-icon pull-right"></i>
+            <p><%= @benefit.desc4 %></p>
+         </div>
+      </div>
+   </div>
 </section>
-
 <section id="productos" class=" gray-section">
-<div class="container">
-<div class="row">
-    <div class="col-lg-12 text-center">
-        <div class="navy-line"></div>
-        <h1>Más de 10 productos<br/> <span class="navy"> que cambiarán el mundo</span> </h1>
-        <p>Correspondiendo a servicios diferenciados, diseñados para abordar nichos desatendidos<br/> dentro de mega tendencias globales relacionadas con la nueva arquitectura financiera mundial. </p>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-3 text-center wow fadeInLeft">
-        <div>
-            <%= link_to products_path do %>
-            <i class="fa fa-mobile features-icon"></i>
-            <h2><%= link_to 'Aplicaciones', products_path, class: "btn btn-primary"  %></h2>
-            <% end %>
-            <p>Desarrolladas por gente joven y con un mercado en continuo crecimiento.</p>
-        </div>
-        <div class="m-t-lg">
-            <%= link_to root_path do %> 
-            <i class="fa fa-street-view features-icon"></i>
-            <h2><%= link_to 'Responsabilidad Social', root_path, class: "btn btn-primary"  %></h2>
-            <% end %>
-            <p>Ya no es una moda o tendencia, sino es un factor decisivo para el desarrollo sostenible de un país.</p>
-        </div>
-    </div>
-    <div class="col-md-6 text-center  wow zoomIn">
-        <img src="<%= image_path('landing/perspective.png') %>" alt="dashboard" class="img-responsive">
-    </div>
-    <div class="col-md-3 text-center wow fadeInRight">
-        <div>
-         <%= link_to root_path do %>
-            <i class="fa fa-connectdevelop features-icon"></i>
-             <h2><%= link_to 'Franquicias', root_path, class: "btn btn-primary"  %></h2>
-            <% end %>
-            <p>Una de las claves para llevar con éxito el negocio es el trabajo en equipo.</p>
-        </div>
-        <div class="m-t-lg">
-            <%= link_to root_path do %>
-            <i class="fa fa-skyatlas features-icon"></i>
-             <h2><%= link_to 'Multiplataformas', root_path, class: "btn btn-primary" %></h2>
-            <% end %>
-            <p>Creando, desarrollando y/o adaptando nuestras estrategias para amoldarnos a los nuevos hábitos.</p>
-        </div>
-    </div>
-</div>
-</div>
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1>Más de 10 productos<br/> <span class="navy"> que cambiarán el mundo</span> </h1>
+            <p>Servicios diferenciados diseñados para abordar nichos desatendidos<br/> dentro de mega tendencias globales relacionadas con la nueva arquitectura financiera mundial</p>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-3 text-center wow fadeInLeft">
+            <div>
+               <%= link_to products_path do %>
+               <i class="fa fa-mobile features-icon"></i>
+               <h2><%= link_to 'Aplicaciones', products_path, class: "btn btn-primary"  %></h2>
+               <% end %>
+               <p>Desarrolladas por gente joven y con un mercado en continuo crecimiento.</p>
+            </div>
+            <div class="m-t-lg">
+               <%= link_to root_path do %> 
+               <i class="fa fa-street-view features-icon"></i>
+               <h2><%= link_to 'Responsabilidad Social', root_path, class: "btn btn-primary"  %></h2>
+               <% end %>
+               <p>Ya no es una moda o tendencia, sino es un factor decisivo para el desarrollo sostenible de un país.</p>
+            </div>
+         </div>
+         <div class="col-md-6 text-center  wow zoomIn">
+            <img src="<%= image_path('landing/perspective.png') %>" alt="dashboard" class="img-responsive">
+         </div>
+         <div class="col-md-3 text-center wow fadeInRight">
+            <div>
+               <%= link_to root_path do %>
+               <i class="fa fa-connectdevelop features-icon"></i>
+               <h2><%= link_to 'Franquicias', root_path, class: "btn btn-primary"  %></h2>
+               <% end %>
+               <p>Una de las claves para llevar con éxito el negocio es el trabajo en equipo.</p>
+            </div>
+            <div class="m-t-lg">
+               <%= link_to root_path do %>
+               <i class="fa fa-skyatlas features-icon"></i>
+               <h2><%= link_to 'Multiplataformas', root_path, class: "btn btn-primary" %></h2>
+               <% end %>
+               <p>Creando, desarrollando y/o adaptando nuestras estrategias para amoldarnos a los nuevos hábitos.</p>
+            </div>
+         </div>
+      </div>
+   </div>
 </section>
 <section class="features">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center wow zoomIn">
-                 <div class="navy-line"></div>
-                <h1>Catálogo</h1>
-                <p>Frescos y novedosos a tu alcance.</p>
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-12 text-center wow zoomIn">
+            <div class="navy-line"></div>
+            <h1>Catálogo</h1>
+            <p>Productos y servicios que ofrece Brezza Project, S.A.</p>
+         </div>
+      </div>
+      <div class="row" style="margin-bottom: 40px;">
+         <ul id="filters" class="clearfix">
+            <li><span class="filter active" data-filter=".startup, .finanzas, .Clusters, .ecologia, .Multicommerce .sociedad">Todos</span></li>
+            <li><span class="filter" data-filter=".startup">Startups</span></li>
+            <li><span class="filter" data-filter=".finanzas">Finanzas</span></li>
+            <li><span class="filter" data-filter=".Clusters">Clusters</span></li>
+            <li><span class="filter" data-filter=".ecologia">Energía</span></li>
+            <li><span class="filter" data-filter=".Multicommerce">Multicommerce</span></li>
+            <li><span class="filter" data-filter=".sociedad">Sociedad</span></li>
+         </ul>
+         <div style=" height: 400px;vertical-align:middle;">
+            <div id="portfoliolist">
+               <div class="portfolio startup" data-cat="startup">
+                  <div class="portfolio-wrapper">
+                     <img src="<%= image_url '/assets/portfolio/valor.jpg' %>" alt="" />
+                     <div class="label">
+                        <div class="label-text">
+                           <a class="text-title">Ideal Value</a> 
+                           <span class="text-category">#Startup</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="portfolio finanzas Multicommerce" data-cat="finanzas Multicommerce">
+                  <div class="portfolio-wrapper">
+                     <img src="<%= image_url '/assets/portfolio/scoring.jpeg' %>" alt="" />
+                     <div class="label">
+                        <div class="label-text">
+                           <a class="text-title">New-Scoring</a> 
+                           <span class="text-category">#finanzas #Multicommerce</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="portfolio startup" data-cat="startup">
+                  <div class="portfolio-wrapper">
+                     <img src="<%= image_url '/assets/portfolio/crowd2.jpg' %>" alt="" />
+                     <div class="label">
+                        <div class="label-text">
+                           <a class="text-title">Crowd-Pocket</a> 
+                           <span class="text-category">#Startup</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="portfolio Multicommerce ecologia" data-cat="Multicommerce ecologia">
+                  <div class="portfolio-wrapper">
+                     <img src="<%= image_url '/assets/portfolio/Portfolio-pic6.jpg' %>" alt="" />
+                     <div class="label">
+                        <div class="label-text">
+                           <a class="text-title">Brezza Energy</a> 
+                           <span class="text-category">#Multicommerce - #Energía</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="portfolio Clusters startup" data-cat="Clusters startup">
+                  <div class="portfolio-wrapper">
+                     <img src="<%= image_url '/assets/portfolio/cafe.jpg' %>" alt="" />
+                     <div class="label">
+                        <div class="label-text">
+                           <a class="text-title">Innova-Café</a> 
+                           <span class="text-category">Clusters - Startup</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="portfolio Clusters ecologia" data-cat="Clusters ecologia">
+                  <div class="portfolio-wrapper">
+                     <img src="<%= image_url '/assets/portfolio/bosque.jpg' %>" alt="" />
+                     <div class="label">
+                        <div class="label-text">
+                           <a class="text-title">Habitat-Voice</a> 
+                           <span class="text-category">Energía</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="portfolio Clusters ecologia" data-cat="Clusters ecologia">
+                  <div class="portfolio-wrapper">
+                     <img src="<%= image_url '/assets/p7.jpg' %>" alt="" />
+                     <div class="label">
+                        <div class="label-text">
+                           <a class="text-title">Hill Climb</a> 
+                           <span class="text-category">#Clusters #Energía</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="portfolio Clusters ecologia Multicommerce" data-cat="Clusters ecologia Multicommerce">
+                  <div class="portfolio-wrapper">
+                     <img src="<%= image_url '/assets/p8.jpg' %>" alt="" />
+                     <div class="label">
+                        <div class="label-text">
+                           <a class="text-title">Sea Watcher</a> 
+                           <span class="text-category">Clusters Energía</span>
+                        </div>
+                        <div class="label-bg"> </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>    
-        <div class="row" style="margin-bottom: 40px;">
-          
-                <ul id="filters" class="clearfix">
-                <li><span class="filter active" data-filter=".startup, .finanzas, .turismo, .ecologia, .web">Todos</span></li>
-                <li><span class="filter" data-filter=".startup">Startup</span></li>
-                <li><span class="filter" data-filter=".finanzas">Finanzas</span></li>
-                <li><span class="filter" data-filter=".turismo">Turismo</span></li>
-                <li><span class="filter" data-filter=".ecologia">Ecología</span></li>
-                <li><span class="filter" data-filter=".web">Web</span></li>
-                </ul>
-            <div style=" height: 400px;vertical-align:middle;">
-                <div id="portfoliolist">
-                  <div class="portfolio startup" data-cat="startup">
-                    <div class="portfolio-wrapper">
-                      <img src="<%= image_url '/assets/portfolio/valor.jpg' %>" alt="" />
-                      <div class="label">
-                        <div class="label-text">
-                          <a class="text-title">Ideal Value</a> 
-                          <span class="text-category">#Startup</span>
-                        </div>
-                        <div class="label-bg"> </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="portfolio finanzas web" data-cat="finanzas web">
-                    <div class="portfolio-wrapper">
-                      <img src="<%= image_url '/assets/portfolio/scoring.jpeg' %>" alt="" />
-                      <div class="label">
-                        <div class="label-text">
-                          <a class="text-title">New-Scoring</a> 
-                          <span class="text-category">#finanzas #web</span>
-                        </div>
-                        <div class="label-bg"> </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="portfolio startup" data-cat="startup">
-                    <div class="portfolio-wrapper">
-                      <img src="<%= image_url '/assets/portfolio/crowd2.jpg' %>" alt="" />
-                      <div class="label">
-                        <div class="label-text">
-                          <a class="text-title">Crowd-Pocket</a> 
-                          <span class="text-category">#Startup</span>
-                        </div>
-                        <div class="label-bg"> </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="portfolio web ecologia" data-cat="web ecologia">
-                    <div class="portfolio-wrapper">
-                      <img src="<%= image_url '/assets/portfolio/Portfolio-pic6.jpg' %>" alt="" />
-                      <div class="label">
-                        <div class="label-text">
-                          <a class="text-title">Brezza Energy</a> 
-                          <span class="text-category">#Web - #Ecologia</span>
-                        </div>
-                        <div class="label-bg"> </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="portfolio turismo startup" data-cat="turismo startup">
-                    <div class="portfolio-wrapper">
-                      <img src="<%= image_url '/assets/portfolio/cafe.jpg' %>" alt="" />
-                      <div class="label">
-                        <div class="label-text">
-                          <a class="text-title">Innova-Café</a> 
-                          <span class="text-category">Turismo - Startup</span>
-                        </div>
-                        <div class="label-bg"> </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="portfolio turismo ecologia" data-cat="turismo ecologia">
-                    <div class="portfolio-wrapper">
-                      <img src="<%= image_url '/assets/portfolio/bosque.jpg' %>" alt="" />
-                      <div class="label">
-                        <div class="label-text">
-                          <a class="text-title">Habitat-Voice</a> 
-                          <span class="text-category">Ecologia</span>
-                        </div>
-                        <div class="label-bg"> </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="portfolio turismo ecologia" data-cat="turismo ecologia">
-                    <div class="portfolio-wrapper">
-                      <img src="<%= image_url '/assets/p7.jpg' %>" alt="" />
-                      <div class="label">
-                        <div class="label-text">
-                          <a class="text-title">Hill Climb</a> 
-                          <span class="text-category">#Turismo #Ecologia</span>
-                        </div>
-                        <div class="label-bg"> </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="portfolio turismo ecologia web" data-cat="turismo ecologia web">
-                    <div class="portfolio-wrapper">
-                      <img src="<%= image_url '/assets/p8.jpg' %>" alt="" />
-                      <div class="label">
-                        <div class="label-text">
-                          <a class="text-title">Sea Watcher</a> 
-                          <span class="text-category">Turismo Ecologia</span>
-                        </div>
-                        <div class="label-bg"> </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-          </div>
-        </div>
-        
-    </div>
+         </div>
+      </div>
+   </div>
 </section>
 <section id="testimonials" class="navy-section testimonials" style="margin-top: 0">
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12 text-center wow zoomIn">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-12 text-center wow zoomIn">
             <i class="fa fa-comment big-icon"></i>
             <h1>
-                Lo que dicen los medios
+               Lo que dicen los medios
             </h1>
-            
-            
             <dv class="text-center">
-               </br></br>
-        <div id="slides">
-            <ul>
-                <% @testimonials.each do |testimonial| %>
-                <li class="slide">
-                      <div class="testimonials-text">
+            </br></br>
+            <div id="slides">
+               <ul>
+                  <% @testimonials.each do |testimonial| %>
+                  <li class="slide">
+                     <div class="testimonials-text">
                         <h3>"<%= testimonial.quote %>"</h3>
-                      </div>
-                      <small>
-                        <strong><%= testimonial.autor %> - <%= testimonial.date %></strong>
-                      </small>
-                </li>
-                <% end %>
-            </ul>
-        </div>
-                <div class="btn-bar">
-                  <div id="buttons">
-                    <a id="prev" href="#">.</a>
-                    <a id="next" href="#">.</a> 
-                  </div>
-                </div>
-             
-             
-                    
+                     </div>
+                     <small>
+                     <strong><%= testimonial.autor %> - <%= testimonial.date %></strong>
+                     </small>
+                  </li>
+                  <% end %>
+               </ul>
             </div>
-            
-        </div>
-    </div>
-</div>
-
+            <div class="btn-bar">
+               <div id="buttons">
+                  <a id="prev" href="#">.</a>
+                  <a id="next" href="#">.</a> 
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   </div>
 </section>
-
 <section id="team" class="features">
    <div class="container">
       <div class="col-lg-12 text-center">
@@ -397,16 +360,13 @@
          <div class="accordion">
             <div class="panel-group" id="accordion1">
                <div class="panel panel-default">
-
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne1">
-
-                  <div class="panel-heading actives">
-
-                     <h3 class="panel-title">
-                        Brezza Project S.A.
-                        <i class="fa fa-angle-right pull-right"></i>
-                     </h3>
-                    </a>
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne1">
+                     <div class="panel-heading actives">
+                        <h3 class="panel-title">
+                           Brezza Project, S.A.
+                           <i class="fa fa-angle-right pull-right"></i>
+                        </h3>
+                  </a>
                   </div>
                   <div id="collapseOne1" class="panel-collapse collapse in">
                      <div class="panel-body">
@@ -420,26 +380,11 @@
                </div>
                <div class="panel panel-default">
                   <div class="panel-heading">
-                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo1">
-                     <h3 class="panel-title">
-                        Misión
-                        <i class="fa fa-angle-right pull-right"></i>
-                     </h3>
-                     </a>
-                  </div>
-                  <div id="collapseTwo1" class="panel-collapse collapse">
-                     <div class="panel-body">
-                        <p><%= @whoare.mission %> </p>
-                     </div>
-                  </div>
-               </div>
-               <div class="panel panel-default">
-                  <div class="panel-heading">
                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree1">
-                     <h3 class="panel-title">
-                        Visión
-                        <i class="fa fa-angle-right pull-right"></i>
-                     </h3>
+                        <h3 class="panel-title">
+                           Visión
+                           <i class="fa fa-angle-right pull-right"></i>
+                        </h3>
                      </a>
                   </div>
                   <div id="collapseThree1" class="panel-collapse collapse">
@@ -450,44 +395,85 @@
                </div>
                <div class="panel panel-default">
                   <div class="panel-heading">
+                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo1">
+                        <h3 class="panel-title">
+                           Misión
+                           <i class="fa fa-angle-right pull-right"></i>
+                        </h3>
+                     </a>
+                  </div>
+                  <div id="collapseTwo1" class="panel-collapse collapse">
+                     <div class="panel-body">
+                        <p><%= @whoare.mission %> </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel panel-default">
+                  <div class="panel-heading">
                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseFour1">
-                     <h3 class="panel-title">
-                        Reseña Histórica
-                        <i class="fa fa-angle-right pull-right"></i>
-                     </h3>
+                        <h3 class="panel-title">
+                           Reseña histórica
+                           <i class="fa fa-angle-right pull-right"></i>
+                        </h3>
                      </a>
                   </div>
                   <div id="collapseFour1" class="panel-collapse collapse">
                      <div class="panel-body">
-
                         <%= image_tag "bz1.png" %>
-                        
-                    <button type="button" class="btn btn-primary btn-lg fa fa-play" data-toggle="modal" data-target="#myModal"> Ver Video</button>
-                        
-                          <!-- Modal -->
-                          <div class="modal fade" id="myModal" role="dialog">
-                            <div class="modal-dialog">
-                            
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><span class="fa fa-play"></span>  Ver Video</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                           <div class="modal-dialog">
                               <!-- Modal content-->
                               <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                  <h4 class="modal-title">Reseña Histórica</h4>
-                                </div>
-                                <div class="modal-body">
-                                  <iframe id="cartoonVideo" width="560" height="315" src="<%="//www.youtube.com/embed/"+@whoare.final_url %>" frameborder="0" allowfullscreen></iframe>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                </div>
+                                 <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Reseña histórica</h4>
+                                 </div>
+                                 <div class="modal-body">
+                                    <iframe id="cartoonVideo" width="560" height="315" src="<%="//www.youtube.com/embed/"+@whoare.final_url %>" frameborder="0" allowfullscreen></iframe>
+                                 </div>
+                                 <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                                 </div>
                               </div>
-                              
-                            </div>
-                          </div>
-                        
-                        
-                        
-                        
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseFive1">
+                        <h3 class="panel-title">
+                           Organización
+                           <i class="fa fa-angle-right pull-right"></i>
+                        </h3>
+                     </a>
+                  </div>
+                  <div id="collapseFive1" class="panel-collapse collapse">
+                     <div class="panel-body">
+                        <p>El equipo de Brezza Project, s.a., trabaja en torno a una estructura matricial por cuanto todos los departamentos participan en el ciclo de vida de los proyectos y productos de la corporación. La organización responde también a criterios de estructura circular, por comité y en red, según la dinámica de sus requerimientos.</p>
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">Organigrama</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal2" role="dialog">
+                           <div class="modal-dialog">
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                 <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Organigrama</h4>
+                                 </div>
+                                 <div class="modal-body">
+                                    <p>El equipo de Brezza Project, s.a., trabaja en torno a una estructura matricial por cuanto todos los departamentos participan en el ciclo de vida de los proyectos y productos de la corporación. La organización responde también a criterios de estructura circular, por comité y en red, según la dinámica de sus requerimientos.</p>
+                                    <%= image_tag "landing/org.png", :class=>"img-responsive" %>
+                                 </div>
+                                 <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
                      </div>
                   </div>
                </div>
@@ -496,319 +482,397 @@
          </div>
       </div>
    </div>
-               <div class="modal inmodal fade" id="myModal5" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                            <h4 class="modal-title">Reseña Historica</h4>
-                            <small class="font-bold">Intégrate y prospera.</small>
-                        </div>
-                        <div class="modal-body">
-                            <figure align="center">
-                                <iframe width="75%" height="380" src="https://www.youtube.com/embed/8MQwjoHu7Ik" frameborder="0"></iframe>
-                            </figure>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                </div>
+   <div class="modal inmodal fade" id="myModal5" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+               <h4 class="modal-title">Reseña Historica</h4>
+               <small class="font-bold">Intégrate y prospera.</small>
             </div>
+            <div class="modal-body">
+               <figure align="center">
+                  <iframe width="75%" height="380" src="https://www.youtube.com/embed/8MQwjoHu7Ik" frameborder="0"></iframe>
+               </figure>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+               <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+         </div>
+      </div>
+   </div>
 </section>
-
 <section id="Steps" class="pasos-section timeline gray-section">
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12 text-center">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-12 text-center">
             <div class="navy-line"></div>
-            <h1>Cómo ser parte de Brezza Project</h1>
-            <p>En 4 simples pasos puedes unirte a alguno de nuestros productos</p>
-          
-</div>
-        </div>
-    </div>
-
-    <div class="row features-block">
-          <!-- STEPS -->
-        <span class="cool-link"></span>
-        <div class="pasos-timeline">
-        
-          <div class="pasos-one wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+            <h1>Participar en nuestros proyectos es muy fácil</h1>
+            <p>Cambia tu vida con nuestros innovadores proyectos en 5 simples pasos</p>
+         </div>
+      </div>
+   </div>
+   <div class="row features-block">
+      <!-- STEPS -->
+      <span class="cool-link"></span>
+      <div class="pasos-timeline">
+         <div class="pasos-one wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
             <img class="pasos-img" src="<%= image_url '/assets/step0.jpg' %>" alt="" />
             <h3 class="pasos-name">
-              Regístrate
+               Regístrate
             </h3>
             <p class="pasos-description">
-                Llena el formulario de registro y selecciona el proyecto en el que estás interesado en formar parte.        
+               Llena el formulario de registro y selecciona el proyecto en el que estás interesado en formar parte.        
             </p>
-          </div>
-
-          <div class="pasos-two wow slideInLeft" data-wow-duration="2s" data-wow-delay="1.5s">
+         </div>
+         <div class="pasos-two wow slideInLeft" data-wow-duration="2s" data-wow-delay="1.5s">
             <img class="pasos-img" src="<%= image_url '/assets/step2.jpg' %>" alt="" />
             <h3 class="pasos-name">
-              Evaluación
+               Evaluación
             </h3>
             <p class="pasos-description">
-               Nuestros expertos evaluarán tu solicitud, y se pondrán en contacto contigo para confirmar la información.
+               Evaluaremos tu solicitud y te contactaremos
             </p>
-          </div>
-
-          <div class="pasos-three wow slideInRight" data-wow-duration="2s" data-wow-delay="2.5s">
+         </div>
+         <div class="pasos-three wow slideInLeft" data-wow-duration="2s" data-wow-delay="2.5s">
             <img class="pasos-img" src="<%= image_url '/assets/step3-0.jpg' %>" alt="" />
             <h3 class="pasos-name">
-              Confirmación
+               Confirmación
             </h3>
             <p class="pasos-description">
-               Valida tu información y confirma tu participación.
+               Valida tu información y confirma tu participación
             </p>
-          </div>
-          <div class="pasos-four wow slideInRight" data-wow-duration="2s" data-wow-delay="3.5s">
+         </div>
+         <div class="pasos-four wow slideInLeft" data-wow-duration="2s" data-wow-delay="3.5s">
             <img class="pasos-img" src="<%= image_url '/assets/step5.jpg' %>" alt="" />
             <h3 class="pasos-name">
-              Asociación
+               Certificado
             </h3>
             <p class="pasos-description">
-               Ya eres parte de uno de los productos que cambiarán el mundo, podrás recibir actualizaciones y seguir el progreso del mismo.
+               Recibe tu acreditación y haz el seguimiento correspondiente
             </p>
-          </div>
-
-        </div><!-- /.pasos-timeline -->
-    </div>
-</div>
+         </div>
+      </div>
+      <!-- /.pasos-timeline -->
+   </div>
+   </div>
 </section>
-
-
-
 <section id="pricing" class="pricing">
-<div class="container">
-    <div class="row m-b-lg">
-        <div class="col-lg-12 text-center">
+   <div class="container">
+      <div class="row m-b-lg">
+         <div class="col-lg-12 text-center">
             <div class="navy-line"></div>
-            <h1>Aliarse</h1>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-4 wow zoomIn">
+            <h1><%= @ally.title %></h1>
+            <p><%= @ally.description %></p>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-lg-4 wow zoomIn">
             <ul class="pricing-plan list-unstyled">
-                <li class="pricing-title">
-                    Técnico
-                </li>
-                <li class="pricing-desc">
-                    Trabaja con nosotros y sé parte de proyectos que cambiarán el mundo.
-                </li>
-                <li class="pricing-price">
-                    Desarrollador
-                </li>
-                <li>
-                    Diseñador
-                </li>
-                <li>
-                    Marketing
-                </li>
-                <li>
-                    Analista
-                </li>
-                <li>
-                    <a class="btn btn-primary btn-xs" href="/aliarse">Registrarse</a>
-                </li>
+               <li class="pricing-title">
+                  Técnico
+               </li>
+               <li class="pricing-desc">
+                  <%= @ally.t1 %>
+               </li>
+               <li class="pricing-price">
+                  <%= @ally.t2 %>
+               </li>
+               <li>
+                  <%= @ally.t3 %>
+               </li>
+               <li>
+                  <%= @ally.t4 %>
+               </li>
+               <li>
+                  <%= @ally.t5 %>
+               </li>
+               <li>
+                  <a class="btn btn-primary btn-xs" href="/aliarse">Registrarse</a>
+               </li>
             </ul>
-        </div>
-
-        <div class="col-lg-4 wow zoomIn">
+         </div>
+         <div class="col-lg-4 wow zoomIn">
             <ul class="pricing-plan list-unstyled selected">
-                <li class="pricing-title">
-                    Financiero
-                </li>
-                <li class="pricing-desc">
-                    Invierte y conviértete en accionista o anunciante exitoso.
-                </li>
-                <li>
-                    Seguimiento de proyectos
-                </li>
-                <li>
-                    Contacto directo
-                </li>
-                <li>
-                    Notificaciones
-                </li>
-                <li>
-                    Tiempos
-                </li>
-                <li>
-                    <strong>Ganancias</strong>
-                </li>
-                <li class="plan-action">
-                    <a class="btn btn-primary btn-xs" href="/aliarse">Registrarse</a>
-                </li>
+               <li class="pricing-title">
+                  Financiero
+               </li>
+               <li class="pricing-desc">
+                  <%= @ally.f1 %>
+               </li>
+               <li>
+                  <%= @ally.f2 %>
+               </li>
+               <li>
+                  <%= @ally.f3 %>
+               </li>
+               <li>
+                  <%= @ally.f4 %>
+               </li>
+               <li>
+                  <%= @ally.f5 %>
+               </li>
+               <li>
+                  <strong><%= @ally.f6 %></strong>
+               </li>
+               <li class="plan-action">
+                  <a class="btn btn-primary btn-xs" href="/aliarse">Registrarse</a>
+               </li>
             </ul>
-        </div>
-
-        <div class="col-lg-4 wow zoomIn">
+         </div>
+         <div class="col-lg-4 wow zoomIn">
             <ul class="pricing-plan list-unstyled">
-                <li class="pricing-title">
-                    Comercial
-                </li>
-                <li class="pricing-desc">
-                    Opera y representa nuestros productos y servicios en la ciudad o país que desees.
-                </li>
-                <li>
-                    Seguimiento de proyectos
-                </li>
-                <li>
-                    Contacto directo
-                </li>
-                <li>
-                    Notificaciones
-                </li>
-                <li>
-                    Tiempos
-                </li>
-                <li>
-                    <a class="btn btn-primary btn-xs" href="/aliarse">Registrarse</a>
-                </li>
+               <li class="pricing-title">
+                  Comercial
+               </li>
+               <li class="pricing-desc">
+                  <%= @ally.c1 %>
+               </li>
+               <li>
+                  <%= @ally.c2 %>
+               </li>
+               <li>
+                  <%= @ally.c3 %>
+               </li>
+               <li>
+                  <%= @ally.c4 %>
+               </li>
+               <li>
+                  <%= @ally.c5 %>
+               </li>
+               <li>
+                  <a class="btn btn-primary btn-xs" href="/aliarse">Registrarse</a>
+               </li>
             </ul>
-        </div>
-    </div>
-    <div class="row m-t-lg">
-        <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg">
+         </div>
+      </div>
+      <div class="row m-t-lg">
+         <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg">
             <p>* Al registrarse usted debe aceptar un acuerdo de confidencialidad bajo nuestros terminos y condiciones.</p>
-        </div>
-    </div>
-</div>
+         </div>
+      </div>
+   </div>
 </section>
-
-
 <section id="contact" class="gray-section contact">
-<div class="container">
-    <div class="row m-b-lg">
-        <div class="col-lg-12 text-center">
+   <div class="container">
+      <div class="row m-b-lg">
+         <div class="col-lg-12 text-center">
             <div class="navy-line"></div>
             <h1>Contáctanos</h1>
-            <p>Dejanos tu mensaje y te atenderemos a la brevedad.</p>
-        </div>
-    </div>
-
-    <div class="row m-b-lg">
-        <div class="col-lg-3 col-lg-offset-2">
+            <p>Déjanos tu mensaje y te atenderemos a la brevedad</p>
+         </div>
+      </div>
+      <div class="row m-b-lg">
+         <div class="col-lg-3 col-lg-offset-2">
             <br><br>
             <address>
-                <strong><span class="navy">Brezza Project S.A.</span></strong><br/>
-                Av. Lara con Av. Los Leones<br/>
-                Barquisimeto, Lara, Venezuela<br/>
-                <abbr title="Phone">Teléfono:</abbr> +58(251) 456-7890
+               <strong><span class="navy">Brezza Project, S.A.</span></strong><br/>
+               Barquisimeto, Lara, Venezuela<br/>
+               <abbr title="Phone">Teléfono:</abbr> +58 (251) 2317335
             </address>
             <br><br>
             <div class="col-lg-12 text-center">
-            <p class="m-t-sm">
-                O siguenos en nuestras redes sociales
-            </p>
-            <ul class="list-inline social-icon">
-                <li><a href="#"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li><a href="#"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                </li>
-            </ul>
-        </div>
-        </div>
-        <div class="col-lg-5">
-            <div>
-                <%= form_tag(root_path, {:class => "form"}) do %>
-                        <div class="form-group">
-                            <label class="control-label">Nombre</label>
-                            <input type="text" name="nombre" placeholder="" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Correo</label>
-                            <input type="email" name="email" placeholder="ejemplo@mail.net" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Mensaje</label>
-                            <textarea name="mensaje" class="form-control"></textarea>
-                        </div>
-                        <button class="btn btn-primary" type="submit">Enviar</button>
-
-                <% end -%>
+               <p class="m-t-sm">
+                  Síguenos en nuestras redes sociales
+               </p>
+               <ul class="list-inline social-icon">
+                  <li><a target="_blank" href="https://twitter.com/brezzaproject/"><i class="fa fa-twitter"></i></a>
+                  </li>
+                  <li><a target="_blank" href="https://www.facebook.com/brezzaproject/"><i class="fa fa-facebook"></i></a>
+                  </li>
+                  <li><a target="_blank" href="https://www.instagram.com/brezzaproject/"><i class="fa fa-instagram"></i></a>
+                  </li>
+               </ul>
             </div>
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
-            <p><strong>&copy; 2016-2017 Brezza Project S.A.</strong><br/> consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-        </div>
-    </div>
-</div>
+         </div>
+         <div class="col-lg-5">
+            <div>
+               <%= form_tag(root_path, {:class => "form"}) do %>
+               <div class="form-group">
+                  <label class="control-label">Nombre</label>
+                  <input type="text" name="nombre" placeholder="John Doe" class="form-control">
+               </div>
+               <div class="form-group">
+                  <label class="control-label">Correo</label>
+                  <input type="email" name="email" placeholder="ejemplo@mail.net" class="form-control">
+               </div>
+               <div class="form-group">
+                  <label class="control-label">Mensaje</label>
+                  <textarea name="mensaje" placeholder="Escriba su mensaje..." class="form-control"></textarea>
+               </div>
+               <button class="btn btn-primary" type="submit">Enviar</button>
+               <% end -%>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+            <p><strong>&copy; 2016-2017 Brezza Project S.A.</strong><br/> <a data-toggle="modal" data-target="#myModal3">Políticas de privacidad</a> | <a data-toggle="modal" data-target="#myModal3">Prospectiva de Brezza Project, S.A.</a> | <a data-toggle="modal" data-target="#myModal3">Escalabilidad web</a></p>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal3" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Políticas de privacidad</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                        <p>T&eacute;rminos y Condiciones de Uso del Sitio Web PeopleEnEspanol.com<br />
+                           <br />
+                           Los siguientes t&eacute;rminos y condiciones (los &quot;T&eacute;rminos y Condiciones&quot;) rigen el uso que usted le d&eacute; a este sitio web y a cualquiera de los contenidos disponibles por o a trav&eacute;s de este sitio web, incluyendo cualquier contenido derivado del mismo (el &quot;Sitio Web&quot;). Time Inc. (&quot;Time Inc.&quot; o &quot;nosotros&quot;) ha puesto a su disposici&oacute;n el Sitio Web. Podemos cambiar los T&eacute;rminos y Condiciones de vez en cuando, en cualquier momento sin ninguna notificaci&oacute;n, s&oacute;lo publicando los cambios en el Sitio Web. AL USAR EL SITIO WEB, USTED ACEPTA Y EST&Eacute; DE ACUERDO CON ESTOS T&Eacute;RMINOS Y CONDICIONES EN LO QUE SE REFIERE A SU USO DEL SITIO WEB. Si usted no est&aacute; de acuerdo con estos T&eacute;rminos y Condiciones, no puede tener acceso al mismo ni usar el Sitio Web de ninguna otra manera.<br />
+                           <br />
+                           1. Derechos de Propiedad. Entre usted y Time Inc., Time Inc. es due&ntilde;o &uacute;nico y exclusivo, de todos los derechos, t&iacute;tulo e intereses en y del Sitio Web, de todo el contenido (incluyendo, por ejemplo, audio, fotograf&iacute;as, ilustraciones, gr&aacute;ficos, otros medios visuales, videos, copias, textos, software, t&iacute;tulos, archivos de Onda de choque, etc.), c&oacute;digos, datos y materiales del mismo, el aspecto y el ambiente, el dise&ntilde;o y la organizaci&oacute;n del Sitio Web y la compilaci&oacute;n de los contenidos, c&oacute;digos, datos y los materiales en el Sitio Web, incluyendo pero no limitado a, cualesquiera derechos de autor, derechos de marca, derechos de patente, derechos de base de datos, derechos morales, derechos sui generis y otras propiedades intelectuales y derechos patrimoniales del mismo. Su uso del Sitio Web no le otorga propiedad de ninguno de los contenidos, c&oacute;digos, datos o materiales a los que pueda acceder en o a trav&eacute;s del Sitio Web.<br />
+                           <br />
+                           2. Licencia Limitada. Usted puede acceder y ver el contenido del Sitio Web desde su computadora o desde cualquier otro aparato y, a menos de que se indique de otra manera en estos T&eacute;rminos y Condiciones o en el Sitio Web, sacar copias o impresiones individuales del contenido del Sitio Web para su uso personal, interno &uacute;nicamente. El uso del Sitio Web y de los servicios que se ofrecen en o a trav&eacute;s del Sitio Web, son s&oacute;lo para su uso personal, no comercial.<br />
+                           <br />
+                           3. Uso Prohibido. Cualquier distribuci&oacute;n, publicaci&oacute;n o explotaci&oacute;n comercial o promocional del Sitio Web, o de cualquiera de los contenidos, c&oacute;digos, datos o materiales en el Sitio Web, est&aacute; estrictamente prohibida, a menos de que usted haya recibido el previo permiso expreso por escrito del personal autorizado de Time Inc. o de alg&uacute;n otro poseedor de derechos aplicable. A no ser como est&aacute; expresamente permitido en el presente contrato, usted no puede descargar, informar, exponer, publicar, copiar, reproducir, distribuir, transmitir, modificar, ejecutar, difundir, transferir, crear trabajos derivados de, vender o de cualquier otra manera explotar cualquiera de los contenidos, c&oacute;digos, datos o materiales en o disponibles a trav&eacute;s del Sitio Web. Usted se obliga adem&aacute;s a no alterar, editar, borrar, quitar, o de otra manera cambiar el significado o la apariencia de, o cambiar el prop&oacute;sito de, cualquiera de los contenidos, c&oacute;digos, datos o materiales en o disponibles a trav&eacute;s del Sitio Web, incluyendo, sin limitaci&oacute;n, la alteraci&oacute;n o retiro de cualquier marca comercial, marca registrada, logo, marca de servicios o cualquier otro contenido de propiedad o notificaci&oacute;n de derechos de propiedad. Usted reconoce que no adquiere ning&uacute;n derecho de propiedad al descargar alg&uacute;n material con derechos de autor de o a trav&eacute;s del Sitio Web. Si usted hace otro uso del Sitio Web, o de los contenidos, c&oacute;digos, datos o materiales que ah&iacute; se encuentren o que est&eacute;n disponibles a trav&eacute;s del Sitio Web, a no ser como se ha estipulado anteriormente, usted puede violar las leyes de derechos de autor y otras leyes de los Estados Unidos y de otros pa&iacute;ses, as&iacute; como las leyes estatales aplicables, y puede ser sujeto a responsabilidad legal por dicho uso no autorizado.<br />
+                           <br />
+                           4. Marcas Comerciales. Las marcas comerciales, logos, marcas de servicios, marcas registradas (conjuntamente las &quot;Marcas Comerciales&quot;) expuestas en el Sitio Web o en los contenidos disponibles a trav&eacute;s del Sitio Web son Marcas Comerciales de Time Inc. registradas y no registradas y otras, y no pueden ser usadas con respecto a productos y/o servicios que no est&eacute;n relacionados, asociados o patrocinados por sus poseedores de derechos y que puedan causar confusi&oacute;n a los clientes, o de alguna manera que denigre o desacredite a sus poseedores de derechos. Todas las Marcas Comerciales que no sean de Time Inc. que aparezcan en el sitio Web o en o a trav&eacute;s de los servicios del Sitio Web, si las hubiera, son propiedad de sus respectivos due&ntilde;os. Nada que est&eacute; contenido en el Sitio Web deber&aacute; ser interpretado como otorgando, por implicaci&oacute;n, desestimaci&oacute;n, o de otra manera, alguna licencia o derecho para usar alguna Marca Comercial expuesta en el Sitio Web sin el permiso escrito de Time Inc. o de terceros que puedan ser due&ntilde;os de dicha Marca Comercial. El mal uso de las Marcas Comerciales expuestas en el Sitio Web o en o a trav&eacute;s de cualquiera de los servicios del Sitio Web est&aacute; estrictamente prohibido.<br />
+                           <br />
+                           5. Informaci&oacute;n del Usuario. En el curso del uso que usted haga del Sitio Web y/o de los servicios puestos a su disposici&oacute;n en o a trav&eacute;s del Sitio Web, se le puede pedir que nos proporcione cierta informaci&oacute;n personalizada (dicha informaci&oacute;n en lo sucesivo &quot;Informaci&oacute;n del Usuario&quot;). Las pol&iacute;ticas de uso y recopilaci&oacute;n de informaci&oacute;n de Time Inc. con respecto a la privacidad de dicha Informaci&oacute;n del Usuario se establecen en la Pol&iacute;tica de Privacidad del Sitio Web, la cual est&aacute; incorporada al mismo como referencia para todos los prop&oacute;sitos. Usted reconoce y acepta ser el &uacute;nico responsable de la exactitud del contenido de la Informaci&oacute;n del Usuario.<br />
+                           <br />
+                           6. Materiales Presentados. A menos que se solicite espec&iacute;ficamente, no pedimos ni deseamos recibir ninguna informaci&oacute;n confidencial, secreta o patrimonial, ni otro material de usted a trav&eacute;s del Sitio Web, por correo electr&oacute;nico o de cualquier otra manera. Cualquier informaci&oacute;n, trabajos creativos, demostraci&oacute;n, ideas, sugerencias, conceptos, m&eacute;todos, sistemas, dise&ntilde;os, planes, t&eacute;cnicas u otros materiales que nos haya mandado o presentado (incluyendo, por ejemplo y sin limitaci&oacute;n, aquello que usted presenta o env&iacute;a a nuestros grupos de chateo, tablas de mensajes y/o a nuestros &lsquo;blogs&rsquo;, o que nos manda v&iacute;a correo electr&oacute;nico) (&quot;Materiales Presentados&quot;) se considerar&aacute; como no confidencial o secreto y que puede ser usado por nosotros de cualquier manera consistente con la Pol&iacute;tica de Privacidad del Sitio Web. Al presentarnos o mandarnos Materiales Presentados, usted: (i) representa y garantiza que los Materiales Presentados son originales suyos, que ninguna otra persona tiene ning&uacute;n derecho sobre ellos, y que cualquier &quot;derecho moral&quot; sobre los Materiales Presentados ha sido renunciado, y (ii) usted nos concede, a nosotros y a nuestros afiliados, derecho y licencia libres de regal&iacute;as, sin restricciones, mundiales, perpetuos, irrevocables, no exclusivos y totalmente transferibles, que pueden ser cedidos y sub-licenciados, para usar, copiar, reproducir, modificar, adaptar, publicar, traducir, crear trabajos derivados de, distribuir, ejecutar, exponer e incorporar en otros trabajos cualquiera de los Materiales Presentados (todos o en parte) en cualquier forma, medio o tecnolog&iacute;a no conocida o por desarrollar, incluyendo prop&oacute;sitos promocionales y/o comerciales. No podemos ser responsables de conservar ning&uacute;n Material Presentado proporcionado por usted y podemos borrar o destruir dicho Material Presentado en cualquier momento.<br />
+                           <br />
+                           7. Conducta Prohibida del Usuario. Usted garantiza y est&aacute; de acuerdo en que, mientras use el Sitio Web y los diversos servicios y art&iacute;culos que se ofrecen en o a trav&eacute;s del Sitio Web, usted no: (a) personalizar&aacute; a ninguna persona o entidad ni desvirtuar&aacute; su afiliaci&oacute;n con alguna otra persona o entidad; (b) insertar&aacute; su propio anuncio, posicionamiento de marca o alg&uacute;n otro contenido promocional o el de un tercero en cualquiera de los contenidos, materiales o servicios o materiales del Sitio Web (por ejemplo, sin limitaci&oacute;n, en una actualizaci&oacute;n RSS o en un programa de radio grabado (podcast) recibido de Time Inc. o de alg&uacute;n otro modo a trav&eacute;s del Sitio Web), ni usar&aacute;, redistribuir&aacute;, republicar&aacute; o explotar&aacute; dichos contenidos o servicios con cualquier otro prop&oacute;sito adicional comercial o promocional; ni (c) intentar&aacute; ganar acceso no autorizado a otros sistemas de c&oacute;mputo a trav&eacute;s del Sitio Web. Usted no: (i) participar&aacute; en navegar por la red, en &quot;raspar (scraping) la pantalla&quot;, &quot;raspar (scraping) la base da datos&quot;, en recolectar direcciones de correo electr&oacute;nico, direcciones inal&aacute;mbricas u otra informaci&oacute;n personal o de contactos, o cualquier otro medio autom&aacute;tico de obtener listas de usuarios u otra informaci&oacute;n de o a trav&eacute;s del sitio Web o de los servicios ofrecidos en o a trav&eacute;s del Sitio Web, incluyendo, sin limitaci&oacute;n, cualquier informaci&oacute;n que se encuentre en alg&uacute;n servidor o base de datos relacionada con el Sitio Web o los servicios ofrecidos en o a trav&eacute;s del Sitio Web; (ii) obtendr&aacute; o intentar&aacute; obtener acceso no autorizado a los sistemas de c&oacute;mputo, materiales o informaci&oacute;n por cualquier medio; (iii) usar&aacute; el Sitio Web o los servicios puestos a su disposici&oacute;n en o a trav&eacute;s del Sitio Web de alguna manera con la intenci&oacute;n de interrumpir, da&ntilde;ar, deshabilitar, sobrecargar o deteriorar el Sitio Web o dichos servicios, incluyendo, sin limitaci&oacute;n, mandar mensajes masivos no solicitados o &quot;inundar&quot; servidores con solicitudes; (iv) usar&aacute; el Sitio Web o los servicios o art&iacute;culos del Sitio Web en violaci&oacute;n de la propiedad intelectual o de otros derechos legales o patrimoniales de Time Inc o de alg&uacute;n tercero; ni (v) usar&aacute; el Sitio Web o los servicios del Sitio Web en violaci&oacute;n de cualquier ley aplicable. Usted se obliga adem&aacute;s, a no intentar (o alentar o apoyar el intento de otro) a embaucar, destruir, decodificar, o de otro modo alterar o interferir con el Sitio Web o con los servicios del Sitio Web, o con cualquier contenido del mismo, o hacer cualquier uso no autorizado del mismo. Usted se obliga a no usar el Sitio Web de alguna manera que pudiera da&ntilde;ar, deshabilitar, sobrecargar o deteriorar el Sitio Web o interferir con que cualquier otra persona pueda usar o disfrutar del Sitio Web o de cualquiera de sus servicios. Usted no obtendr&aacute; ni intentar&aacute; obtener alg&uacute;n material o informaci&oacute;n a trav&eacute;s de cualquier medio que no haya sido estipulado o puesto a la disposici&oacute;n del p&uacute;blico intencionalmente a trav&eacute;s del Sitio Web.<br />
+                           <br />
+                           8. Foros P&uacute;blicos. Time Inc. puede, de vez en cuando, tener servicios de mensajer&iacute;a, servicios de chateo, tableros de noticias, blogs, otros foros y otros servicios disponibles en o a trav&eacute;s del Sitio Web. Adem&aacute;s de cualquier otra normatividad y regulaci&oacute;n que podamos publicar con respecto a un servicio en particular, usted se obliga a no cargar, informar, transmitir, distribuir o de otra manera publicar a trav&eacute;s del Sitio Web o de cualquier servicio o art&iacute;culo puesto a la disposici&oacute;n en o a trav&eacute;s del Sitio Web, cualquier material que (i) restrinja o inhiba a cualquier otro usuario de usar y disfrutar del Sitio Web o de los servicios del Sitio Web, (ii) sea fraudulento, ilegal, amenazante, abusivo, hostigante, calumnioso, difamatorio, obsceno, vulgar, ofensivo, pornogr&aacute;fico, profano, sexualmente expl&iacute;cito o indecente, (iii) constituya o aliente conductas que pudieran constituir una ofensa criminal, dar lugar a responsabilidad civil o de otro modo violar cualquier ley local, estatal, nacional o internacional, (iv) viole, plagie o infrinja los derechos de terceros incluyendo, sin limitaci&oacute;n, derechos de autor, marcas comerciales, secretos comerciales, confidencialidad, contratos, patentes, derechos de privacidad o publicidad o cualquier otro derecho de propiedad, (v) contenga un virus, elemento de espionaje u otro componente da&ntilde;ino, (vi) contenga enlaces fijos, publicidad, cartas de cadenas o esquemas de pir&aacute;mides de cualquier tipo, o (vii) constituya o contenga indicaciones de origen, endosos o declaraciones de hechos falsos o enga&ntilde;osos. Usted adem&aacute;s se obliga a no personificar a cualquier otra persona o entidad, ya sea real o ficticia, incluyendo cualquier persona de Time Inc. Usted tampoco puede ofrecer comprar o vender alg&uacute;n producto o servicio en o a trav&eacute;s de sus comentarios presentados en nuestros foros. Solamente usted es responsable del contenido y de las consecuencias de cualquiera de sus actividades.<br />
+                           <br />
+                           9. Derecho de Monitoreo y Control Editorial. Time Inc. se reserva el derecho, pero no tiene la obligaci&oacute;n, de monitorear y/o revisar todos los materiales enviados al Sitio Web o a trav&eacute;s de los servicios o art&iacute;culos del Sitio Web por los usuarios, y Time Inc. no es responsable de dichos materiales enviados por los usuarios. Sin embargo, Time Inc. se reserva el derecho en todo momento de divulgar cualquier informaci&oacute;n que sea necesaria para satisfacer cualquier ley, reglamento o solicitud gubernamental, o de editar, rehusarse a colocar o a quitar cualquier informaci&oacute;n o materiales, todos o en parte, que a discreci&oacute;n &uacute;nicamente de Time Inc. sean censurables o en violaci&oacute;n de estos T&eacute;rminos de Uso, de las pol&iacute;ticas de Time Inc o de la ley aplicable. Tambi&eacute;n podemos imponer l&iacute;mites sobre ciertos art&iacute;culos de los foros o restringir su acceso a parte o a todos los foros sin notificaci&oacute;n o sanci&oacute;n, si creemos que usted est&aacute; en incumplimiento de las directrices establecidas en este p&aacute;rrafo, nuestros t&eacute;rminos y condiciones o la ley aplicable, o por cualquier otra raz&oacute;n sin notificaci&oacute;n o responsabilidad.<br />
+                           <br />
+                           10. Informaci&oacute;n Privada o Delicada en Foros P&uacute;blicos. Es importante recordar que los comentarios presentados en un foro pueden ser registrados y almacenados en m&uacute;ltiples lugares, tanto en nuestro Sitio Web como en otra parte en Internet, los cuales pueden ser accesibles durante mucho tiempo y no se tiene control sobre qui&eacute;n los leer&aacute; eventualmente. Es por lo tanto importante que tenga usted cuidado y sea selectivo acerca de la informaci&oacute;n personal que divulgue acerca de usted y de otros, y en especial, no debe divulgar informaci&oacute;n delicada, patrimonial o confidencial en sus comentarios en nuestros foros p&uacute;blicos.<br />
+                           <br />
+                           11. Enlaces con el Sitio Web. Usted est&aacute; de acuerdo en que si incluye un enlace (link) de cualquier otro sitio web al Sitio Web, dicho enlace se abrir&aacute; en una nueva ventana navegadora y se enlazar&aacute; con la versi&oacute;n completa de una p&aacute;gina formateada HTML de este Sitio Web. Usted no tiene permitido enlazarse directamente a ninguna imagen almacenada en el Sitio Web o en nuestros servicios, como ser&iacute;a usar un m&eacute;todo de enlace &quot;en-l&iacute;nea&quot; para provocar que la imagen almacenada por nosotros fuera expuesta en otro sitio web. Usted se obliga a no descargar o usar im&aacute;genes almacenadas en este Sitio Web en otro sitio web, con cualquier prop&oacute;sito, incluyendo, sin limitaci&oacute;n, publicar dichas im&aacute;genes en otro sitio web. Usted se obliga a no enlazarse de cualquier otro sitio web a este Sitio Web de tal manera que el Sitio Web, o cualquier p&aacute;gina del Sitio Web, est&eacute; &quot;enmarcado&quot;, rodeado u ofuscado por los contenidos, materiales o posicionamientos de marca de cualquier tercero. Nos reservamos todos nuestros derechos bajo la ley para insistir en que cualquier enlace al Sitio Web sea descontinuado y a revocar su derecho a enlazarse al Sitio Web de cualquier otro sitio web, en cualquier momento en el que le mandemos notificaci&oacute;n por escrito.<br />
+                           <br />
+                           12. Indemnizaci&oacute;n. Usted se obliga a defender, indemnizar y a sacar a Time Inc. y a los directores, funcionarios, empleados y agentes de Time Inc. y sus afiliados en paz y a salvo de cualquier demanda, responsabilidad, costos y gastos, de cualquier naturaleza, incluyendo honorarios de abogados, en que incurriera como resultado del uso del Sitio Web, su colocaci&oacute;n o transmisi&oacute;n de cualquier mensaje, contenido, informaci&oacute;n, software u otros materiales a trav&eacute;s del Sitio Web, o su incumplimiento o violaci&oacute;n de la ley o de estos T&eacute;rminos y Condiciones. Time Inc. se reserva el derecho, a su propio costo, de asumir la defensa y control exclusivos de cualquier asunto de otra manera sujeto a indemnizaci&oacute;n por parte suya, y en dicho caso, usted se obliga a cooperar con Time Inc. en la defensa de dicha demanda.<br />
+                           <br />
+                           13. &Oacute;rdenes de Productos y Servicios. Podemos poner ciertos productos a la disposici&oacute;n de visitantes y registrados del Sitio Web. Si usted ordena cualquier producto, por el presente documento usted representa y garantiza que tiene 18 a&ntilde;os de edad o m&aacute;s. Se obliga a pagar la totalidad de los precios de cualquier compra que haga, ya sea con tarjeta de cr&eacute;dito/d&eacute;bito concurrente con su orden en l&iacute;nea o por otro medio de pago aceptable para Time Inc. Usted se obliga a pagar todos los impuestos aplicables. Si el pago no es recibido por nosotros de parte del emisor de su tarjeta de cr&eacute;dito o d&eacute;bito o de sus agentes, usted se obliga a pagar todas las cantidades debidas al momento de la reclamaci&oacute;n por nuestra parte. Algunos productos que usted compra y/o descarga en o a trav&eacute;s del Sitio Web pueden estar sujetos a t&eacute;rminos y condiciones adicionales que le ser&aacute;n presentados al momento de dicha compra o descarga.<br />
+                           <br />
+                           14. Sitios Web de Terceros. Usted puede enlazar (link) del Sitio Web a sitios web de terceros y terceros pueden enlazarse al Sitio Web (&quot;Sitios Enlazados&quot;). Usted reconoce y est&aacute; de acuerdo en que nosotros no tenemos responsabilidad sobre la informaci&oacute;n, contenido, productos, servicios, anuncios, c&oacute;digos u otros materiales que puedan o no puedan ser proporcionados por o a trav&eacute;s de los Sitios Enlazados, a&uacute;n si son propiedad de o son dirigidos por afiliados nuestros. Los enlaces (links) a Sitios Enlazados no constituyen un aval o patrocinio nuestro de dichos sitios web o de la informaci&oacute;n, contenido, productos, servicios, anuncios, c&oacute;digos u otros materiales presentados en o a trav&eacute;s de dichos sitios web. La inclusi&oacute;n de cualquier enlace a dichos sitios en nuestro Sitio no implica el aval, patrocinio o recomendaci&oacute;n de ese sitio de Time Inc. Time Inc. rechaza cualquier responsabilidad por los enlaces (1) de otro sitio web a este Sitio Web y (2) a otro sitio web de este Sitio Web. Time Inc. no puede garantizar los est&aacute;ndares de cualquier sitio web al cual se le proporcionen enlaces en este Sitio Web, ni ser&aacute; Time Inc. responsable de los contenidos de dichos sitios, o de cualquier enlace subsecuente. Time Inc. no representa o garantiza que los contenidos del sitio web de alg&uacute;n tercero sean exactos, que cumplan con la ley estatal o federal, o que cumplan con las leyes de derechos de autor o con otras leyes de propiedad intelectual. Time Inc. tampoco es responsable de cualquier forma de transmisi&oacute;n recibida de cualquier sitio web enlazado. Cualquier confianza depositada en los contenidos de un sitio web de terceros es hecha por su propio riesgo y usted asume todas las responsabilidades y consecuencias que resulten de dicha confianza.<br />
+                           <br />
+                           15. Agente de Derechos de Autor.<br />
+                           <br />
+                           Respetamos los derechos de propiedad intelectual de otros y requerimos que las personas que usen el Sitio Web, o los servicios o art&iacute;culos puestos a su disposici&oacute;n en o a trav&eacute;s del Sitio Web, hagan lo mismo. Si usted cree que su trabajo ha sido copiado de un modo que constituya una infracci&oacute;n a los derechos de autor, por favor mande la siguiente informaci&oacute;n a Agente de Derechos de Autor de Time Inc., designado como tal de conformidad con la Digital Millennium Copyright Act, 17 U.S.C. &sect; 512 (c) (2), nombrado abajo:<br />
+                           <br />
+                           Su direcci&oacute;n, n&uacute;mero de tel&eacute;fono y direcci&oacute;n de correo electr&oacute;nico;<br />
+                           Una descripci&oacute;n del trabajo con derechos de autor que usted reclama ha sido infringido;<br />
+                           Una descripci&oacute;n de donde se localiza el supuesto material infringido;<br />
+                           Una declaraci&oacute;n suya de que usted cree de buena fe que el uso en disputa no est&aacute; autorizado por el due&ntilde;o de los derechos de autor, su agente o la ley;<br />
+                           Una firma electr&oacute;nica o f&iacute;sica de la persona autorizada para actuar en nombre del due&ntilde;o del inter&eacute;s de los derechos de autor; y<br />
+                           Una declaraci&oacute;n suya, hecha bajo pena de perjurio, de que la informaci&oacute;n antes mencionada en su notificaci&oacute;n es exacta y de que usted es el due&ntilde;o de los derechos de autor o est&aacute; autorizado para actuar en nombre del due&ntilde;o de los derechos de autor.<br />
+                           <br />
+                           Agente de Derechos de Autor:<br />
+                           Tom Schopper<br />
+                           Time Inc.<br />
+                           Voz: 212-522-5865<br />
+                           Fax: 212-467-3320<br />
+                           e-mail: copyrightdmca@timeinc.com<br />
+                           <br />
+                           Para Servicio al Cliente no se dirija al Agente de Derechos de Autor, por favor dir&iacute;jase a:<br />
+                           Time Customer Service<br />
+                           3000 University Center Drive<br />
+                           Tampa, Florida 33612-6408<br />
+                           Tel: 1-800-541-1000<br />
+                           <br />
+                           16. RENUNCIA DE GARANT&Iacute;AS. EL SITIO WEB, INCLUYENDO, SIN LIMITACI&Oacute;N, TODOS LOS SERVICIOS, CONTENIDOS, FUNCIONES Y MATERIALES PROPORCIONADOS A TRAV&Eacute;S DEL SITIO WEB, SON PROPORCIONADOS &quot;TAL COMO EST&Eacute;N&quot;, &quot;COMO SE PONEN A LA DISPOSICI&Oacute;N&quot;, SIN GARANT&Iacute;A DE NING&Uacute;N TIPO, YA SEA EXPRESA O IMPL&Iacute;CITA, INCLUYENDO, SIN LIMITACI&Oacute;N, CUALQUIER GARANT&Iacute;A DE INFORMACI&Oacute;N, DATOS, SERVICIOS DE PROCESAMIENTO DE DATOS, ACCESO ILIMITADO O ININTERRUMPIDO, CUALQUIER GARANT&Iacute;A CON RESPECTO A LA DISPONIBILIDAD, INTERPRETABILIDAD, NO INTERPRETABILIDAD, EXACTITUD, PRECISI&Oacute;N, RECTITUD, PERFECCI&Oacute;N, CONCLUSI&Oacute;N, UTILIDAD, O CONTENIDO DE LA INFORMACI&Oacute;N, Y CUALQUIER GARANT&Iacute;A DE T&Iacute;TULO, NO-INFRACCI&Oacute;N, COMERCIABILIDAD O APTITUD PARA UN PROP&Oacute;SITO EN PARTICULAR, Y EN EL PRESENTE RENUNCIAMOS A CUALQUIERA Y A TODAS DICHAS GARANT&Iacute;AS, EXPRESAS E IMPL&Iacute;CITAS. NO GARANTIZAMOS QUE EL SITIO WEB O LOS SERVICIOS, CONTENIDOS, FUNCIONES O MATERIALES PROPORCIONADOS A TRAV&Eacute;S DEL SITIO WEB SER&Eacute;N OPORTUNOS, SEGUROS, ININTERRUMPIDOS O LIBRES DE ERROR, O QUE LOS DEFECTOS SER&Eacute;N CORREGIDOS. NO DAMOS GARANT&Iacute;A DE QUE EL SITIO WEB O DE QUE LOS SERVICIOS PROPORCIONADOS CUMPLIR&Eacute;N CON LOS REQUERIMIENTOS DE LOS USUARIOS. NING&Uacute;N CONSEJO, RESULTADOS O INFORMACI&Oacute;N, YA SEA ORAL O ESCRITO, QUE USTED OBTENGA DE NOSOTROS A TRAV&Eacute;S DEL SITIO WEB CREAR&Eacute; ALGUNA GARANT&Iacute;A QUE NO HAYA SIDO ESTABLECIDA EXPRESAMENTE EN EL PRESENTE. TIME INC. TAMPOCO ASUME NINGUNA RESPONSABILIDAD, Y NO SER&Eacute; RESPONSABLE DE CUALQUIER DA&Ntilde;O A, O DE CUALQUIER VIRUS QUE PUDIERA INFECTAR SU EQUIPO A CAUSA DE SU ACCESO A, USO DE, O NAVEGACI&Oacute;N EN EL SITIO WEB O POR DESCARGAR CUALQUIERA DE LOS MATERIALES, DATOS, TEXTOS, IM&Eacute;GENES, CONTENIDOS DE VIDEO O CONTENIDOS DE AUDIO DEL SITIO WEB. SI USTED NO EST&Eacute; SATISFECHO CON EL SITIO WEB, SU &Uacute;NICA SOLUCI&Oacute;N ES DESCONTINUAR USANDO EL SITIO WEB.<br />
+                           <br />
+                           TRATAMOS DE ASEGURAR QUE LA INFORMACI&Oacute;N PUBLICADA EN EL SITIO WEB ES CORRECTA Y ACTUALIZADA. NOS RESERVAMOS EL DERECHO DE CAMBIAR O HACER CORRECCIONES A CUALQUIER INFORMACI&Oacute;N PROPORCIONADA EN EL SITIO WEB EN CUALQUIER MOMENTO Y SIN NING&Uacute;N AVISO PREVIO. TIME INC. NI AVALA NI ES RESPONSABLE DE LA EXACTITUD O VERACIDAD DE CUALQUIER OPINI&Oacute;N, CONSEJO O DECLARACI&Oacute;N EN EL SITIO WEB, NI DE CUALQUIER PUBLICACI&Oacute;N OFENSIVA, DIFAMATORIA, OBSCENA, INDECENTE, ILEGAL O VIOLATORIA HECHA EN EL MISMO POR CUALQUIER PERSONA A NO SER UN EMPLEADO PORTAVOZ AUTORIZADO DE TIME INC. EN SU CAR&Eacute;CTER OFICIAL (INCLUYENDO, SIN LIMITACI&Oacute;N, OTROS USUARIOS DEL SITIO WEB). ES SU RESPONSABILIDAD EVALUAR LA EXACTITUD, CONCLUSI&Oacute;N O UTILIDAD DE CUALQUIER INFORMACI&Oacute;N, OPINI&Oacute;N, CONSEJO U OTRO CONTENIDO DISPONIBLE A TRAV&Eacute;S DEL SITIO WEB. POR FAVOR BUSQUE EL CONSEJO DE PROFESIONALES, SEG&Uacute;N SEA APROPIADO, CON RESPECTO A LA EVALUACI&Oacute;N DE CUALQUIER INFORMACI&Oacute;N, OPINI&Oacute;N, CONSEJO U OTRO CONTENIDO ESPEC&Iacute;FICO, INCLUYENDO PERO NO LIMITADO A, INFORMACI&Oacute;N, OPINI&Oacute;N, CONSEJO U OTRO CONTENIDO FINANCIERO, DE SALUD O DE ESTILO DE VIDA.<br />
+                           <br />
+                           PREVIO A LA REALIZACI&Oacute;N DE UNA COMPRA O VENTA DE CUALQUIER VALOR O INVERSI&Oacute;N, LE ACONSEJAMOS QUE CONSULTE CON SU CORREDOR O CON OTRO ASESOR FINANCIERO PARA VERIFICAR PRECIOS Y OTRA INFORMACI&Oacute;N. NO TENDREMOS NINGUNA RESPONSABILIDAD DE DECISIONES DE INVERSI&Oacute;N BASADAS EN, O DE RESULTADOS OBTENIDOS DE, EL CONTENIDO PROPORCIONADO EN EL PRESENTE. NADA CONTENIDO EN EL SITIO WEB SER&Eacute; INTERPRETADO COMO CONSEJO DE INVERSI&Oacute;N. TIME INC. NO ES UN CORREDOR DE BOLSA REGISTRADO NI UN CONSULTOR DE INVERSIONES Y NO DA CONSEJOS SOBRE INVERSIONES NI RECOMIENDA UN PRODUCTO SOBRE OTRO.<br />
+                           <br />
+                           SIN LIMITACI&Oacute;N DE LO ANTES MENCIONADO EN ESTA SECCI&Oacute;N, TIME INC, Y SUS AFILIADOS, PROVEEDORES Y PERSONAS QUE OTORGAN LAS LICENCIAS NO DAN GARANT&Iacute;AS NI REPRESENTACIONES CON RESPECTO A CUALQUIER PRODUCTO O SERVICIO ORDENADO O PROPORCIONADO V&Iacute;A EL SITIO WEB, Y EN EL PRESENTE RENUNCIAN, Y USTED EN EL PRESENTE DESISTE, DE CUALQUIERA Y DE TODAS LAS GARANT&Iacute;AS Y REPRESENTACIONES HECHAS A LITERATURA EN PRODUCTOS O SERVICIOS, A PREGUNTAS HECHAS FRECUENTEMENTE EN DOCUMENTOS Y DE ALGUNA OTRA MANERA EN EL SITIO WEB O EN CORRESPONDENCIA CON TIME INC. O CON SUS AGENTES. CUALQUIER PRODUCTO O SERVICIO ORDENADO O PROPORCIONADO V&Iacute;A EL SITIO WEB ES PROPORCIONADO POR TIME INC. &quot;TAL COMO EST&Eacute;&quot;, EXCEPTO AL GRADO, SI SE DIERA EL CASO, DE ESTAR DE OTRO MODO ESTABLECIDO POR ESCRITO, EN UN CONTRATO DE LICENCIA O VENTA CELEBRADO POR SEPARADO ENTRE USTED Y TIME INC. O SU PROVEEDOR O LA PERSONA QUE OTORGA LA LICENCIA.<br />
+                           17. L&Iacute;MITE DE RESPONSABILIDAD. EN NING&Uacute;N CASO, INCLUYENDO PERO NO LIMITADO A NEGLIGENCIA, SER&Eacute; RESPONSABLE TIME INC., O CUALQUIERA DE SUS DIRECTORES, FUNCIONARIOS, EMPLEADOS, AGENTES O PROVEEDORES, DEL CONTENIDO O DE LOS SERVICIOS (CONJUNTAMENTE, LAS &quot;ENTIDADES PROTEGIDAS&quot;) DE CUALQUIER DA&Ntilde;O DIRECTO, INDIRECTO, ESPECIAL, INCIDENTAL, CONSECUENTE, EJEMPLAR O PUNITIVO COMO RESULTADO DE, O DIRECTA O INDIRECTAMENTE RELACIONADO CON, EL USO DE, O LA INCAPACIDAD DE USAR EL SITIO WEB O LOS CONTENIDOS, MATERIALES Y FUNCIONES RELACIONADOS CON EL MISMO, SU PROVISI&Oacute;N DE INFORMACI&Oacute;N V&Iacute;A EL SITIO WEB, NEGOCIOS PERDIDOS O VENTAS PERDIDAS, A&Uacute;N CUANDO DICHA ENTIDAD PROTEGIDA HAYA SIDO ASESORADA SOBRE LA POSIBILIDAD DE DICHOS DA&Ntilde;OS. ALGUNAS JURISDICCIONES NO PERMITEN LA LIMITACI&Oacute;N O EXCLUSI&Oacute;N DE RESPONSABILIDAD POR DA&Ntilde;OS INCIDENTALES O INDIRECTOS AS&Iacute; QUE ALGUNOS DE LAS LIMITACIONES ARRIBA MENCIONADAS NO APLICAN A ALGUNOS USUARIOS. EN NING&Uacute;N CASO SER&Eacute;N RESPONSABLES LAS ENTIDADES PROTEGIDAS POR O EN RELACI&Oacute;N CON CUALQUIER CONTENIDO PUBLICADO, TRANSMITIDO, INTERCAMBIADO O RECIBIDO POR O EN NOMBRE DE CUALQUIER USUARIO O DE OTRA PERSONA EN O A TRAV&Eacute;S DEL SITIO WEB. EN NING&Uacute;N CASO LA SUMA TOTAL DE LAS RESPONSABILIDADES DE LAS ENTIDADES PROTEGIDAS HACIA USTED, POR TODOS LOS DA&Ntilde;OS, P&Eacute;RDIDAS Y CAUSAS DE ACCI&Oacute;N PENAL (YA SEA POR CONTRATO O POR AGRAVIO, INCLUYENDO PERO NO LIMITADO A, NEGLIGENCIA O DE ALGUNA OTRA MANERA) QUE RESULTEN DE LOS T&Eacute;RMINOS Y CONDICIONES O DEL USO QUE USTED HAGA DEL SITIO WEB, DEBER&Eacute; EXCEDER EN LA SUMA TOTAL, LA CANTIDAD, SI LA HUBIERA, PAGADA POR USTED A TIME INC. POR EL USO DEL SITIO WEB O POR LA COMPRA DE PRODUCTOS V&Iacute;A EL SITIO WEB.<br />
+                           <br />
+                           18. Ataques Fotosensibles. Un muy peque&ntilde;o porcentaje de personas pueden experimentar un ataque al ser expuestas a ciertas im&aacute;genes visuales, como luces o dibujos intermitentes que pueden aparecer en juegos de video o en otros contenidos electr&oacute;nicos o en l&iacute;nea. A&uacute;n personas que no tienen historia de ataques o de epilepsia pueden tener una condici&oacute;n no diagnosticada que puede causar estos &quot;ataques epil&eacute;pticos fotosensibles&quot; al estar viendo juegos de video u otros contenidos electr&oacute;nicos. Estos ataques tienen una variedad de s&iacute;ntomas, incluyendo mareos, desorientaci&oacute;n, confusi&oacute;n, p&eacute;rdida moment&aacute;nea de conciencia, crispaci&oacute;n de ojos o cara, visi&oacute;n alterada o tirones o sacudidas de brazos o piernas. Si usted experimenta cualquiera de los s&iacute;ntomas anteriormente mencionados, o si usted o su familia tiene historia de ataques o epilepsia, debe de dejar inmediatamente de usar el Sitio Web y consultar un doctor.<br />
+                           <br />
+                           19. Leyes Aplicables. Nosotros controlamos y operamos el Sitio Web desde nuestras oficinas en los Estados Unidos de Am&eacute;rica. No representamos a los materiales en el Sitio Web como apropiados o disponibles para su uso en otros lugares. Las personas que escojan acceder al sitio Web desde otros lugares lo har&aacute;n por su propia iniciativa y son responsables del cumplimiento de las leyes locales, si y al grado en que las leyes locales sean aplicables. Todas las partes sujetas a estos t&eacute;rminos y condiciones renuncian a sus derechos respectivos a un juicio con jurado.<br />
+                           <br />
+                           20. T&eacute;rmino. Time Inc. puede terminar, cambiar, suspender o descontinuar cualquier aspecto del Sitio Web o de los servicios del Sitio Web en cualquier momento. Time Inc. puede restringir, suspender o terminar su acceso al Sitio Web y/o a sus servicios si creemos que usted est&aacute; en incumplimiento de nuestros t&eacute;rminos y condiciones o de la ley aplicable, o por cualquier otra raz&oacute;n sin notificaci&oacute;n o responsabilidad. Time Inc. mantiene una pol&iacute;tica que estipula la terminaci&oacute;n, en circunstancias apropiadas, de los privilegios de uso del Sitio Web para usuarios que son violadores repetitivos de los derechos de propiedad intelectual.<br />
+                           <br />
+                           21. Cambios de T&eacute;rminos de Uso. Time Inc. se reserva el derecho, a su sola discreci&oacute;n, de cambiar, modificar, a&ntilde;adir o quitar cualquier porci&oacute;n de los T&eacute;rminos y Condiciones, toda o en parte, en cualquier momento. Los cambios en los T&eacute;rminos y Condiciones ser&aacute;n efectivos cuando se publiquen. La continuaci&oacute;n del uso del Sitio Web y/o de los servicios puestos a disposici&oacute;n en o a trav&eacute;s del Sitio Web despu&eacute;s de haber sido publicado cualquier cambio, ser&aacute; considerado como aceptaci&oacute;n de esos cambios.<br />
+                           <br />
+                           22. Miscel&aacute;neos. Los T&eacute;rminos y Condiciones y la relaci&oacute;n entre usted y nosotros, ser&aacute;n regidos por las leyes del Estado de Nueva York, Estados Unidos de Am&eacute;rica, sin consideraci&oacute;n a conflictos de disposiciones de ley. Usted se obliga a que cualquier causa de acci&oacute;n legal que resulte bajo los T&eacute;rminos y Condiciones ser&aacute; iniciada y o&iacute;da en la corte apropiada en el Estado de Nueva York, Condado de Nueva York, Estados Unidos de Am&eacute;rica. Usted se obliga a someterse a la jurisdicci&oacute;n personal y exclusiva de las cortes localizadas dentro del Condado de Nueva York en el Estado de Nueva York. Nuestra falla al ejercer y hacer valer cualquier derecho o disposici&oacute;n de los T&eacute;rminos y Condiciones no constituir&aacute; una renuncia a dicho derecho o disposici&oacute;n. Si cualquier disposici&oacute;n de los T&eacute;rminos y Condiciones es encontrada inv&aacute;lida por una corte de jurisdicci&oacute;n competente, las partes, sin embargo, est&aacute;n de acuerdo en que la corte deber&aacute; esforzarse en aplicar las intenciones de las partes como est&aacute;n reflejadas en la disposici&oacute;n, y las otras disposiciones de los T&eacute;rminos y Condiciones permanecen vigentes.<br />
+                           <br />
+                           23. T&eacute;rminos Suplementarios.<br />
+                           <br />
+                           Notificaci&oacute;n de Getty Images:<br />
+                           <br />
+                           Las im&aacute;genes inm&oacute;viles y representaciones visuales de Getty Images (incluyendo, sin limitaci&oacute;n, Sport, MLB, NHLI, AFP Sport y Bongarts Sports de propiedad absoluta de Getty Images) no pueden ser republicadas, retransmitidas, reproducidas, descargadas o usadas de cualquier otra manera, excepto para descarga para uso personal, no comercial.<br />
+                           <br />
+                           Estos T&eacute;rminos y Condiciones fueron corregidos 02/04/2009.
+                        </p>
+                        </p>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
 </section>
 <% content_for :javascript do %>
-
 <script type="text/javascript">
-
-
-$(function() {
-
-    $('body').addClass('landing-page');
-    $('body').attr('id', 'page-top');
-
-    $('body').scrollspy({
-        target: '.navbar-fixed-top',
-        offset: 80
-    });
-
-    // Page scrolling feature
-    $('a.page-scroll').bind('click', function(event) {
-        var link = $(this);
-        $('html, body').stop().animate({
-            scrollTop: $(link.attr('href')).offset().top - 50
-        }, 500);
-        event.preventDefault();
-        $("#navbar").collapse('hide');
-    });
-
-    var cbpAnimatedHeader = (function() {
-        var docElem = document.documentElement,
-                header = document.querySelector( '.navbar-default' ),
-                didScroll = false,
-                changeHeaderOn = 200;
-        function init() {
-            window.addEventListener( 'scroll', function( event ) {
-                if( !didScroll ) {
-                    didScroll = true;
-                    setTimeout( scrollPage, 250 );
-                }
-            }, false );
-        }
-        function scrollPage() {
-            var sy = scrollY();
-            if ( sy >= changeHeaderOn ) {
-                $(header).addClass('navbar-scroll')
-            }
-            else {
-                $(header).removeClass('navbar-scroll')
-            }
-            didScroll = false;
-        }
-        function scrollY() {
-            return window.pageYOffset || docElem.scrollTop;
-        }
-        init();
-
-    })();
-
-
-    // Activate WOW.js plugin for animation on scrol
-    new WOW().init();
-
-
-});
-
+   $(function() {
+   
+       $('body').addClass('landing-page');
+       $('body').attr('id', 'page-top');
+   
+       $('body').scrollspy({
+           target: '.navbar-fixed-top',
+           offset: 80
+       });
+   
+       // Page scrolling feature
+       $('a.page-scroll').bind('click', function(event) {
+           var link = $(this);
+           $('html, body').stop().animate({
+               scrollTop: $(link.attr('href')).offset().top - 50
+           }, 500);
+           event.preventDefault();
+           $("#navbar").collapse('hide');
+       });
+   
+       var cbpAnimatedHeader = (function() {
+           var docElem = document.documentElement,
+                   header = document.querySelector( '.navbar-default' ),
+                   didScroll = false,
+                   changeHeaderOn = 200;
+           function init() {
+               window.addEventListener( 'scroll', function( event ) {
+                   if( !didScroll ) {
+                       didScroll = true;
+                       setTimeout( scrollPage, 250 );
+                   }
+               }, false );
+           }
+           function scrollPage() {
+               var sy = scrollY();
+               if ( sy >= changeHeaderOn ) {
+                   $(header).addClass('navbar-scroll')
+               }
+               else {
+                   $(header).removeClass('navbar-scroll')
+               }
+               didScroll = false;
+           }
+           function scrollY() {
+               return window.pageYOffset || docElem.scrollTop;
+           }
+           init();
+   
+       })();
+   
+   
+       // Activate WOW.js plugin for animation on scrol
+       new WOW().init();
+   
+   
+   });
+   
 </script>
-
 <% end %>

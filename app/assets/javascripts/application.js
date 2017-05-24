@@ -20,6 +20,8 @@
 //= require validate/jquery.validate.min.js
 //= require wow
 //= require mixitup
+//= require bootstrap-colorpicker
+//= require jquery.minicolors
 //= require turbolinks
 //= require_tree .
 

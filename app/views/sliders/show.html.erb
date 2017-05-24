@@ -1,0 +1,56 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+      <h2 class="text-dark-blue"><strong>Slider</strong></h2>
+      <ol class="breadcrumb">
+         <li>
+            <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+         </li>
+         <li>
+            <a href="/sliders">Listado</a>
+         </li>
+         <li class="active">
+            <strong class="text-blue">Detalle Slider</strong>
+         </li>
+      </ol>
+   </div>
+</div>
+
+<div class="wrapper wrapper-content">
+   <div class="row">
+      
+      <div class="col-sm-12">
+         <div class="ibox float-e-margins">
+            <div class="ibox-title">
+               <h4 class="text-dark-blue"><strong>Slider</strong></h4>
+            </div>
+            <div class="ibox-content">
+               <p id="notice"><%= notice %></p>
+               </br>
+               <h4 class="text-dark-blue"><strong>Detalle de slider</strong></h4>
+               <div class="row" style="background-image: url('<%= @slider.fondo.url %>'); height: 300px;">
+                  
+                  <div class="col-md-6" style="color: <%= @slider.color %>">
+                     <h1><%= @slider.title%></h1>
+                     <p><%= @slider.description %></p>
+                     <p>
+                        <a class="btn btn-lg btn-primary" href="<%= @slider.link %>" role="button"><%= @slider.buttontext %></a>
+                     </p>
+                  </div>
+                  <div class="col-md-3 col-md-offset-3">
+                     <div class="carousel-image wow slideInRight" data-wow-delay="1.2s">
+                        <%= image_tag @slider.imagen.url(:medium) %>
+                     </div>
+                  </div>
+               </div>
+               </br>
+               <div class="form-group">
+                  <div class="col-lg-offset-3 col-lg-2"><%= link_to 'Atrás', sliders_path, :class => "btn btn-default btn-sm" %></div>
+                  <div class="col-lg-2"><%= link_to 'Editar', edit_slider_path(@slider) , :class => "btn btn-warning btn-sm" %></div>
+                  <div class="col-lg-2"><%= link_to 'Eliminar', @slider, method: :delete , :class => "btn btn-danger btn-sm", data: { confirm: '¿Está seguro que desea eliminar el slider?' } %></div>
+               </div>
+               </br>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

@@ -1,5 +1,7 @@
 class MensajesController < ApplicationController
   before_action :set_mensaje, only: [:show, :edit, :update, :destroy]
+  before_action :set_meta
+
   layout  "admin"
   # GET /mensajes
   # GET /mensajes.json

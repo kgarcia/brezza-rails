@@ -1,0 +1,58 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+      <h2 class="text-dark-blue"><strong>Sliders</strong></h2>
+      <ol class="breadcrumb">
+        <li>
+          <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+        </li>
+        <li class="active">
+            <strong class="text-blue">Listado</strong>
+        </li>
+    </ol>
+  </div>
+</div>
+<div class="wrapper wrapper-content">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+          <div class="ibox-title">
+              <h4 class="text-dark-blue">
+                <strong>Listado: Sliders</strong>
+              </h4>
+          </div>
+          <div class="ibox-content">
+            <%= link_to "Registrar", new_slider_path, :class => "btn btn-primary btn-sm", style: 'position: absolute; z-index: 9999; margin-top: -30px;'%>
+
+  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Descripción</th>
+      <th>Texto</th>
+      <th>Botón</th>
+      <th>Enlace</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sliders.each do |slider| %>
+      <tr>
+        <td><%= slider.title %></td>
+        <td><%= slider.description %></td>
+        <td bgcolor="<%= slider.color %>"></td>
+        <td><%= slider.buttontext %></td>
+        <td><%= slider.link %></td>
+        <td><%= link_to 'Ver', slider, :class => "btn btn-primary btn-sm" %></td>
+        <td><%= link_to 'Editar', edit_slider_path(slider) , :class => "btn btn-warning btn-sm" %></td>
+        <td><%= link_to 'Eliminar', slider, method: :delete , :class => "btn btn-danger btn-sm", data: { confirm: '¿Está seguro que desea eliminar el slider?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+          </div>
+        </div>
+      </div> 
+  </div>
+</div>

@@ -52,7 +52,7 @@ $(function () {
               filter: '.filter' 
           },
           load: {
-              filter: '.startup, .finanzas, .turismo, .ecologia, .web' // show app tab on first load
+              filter: '.startup, .finanzas, .Clusters, .ecologia, .Multicommerce .sociedad' // show app tab on first load
             }     
             });                             
         

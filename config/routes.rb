@@ -1,4 +1,8 @@
 Myapp::Application.routes.draw do
+  resources :allies
+  resources :sliders
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
+  resources :steps
   resources :benefits
   resources :whoares
   resources :testimonials

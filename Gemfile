@@ -14,7 +14,7 @@ gem 'font-awesome-rails', '4.7.0.1'
 gem 'httparty', '~> 0.14.0'
 
 # Use mysql as the database for Active Record
-#gem 'mysql2'
+gem 'mysql2'
 #gem 'pg'
 gem 'sqlite3'
 # Use Puma as the app server
@@ -90,5 +90,14 @@ gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'meta-tags'
 gem 'wow-rails'
 gem 'mixitup_rails'
+gem 'devise'
+gem 'paperclip'
+gem 'carrierwave'
+
+
+gem 'bootstrap-colorpicker-rails'
+
+gem 'jquery-minicolors-rails'

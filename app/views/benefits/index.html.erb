@@ -1,51 +1,59 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Benefits</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Title1</th>
-      <th>Desc1</th>
-      <th>Icon1</th>
-      <th>Title2</th>
-      <th>Desc2</th>
-      <th>Icon2</th>
-      <th>Title3</th>
-      <th>Desc3</th>
-      <th>Icon3</th>
-      <th>Title4</th>
-      <th>Desc4</th>
-      <th>Icon4</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @benefits.each do |benefit| %>
-      <tr>
-        <td><%= benefit.description %></td>
-        <td><%= benefit.title1 %></td>
-        <td><%= benefit.desc1 %></td>
-        <td><%= benefit.icon1 %></td>
-        <td><%= benefit.title2 %></td>
-        <td><%= benefit.desc2 %></td>
-        <td><%= benefit.icon2 %></td>
-        <td><%= benefit.title3 %></td>
-        <td><%= benefit.desc3 %></td>
-        <td><%= benefit.icon3 %></td>
-        <td><%= benefit.title4 %></td>
-        <td><%= benefit.desc4 %></td>
-        <td><%= benefit.icon4 %></td>
-        <td><%= link_to 'Show', benefit %></td>
-        <td><%= link_to 'Edit', edit_benefit_path(benefit) %></td>
-        <td><%= link_to 'Destroy', benefit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Benefit', new_benefit_path %>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+      <h2 class="text-dark-blue"><strong>Beneficios</strong></h2>
+      <ol class="breadcrumb">
+        <li>
+          <a href="<%= url_for :controller => 'home', :action => 'inicio' %>">Inicio</a>
+        </li>
+        <li class="active">
+            <strong class="text-blue">Listado</strong>
+        </li>
+    </ol>
+  </div>
+</div>
+<div class="wrapper wrapper-content">
+   <div class="row">
+      <div class="col-sm-12">
+         <div class="ibox float-e-margins">
+            <div class="ibox-title">
+               <h4 class="text-dark-blue">
+                  <strong>Listado: Sliders</strong>
+               </h4>
+            </div>
+            <div class="ibox-content">
+               <%= link_to "Editar", edit_benefit_path(@benefit), :class => "btn btn-primary btn-sm", style: 'position: absolute; z-index: 9999; margin-top: -30px;'%>
+               <div class="ibox float-e-margins">
+                  <br>
+                  <div class="row">
+                    <div class="col-md-offset-1 col-md-4">
+                       <h2><%= @benefit.title1 %></h2>
+                       <i class="fa <%= @benefit.icon1 %> fa-3x pull-right"></i>
+                       <p><%= @benefit.desc1 %></p>
+                    </div>
+                    <div class="col-md-offset-1 col-md-4">
+                       <h2><%= @benefit.title2 %></h2>
+                       <i class="fa <%= @benefit.icon2 %> fa-3x pull-right"></i>
+                       <p><%= @benefit.desc2 %></p>
+                    </div>
+                  </div>
+                  <br><br>
+                  <div class="row">
+                    <div class="col-md-offset-1 col-md-4">
+                       <h2><%= @benefit.title3 %></h2>
+                       <i class="fa <%= @benefit.icon3 %> fa-3x pull-right"></i>
+                       <p><%= @benefit.desc3 %></p>
+                    </div>
+                    <div class="col-md-offset-1 col-md-4">
+                       <h2><%= @benefit.title4 %></h2>
+                       <i class="fa <%= @benefit.icon4 %> fa-3x pull-right"></i>
+                       <p><%= @benefit.desc4 %></p>
+                    </div>
+                  </div>
+                  <br>
+               </div>
+               
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
