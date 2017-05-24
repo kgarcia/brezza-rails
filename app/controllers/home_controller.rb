@@ -41,8 +41,9 @@ class HomeController < ApplicationController
     @step = Step.first
     @sliders = Slider.all
     @ally = Ally.first
+    @mensaje = Mensaje.new
     render :layout => "empty"
-
+    
   end
   def login
     render :layout => "sinmenu"

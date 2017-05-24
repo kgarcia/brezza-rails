@@ -1,7 +1,7 @@
 class StepsController < ApplicationController
   before_action :set_step, only: [:show, :edit, :update, :destroy]
   before_action :set_meta
-
+  layout "admin"
   # GET /steps
   # GET /steps.json
   def index
@@ -29,7 +29,7 @@ class StepsController < ApplicationController
 
     respond_to do |format|
       if @step.save
-        format.html { redirect_to @step, notice: 'Step was successfully created.' }
+        format.html { redirect_to steps_url, notice: 'Step was successfully created.' }
         format.json { render :show, status: :created, location: @step }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class StepsController < ApplicationController
   def update
     respond_to do |format|
       if @step.update(step_params)
-        format.html { redirect_to @step, notice: 'Step was successfully updated.' }
+        format.html { redirect_to steps_url, notice: 'Step was successfully updated.' }
         format.json { render :show, status: :ok, location: @step }
       else
         format.html { render :edit }

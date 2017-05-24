@@ -1,7 +1,6 @@
 class MensajesController < ApplicationController
   before_action :set_mensaje, only: [:show, :edit, :update, :destroy]
   before_action :set_meta
-
   layout  "admin"
   # GET /mensajes
   # GET /mensajes.json
@@ -32,7 +31,7 @@ class MensajesController < ApplicationController
 
     respond_to do |format|
       if @mensaje.save
-        format.html { redirect_to @mensaje, notice: 'Mensaje was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Mensaje was successfully created.' }
         format.json { render action: 'show', status: :created, location: @mensaje }
       else
         format.html { render action: 'new' }

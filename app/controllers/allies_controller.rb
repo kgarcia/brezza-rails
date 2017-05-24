@@ -1,6 +1,7 @@
 class AlliesController < ApplicationController
   before_action :set_ally, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_meta
+  layout "admin"
   # GET /allies
   # GET /allies.json
   def index
