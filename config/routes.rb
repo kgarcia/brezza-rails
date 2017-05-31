@@ -1,4 +1,9 @@
 Myapp::Application.routes.draw do
+  resources :products
+  resources :contacts
+  resources :categories
+  resources :lilpros
+  resources :tags
   resources :allies
   resources :sliders
   devise_for :users, :controllers => { registrations: 'users/registrations' }
@@ -7,13 +12,12 @@ Myapp::Application.routes.draw do
   resources :whoares
   resources :testimonials
   resources :mensajes
-  resources :mensajes
   get "home/index"
   get "home/minor"
   get "home/inicio"
   get "home/home"
   get "login",  to: "home#login"
-  get "products", to: "home#products"
+  get "productos", to: "home#products"
   get "products/detail", to:"home#detail"
   get "aliarse", to: "home#aliarse"
 

@@ -42,6 +42,10 @@ class HomeController < ApplicationController
     @sliders = Slider.all
     @ally = Ally.first
     @mensaje = Mensaje.new
+    @tags = Tag.all
+    @lilpro = Lilpro.last
+    @contact = Contact.last
+    @categories = Category.all
     render :layout => "empty"
     
   end

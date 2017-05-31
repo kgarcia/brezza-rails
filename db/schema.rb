@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523191951) do
+ActiveRecord::Schema.define(version: 20170531034322) do
 
   create_table "allies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -38,19 +38,55 @@ ActiveRecord::Schema.define(version: 20170523191951) do
   create_table "benefits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "description"
     t.string   "title1"
-    t.string   "desc1"
+    t.text     "desc1",       limit: 65535
     t.string   "icon1"
     t.string   "title2"
-    t.string   "desc2"
+    t.text     "desc2",       limit: 65535
     t.string   "icon2"
     t.string   "title3"
-    t.string   "desc3"
+    t.text     "desc3",       limit: 65535
     t.string   "icon3"
     t.string   "title4"
-    t.string   "desc4"
+    t.text     "desc4",       limit: 65535
     t.string   "icon4"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "fronttext"
+    t.string   "icon"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
+  end
+
+  create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "description", limit: 65535
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.string   "instagram"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "lilpros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.text     "description",        limit: 65535
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "mensajes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -59,6 +95,31 @@ ActiveRecord::Schema.define(version: 20170523191951) do
     t.text     "mensaje",    limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "product_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "product_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_product_tags_on_product_id", using: :btree
+    t.index ["tag_id"], name: "index_product_tags_on_tag_id", using: :btree
+  end
+
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "description"
+    t.text     "detail",             limit: 65535
+    t.string   "author"
+    t.integer  "category_id"
+    t.string   "amount"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "thumb_file_name"
+    t.string   "thumb_content_type"
+    t.integer  "thumb_file_size"
+    t.datetime "thumb_updated_at"
+    t.index ["category_id"], name: "index_products_on_category_id", using: :btree
   end
 
   create_table "sliders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -92,6 +153,17 @@ ActiveRecord::Schema.define(version: 20170523191951) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
+  end
+
   create_table "testimonials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "quote",      limit: 65535
     t.string   "autor"
@@ -122,13 +194,21 @@ ActiveRecord::Schema.define(version: 20170523191951) do
   end
 
   create_table "whoares", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "description"
-    t.string   "brezzastory"
-    t.string   "mission"
-    t.string   "vision"
-    t.string   "history"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.text     "description",                limit: 65535
+    t.text     "brezzastory",                limit: 65535
+    t.text     "mission",                    limit: 65535
+    t.text     "vision",                     limit: 65535
+    t.text     "history",                    limit: 65535
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.text     "organigram",                 limit: 65535
+    t.string   "organigrampic_file_name"
+    t.string   "organigrampic_content_type"
+    t.integer  "organigrampic_file_size"
+    t.datetime "organigrampic_updated_at"
   end
 
+  add_foreign_key "product_tags", "products"
+  add_foreign_key "product_tags", "tags"
+  add_foreign_key "products", "categories"
 end

@@ -37,7 +37,7 @@ $(window).scroll(function(){
 
 
 ///////////////////////////
-
+<% @mistags = Tag.all %>
 $(function () {
         
     var filterList = {
@@ -52,7 +52,7 @@ $(function () {
               filter: '.filter' 
           },
           load: {
-              filter: '.startup, .finanzas, .Clusters, .ecologia, .Multicommerce .sociedad' // show app tab on first load
+              filter: '<% @mistags.each do |tag| %>.<%=tag.name %><% if tag!=@mistags.last %>,<%end%> <%end%>' // show app tab on first load
             }     
             });                             
         

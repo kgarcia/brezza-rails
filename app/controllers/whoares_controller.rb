@@ -29,7 +29,7 @@ class WhoaresController < ApplicationController
 
     respond_to do |format|
       if @whoare.save
-        format.html { redirect_to @whoare, notice: 'Whoare was successfully created.' }
+        format.html { redirect_to whoares_url, notice: 'Whoare was successfully created.' }
         format.json { render :show, status: :created, location: @whoare }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class WhoaresController < ApplicationController
   def update
     respond_to do |format|
       if @whoare.update(whoare_params)
-        format.html { redirect_to @whoare, notice: 'Whoare was successfully updated.' }
+        format.html { redirect_to whoares_url, notice: 'Whoare was successfully updated.' }
         format.json { render :show, status: :ok, location: @whoare }
       else
         format.html { render :edit }
@@ -70,6 +70,6 @@ class WhoaresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def whoare_params
-      params.require(:whoare).permit(:description, :brezzastory, :mission, :vision, :history)
+      params.require(:whoare).permit(:description, :brezzastory, :mission, :vision, :history, :organigram, :organigrampic)
     end
 end

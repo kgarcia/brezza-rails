@@ -53,22 +53,25 @@
                         <div class="field">
                            <%= f.label :Icono %>
                            <select class="fa" name="benefit[icon1]" id="benefit_icon1">
-                              <option value="fa-home">&#xf015; icon-home</option>
-                              <option value="fa-road">&#xf018; icon-road</option>
-                              <option value="fa-glass">&#xf000; icon-glass</option>
-                              <option value="fa-music">&#xf001; icon-music</option>
-                              <option value="fa-search">&#xf002; icon-search</option>
-                              <option value="fa-envelope-alt">&#xf003; icon-envelope-alt</option>
-                              <option value="fa-heart">&#xf004; icon-heart</option>
-                              <option value="fa-star">&#xf005; icon-star</option>
-                              <option value="fa-star-empty">&#xf006; icon-star-empty</option>
-                              <option value="fa-user">&#xf007; icon-user</option>
-                              <option value="fa-film">&#xf008; icon-film</option>
-                              <option value="fa-th-large">&#xf009; icon-th-large</option>
-                              <option value="fa-th">&#xf00a; icon-th</option>
-                              <option value="fa-th-list">&#xf00b; icon-th-list</option>
-                              <option value="fa-ok">&#xf00c; icon-ok</option>
-                              <option value="fa-remove">&#xf00d; icon-remove</option>
+                              <% if !@benefit.new_record? %>
+                              <option value="<%= @benefit.icon1 %>"><%= @benefit.icon1 %></option>
+                              <% end %>
+                              <option value="fa-home">&#xf015; fa-home</option>
+                              <option value="fa-road">&#xf018; fa-road</option>
+                              <option value="fa-glass">&#xf000; fa-glass</option>
+                              <option value="fa-music">&#xf001; fa-music</option>
+                              <option value="fa-search">&#xf002; fa-search</option>
+                              <option value="fa-envelope-alt">&#xf003; fa-envelope-alt</option>
+                              <option value="fa-heart">&#xf004; fa-heart</option>
+                              <option value="fa-star">&#xf005; fa-star</option>
+                              <option value="fa-star-empty">&#xf006; fa-star-empty</option>
+                              <option value="fa-user">&#xf007; fa-user</option>
+                              <option value="fa-film">&#xf008; fa-film</option>
+                              <option value="fa-th-large">&#xf009; fa-th-large</option>
+                              <option value="fa-th">&#xf00a; fa-th</option>
+                              <option value="fa-th-list">&#xf00b; fa-th-list</option>
+                              <option value="fa-ok">&#xf00c; fa-ok</option>
+                              <option value="fa-remove">&#xf00d; fa-remove</option>
                            </select>
                         </div>
                      </div>
@@ -84,22 +87,25 @@
                         <div class="field">
                            <%= f.label :icon2 %>
                            <select class="fa" name="benefit[icon2]" id="benefit_icon2">
-                              <option value="fa-home">&#xf015; icon-home</option>
-                              <option value="fa-road">&#xf018; icon-road</option>
-                              <option value="fa-glass">&#xf000; icon-glass</option>
-                              <option value="fa-music">&#xf001; icon-music</option>
-                              <option value="fa-search">&#xf002; icon-search</option>
-                              <option value="fa-envelope-alt">&#xf003; icon-envelope-alt</option>
-                              <option value="fa-heart">&#xf004; icon-heart</option>
-                              <option value="fa-star">&#xf005; icon-star</option>
-                              <option value="fa-star-empty">&#xf006; icon-star-empty</option>
-                              <option value="fa-user">&#xf007; icon-user</option>
-                              <option value="fa-film">&#xf008; icon-film</option>
-                              <option value="fa-th-large">&#xf009; icon-th-large</option>
-                              <option value="fa-th">&#xf00a; icon-th</option>
-                              <option value="fa-th-list">&#xf00b; icon-th-list</option>
-                              <option value="fa-ok">&#xf00c; icon-ok</option>
-                              <option value="fa-remove">&#xf00d; icon-remove</option>
+                              <% if !(@benefit.new_record?) %>
+                              <option value="<%= @benefit.icon2 %>"><%= @benefit.icon2 %></option>
+                              <% end %>
+                              <option value="fa-home">&#xf015; fa-home</option>
+                              <option value="fa-road">&#xf018; fa-road</option>
+                              <option value="fa-glass">&#xf000; fa-glass</option>
+                              <option value="fa-music">&#xf001; fa-music</option>
+                              <option value="fa-search">&#xf002; fa-search</option>
+                              <option value="fa-envelope-alt">&#xf003; fa-envelope-alt</option>
+                              <option value="fa-heart">&#xf004; fa-heart</option>
+                              <option value="fa-star">&#xf005; fa-star</option>
+                              <option value="fa-star-empty">&#xf006; fa-star-empty</option>
+                              <option value="fa-user">&#xf007; fa-user</option>
+                              <option value="fa-film">&#xf008; fa-film</option>
+                              <option value="fa-th-large">&#xf009; fa-th-large</option>
+                              <option value="fa-th">&#xf00a; fa-th</option>
+                              <option value="fa-th-list">&#xf00b; fa-th-list</option>
+                              <option value="fa-ok">&#xf00c; fa-ok</option>
+                              <option value="fa-remove">&#xf00d; fa-remove</option>
                            </select>
                         </div>
                      </div>
@@ -118,22 +124,25 @@
                         <div class="field">
                            <%= f.label :icon3 %>
                            <select class="fa" name="benefit[icon3]" id="benefit_icon3">
-                              <option value="fa-home">&#xf015; icon-home</option>
-                              <option value="fa-road">&#xf018; icon-road</option>
-                              <option value="fa-glass">&#xf000; icon-glass</option>
-                              <option value="fa-music">&#xf001; icon-music</option>
-                              <option value="fa-search">&#xf002; icon-search</option>
-                              <option value="fa-envelope-alt">&#xf003; icon-envelope-alt</option>
-                              <option value="fa-heart">&#xf004; icon-heart</option>
-                              <option value="fa-star">&#xf005; icon-star</option>
-                              <option value="fa-star-empty">&#xf006; icon-star-empty</option>
-                              <option value="fa-user">&#xf007; icon-user</option>
-                              <option value="fa-film">&#xf008; icon-film</option>
-                              <option value="fa-th-large">&#xf009; icon-th-large</option>
-                              <option value="fa-th">&#xf00a; icon-th</option>
-                              <option value="fa-th-list">&#xf00b; icon-th-list</option>
-                              <option value="fa-ok">&#xf00c; icon-ok</option>
-                              <option value="fa-remove">&#xf00d; icon-remove</option>
+                              <% if !@benefit.new_record? %>
+                              <option value="<%= @benefit.icon3 %>"><%= @benefit.icon3 %></option>
+                              <% end %>
+                              <option value="fa-home">&#xf015; fa-home</option>
+                              <option value="fa-road">&#xf018; fa-road</option>
+                              <option value="fa-glass">&#xf000; fa-glass</option>
+                              <option value="fa-music">&#xf001; fa-music</option>
+                              <option value="fa-search">&#xf002; fa-search</option>
+                              <option value="fa-envelope-alt">&#xf003; fa-envelope-alt</option>
+                              <option value="fa-heart">&#xf004; fa-heart</option>
+                              <option value="fa-star">&#xf005; fa-star</option>
+                              <option value="fa-star-empty">&#xf006; fa-star-empty</option>
+                              <option value="fa-user">&#xf007; fa-user</option>
+                              <option value="fa-film">&#xf008; fa-film</option>
+                              <option value="fa-th-large">&#xf009; fa-th-large</option>
+                              <option value="fa-th">&#xf00a; fa-th</option>
+                              <option value="fa-th-list">&#xf00b; fa-th-list</option>
+                              <option value="fa-ok">&#xf00c; fa-ok</option>
+                              <option value="fa-remove">&#xf00d; fa-remove</option>
                            </select>
                         </div>
                      </div>
@@ -149,22 +158,25 @@
                         <div class="field">
                            <%= f.label :icon4 %>
                            <select class="fa" name="benefit[icon4]" id="benefit_icon4">
-                              <option value="fa-home">&#xf015; icon-home</option>
-                              <option value="fa-road">&#xf018; icon-road</option>
-                              <option value="fa-glass">&#xf000; icon-glass</option>
-                              <option value="fa-music">&#xf001; icon-music</option>
-                              <option value="fa-search">&#xf002; icon-search</option>
-                              <option value="fa-envelope-alt">&#xf003; icon-envelope-alt</option>
-                              <option value="fa-heart">&#xf004; icon-heart</option>
-                              <option value="fa-star">&#xf005; icon-star</option>
-                              <option value="fa-star-empty">&#xf006; icon-star-empty</option>
-                              <option value="fa-user">&#xf007; icon-user</option>
-                              <option value="fa-film">&#xf008; icon-film</option>
-                              <option value="fa-th-large">&#xf009; icon-th-large</option>
-                              <option value="fa-th">&#xf00a; icon-th</option>
-                              <option value="fa-th-list">&#xf00b; icon-th-list</option>
-                              <option value="fa-ok">&#xf00c; icon-ok</option>
-                              <option value="fa-remove">&#xf00d; icon-remove</option>
+                              <% if !@benefit.new_record? %>
+                              <option value="<%= @benefit.icon4 %>"><%= @benefit.icon4 %></option>
+                              <% end %>
+                              <option value="fa-home">&#xf015; fa-home</option>
+                              <option value="fa-road">&#xf018; fa-road</option>
+                              <option value="fa-glass">&#xf000; fa-glass</option>
+                              <option value="fa-music">&#xf001; fa-music</option>
+                              <option value="fa-search">&#xf002; fa-search</option>
+                              <option value="fa-envelope-alt">&#xf003; fa-envelope-alt</option>
+                              <option value="fa-heart">&#xf004; fa-heart</option>
+                              <option value="fa-star">&#xf005; fa-star</option>
+                              <option value="fa-star-empty">&#xf006; fa-star-empty</option>
+                              <option value="fa-user">&#xf007; fa-user</option>
+                              <option value="fa-film">&#xf008; fa-film</option>
+                              <option value="fa-th-large">&#xf009; fa-th-large</option>
+                              <option value="fa-th">&#xf00a; fa-th</option>
+                              <option value="fa-th-list">&#xf00b; fa-th-list</option>
+                              <option value="fa-ok">&#xf00c; fa-ok</option>
+                              <option value="fa-remove">&#xf00d; fa-remove</option>
                            </select>
                         </div>
                      </div>

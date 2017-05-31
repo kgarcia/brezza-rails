@@ -58,7 +58,7 @@
                </p>
             </div>
             <div class="carousel-image wow slideInRight" data-wow-delay="1.2s">
-               <%= image_tag slider.imagen.url %>
+               <%= image_tag slider.imagen.url, :alt => "Slider principal", :title => "Slider principal" %>
             </div>
          </div>
          <!-- Set background for slide in css -->
@@ -77,7 +77,7 @@
             </div>
             <% if !slider.imagen_file_name.nil? %>
             <div class="carousel-image wow slideInRight" data-wow-delay="1.2s">
-                  <%= image_tag slider.imagen.url(:medium) %>
+                  <%= image_tag slider.imagen.url(:medium, :alt => "Slider principal", :title => "Slider principal") %>
             </div>
             <% end %>
          </div>
@@ -140,44 +140,44 @@
       <div class="row">
          <div class="col-lg-12 text-center">
             <div class="navy-line"></div>
-            <h1>Más de 10 productos<br/> <span class="navy"> que cambiarán el mundo</span> </h1>
-            <p>Servicios diferenciados diseñados para abordar nichos desatendidos<br/> dentro de mega tendencias globales relacionadas con la nueva arquitectura financiera mundial</p>
+            <h1><%= @lilpro.title %> </h1>
+            <p><%= @lilpro.description %></p>
          </div>
       </div>
       <div class="row">
          <div class="col-md-3 text-center wow fadeInLeft">
             <div>
                <%= link_to products_path do %>
-               <i class="fa fa-mobile features-icon"></i>
-               <h2><%= link_to 'Aplicaciones', products_path, class: "btn btn-primary"  %></h2>
+               <i class="fa <%= @categories.first.icon %> features-icon"></i>
+               <h2><%= link_to @categories.first.name, @categories.first, class: "btn btn-primary"  %></h2>
                <% end %>
-               <p>Desarrolladas por gente joven y con un mercado en continuo crecimiento.</p>
+               <p><%= @categories.first.fronttext %></p>
             </div>
             <div class="m-t-lg">
-               <%= link_to root_path do %> 
-               <i class="fa fa-street-view features-icon"></i>
-               <h2><%= link_to 'Responsabilidad Social', root_path, class: "btn btn-primary"  %></h2>
+               <%= link_to products_path do %>
+               <i class="fa <%= @categories.find(2).icon %> features-icon"></i>
+               <h2><%= link_to @categories.find(2).name, @categories.find(2), class: "btn btn-primary"  %></h2>
                <% end %>
-               <p>Ya no es una moda o tendencia, sino es un factor decisivo para el desarrollo sostenible de un país.</p>
+               <p><%= @categories.find(2).fronttext %></p>
             </div>
          </div>
          <div class="col-md-6 text-center  wow zoomIn">
-            <img src="<%= image_path('landing/perspective.png') %>" alt="dashboard" class="img-responsive">
+            <%= image_tag @lilpro.image.url(:medium), :class => "img-responsive", :alt => "Categorías", :title => "Categorías" %>
          </div>
          <div class="col-md-3 text-center wow fadeInRight">
             <div>
-               <%= link_to root_path do %>
-               <i class="fa fa-connectdevelop features-icon"></i>
-               <h2><%= link_to 'Franquicias', root_path, class: "btn btn-primary"  %></h2>
+               <%= link_to products_path do %>
+               <i class="fa <%= @categories.find(3).icon %> features-icon"></i>
+               <h2><%= link_to @categories.find(3).name, @categories.find(3), class: "btn btn-primary"  %></h2>
                <% end %>
-               <p>Una de las claves para llevar con éxito el negocio es el trabajo en equipo.</p>
+               <p><%= @categories.find(3).fronttext %></p>
             </div>
             <div class="m-t-lg">
-               <%= link_to root_path do %>
-               <i class="fa fa-skyatlas features-icon"></i>
-               <h2><%= link_to 'Multiplataformas', root_path, class: "btn btn-primary" %></h2>
+              <%= link_to products_path do %>
+               <i class="fa <%= @categories.find(4).icon %> features-icon"></i>
+               <h2><%= link_to @categories.find(4).name, @categories.find(4), class: "btn btn-primary"  %></h2>
                <% end %>
-               <p>Creando, desarrollando y/o adaptando nuestras estrategias para amoldarnos a los nuevos hábitos.</p>
+               <p><%= @categories.find(4).fronttext %></p>
             </div>
          </div>
       </div>
@@ -188,71 +188,68 @@
       <div class="row">
          <div class="col-lg-12 text-center wow zoomIn">
             <div class="navy-line"></div>
-            <h1>Catálogo</h1>
+            <h1>Portafolio</h1>
             <p>Productos y servicios que ofrece Brezza Project, S.A.</p>
          </div>
       </div>
       <div class="row" style="margin-bottom: 40px;">
          <ul id="filters" class="clearfix">
-            <li><span class="filter active" data-filter=".startup, .finanzas, .Clusters, .ecologia, .Multicommerce .sociedad">Todos</span></li>
-            <li><span class="filter" data-filter=".startup">Startups</span></li>
-            <li><span class="filter" data-filter=".finanzas">Finanzas</span></li>
-            <li><span class="filter" data-filter=".Clusters">Clusters</span></li>
-            <li><span class="filter" data-filter=".ecologia">Energía</span></li>
-            <li><span class="filter" data-filter=".Multicommerce">Multicommerce</span></li>
-            <li><span class="filter" data-filter=".sociedad">Sociedad</span></li>
+            <li><span class="filter active" data-filter="<% @tags.each do |tag| %>.<%=tag.name %><% if tag!=@tags.last %>,<%end%><%end%>">Todos</span></li>
+            <% @tags.each do |tag| %>
+               <li><span class="filter" data-filter=".<%= tag.name %>"><%= tag.name %></span></li>
+            <%end %>
          </ul>
          <div style=" height: 400px;vertical-align:middle;">
             <div id="portfoliolist">
-               <div class="portfolio startup" data-cat="startup">
+               <div class="portfolio Startups" data-cat="Startups">
                   <div class="portfolio-wrapper">
                      <img src="<%= image_url '/assets/portfolio/valor.jpg' %>" alt="" />
                      <div class="label">
                         <div class="label-text">
                            <a class="text-title">Ideal Value</a> 
-                           <span class="text-category">#Startup</span>
+                           <span class="text-category">Startup</span>
                         </div>
                         <div class="label-bg"> </div>
                      </div>
                   </div>
                </div>
-               <div class="portfolio finanzas Multicommerce" data-cat="finanzas Multicommerce">
+               <div class="portfolio Finanzas Multi-commerce" data-cat="Finanzas Multi-commerce">
                   <div class="portfolio-wrapper">
                      <img src="<%= image_url '/assets/portfolio/scoring.jpeg' %>" alt="" />
                      <div class="label">
                         <div class="label-text">
                            <a class="text-title">New-Scoring</a> 
-                           <span class="text-category">#finanzas #Multicommerce</span>
+                           <span class="text-category">finanzas Multi-commerce</span>
                         </div>
                         <div class="label-bg"> </div>
                      </div>
                   </div>
                </div>
-               <div class="portfolio startup" data-cat="startup">
+               <div class="portfolio Startups" data-cat="Startups">
                   <div class="portfolio-wrapper">
                      <img src="<%= image_url '/assets/portfolio/crowd2.jpg' %>" alt="" />
                      <div class="label">
                         <div class="label-text">
                            <a class="text-title">Crowd-Pocket</a> 
-                           <span class="text-category">#Startup</span>
+                           <span class="text-category">Startup</span>
                         </div>
                         <div class="label-bg"> </div>
                      </div>
                   </div>
                </div>
-               <div class="portfolio Multicommerce ecologia" data-cat="Multicommerce ecologia">
+               <div class="portfolio Multi-commerce Energía" data-cat="Multi-commerce Energía">
                   <div class="portfolio-wrapper">
                      <img src="<%= image_url '/assets/portfolio/Portfolio-pic6.jpg' %>" alt="" />
                      <div class="label">
                         <div class="label-text">
                            <a class="text-title">Brezza Energy</a> 
-                           <span class="text-category">#Multicommerce - #Energía</span>
+                           <span class="text-category">Multi-commerce - Energía</span>
                         </div>
                         <div class="label-bg"> </div>
                      </div>
                   </div>
                </div>
-               <div class="portfolio Clusters startup" data-cat="Clusters startup">
+               <div class="portfolio Clusters Startups" data-cat="Clusters Startups">
                   <div class="portfolio-wrapper">
                      <img src="<%= image_url '/assets/portfolio/cafe.jpg' %>" alt="" />
                      <div class="label">
@@ -264,7 +261,7 @@
                      </div>
                   </div>
                </div>
-               <div class="portfolio Clusters ecologia" data-cat="Clusters ecologia">
+               <div class="portfolio Clusters Energía" data-cat="Clusters Energía">
                   <div class="portfolio-wrapper">
                      <img src="<%= image_url '/assets/portfolio/bosque.jpg' %>" alt="" />
                      <div class="label">
@@ -276,7 +273,7 @@
                      </div>
                   </div>
                </div>
-               <div class="portfolio Clusters ecologia" data-cat="Clusters ecologia">
+               <div class="portfolio Clusters Energía" data-cat="Clusters Energía">
                   <div class="portfolio-wrapper">
                      <img src="<%= image_url '/assets/p7.jpg' %>" alt="" />
                      <div class="label">
@@ -288,7 +285,7 @@
                      </div>
                   </div>
                </div>
-               <div class="portfolio Clusters ecologia Multicommerce" data-cat="Clusters ecologia Multicommerce">
+               <div class="portfolio Clusters Energía Multi-commerce" data-cat="Clusters Energía Multi-commerce">
                   <div class="portfolio-wrapper">
                      <img src="<%= image_url '/assets/p8.jpg' %>" alt="" />
                      <div class="label">
@@ -453,7 +450,7 @@
                   </div>
                   <div id="collapseFive1" class="panel-collapse collapse">
                      <div class="panel-body">
-                        <p>El equipo de Brezza Project, s.a., trabaja en torno a una estructura matricial por cuanto todos los departamentos participan en el ciclo de vida de los proyectos y productos de la corporación. La organización responde también a criterios de estructura circular, por comité y en red, según la dinámica de sus requerimientos.</p>
+                        <p><%= @whoare.organigram %></p>
                         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">Organigrama</button>
                         <!-- Modal -->
                         <div class="modal fade" id="myModal2" role="dialog">
@@ -465,8 +462,9 @@
                                     <h4 class="modal-title">Organigrama</h4>
                                  </div>
                                  <div class="modal-body">
-                                    <p>El equipo de Brezza Project, s.a., trabaja en torno a una estructura matricial por cuanto todos los departamentos participan en el ciclo de vida de los proyectos y productos de la corporación. La organización responde también a criterios de estructura circular, por comité y en red, según la dinámica de sus requerimientos.</p>
-                                    <%= image_tag "landing/org.png", :class=>"img-responsive" %>
+                                    <p><%= @whoare.organigram %></p>
+                                    <%= image_tag @whoare.organigrampic.url(:medium), :alt => "Organigrama", :title => "Organigrama", :class => "img-responsive" %>
+                                    
                                  </div>
                                  <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
@@ -588,9 +586,7 @@
                <li>
                   <%= @ally.t5 %>
                </li>
-               <li>
-                  <a class="btn btn-primary btn-xs" href="/aliarse">Registrarse</a>
-               </li>
+               
             </ul>
          </div>
          <div class="col-lg-4 wow zoomIn">
@@ -616,9 +612,7 @@
                <li>
                   <strong><%= @ally.f6 %></strong>
                </li>
-               <li class="plan-action">
-                  <a class="btn btn-primary btn-xs" href="/aliarse">Registrarse</a>
-               </li>
+               
             </ul>
          </div>
          <div class="col-lg-4 wow zoomIn">
@@ -641,15 +635,14 @@
                <li>
                   <%= @ally.c5 %>
                </li>
-               <li>
-                  <a class="btn btn-primary btn-xs" href="/aliarse">Registrarse</a>
-               </li>
+               
             </ul>
          </div>
       </div>
-      <div class="row m-t-lg">
-         <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg">
-            <p>* Al registrarse usted debe aceptar un acuerdo de confidencialidad bajo nuestros terminos y condiciones.</p>
+      </br></br>
+      <div class="row">
+         <div class="col-lg-12  text-center m-t-lg">
+            <a class="btn btn-primary btn-lg" href="/products" style="width:730px">SELECCIONA EL PRODUCTO DE TU PREFERENCIA</a>
          </div>
       </div>
    </div>
@@ -660,16 +653,16 @@
          <div class="col-lg-12 text-center">
             <div class="navy-line"></div>
             <h1>Contáctanos</h1>
-            <p>Déjanos tu mensaje y te atenderemos a la brevedad</p>
+            <p><%= @contact.description %></p>
          </div>
       </div>
       <div class="row m-b-lg">
          <div class="col-lg-3 col-lg-offset-2">
             <br><br>
-            <address>
-               <strong><span class="navy">Brezza Project, S.A.</span></strong><br/>
-               Barquisimeto, Lara, Venezuela<br/>
-               <abbr title="Phone">Teléfono:</abbr> +58 (251) 2317335
+            <address align="center">
+               <strong><span class="navy"><%= @contact.name %></span></strong><br/>
+               <%= @contact.address %><br/>
+               <abbr title="Phone">Teléfono:</abbr> <%= @contact.phone %>
             </address>
             <br><br>
             <div class="col-lg-12 text-center">
@@ -677,11 +670,11 @@
                   Síguenos en nuestras redes sociales
                </p>
                <ul class="list-inline social-icon">
-                  <li><a target="_blank" href="https://twitter.com/brezzaproject/"><i class="fa fa-twitter"></i></a>
+                  <li><a target="_blank" href="<%= @contact.twitter %>/"><i class="fa fa-twitter"></i></a>
                   </li>
-                  <li><a target="_blank" href="https://www.facebook.com/brezzaproject/"><i class="fa fa-facebook"></i></a>
+                  <li><a target="_blank" href="<%= @contact.facebook %>"><i class="fa fa-facebook"></i></a>
                   </li>
-                  <li><a target="_blank" href="https://www.instagram.com/brezzaproject/"><i class="fa fa-instagram"></i></a>
+                  <li><a target="_blank" href="<%= @contact.instagram %>"><i class="fa fa-instagram"></i></a>
                   </li>
                </ul>
             </div>
