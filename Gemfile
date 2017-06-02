@@ -64,8 +64,7 @@ end
 
 group :production do
 # Use unicorn as the app server
-  gem 'unicorn'
-  gem 'mysql2'
+  #gem 'unicorn'
 end
 
 
@@ -76,6 +75,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
+gem 'devise-i18n'
 
 
 # Use ActiveModel has_secure_password
@@ -96,6 +96,8 @@ gem 'mixitup_rails'
 gem 'devise'
 gem 'paperclip'
 gem 'carrierwave'
+gem "select2-rails"
+gem 'sitemap_generator'
 
 
 gem 'bootstrap-colorpicker-rails'

@@ -1,7 +1,7 @@
 class TestimonialsController < ApplicationController
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
   before_action :set_meta
-
+  layout "admin"
   # GET /testimonials
   # GET /testimonials.json
   def index
@@ -30,7 +30,7 @@ class TestimonialsController < ApplicationController
 
     respond_to do |format|
       if @testimonial.save
-        format.html { redirect_to @testimonial, notice: 'Testimonial was successfully created.' }
+        format.html { redirect_to testimonials_url, notice: 'Testimonial was successfully created.' }
         format.json { render :show, status: :created, location: @testimonial }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class TestimonialsController < ApplicationController
   def update
     respond_to do |format|
       if @testimonial.update(testimonial_params)
-        format.html { redirect_to @testimonial, notice: 'Testimonial was successfully updated.' }
+        format.html { redirect_to testimonials_url, notice: 'Testimonial was successfully updated.' }
         format.json { render :show, status: :ok, location: @testimonial }
       else
         format.html { render :edit }

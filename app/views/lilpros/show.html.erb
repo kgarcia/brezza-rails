@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @lilpro.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @lilpro.description %>
+</p>
+
+<%= link_to 'Edit', edit_lilpro_path(@lilpro) %> |
+<%= link_to 'Back', lilpros_path %>

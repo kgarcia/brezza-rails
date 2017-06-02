@@ -54,6 +54,11 @@
                         <i class="fa fa-cube"></i> <span class="nav-label">Beneficios</span>
                         <% end %>
                     </li>
+                    <li class="<%= 'active' if current_page?('/lilpros') %>">
+                        <%= link_to lilpros_path do %>
+                        <i class="fa fa-cube"></i> <span class="nav-label">Productos</span>
+                        <% end %>
+                    </li>
                     <li class="<%= 'active' if current_page?('/testimonials') %>">
                         <%= link_to testimonials_path do %>
                         <i class="fa fa-cube"></i> <span class="nav-label">Testimonios</span>
@@ -72,6 +77,11 @@
                      <li class="<%= 'active' if current_page?('/allies') %>">
                         <%= link_to allies_path do %>
                         <i class="fa fa-cube"></i> <span class="nav-label">Aliados</span>
+                        <% end %>
+                    </li>
+                    <li class="<%= 'active' if current_page?('/contacts') %>">
+                        <%= link_to contacts_path do %>
+                        <i class="fa fa-cube"></i> <span class="nav-label">Contácto</span>
                         <% end %>
                     </li>
                     
@@ -138,6 +148,11 @@
                     <li class="<%= 'active' if current_page?('/benefits') %>">
                         <%= link_to benefits_path do %>
                         <i class="fa fa-cube"></i> <span class="nav-label">Beneficios</span>
+                        <% end %>
+                    </li>
+                    <li class="<%= 'active' if current_page?('/lilpros') %>">
+                        <%= link_to lilpros_path do %>
+                        <i class="fa fa-cube"></i> <span class="nav-label">Productos</span>
                         <% end %>
                     </li>
                     <li class="<%= 'active' if current_page?('/testimonials') %>">

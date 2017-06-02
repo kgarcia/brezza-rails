@@ -22,6 +22,7 @@
 //= require mixitup
 //= require bootstrap-colorpicker
 //= require jquery.minicolors
+//= require select2
 //= require turbolinks
 //= require_tree .
 

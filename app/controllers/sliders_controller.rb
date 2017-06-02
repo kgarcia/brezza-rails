@@ -1,7 +1,7 @@
 class SlidersController < ApplicationController
   before_action :set_slider, only: [:show, :edit, :update, :destroy]
   before_action :set_meta
-
+  layout "admin"
   # GET /sliders
   # GET /sliders.json
   def index

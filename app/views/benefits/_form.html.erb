@@ -1,154 +1,204 @@
-<%= form_for(benefit) do |f| %>
-  <% if benefit.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(benefit.errors.count, "error") %> prohibited this benefit from being saved:</h2>
-
-      <ul>
-      <% benefit.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :Descripcion %>
-    <%= f.text_field :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :Beneficio_1 %>
-    <%= f.text_field :title1 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :Descripcion_beneficio_1 %>
-    <%= f.text_field :desc1 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :Icono %>
-    <select class="fa" name="benefit[icon1]" id="benefit_icon1">
-        <option value="fa-home">&#xf015; icon-home</option>
-        <option value="fa-road">&#xf018; icon-road</option>
-        <option value="fa-glass">&#xf000; icon-glass</option>
-        <option value="fa-music">&#xf001; icon-music</option>
-        <option value="fa-search">&#xf002; icon-search</option>
-        <option value="fa-envelope-alt">&#xf003; icon-envelope-alt</option>
-        <option value="fa-heart">&#xf004; icon-heart</option>
-        <option value="fa-star">&#xf005; icon-star</option>
-        <option value="fa-star-empty">&#xf006; icon-star-empty</option>
-        <option value="fa-user">&#xf007; icon-user</option>
-        <option value="fa-film">&#xf008; icon-film</option>
-        <option value="fa-th-large">&#xf009; icon-th-large</option>
-        <option value="fa-th">&#xf00a; icon-th</option>
-        <option value="fa-th-list">&#xf00b; icon-th-list</option>
-        <option value="fa-ok">&#xf00c; icon-ok</option>
-        <option value="fa-remove">&#xf00d; icon-remove</option>
-    </select> 
-       
-  </div>
-
-  <div class="field">
-    <%= f.label :title2 %>
-    <%= f.text_field :title2 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :desc2 %>
-    <%= f.text_field :desc2 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :icon2 %>
-    <select class="fa" name="benefit[icon2]" id="benefit_icon2">
-        <option value="fa-home">&#xf015; icon-home</option>
-        <option value="fa-road">&#xf018; icon-road</option>
-        <option value="fa-glass">&#xf000; icon-glass</option>
-        <option value="fa-music">&#xf001; icon-music</option>
-        <option value="fa-search">&#xf002; icon-search</option>
-        <option value="fa-envelope-alt">&#xf003; icon-envelope-alt</option>
-        <option value="fa-heart">&#xf004; icon-heart</option>
-        <option value="fa-star">&#xf005; icon-star</option>
-        <option value="fa-star-empty">&#xf006; icon-star-empty</option>
-        <option value="fa-user">&#xf007; icon-user</option>
-        <option value="fa-film">&#xf008; icon-film</option>
-        <option value="fa-th-large">&#xf009; icon-th-large</option>
-        <option value="fa-th">&#xf00a; icon-th</option>
-        <option value="fa-th-list">&#xf00b; icon-th-list</option>
-        <option value="fa-ok">&#xf00c; icon-ok</option>
-        <option value="fa-remove">&#xf00d; icon-remove</option>
-    </select> 
-       
-  </div>
-
-  <div class="field">
-    <%= f.label :title3 %>
-    <%= f.text_field :title3 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :desc3 %>
-    <%= f.text_field :desc3 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :icon3 %>
-    <select class="fa" name="benefit[icon3]" id="benefit_icon3">
-        <option value="fa-home">&#xf015; icon-home</option>
-        <option value="fa-road">&#xf018; icon-road</option>
-        <option value="fa-glass">&#xf000; icon-glass</option>
-        <option value="fa-music">&#xf001; icon-music</option>
-        <option value="fa-search">&#xf002; icon-search</option>
-        <option value="fa-envelope-alt">&#xf003; icon-envelope-alt</option>
-        <option value="fa-heart">&#xf004; icon-heart</option>
-        <option value="fa-star">&#xf005; icon-star</option>
-        <option value="fa-star-empty">&#xf006; icon-star-empty</option>
-        <option value="fa-user">&#xf007; icon-user</option>
-        <option value="fa-film">&#xf008; icon-film</option>
-        <option value="fa-th-large">&#xf009; icon-th-large</option>
-        <option value="fa-th">&#xf00a; icon-th</option>
-        <option value="fa-th-list">&#xf00b; icon-th-list</option>
-        <option value="fa-ok">&#xf00c; icon-ok</option>
-        <option value="fa-remove">&#xf00d; icon-remove</option>
-    </select> 
-       
-  </div>
-
-  <div class="field">
-    <%= f.label :title4 %>
-    <%= f.text_field :title4 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :desc4 %>
-    <%= f.text_field :desc4 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :icon4 %>
-    <select class="fa" name="benefit[icon4]" id="benefit_icon4">
-        <option value="fa-home">&#xf015; icon-home</option>
-        <option value="fa-road">&#xf018; icon-road</option>
-        <option value="fa-glass">&#xf000; icon-glass</option>
-        <option value="fa-music">&#xf001; icon-music</option>
-        <option value="fa-search">&#xf002; icon-search</option>
-        <option value="fa-envelope-alt">&#xf003; icon-envelope-alt</option>
-        <option value="fa-heart">&#xf004; icon-heart</option>
-        <option value="fa-star">&#xf005; icon-star</option>
-        <option value="fa-star-empty">&#xf006; icon-star-empty</option>
-        <option value="fa-user">&#xf007; icon-user</option>
-        <option value="fa-film">&#xf008; icon-film</option>
-        <option value="fa-th-large">&#xf009; icon-th-large</option>
-        <option value="fa-th">&#xf00a; icon-th</option>
-        <option value="fa-th-list">&#xf00b; icon-th-list</option>
-        <option value="fa-ok">&#xf00c; icon-ok</option>
-        <option value="fa-remove">&#xf00d; icon-remove</option>
-    </select> 
-       
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<div class="row wrapper border-bottom white-bg page-heading">
+   <div class="col-lg-10">
+      <h2 class="text-dark-blue"><strong>Beneficio</strong></h2>
+      <ol class="breadcrumb">
+         <li>
+            <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+         </li>
+         <li>
+            <a href="/benefits">Listado</a>
+         </li>
+         <li class="active">
+            <strong class="text-blue">Editar Beneficios</strong>         
+         </li>
+      </ol>
+   </div>
+</div>
+<div class="wrapper wrapper-content">
+   <div class="col-sm-2"></div>
+   <div class="col-sm-8">
+      <div class="ibox float-e-margins">
+         <div class="ibox-title">
+            <h4 class="text-dark-blue"><strong>Beneficios</strong></h4>
+         </div>
+         <div class="ibox-content">
+            <div class="row">
+               <div class="col-sm-12">
+                  <%= form_for(benefit) do |f| %>
+                  <% if benefit.errors.any? %>
+                  <div id="error_explanation">
+                     <h2><%= pluralize(benefit.errors.count, "error") %> prohibited this benefit from being saved:</h2>
+                     <ul>
+                        <% benefit.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                        <% end %>
+                     </ul>
+                  </div>
+                  <% end %>
+                  <div class="form-group">
+                     <label class="control-label">Descripción de la sección<label for="slider_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                     <%= f.text_field :description,:required => true, :class => "form-control" %>
+                  </div>
+                  </br> 
+                  <div class="row">
+                     <div class="col-sm-offset-1 col-sm-4">
+                        <div class="form-group">
+                           <label class="control-label">Beneficio 1 <label for="slider_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                           <%= f.text_field :title1,:required => true, :class => "form-control" %>
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label">Descripción <label for="slider_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                           <%= f.text_area :desc1,:required => true, :class => "form-control" %>
+                        </div>
+                        <div class="field">
+                           <%= f.label :Icono %>
+                           <select class="fa" name="benefit[icon1]" id="benefit_icon1">
+                              <% if !@benefit.new_record? %>
+                              <option value="<%= @benefit.icon1 %>"><%= @benefit.icon1 %></option>
+                              <% end %>
+                              <option value="fa-home">&#xf015; fa-home</option>
+                              <option value="fa-road">&#xf018; fa-road</option>
+                              <option value="fa-glass">&#xf000; fa-glass</option>
+                              <option value="fa-music">&#xf001; fa-music</option>
+                              <option value="fa-search">&#xf002; fa-search</option>
+                              <option value="fa-envelope-alt">&#xf003; fa-envelope-alt</option>
+                              <option value="fa-heart">&#xf004; fa-heart</option>
+                              <option value="fa-star">&#xf005; fa-star</option>
+                              <option value="fa-star-empty">&#xf006; fa-star-empty</option>
+                              <option value="fa-user">&#xf007; fa-user</option>
+                              <option value="fa-film">&#xf008; fa-film</option>
+                              <option value="fa-th-large">&#xf009; fa-th-large</option>
+                              <option value="fa-th">&#xf00a; fa-th</option>
+                              <option value="fa-th-list">&#xf00b; fa-th-list</option>
+                              <option value="fa-ok">&#xf00c; fa-ok</option>
+                              <option value="fa-remove">&#xf00d; fa-remove</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="col-sm-offset-1 col-sm-4">
+                        <div class="form-group">
+                           <label class="control-label">Beneficio 2 <label for="slider_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                           <%= f.text_field :title2,:required => true, :class => "form-control" %>
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label">Descripción <label for="slider_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                           <%= f.text_area :desc2,:required => true, :class => "form-control" %>
+                        </div>
+                        <div class="field">
+                           <%= f.label :icon2 %>
+                           <select class="fa" name="benefit[icon2]" id="benefit_icon2">
+                              <% if !(@benefit.new_record?) %>
+                              <option value="<%= @benefit.icon2 %>"><%= @benefit.icon2 %></option>
+                              <% end %>
+                              <option value="fa-home">&#xf015; fa-home</option>
+                              <option value="fa-road">&#xf018; fa-road</option>
+                              <option value="fa-glass">&#xf000; fa-glass</option>
+                              <option value="fa-music">&#xf001; fa-music</option>
+                              <option value="fa-search">&#xf002; fa-search</option>
+                              <option value="fa-envelope-alt">&#xf003; fa-envelope-alt</option>
+                              <option value="fa-heart">&#xf004; fa-heart</option>
+                              <option value="fa-star">&#xf005; fa-star</option>
+                              <option value="fa-star-empty">&#xf006; fa-star-empty</option>
+                              <option value="fa-user">&#xf007; fa-user</option>
+                              <option value="fa-film">&#xf008; fa-film</option>
+                              <option value="fa-th-large">&#xf009; fa-th-large</option>
+                              <option value="fa-th">&#xf00a; fa-th</option>
+                              <option value="fa-th-list">&#xf00b; fa-th-list</option>
+                              <option value="fa-ok">&#xf00c; fa-ok</option>
+                              <option value="fa-remove">&#xf00d; fa-remove</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  </br></br></br></br>
+                  <div class="row">
+                     <div class="col-sm-offset-1 col-sm-4">
+                        <div class="form-group">
+                           <label class="control-label">Beneficio 3 <label for="slider_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                           <%= f.text_field :title3,:required => true, :class => "form-control" %>
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label">Descripción <label for="slider_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                           <%= f.text_area :desc3,:required => true, :class => "form-control" %>
+                        </div>
+                        <div class="field">
+                           <%= f.label :icon3 %>
+                           <select class="fa" name="benefit[icon3]" id="benefit_icon3">
+                              <% if !@benefit.new_record? %>
+                              <option value="<%= @benefit.icon3 %>"><%= @benefit.icon3 %></option>
+                              <% end %>
+                              <option value="fa-home">&#xf015; fa-home</option>
+                              <option value="fa-road">&#xf018; fa-road</option>
+                              <option value="fa-glass">&#xf000; fa-glass</option>
+                              <option value="fa-music">&#xf001; fa-music</option>
+                              <option value="fa-search">&#xf002; fa-search</option>
+                              <option value="fa-envelope-alt">&#xf003; fa-envelope-alt</option>
+                              <option value="fa-heart">&#xf004; fa-heart</option>
+                              <option value="fa-star">&#xf005; fa-star</option>
+                              <option value="fa-star-empty">&#xf006; fa-star-empty</option>
+                              <option value="fa-user">&#xf007; fa-user</option>
+                              <option value="fa-film">&#xf008; fa-film</option>
+                              <option value="fa-th-large">&#xf009; fa-th-large</option>
+                              <option value="fa-th">&#xf00a; fa-th</option>
+                              <option value="fa-th-list">&#xf00b; fa-th-list</option>
+                              <option value="fa-ok">&#xf00c; fa-ok</option>
+                              <option value="fa-remove">&#xf00d; fa-remove</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="col-sm-offset-1 col-sm-4">
+                        <div class="form-group">
+                           <label class="control-label">Beneficio 4 <label for="slider_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                           <%= f.text_field:title4,:required => true, :class => "form-control" %>
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label">Descripción <label for="slider_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                           <%= f.text_area :desc4,:required => true, :class => "form-control" %>
+                        </div>
+                        <div class="field">
+                           <%= f.label :icon4 %>
+                           <select class="fa" name="benefit[icon4]" id="benefit_icon4">
+                              <% if !@benefit.new_record? %>
+                              <option value="<%= @benefit.icon4 %>"><%= @benefit.icon4 %></option>
+                              <% end %>
+                              <option value="fa-home">&#xf015; fa-home</option>
+                              <option value="fa-road">&#xf018; fa-road</option>
+                              <option value="fa-glass">&#xf000; fa-glass</option>
+                              <option value="fa-music">&#xf001; fa-music</option>
+                              <option value="fa-search">&#xf002; fa-search</option>
+                              <option value="fa-envelope-alt">&#xf003; fa-envelope-alt</option>
+                              <option value="fa-heart">&#xf004; fa-heart</option>
+                              <option value="fa-star">&#xf005; fa-star</option>
+                              <option value="fa-star-empty">&#xf006; fa-star-empty</option>
+                              <option value="fa-user">&#xf007; fa-user</option>
+                              <option value="fa-film">&#xf008; fa-film</option>
+                              <option value="fa-th-large">&#xf009; fa-th-large</option>
+                              <option value="fa-th">&#xf00a; fa-th</option>
+                              <option value="fa-th-list">&#xf00b; fa-th-list</option>
+                              <option value="fa-ok">&#xf00c; fa-ok</option>
+                              <option value="fa-remove">&#xf00d; fa-remove</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  </br></br>
+                  <div class="form-group">
+                     <div class="col-lg-offset-3 col-lg-2">
+                        <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
+                     </div>
+                     <% if (@benefit.new_record?) %>
+                     <div class="col-lg-2">
+                        <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
+                     </div>
+                     <% end %>
+                     <div class="col-lg-2">
+                        <%= link_to 'Atrás', benefits_path, :class => "btn btn-sm btn-default" %>
+                     </div>
+                  </div>
+                  <% end %>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
