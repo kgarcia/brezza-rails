@@ -96,6 +96,8 @@ gem 'mixitup_rails'
 gem 'devise'
 gem 'paperclip'
 gem 'carrierwave'
+gem "select2-rails"
+gem 'sitemap_generator'
 
 
 gem 'bootstrap-colorpicker-rails'

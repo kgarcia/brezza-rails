@@ -6,7 +6,7 @@ class Product < ApplicationRecord
   validates_attachment_content_type :thumb, content_type: /\Aimage\/.*\z/
   
   #attr_reader :tags
-  after_create :save_tags
+  after_save :save_tags
   
   def tags=(value)
     @tags = value
@@ -15,8 +15,9 @@ class Product < ApplicationRecord
   private
   
   def save_tags
+    
     @tags.each do |tag_id|
-      ProductTag.create(tag_id: tag_id, product_id: self.id)
+      ProductTag.find_or_create_by(tag_id: tag_id, product_id: self.id)
     end
   end
 end

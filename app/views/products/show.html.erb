@@ -22,10 +22,11 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @product.category %>
+  <%= @product.category.name %>
 </p>
 
-<p>
+<p>  <strong>tags:</strong>
+
   <% @product.tags.each do |tag| %>
     <%= tag.name %><br>
   <% end %>

@@ -21,13 +21,18 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+        @categories = Category.all
+    @tags = Tag.all
+    @mistags = @product.tags.pluck(:id)
+    
   end
 
   # POST /products
   # POST /products.json
   def create
+    #raise params.to_json
     @product = Product.new(product_params)
-    @product.tags = params[:tags]
+    @product.tags = params[:e1]
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
@@ -42,8 +47,11 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    @product.tags = params[:e1]
     respond_to do |format|
       if @product.update(product_params)
+        
+        
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else

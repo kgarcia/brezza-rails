@@ -77,7 +77,7 @@
             </div>
             <% if !slider.imagen_file_name.nil? %>
             <div class="carousel-image wow slideInRight" data-wow-delay="1.2s">
-                  <%= image_tag slider.imagen.url(:medium, :alt => "Slider principal", :title => "Slider principal") %>
+                  <%= image_tag slider.imagen.url(:medium), :alt => "Slider principal", :title => "Slider principal" %>
             </div>
             <% end %>
          </div>
@@ -162,7 +162,7 @@
             </div>
          </div>
          <div class="col-md-6 text-center  wow zoomIn">
-            <%= image_tag @lilpro.image.url(:medium), :class => "img-responsive", :alt => "Categorías", :title => "Categorías" %>
+            <img src="<%= image_path('landing/perspective.png') %>" alt="Categorías", title="Categorías",  class="img-responsive">
          </div>
          <div class="col-md-3 text-center wow fadeInRight">
             <div>
@@ -348,7 +348,7 @@
          <div class="col-lg-12 text-center m-t-n-lg wow zoomIn">
             </br>
             </br>
-            <img src="<%= image_path('landing/iphone.jpg') %>" class="img-responsive" alt="dashboard">
+            <img src="<%= image_path('landing/iphone.jpg') %>" class="img-responsive" alt="Brezza Project" title="Brezza Project">
          </div>
       </div>
       <div class="col-lg-6 text-center wow fadeInDown">
@@ -490,7 +490,7 @@
             </div>
             <div class="modal-body">
                <figure align="center">
-                  <iframe width="75%" height="380" src="https://www.youtube.com/embed/8MQwjoHu7Ik" frameborder="0"></iframe>
+                  <iframe id="cartoonVideo" width="400" height="250" src="<%="//www.youtube.com/embed/"+@whoare.final_url %>" frameborder="0" allowfullscreen></iframe>
                </figure>
             </div>
             <div class="modal-footer">

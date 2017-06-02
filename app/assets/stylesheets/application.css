@@ -15,4 +15,6 @@
  *= require style
  *= require bootstrap-colorpicker
  *= require jquery.minicolors
+ *= require select2
+*= require select2-bootstrap
  */
