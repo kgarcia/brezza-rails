@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://www.brezzaproject.com"
+SitemapGenerator::Sitemap.default_host = "http://www.example.com"
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
@@ -15,11 +15,7 @@ SitemapGenerator::Sitemap.create do
   #
   # Examples:
   #
-  
-    Add '/categories'
-    Add '/tags'
-    Add '/products'
-    
+  # Add '/articles'
   #
   #   add articles_path, :priority => 0.7, :changefreq => 'daily'
   #

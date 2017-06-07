@@ -436,7 +436,7 @@ body.landing-page {
   }
   .testimonials {
     padding-top: 80px;
-    padding-bottom: 90px;
+    padding-bottom: 0px;
     background-color: $navy;
     background-image: image-url("landing/avatar_all.png");
   }
@@ -572,7 +572,7 @@ body.landing-page {
 
     /* The navbar becomes detached from the top, so we round the corners */
     .navbar-wrapper .navbar {
-      border-radius: 4px;
+      border-radius: 0px;
     }
 
     /* Bump up size of carousel content */

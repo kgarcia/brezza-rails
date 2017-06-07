@@ -1,11 +1,34 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  #before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :set_meta
   # GET /products
   # GET /products.json
-  def index
-    @products = Product.all
+ def index
+    @pictures = Picture.all
+    render :json => @pictures.collect { |p| p.to_jq_upload }.to_json
   end
+
+  def create
+    p_attr = params[:picture]
+    p_attr[:alt] = params[:picture][:file].first if params[:picture][:file].class == Array
+
+    @picture = Picture.new(p_attr)
+    if @picture.save
+      respond_to do |format|
+        format.html {  
+          render :json => [@picture.to_jq_upload].to_json, 
+          :content_type => 'text/html',
+          :layout => false
+        }
+        format.json {  
+          render :json => { :files => [@picture.to_jq_upload] }			
+        }
+      end
+    else 
+      render :json => [{:error => "custom_failure"}], :status => 304
+    end
+  end
+
 
   # GET /products/1
   # GET /products/1.json
@@ -29,29 +52,33 @@ class ProductsController < ApplicationController
 
   # POST /products
   # POST /products.json
-  def create
+=begin  def create
     #raise params.to_json
     @product = Product.new(product_params)
     @product.tags = params[:e1]
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @product }
-      else
-        format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+    #authorize @product
+    
+    if @product.save
+      # to handle multiple images upload on create
+      if params[:images]
+        params[:images].each { |image|
+          @product.pictures.create(alt: image)
+        }
       end
+      flash[:notice] = "Your product has been created."
+      redirect_to @product
+    else 
+      flash[:alert] = "Something went wrong."
+      render :new
     end
   end
-
+=end
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
     @product.tags = params[:e1]
     respond_to do |format|
       if @product.update(product_params)
-        
-        
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else

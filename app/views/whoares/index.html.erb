@@ -12,8 +12,8 @@
   </div>
 </div>
 <div class="wrapper wrapper-content">
-    <div class="row">
-      <div class="col-sm-12">
+    
+      
         <div class="ibox float-e-margins">
           <div class="ibox-title">
               <h4 class="text-dark-blue">
@@ -22,37 +22,51 @@
           </div>
           <div class="ibox-content">
             <%= link_to "Editar Campos", edit_whoare_path(@whoare), :class => "btn btn-primary btn-sm", style: 'position: absolute; z-index: 9999; margin-top: -30px;'%>
-
+            </br>
             <div class="row">
-                <div class="col-md-6">
+              <div class="col-lg-offset-2 col-lg-4">
+                  <h2>Imagen de la sección</h2>
+                  <p align="left"><%= image_tag @whoare.image.url(:medium), :class => "img-responsive" %></p>
+              </div>
+              <div class="col-lg-6">
+                  <h2>Descripción de la sección</h2>
+                  <p><%= @whoare.description %></p>
+              </div>
+            </div>
+            <div class="navy-line"></div>
+            </br></br>
+            <div class="row">
+              <div class="col-lg-offset-1 col-lg-4">
+                <div class="row">
                         <h2>Brezza Project S.A.</h2>
                         <p><%= @whoare.brezzastory %></p>
                 </div>       
-                <div class="col-md-6">
+                <div class="row">
                         <h2>Misión</h2>
                         <p><%= @whoare.mission %></p>
-                </div>  
-              </div>
-              <br><br>
-              <div class="row">
-                <div class="col-md-4">
-                      <h2>Vision</h2>
-                        <p><%= @whoare.vision %></p>
-                </div>       
-                <div class="col-md-4">
-                      <h2>Reseña Histórica</h2>
-                        <iframe id="cartoonVideo" width="400" height="250" src="<%="//www.youtube.com/embed/"+@whoare.final_url %>" frameborder="0" allowfullscreen></iframe>
                 </div>
-                <div class="col-md-4">
+                <div class="row">
+                        <h2>Visión</h2>
+                        <p><%= @whoare.vision %></p>
+                </div>
+              </div>
+              <div class=" col-lg-5">
+                <div class="col-md-5">
                       <h2>Organigrama</h2>
                       <p><%= @whoare.organigram %></p>
-                       <p align="center"><%= image_tag @whoare.organigrampic.url(:medium), :class => "img-responsive" %></p>
+                       <p align="right"><%= image_tag @whoare.organigrampic.url(:medium), :class => "img-responsive" %></p>
                 </div>
-              </div>   
+                <div class=" col-lg-offset-1 col-md-5">
+                      <h2>Reseña Histórica</h2>
+                        <iframe id="cartoonVideo" width="350" height="280" src="<%="//www.youtube.com/embed/"+@whoare.final_url %>" frameborder="0" allowfullscreen></iframe>
+                </div>
+                
+              </div>
+            </div>
           </div>
         </div>
-      </div> 
-  </div>
+     
+  
 </div>
 
 

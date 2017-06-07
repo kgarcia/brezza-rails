@@ -25,7 +25,14 @@
                <div class="ibox float-e-margins">
                   <br>
                   <div class="row">
-                    <div class="col-md-offset-1 col-md-4">
+                     <div class="col-md-offset-2 col-md-8">
+                     <h2 class="text-center">Descripción de la sección:</h2>
+                     <p><%= @benefit.description %></p>
+                     </div>
+                  </div>
+                  <div class="navy-line"></div><br>
+                  <div class="row">
+                    <div class="col-md-offset-2 col-md-4">
                        <h2><%= @benefit.title1 %></h2>
                        <i class="fa <%= @benefit.icon1 %> fa-3x pull-right"></i>
                        <p><%= @benefit.desc1 %></p>
@@ -38,7 +45,7 @@
                   </div>
                   <br><br>
                   <div class="row">
-                    <div class="col-md-offset-1 col-md-4">
+                    <div class="col-md-offset-2 col-md-4">
                        <h2><%= @benefit.title3 %></h2>
                        <i class="fa <%= @benefit.icon3 %> fa-3x pull-right"></i>
                        <p><%= @benefit.desc3 %></p>

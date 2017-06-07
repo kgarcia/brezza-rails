@@ -70,6 +70,6 @@ class WhoaresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def whoare_params
-      params.require(:whoare).permit(:description, :brezzastory, :mission, :vision, :history, :organigram, :organigrampic)
+      params.require(:whoare).permit(:description, :brezzastory, :mission, :vision, :history, :organigram, :organigrampic, :image)
     end
 end

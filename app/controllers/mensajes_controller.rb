@@ -31,7 +31,7 @@ class MensajesController < ApplicationController
 
     respond_to do |format|
       if @mensaje.save
-        format.html { redirect_to root_path, notice: 'Mensaje was successfully created.' }
+        format.html { redirect_to "/home/inicio", notice: 'Su mensaje ha sido enviado exitosamente, en breve lo atenderemos.' }
         format.json { render action: 'show', status: :created, location: @mensaje }
       else
         format.html { render action: 'new' }
@@ -45,7 +45,7 @@ class MensajesController < ApplicationController
   def update
     respond_to do |format|
       if @mensaje.update(mensaje_params)
-        format.html { redirect_to @mensaje, notice: 'Mensaje was successfully updated.' }
+        format.html { redirect_to @mensaje, notice: 'Mensaje editado.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

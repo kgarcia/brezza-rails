@@ -75,15 +75,27 @@
         <label class="control-label">Organigrama <label for="whoare_organigram" class="control-label error" style="margin-bottom: 0px;"></label></label>
         <%= f.text_field :organigram,:required => true, :class => "form-control" %>
   </div>
-  
+  <div class="navy-line"></div></br></br>
   <div class="form-group" align="center" >
-      <label class="control-label">Imágen <label for="whoare_organigrampic" class="control-label error" style="margin-bottom: 0px;"></label></label>
+      <div class="col-lg-6">
+      <label class="control-label">Imágen de la sección <label for="whoare_image" class="control-label error" style="margin-bottom: 0px;"></label></label>
+      <label class="btn btn-sm btn-primary btn-file">
+      Buscar imagen... <input  name="whoare[image]" id="whoare_image" type="file" hidden>
+      </label>
+      <% if !@whoare.new_record? %>
+      <%= image_tag @whoare.image.url(:medium), :class => "img-responsive" %>
+      <% end %>
+      </div>
+      
+      <div class="col-lg-6">
+      <label class="control-label">Imágen del organigrama <label for="whoare_organigrampic" class="control-label error" style="margin-bottom: 0px;"></label></label>
       <label class="btn btn-sm btn-primary btn-file">
       Buscar imagen... <input  name="whoare[organigrampic]" id="whoare_organigrampic" type="file" hidden>
       </label>
       <% if !@whoare.new_record? %>
       <%= image_tag @whoare.organigrampic.url(:medium), :class => "img-responsive" %>
       <% end %>
+      </div>
   </div>
 
   </br></br>

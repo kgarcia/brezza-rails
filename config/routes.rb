@@ -1,4 +1,5 @@
 Myapp::Application.routes.draw do
+  resources :pictures
   resources :products
   resources :contacts
   resources :categories
@@ -18,7 +19,7 @@ Myapp::Application.routes.draw do
   get "home/home"
   get "login",  to: "home#login"
   get "productos", to: "home#products"
-  get "products/detail", to:"home#detail"
+  get "detail", to:"home#detail"
   get "aliarse", to: "home#aliarse"
 
   # The priority is based upon order of creation: first created -> highest priority.

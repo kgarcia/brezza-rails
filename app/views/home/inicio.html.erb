@@ -29,6 +29,8 @@
       </div>
    </nav>
 </div>
+
+
 <div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
    <ol class="carousel-indicators">
       <% @numslider = 0 %>
@@ -102,33 +104,47 @@
 
 <section class="features">
    <div class="container">
+      
+
+    <% unless flash.empty? %>
+	  <script type="text/javascript">
+	  
+
+
+
+	      <% flash.each do |f| %>
+	      <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'success').gsub('warning','warning').gsub('info','info') %>
+	     	 toastr['<%= type %>']('<%= f[1] %>');
+	      <% end %>
+	  </script>
+	 <% end %>
       <div class="row">
          <div class="col-lg-12 text-center">
             <div class="navy-line"></div>
-            <h1>Beneficios</h1>
+            <h1 style="color: #00257">Beneficios</h1>
             <p><%= @benefit.description %></p>
          </div>
       </div>
       <div class="row">
          <div class="col-lg-5 col-lg-offset-1 features-text wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
-            <h2><%= @benefit.title1 %></h2>
+            <h2 style="color: #00257"><%= @benefit.title1 %></h2>
             <i class="fa <%= @benefit.icon1 %> big-icon pull-right"></i>
             <p><%= @benefit.desc1 %></p>
          </div>
-         <div class="col-lg-5 features-text wow slideInRight" data-wow-duration="1s" data-wow-delay="1s">
-            <h2><%= @benefit.title2 %></h2>
+         <div class="col-lg-5 features-text wow slideInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+            <h2 style="color: #00257"><%= @benefit.title2 %></h2>
             <i class="fa <%= @benefit.icon2 %> big-icon pull-right"></i>
             <p><%= @benefit.desc2 %></p>
          </div>
       </div>
       <div class="row">
-         <div class="col-lg-5 col-lg-offset-1 features-text wow slideInLeft" data-wow-duration="1s" data-wow-delay="1.5s">
-            <h2><%= @benefit.title3 %></h2>
+         <div class="col-lg-5 col-lg-offset-1 features-text wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+            <h2 style="color: #00257"><%= @benefit.title3 %></h2>
             <i class="fa <%= @benefit.icon3 %> big-icon pull-right"></i>
             <p><%= @benefit.desc3 %></p>
          </div>
-         <div class="col-lg-5 features-text wow slideInRight" data-wow-duration="1s" data-wow-delay="2s">
-            <h2><%= @benefit.title4 %></h2>
+         <div class="col-lg-5 features-text wow slideInRight" data-wow-duration="1s" data-wow-delay="1s">
+            <h2 style="color: #00257"><%= @benefit.title4 %></h2>
             <i class="fa <%= @benefit.icon4 %> big-icon pull-right"></i>
             <p><%= @benefit.desc4 %></p>
          </div>
@@ -140,7 +156,7 @@
       <div class="row">
          <div class="col-lg-12 text-center">
             <div class="navy-line"></div>
-            <h1><%= @lilpro.title %> </h1>
+            <h1>Más de 10 productos<br/> <span class="navy"> que cambiarán el mundo</span> </h1>
             <p><%= @lilpro.description %></p>
          </div>
       </div>
@@ -162,7 +178,7 @@
             </div>
          </div>
          <div class="col-md-6 text-center  wow zoomIn">
-            <img src="<%= image_path('landing/perspective.png') %>" alt="Categorías", title="Categorías",  class="img-responsive">
+            <%= image_tag @lilpro.image.url, :alt => "Categorias", :title => "Categorias", :class => "img-responsive" %>
          </div>
          <div class="col-md-3 text-center wow fadeInRight">
             <div>
@@ -348,7 +364,7 @@
          <div class="col-lg-12 text-center m-t-n-lg wow zoomIn">
             </br>
             </br>
-            <img src="<%= image_path('landing/iphone.jpg') %>" class="img-responsive" alt="Brezza Project" title="Brezza Project">
+            <p align="left"><%= image_tag @whoare.image.url, :alt => "Brezza Project", :title => "Brezza Project", :class => "img-responsive"%></p>
          </div>
       </div>
       <div class="col-lg-6 text-center wow fadeInDown">
@@ -357,7 +373,7 @@
          <div class="accordion">
             <div class="panel-group" id="accordion1">
                <div class="panel panel-default">
-                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne1">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" aria-expanded="true" href="#collapseOne1">
                      <div class="panel-heading actives">
                         <h3 class="panel-title">
                            Brezza Project, S.A.
@@ -463,7 +479,7 @@
                                  </div>
                                  <div class="modal-body">
                                     <p><%= @whoare.organigram %></p>
-                                    <%= image_tag @whoare.organigrampic.url(:medium), :alt => "Organigrama", :title => "Organigrama", :class => "img-responsive" %>
+                                    <%= image_tag @whoare.organigrampic.url, :alt => "Organigrama", :title => "Organigrama", :class => "img-responsive" %>
                                     
                                  </div>
                                  <div class="modal-footer">
@@ -649,6 +665,9 @@
 </section>
 <section id="contact" class="gray-section contact">
    <div class="container">
+      
+      
+      
       <div class="row m-b-lg">
          <div class="col-lg-12 text-center">
             <div class="navy-line"></div>

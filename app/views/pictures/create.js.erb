@@ -1,0 +1,5 @@
+<% if @picture.new_record? %>
+	alert("Error al subir imagen <%= j @picture.errors.full_messages.join(', ').html_safe %>")
+<% else %>
+	$("#pictures").append("j render(@picture) %>");
+<% end %>

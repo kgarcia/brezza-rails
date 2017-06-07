@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require toastr
  *= require font-awesome
  *= require animate/animate.css
  *= require steps/jquery.steps.css
@@ -18,3 +19,10 @@
  *= require select2
 *= require select2-bootstrap
  */
+
+.navy-line {
+  width: 60px;
+  height: 1px;
+  margin: 60px auto 0;
+  border-bottom: 2px solid #00257b;
+}

@@ -98,8 +98,10 @@ gem 'paperclip'
 gem 'carrierwave'
 gem "select2-rails"
 gem 'sitemap_generator'
+gem 'toastr-rails'
 
 
 gem 'bootstrap-colorpicker-rails'
 
 gem 'jquery-minicolors-rails'
+gem "jquery-fileupload-rails"

@@ -41,50 +41,52 @@
                      </div>
                      <% end %>
                      <div class="form-group">
-                        <label class="control-label">Título <label for="slider_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                        <label class="control-label">Título: <label for="slider_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
                         <%= f.text_field :title,:required => true, :class => "form-control" %>
                      </div>
                      <div class="form-group">
-                        <label class="control-label">Descripción <label for="slider_description" class="control-label error" style="margin-bottom: 0px;"></label></label>
-                        <%= f.text_field :description,:required => true, :class => "form-control" %>
+                        <label class="control-label">Descripción: <label for="slider_description" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                        <%= f.text_field :description,:required => true, :class => "form-control" , :title => "Descripción que refiere a la descripción del slider, no a la sección"%>
                      </div>
                      <div class="form-group">
-                        <label class="control-label">Texto <label for="slider_color" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                        <label class="control-label">Color del texto: <label for="slider_color" class="control-label error" style="margin-bottom: 0px;"></label></label>
                         <% if @slider.new_record? %>
-                        <input type="text" id="slider_color" name="slider[color]" class="form-control demo" data-position="bottom right" value="#00257b">
+                        <input type="text" id="slider_color" name="slider[color]" class="form-control demo" data-position="bottom right" value="#00257b" title="Dale color a tu texto, ingresa su código hexadecimal o selecciona de la paleta de colores">
                         <% else %>
-                        <input type="text" id="slider_color" name="slider[color]" class="form-control demo" data-position="bottom right" value="<%= @slider.color %>">
+                        <input type="text" id="slider_color" name="slider[color]" class="form-control demo" data-position="bottom right" title="Dale color a tu texto, ingresa su código hexadecimal o selecciona de la paleta de colores" value="<%= @slider.color %>">
                         <% end %>
                      </div>
                      <div class="form-group">
-                        <label class="control-label">Botón <label for="slider_buttontext" class="control-label error" style="margin-bottom: 0px;"></label></label>
-                        <%= f.text_field :buttontext,:required => true, :class => "form-control" %>
+                        <label class="control-label">Botón: <label for="slider_buttontext" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                        <%= f.text_field :buttontext,:required => true, :title => "Identifica la dirección del botón", :class => "form-control" %>
                      </div>
                      <div class="form-group">
-                        <label class="control-label">Enlace <label for="slider_link" class="control-label error" style="margin-bottom: 0px;"></label></label>
-                        <%= f.text_field :link,:required => true, :class => "form-control" %>
+                        <label class="control-label">Enlace: <label for="slider_link" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                        <%= f.text_field :link,:required => true, :title => "Direcciona al usuario al sitio de interes", :class => "form-control" %>
                      </div>
+                     <div class="navy-line"></div>
+                     </br></br>
                      <div class="row">
                         <div class="col-md-6">
                            <div class="form-group" align="center" >
-                              <label class="control-label">Fondo <label for="slider_fondo" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                              <label class="control-label">Fondo: <label for="slider_fondo" class="control-label error" style="margin-bottom: 0px;"></label></label>
                               <label class="btn btn-sm btn-primary btn-file">
                               Buscar imagen... <input  name="slider[fondo]" id="slider_fondo" type="file" hidden>
                               </label>
                               <% if !@slider.new_record? %>
-                              <%= image_tag @slider.fondo.url(:medium), :class => "img-responsive" %>
+                              <%= image_tag @slider.fondo.url(:medium), :class => "img-responsive" , :size => "300x226" , :title => "Imagen de fondo para el slider principal"%>
                               <% end %>
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group" align="center">
-                              <label class="control-label">Imagen <label for="slider_imagen" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                              <label class="control-label">Imagen: <label for="slider_imagen" class="control-label error" style="margin-bottom: 0px;"></label></label>
                               <%#= f.file_field :imagen, :class => "form-control" %>
                               <label class="btn btn-sm btn-primary btn-file">
                               Buscar imagen... <input  name="slider[imagen]" id="slider_imagen" type="file" hidden>
                               </label>
                               <% if !@slider.new_record? %>
-                              <%= image_tag @slider.imagen.url(:medium), :class => "img-responsive" %>
+                              <%= image_tag @slider.imagen.url(:medium), :class => "img-responsive" , :size => "300x226" , :title => "Imagen del slider principal" %>
                               <%end%>
                            </div>
                         </div>
