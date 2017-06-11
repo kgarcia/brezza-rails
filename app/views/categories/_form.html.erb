@@ -9,11 +9,10 @@
             <a href="/categories">Listado</a>
          </li>
          <li class="active">
-            <% if @category.new_record? %>
-            <strong class="text-blue">Registrar Categoría</strong>
-            <% else %>
+            
+           
             <strong class="text-blue">Editar Categoría</strong>
-            <% end %>
+           
          </li>
       </ol>
    </div>
@@ -56,7 +55,48 @@
 
                      <div class="form-group">
                         <label class="control-label">Icono<label for="category_icon" class="control-label error" style="margin-bottom: 0px;"></label></label>
-                        <%= f.text_field :icon,:required => true, :class => "form-control" %>
+                        <select class="fa" name="category[icon]" id="category_icon">
+                              <% if !@category.new_record? %>
+                              <option value="<%= @category.icon %>"><%= category.icon %></option>
+                              <% end %>
+                              <option value="fa-handshake-o"> &#xf2b5; fa-handshake-o </option>
+                              <option value="fa-id-card-o"> &#xf2c3; fa-id-card-o </option>
+                           	<option value="fa-user-circle"> &#xf2bd;  fa-user-circle </option>
+                           	<option value="fa-area-chart"> &#xf1fe;  fa-area-chart</option>
+                           	<option value="fa-balance-scale"> &#xf24e; fa-balance-scale </option>
+                           	<option value="fa-bar-chart"> &#xf080;  fa-bar-chart</option>
+                           	<option value="fa-ban"> &#xf05e; fa-ban</option>
+                           	<option value="fa-barcode"> &#xf02a; fa-barcode </option>
+                           	<option value="fa-bolt"> &#xf0e7; fa-bolt</option>
+                           	<option value="fa-book"> &#xf02d; fa-book</option>
+                           	<option value="fa-calendar"> &#xf073; fa-calenda</option>
+                           	<option value="fa-calendar-check-o"> &#xf274; fa-calendar-check-o </option>
+                           	<option value="fa-check"> &#xf00c; fa-check </option>
+                           	<option value="fa-check-square-o"> &#xf046; fa-check-square-o </option>
+                           	<option value="fa-clock-o"> &#xf017; fa-clock-o </option>
+                           	<option value="fa-cloud-upload"> &#xf0ee; fa-cloud-upload </option>
+                           	<option value="fa-cloud-download"> &#xf0ed; fa-cloud-download </option>
+                           	<option value="fa-code-fork"> &#xf126; fa-code-fork </option>
+                           	<option value="fa-coffee"> &#xf0f4; fa-coffee </option>
+                           	<option value="fa-cogs"> &#xf085; fa-cogs</option>
+                           	<option value="fa-compass"> &#xf14e; fa-compass  </option>
+                           	<option value="fa-credit-card"> &#xf09d;  fa-credit-card</option>
+                           	<option value="fa-diamond"> &#xf219; fa-diamond </option>
+                           	<option value="fa-file-archive-o"> &#xf1c6;  fa-file-archive-o</option>
+                           	<option value="fa-globe"> &#xf0ac; fa-globe</option>
+                           	<option value="fa-users"> &#xf0c0; fa-users </option>
+                           	<option value="fa-leaf"> &#xf06c; fa-leaf</option>
+                           	<option value="fa-lock"> &#xf023; fa-lock</option>
+                           	<option value="fa-line-chart"> &#xf201; fa-line-chart</option>
+                           	<option value="fa-lightbulb-o"> &#xf0eb;  fa-lightbulb-o </option>
+                           	<option value="fa-mobile"> &#xf10b; fa-mobile </option>
+                           	<option value="fa-pie-chart"> &#xf200;  fa-pie-chart</option>
+                           	<option value="fa-plug"> &#xf1e6; fa-plug</option>
+                           	<option value="fa-share-alt"> &#xf1e0; fa-share-alt</option>f
+                           	<option value="fa-star"> &#xf005; fa-strar</option>
+                           	<option value="fa-user-o"> &#xf2c0;  fa-user-o</option>
+                           	<option value="fa-file-o"> &#xf016;  fa-file-o</option>
+                           </select>
                      </div>
                      <div class="form-group" align="center" >
                               <label class="control-label">Banner <label for="category_banner" class="control-label error" style="margin-bottom: 0px;"></label></label>

@@ -1,13 +1,15 @@
 class ProductsController < ApplicationController
-  #before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :set_meta
+  layout "admin"
   # GET /products
   # GET /products.json
  def index
+    @products = Product.all
     @pictures = Picture.all
-    render :json => @pictures.collect { |p| p.to_jq_upload }.to_json
+    #render :json => @pictures.collect { |p| p.to_jq_upload }.to_json
   end
-
+=begin
   def create
     p_attr = params[:picture]
     p_attr[:alt] = params[:picture][:file].first if params[:picture][:file].class == Array
@@ -28,7 +30,7 @@ class ProductsController < ApplicationController
       render :json => [{:error => "custom_failure"}], :status => 304
     end
   end
-
+=end
 
   # GET /products/1
   # GET /products/1.json
@@ -52,6 +54,25 @@ class ProductsController < ApplicationController
 
   # POST /products
   # POST /products.json
+  def create
+    #raise params.to_json
+    @product = Product.new(product_params)
+    @product.tags = params[:e1]
+    respond_to do |format|
+      if @product.save
+        if params[:picture_data]
+            params[:picture_data].each do |pic| 
+              @product.pictures.create(:photo => pic) 
+            end
+        end 
+        format.html { redirect_to products_url, notice: 'Lilpro was successfully created.' }
+        format.json { render :show, status: :created, location: @product }
+      else
+        format.html { render :new }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 =begin  def create
     #raise params.to_json
     @product = Product.new(product_params)
@@ -79,6 +100,11 @@ class ProductsController < ApplicationController
     @product.tags = params[:e1]
     respond_to do |format|
       if @product.update(product_params)
+        if params[:picture_data]
+            params[:picture_data].each do |pic| 
+              @product.pictures.create(:photo => pic) 
+            end
+        end 
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else
@@ -106,6 +132,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :detail, :author, :category_id, :amount, :thumb)
+      params.require(:product).permit(:name, :description, :detail, :author, :category_id, :amount, :thumb, :picture_data)
     end
 end

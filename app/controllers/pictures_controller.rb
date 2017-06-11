@@ -24,7 +24,7 @@ class PicturesController < ApplicationController
   # POST /pictures
   # POST /pictures.json
   def create
-     params[:images].each{ |image|
+=begin     params[:images].each{ |image|
       @picture = Picture.create(image: image)
       if @picture.save
         respond_to do |format|
@@ -35,7 +35,7 @@ class PicturesController < ApplicationController
         render json: { error: @picture.errors.full_messages }, status: 304
       end
     }
-    
+=end    
     
     @picture = Picture.new(picture_params)
 
@@ -69,7 +69,7 @@ class PicturesController < ApplicationController
   def destroy
     @picture.destroy
     respond_to do |format|
-      format.html { redirect_to pictures_url, notice: 'Picture was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Picture was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

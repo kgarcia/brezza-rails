@@ -46,6 +46,7 @@ class HomeController < ApplicationController
     @lilpro = Lilpro.last
     @contact = Contact.last
     @categories = Category.all
+    @products = Product.order("RAND()").limit(8)
     render :layout => "empty"
     
   end
@@ -53,6 +54,17 @@ class HomeController < ApplicationController
     render :layout => "sinmenu"
   end
   def products
+    @category = Category.new(:name => "Productos")#, :banner => "landing/header_one.jpg")
+    @products = Product.all
+    if params[:tag]
+      @category = Tag.where(:name => params[:tag]).take
+      @products = @category.products
+    else
+      if params[:category]
+        @category = Category.where(:name => params[:category]).take
+        @products = @category.products
+      end
+    end
     render :layout => "front"
   end
   def detail

@@ -96,10 +96,21 @@
                               <%end%>
                      </div>
                      
-                     <div class="form-group">
+                     <div class="form-group">sad
                           #images[] returned to the album as an array. We use file_field_tag since images is not @album's attribute
-                         <%= file_field_tag "images[]", type: :file, multiple: true %>
+                         <%= file_field_tag "picture_data[]", type: :file, multiple: true %>
+                       
                      </div>
+                     
+                     <% if @product.pictures %>
+                          <% @product.pictures.each do |pic| %>
+                             <div class="col-md-4">
+                               <%= image_tag pic.photo.url, :class => "img-responsive" %>
+                              <%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+                             </div>
+                          <% end %>
+                     <% end %>
 
  </br></br>
                      <div class="form-group">

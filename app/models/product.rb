@@ -6,10 +6,11 @@ class Product < ApplicationRecord
   has_attached_file :thumb, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :thumb, content_type: /\Aimage\/.*\z/
   
-  has_many :pictures, :inverse_of => :product, :dependent => :destroy
+  #has_many :pictures, :inverse_of => :product, :dependent => :destroy
 	# enable nested attributes for pictures through product class
-	accepts_nested_attributes_for :pictures, allow_destroy: true
-  
+	#accepts_nested_attributes_for :pictures, allow_destroy: true
+  attr_accessor :picture_data
+
   
   #attr_reader :tags
   after_save :save_tags
@@ -18,7 +19,14 @@ class Product < ApplicationRecord
     @tags = value
   end
   
+  def save_attachments(params) 
+    params[:picture_data].each do |pic| 
+      self.pictures.create(:photo => pic) 
+    end 
+  end
+
   private
+  
   
   def save_tags
     ProductTag.where(:product_id => self.id).destroy_all

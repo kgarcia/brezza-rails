@@ -36,5 +36,11 @@
   <%= @product.amount %>
 </p>
 
+<% @product.pictures.each do |pic| %>
+  <div class="col-md-4">
+    <%= image_tag pic.photo.url, :class => "img-responsive" %>
+  </div>
+  <% end %>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

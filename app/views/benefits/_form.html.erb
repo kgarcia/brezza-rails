@@ -57,22 +57,43 @@
                               <% if !@benefit.new_record? %>
                               <option value="<%= @benefit.icon1 %>"><%= @benefit.icon1 %></option>
                               <% end %>
-                              <option value="fa-home">&#xf015; fa-home</option>
-                              <option value="fa-road">&#xf018; fa-road</option>
-                              <option value="fa-glass">&#xf000; fa-glass</option>
-                              <option value="fa-music">&#xf001; fa-music</option>
-                              <option value="fa-search">&#xf002; fa-search</option>
-                              <option value="fa-envelope-alt">&#xf003; fa-envelope-alt</option>
-                              <option value="fa-heart">&#xf004; fa-heart</option>
-                              <option value="fa-star">&#xf005; fa-star</option>
-                              <option value="fa-star-empty">&#xf006; fa-star-empty</option>
-                              <option value="fa-user">&#xf007; fa-user</option>
-                              <option value="fa-film">&#xf008; fa-film</option>
-                              <option value="fa-th-large">&#xf009; fa-th-large</option>
-                              <option value="fa-th">&#xf00a; fa-th</option>
-                              <option value="fa-th-list">&#xf00b; fa-th-list</option>
-                              <option value="fa-ok">&#xf00c; fa-ok</option>
-                              <option value="fa-remove">&#xf00d; fa-remove</option>
+                              <option value="fa-handshake-o"> &#xf2b5; fa-handshake-o </option>
+                              <option value="fa-id-card-o"> &#xf2c3; fa-id-card-o </option>
+                           	<option value="fa-user-circle"> &#xf2bd;  fa-user-circle </option>
+                           	<option value="fa-area-chart"> &#xf1fe;  fa-area-chart</option>
+                           	<option value="fa-balance-scale"> &#xf24e; fa-balance-scale </option>
+                           	<option value="fa-bar-chart"> &#xf080;  fa-bar-chart</option>
+                           	<option value="fa-ban"> &#xf05e; fa-ban</option>
+                           	<option value="fa-barcode"> &#xf02a; fa-barcode </option>
+                           	<option value="fa-bolt"> &#xf0e7; fa-bolt</option>
+                           	<option value="fa-book"> &#xf02d; fa-book</option>
+                           	<option value="fa-calendar"> &#xf073; fa-calenda</option>
+                           	<option value="fa-calendar-check-o"> &#xf274; fa-calendar-check-o </option>
+                           	<option value="fa-check"> &#xf00c; fa-check </option>
+                           	<option value="fa-check-square-o"> &#xf046; fa-check-square-o </option>
+                           	<option value="fa-clock-o"> &#xf017; fa-clock-o </option>
+                           	<option value="fa-cloud-upload"> &#xf0ee; fa-cloud-upload </option>
+                           	<option value="fa-cloud-download"> &#xf0ed; fa-cloud-download </option>
+                           	<option value="fa-code-fork"> &#xf126; fa-code-fork </option>
+                           	<option value="fa-coffee"> &#xf0f4; fa-coffee </option>
+                           	<option value="fa-cogs"> &#xf085; fa-cogs</option>
+                           	<option value="fa-compass"> &#xf14e; fa-compass  </option>
+                           	<option value="fa-credit-card"> &#xf09d;  fa-credit-card</option>
+                           	<option value="fa-diamond"> &#xf219; fa-diamond </option>
+                           	<option value="fa-file-archive-o"> &#xf1c6;  fa-file-archive-o</option>
+                           	<option value="fa-globe"> &#xf0ac; fa-globe</option>
+                           	<option value="fa-users"> &#xf0c0; fa-users </option>
+                           	<option value="fa-leaf"> &#xf06c; fa-leaf</option>
+                           	<option value="fa-lock"> &#xf023; fa-lock</option>
+                           	<option value="fa-line-chart"> &#xf201; fa-line-chart</option>
+                           	<option value="fa-lightbulb-o"> &#xf0eb;  fa-lightbulb-o </option>
+                           	<option value="fa-mobile"> &#xf10b; fa-mobile </option>
+                           	<option value="fa-pie-chart"> &#xf200;  fa-pie-chart</option>
+                           	<option value="fa-plug"> &#xf1e6; fa-plug</option>
+                           	<option value="fa-share-alt"> &#xf1e0; fa-share-alt</option>f
+                           	<option value="fa-star"> &#xf005; fa-strar</option>
+                           	<option value="fa-user-o"> &#xf2c0;  fa-user-o</option>
+                           	<option value="fa-file-o"> &#xf016;  fa-file-o</option>
                            </select>
                         </div>
                      </div>
@@ -87,27 +108,50 @@
                         </div>
                         <div class="field">
                            <%= f.label :icon2 %>
-                           <select class="fa" name="benefit[icon2]" id="benefit_icon2">
-                              <% if !(@benefit.new_record?) %>
+                            <select class="fa" name="benefit[icon2]" id="benefit_icon2">
+                              <% if !@benefit.new_record? %>
                               <option value="<%= @benefit.icon2 %>"><%= @benefit.icon2 %></option>
                               <% end %>
-                              <option value="fa-home">&#xf015; fa-home</option>
-                              <option value="fa-road">&#xf018; fa-road</option>
-                              <option value="fa-glass">&#xf000; fa-glass</option>
-                              <option value="fa-music">&#xf001; fa-music</option>
-                              <option value="fa-search">&#xf002; fa-search</option>
-                              <option value="fa-envelope-alt">&#xf003; fa-envelope-alt</option>
-                              <option value="fa-heart">&#xf004; fa-heart</option>
-                              <option value="fa-star">&#xf005; fa-star</option>
-                              <option value="fa-star-empty">&#xf006; fa-star-empty</option>
-                              <option value="fa-user">&#xf007; fa-user</option>
-                              <option value="fa-film">&#xf008; fa-film</option>
-                              <option value="fa-th-large">&#xf009; fa-th-large</option>
-                              <option value="fa-th">&#xf00a; fa-th</option>
-                              <option value="fa-th-list">&#xf00b; fa-th-list</option>
-                              <option value="fa-ok">&#xf00c; fa-ok</option>
-                              <option value="fa-remove">&#xf00d; fa-remove</option>
+                              <option value="fa-handshake-o"> &#xf2b5; fa-handshake-o </option>
+                              <option value="fa-id-card-o"> &#xf2c3; fa-id-card-o </option>
+                           	<option value="fa-user-circle"> &#xf2bd;  fa-user-circle </option>
+                           	<option value="fa-area-chart"> &#xf1fe;  fa-area-chart</option>
+                           	<option value="fa-balance-scale"> &#xf24e; fa-balance-scale </option>
+                           	<option value="fa-bar-chart"> &#xf080;  fa-bar-chart</option>
+                           	<option value="fa-ban"> &#xf05e; fa-ban</option>
+                           	<option value="fa-barcode"> &#xf02a; fa-barcode </option>
+                           	<option value="fa-bolt"> &#xf0e7; fa-bolt</option>
+                           	<option value="fa-book"> &#xf02d; fa-book</option>
+                           	<option value="fa-calendar"> &#xf073; fa-calenda</option>
+                           	<option value="fa-calendar-check-o"> &#xf274; fa-calendar-check-o </option>
+                           	<option value="fa-check"> &#xf00c; fa-check </option>
+                           	<option value="fa-check-square-o"> &#xf046; fa-check-square-o </option>
+                           	<option value="fa-clock-o"> &#xf017; fa-clock-o </option>
+                           	<option value="fa-cloud-upload"> &#xf0ee; fa-cloud-upload </option>
+                           	<option value="fa-cloud-download"> &#xf0ed; fa-cloud-download </option>
+                           	<option value="fa-code-fork"> &#xf126; fa-code-fork </option>
+                           	<option value="fa-coffee"> &#xf0f4; fa-coffee </option>
+                           	<option value="fa-cogs"> &#xf085; fa-cogs</option>
+                           	<option value="fa-compass"> &#xf14e; fa-compass  </option>
+                           	<option value="fa-credit-card"> &#xf09d;  fa-credit-card</option>
+                           	<option value="fa-diamond"> &#xf219; fa-diamond </option>
+                           	<option value="fa-file-archive-o"> &#xf1c6;  fa-file-archive-o</option>
+                           	<option value="fa-globe"> &#xf0ac; fa-globe</option>
+                           	<option value="fa-users"> &#xf0c0; fa-users </option>
+                           	<option value="fa-leaf"> &#xf06c; fa-leaf</option>
+                           	<option value="fa-lock"> &#xf023; fa-lock</option>
+                           	<option value="fa-line-chart"> &#xf201; fa-line-chart</option>
+                           	<option value="fa-lightbulb-o"> &#xf0eb;  fa-lightbulb-o </option>
+                           	<option value="fa-mobile"> &#xf10b; fa-mobile </option>
+                           	<option value="fa-pie-chart"> &#xf200;  fa-pie-chart</option>
+                           	<option value="fa-plug"> &#xf1e6; fa-plug</option>
+                           	<option value="fa-share-alt"> &#xf1e0; fa-share-alt</option>f
+                           	<option value="fa-star"> &#xf005; fa-strar</option>
+                           	<option value="fa-user-o"> &#xf2c0;  fa-user-o</option>
+                           	<option value="fa-file-o"> &#xf016;  fa-file-o</option>
                            </select>
+                           
+                           
                         </div>
                      </div>
                   </div>
@@ -128,22 +172,43 @@
                               <% if !@benefit.new_record? %>
                               <option value="<%= @benefit.icon3 %>"><%= @benefit.icon3 %></option>
                               <% end %>
-                              <option value="fa-home">&#xf015; fa-home</option>
-                              <option value="fa-road">&#xf018; fa-road</option>
-                              <option value="fa-glass">&#xf000; fa-glass</option>
-                              <option value="fa-music">&#xf001; fa-music</option>
-                              <option value="fa-search">&#xf002; fa-search</option>
-                              <option value="fa-envelope-alt">&#xf003; fa-envelope-alt</option>
-                              <option value="fa-heart">&#xf004; fa-heart</option>
-                              <option value="fa-star">&#xf005; fa-star</option>
-                              <option value="fa-star-empty">&#xf006; fa-star-empty</option>
-                              <option value="fa-user">&#xf007; fa-user</option>
-                              <option value="fa-film">&#xf008; fa-film</option>
-                              <option value="fa-th-large">&#xf009; fa-th-large</option>
-                              <option value="fa-th">&#xf00a; fa-th</option>
-                              <option value="fa-th-list">&#xf00b; fa-th-list</option>
-                              <option value="fa-ok">&#xf00c; fa-ok</option>
-                              <option value="fa-remove">&#xf00d; fa-remove</option>
+                              <option value="fa-handshake-o"> &#xf2b5; fa-handshake-o </option>
+                              <option value="fa-id-card-o"> &#xf2c3; fa-id-card-o </option>
+                           	<option value="fa-user-circle"> &#xf2bd;  fa-user-circle </option>
+                           	<option value="fa-area-chart"> &#xf1fe;  fa-area-chart</option>
+                           	<option value="fa-balance-scale"> &#xf24e; fa-balance-scale </option>
+                           	<option value="fa-bar-chart"> &#xf080;  fa-bar-chart</option>
+                           	<option value="fa-ban"> &#xf05e; fa-ban</option>
+                           	<option value="fa-barcode"> &#xf02a; fa-barcode </option>
+                           	<option value="fa-bolt"> &#xf0e7; fa-bolt</option>
+                           	<option value="fa-book"> &#xf02d; fa-book</option>
+                           	<option value="fa-calendar"> &#xf073; fa-calenda</option>
+                           	<option value="fa-calendar-check-o"> &#xf274; fa-calendar-check-o </option>
+                           	<option value="fa-check"> &#xf00c; fa-check </option>
+                           	<option value="fa-check-square-o"> &#xf046; fa-check-square-o </option>
+                           	<option value="fa-clock-o"> &#xf017; fa-clock-o </option>
+                           	<option value="fa-cloud-upload"> &#xf0ee; fa-cloud-upload </option>
+                           	<option value="fa-cloud-download"> &#xf0ed; fa-cloud-download </option>
+                           	<option value="fa-code-fork"> &#xf126; fa-code-fork </option>
+                           	<option value="fa-coffee"> &#xf0f4; fa-coffee </option>
+                           	<option value="fa-cogs"> &#xf085; fa-cogs</option>
+                           	<option value="fa-compass"> &#xf14e; fa-compass  </option>
+                           	<option value="fa-credit-card"> &#xf09d;  fa-credit-card</option>
+                           	<option value="fa-diamond"> &#xf219; fa-diamond </option>
+                           	<option value="fa-file-archive-o"> &#xf1c6;  fa-file-archive-o</option>
+                           	<option value="fa-globe"> &#xf0ac; fa-globe</option>
+                           	<option value="fa-users"> &#xf0c0; fa-users </option>
+                           	<option value="fa-leaf"> &#xf06c; fa-leaf</option>
+                           	<option value="fa-lock"> &#xf023; fa-lock</option>
+                           	<option value="fa-line-chart"> &#xf201; fa-line-chart</option>
+                           	<option value="fa-lightbulb-o"> &#xf0eb;  fa-lightbulb-o </option>
+                           	<option value="fa-mobile"> &#xf10b; fa-mobile </option>
+                           	<option value="fa-pie-chart"> &#xf200;  fa-pie-chart</option>
+                           	<option value="fa-plug"> &#xf1e6; fa-plug</option>
+                           	<option value="fa-share-alt"> &#xf1e0; fa-share-alt</option>f
+                           	<option value="fa-star"> &#xf005; fa-strar</option>
+                           	<option value="fa-user-o"> &#xf2c0;  fa-user-o</option>
+                           	<option value="fa-file-o"> &#xf016;  fa-file-o</option>
                            </select>
                         </div>
                      </div>
@@ -158,26 +223,47 @@
                         </div>
                         <div class="field">
                            <%= f.label :icon4 %>
-                           <select class="fa" name="benefit[icon4]" id="benefit_icon4">
+                            <select class="fa" name="benefit[icon4]" id="benefit_icon4">
                               <% if !@benefit.new_record? %>
                               <option value="<%= @benefit.icon4 %>"><%= @benefit.icon4 %></option>
                               <% end %>
-                              <option value="fa-home">&#xf015; fa-home</option>
-                              <option value="fa-road">&#xf018; fa-road</option>
-                              <option value="fa-glass">&#xf000; fa-glass</option>
-                              <option value="fa-music">&#xf001; fa-music</option>
-                              <option value="fa-search">&#xf002; fa-search</option>
-                              <option value="fa-envelope-alt">&#xf003; fa-envelope-alt</option>
-                              <option value="fa-heart">&#xf004; fa-heart</option>
-                              <option value="fa-star">&#xf005; fa-star</option>
-                              <option value="fa-star-empty">&#xf006; fa-star-empty</option>
-                              <option value="fa-user">&#xf007; fa-user</option>
-                              <option value="fa-film">&#xf008; fa-film</option>
-                              <option value="fa-th-large">&#xf009; fa-th-large</option>
-                              <option value="fa-th">&#xf00a; fa-th</option>
-                              <option value="fa-th-list">&#xf00b; fa-th-list</option>
-                              <option value="fa-ok">&#xf00c; fa-ok</option>
-                              <option value="fa-remove">&#xf00d; fa-remove</option>
+                              <option value="fa-handshake-o"> &#xf2b5; fa-handshake-o </option>
+                              <option value="fa-id-card-o"> &#xf2c3; fa-id-card-o </option>
+                           	<option value="fa-user-circle"> &#xf2bd;  fa-user-circle </option>
+                           	<option value="fa-area-chart"> &#xf1fe;  fa-area-chart</option>
+                           	<option value="fa-balance-scale"> &#xf24e; fa-balance-scale </option>
+                           	<option value="fa-bar-chart"> &#xf080;  fa-bar-chart</option>
+                           	<option value="fa-ban"> &#xf05e; fa-ban</option>
+                           	<option value="fa-barcode"> &#xf02a; fa-barcode </option>
+                           	<option value="fa-bolt"> &#xf0e7; fa-bolt</option>
+                           	<option value="fa-book"> &#xf02d; fa-book</option>
+                           	<option value="fa-calendar"> &#xf073; fa-calenda</option>
+                           	<option value="fa-calendar-check-o"> &#xf274; fa-calendar-check-o </option>
+                           	<option value="fa-check"> &#xf00c; fa-check </option>
+                           	<option value="fa-check-square-o"> &#xf046; fa-check-square-o </option>
+                           	<option value="fa-clock-o"> &#xf017; fa-clock-o </option>
+                           	<option value="fa-cloud-upload"> &#xf0ee; fa-cloud-upload </option>
+                           	<option value="fa-cloud-download"> &#xf0ed; fa-cloud-download </option>
+                           	<option value="fa-code-fork"> &#xf126; fa-code-fork </option>
+                           	<option value="fa-coffee"> &#xf0f4; fa-coffee </option>
+                           	<option value="fa-cogs"> &#xf085; fa-cogs</option>
+                           	<option value="fa-compass"> &#xf14e; fa-compass  </option>
+                           	<option value="fa-credit-card"> &#xf09d;  fa-credit-card</option>
+                           	<option value="fa-diamond"> &#xf219; fa-diamond </option>
+                           	<option value="fa-file-archive-o"> &#xf1c6;  fa-file-archive-o</option>
+                           	<option value="fa-globe"> &#xf0ac; fa-globe</option>
+                           	<option value="fa-users"> &#xf0c0; fa-users </option>
+                           	<option value="fa-leaf"> &#xf06c; fa-leaf</option>
+                           	<option value="fa-lock"> &#xf023; fa-lock</option>
+                           	<option value="fa-line-chart"> &#xf201; fa-line-chart</option>
+                           	<option value="fa-lightbulb-o"> &#xf0eb;  fa-lightbulb-o </option>
+                           	<option value="fa-mobile"> &#xf10b; fa-mobile </option>
+                           	<option value="fa-pie-chart"> &#xf200;  fa-pie-chart</option>
+                           	<option value="fa-plug"> &#xf1e6; fa-plug</option>
+                           	<option value="fa-share-alt"> &#xf1e0; fa-share-alt</option>f
+                           	<option value="fa-star"> &#xf005; fa-strar</option>
+                           	<option value="fa-user-o"> &#xf2c0;  fa-user-o</option>
+                           	<option value="fa-file-o"> &#xf016;  fa-file-o</option>
                            </select>
                         </div>
                      </div>

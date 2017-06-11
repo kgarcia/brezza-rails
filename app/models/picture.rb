@@ -7,7 +7,7 @@ class Picture < ApplicationRecord
 	#validations
 	validates 	:product, presence: true
 	# Photo uploader using carrierwave
-    mount_uploader :alt, AvatarUploader
+=begin   mount_uploader :alt, AvatarUploader
     
     def to_jq_upload
     {
@@ -19,5 +19,5 @@ class Picture < ApplicationRecord
       "delete_type" => "DELETE" 
     }
   end
-  
+=end  
 end

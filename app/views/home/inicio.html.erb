@@ -217,102 +217,24 @@
          </ul>
          <div style=" height: 400px;vertical-align:middle;">
             <div id="portfoliolist">
-               <div class="portfolio Startups" data-cat="Startups">
-                  <div class="portfolio-wrapper">
-                     <img src="<%= image_url '/assets/portfolio/valor.jpg' %>" alt="" />
-                     <div class="label">
-                        <div class="label-text">
-                           <a class="text-title">Ideal Value</a> 
-                           <span class="text-category">Startup</span>
+               
+               <% @products.each do |product| %>
+               
+                  <div class="portfolio <% product.tags.each do |tag|%><%= tag.name+' '%><% end %>" data-cat="<% product.tags.each do |tag|%><%=tag.name+' '%><% end %>">
+                     <div class="portfolio-wrapper">
+                        <img src="<%= image_url product.thumb.url %>" alt="<%= product.name %>" />
+                        <div class="label">
+                           <div class="label-text">
+                              <a class="text-title"><%= product.name %></a> 
+                              <span class="text-category"><% product.tags.each do |tag|%><%= link_to (tag.name+' '), productos_path(:tag => tag.name)%><% end %></span>
+                           </div>
+                           <div class="label-bg"> </div>
                         </div>
-                        <div class="label-bg"> </div>
                      </div>
                   </div>
-               </div>
-               <div class="portfolio Finanzas Multi-commerce" data-cat="Finanzas Multi-commerce">
-                  <div class="portfolio-wrapper">
-                     <img src="<%= image_url '/assets/portfolio/scoring.jpeg' %>" alt="" />
-                     <div class="label">
-                        <div class="label-text">
-                           <a class="text-title">New-Scoring</a> 
-                           <span class="text-category">finanzas Multi-commerce</span>
-                        </div>
-                        <div class="label-bg"> </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="portfolio Startups" data-cat="Startups">
-                  <div class="portfolio-wrapper">
-                     <img src="<%= image_url '/assets/portfolio/crowd2.jpg' %>" alt="" />
-                     <div class="label">
-                        <div class="label-text">
-                           <a class="text-title">Crowd-Pocket</a> 
-                           <span class="text-category">Startup</span>
-                        </div>
-                        <div class="label-bg"> </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="portfolio Multi-commerce Energía" data-cat="Multi-commerce Energía">
-                  <div class="portfolio-wrapper">
-                     <img src="<%= image_url '/assets/portfolio/Portfolio-pic6.jpg' %>" alt="" />
-                     <div class="label">
-                        <div class="label-text">
-                           <a class="text-title">Brezza Energy</a> 
-                           <span class="text-category">Multi-commerce - Energía</span>
-                        </div>
-                        <div class="label-bg"> </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="portfolio Clusters Startups" data-cat="Clusters Startups">
-                  <div class="portfolio-wrapper">
-                     <img src="<%= image_url '/assets/portfolio/cafe.jpg' %>" alt="" />
-                     <div class="label">
-                        <div class="label-text">
-                           <a class="text-title">Innova-Café</a> 
-                           <span class="text-category">Clusters - Startup</span>
-                        </div>
-                        <div class="label-bg"> </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="portfolio Clusters Energía" data-cat="Clusters Energía">
-                  <div class="portfolio-wrapper">
-                     <img src="<%= image_url '/assets/portfolio/bosque.jpg' %>" alt="" />
-                     <div class="label">
-                        <div class="label-text">
-                           <a class="text-title">Habitat-Voice</a> 
-                           <span class="text-category">Energía</span>
-                        </div>
-                        <div class="label-bg"> </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="portfolio Clusters Energía" data-cat="Clusters Energía">
-                  <div class="portfolio-wrapper">
-                     <img src="<%= image_url '/assets/p7.jpg' %>" alt="" />
-                     <div class="label">
-                        <div class="label-text">
-                           <a class="text-title">Hill Climb</a> 
-                           <span class="text-category">#Clusters #Energía</span>
-                        </div>
-                        <div class="label-bg"> </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="portfolio Clusters Energía Multi-commerce" data-cat="Clusters Energía Multi-commerce">
-                  <div class="portfolio-wrapper">
-                     <img src="<%= image_url '/assets/p8.jpg' %>" alt="" />
-                     <div class="label">
-                        <div class="label-text">
-                           <a class="text-title">Sea Watcher</a> 
-                           <span class="text-category">Clusters Energía</span>
-                        </div>
-                        <div class="label-bg"> </div>
-                     </div>
-                  </div>
-               </div>
+               <% end %>
+               
+              
             </div>
          </div>
       </div>

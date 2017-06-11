@@ -1,247 +1,57 @@
+<%= image_tag @category.banner.url, style: "width: 100%; max-height: 130px;" %>
 
 
 <div class="row wrapper border-bottom white-bg page-heading" >
     <div class="col-lg-10">
-        <h2>Brezza Apps</h2>
+        <h2>Brezza <%= @category.name %></h2>
         <ol class="breadcrumb">
             <li>
                 <a href="/">Inicio</a>
             </li>
             <li class="active">
-                <strong>Apps</strong>
+                <strong><%= @category.name %></strong>
             </li>
         </ol>
     </div>
     <div class="col-lg-2">
 
+
     </div>
 </div>
-<div class="wrapper wrapper-content animated fadeInRight">
+<div class="wrapper wrapper-content animated fadeInRight container">
     <div class="row">
+        <% @products.each do |product| %>
         <div class="col-md-3">
             <div class="ibox">
                 <div class="ibox-content product-box">
 
                     <div >
-                        <%= image_tag 'p1.jpg', class: "img-responsive" %>
+                        <%= image_tag product.thumb.url, class: "img-responsive" %>
                     </div>
                     <div class="product-desc">
                                 <span class="product-price">
-                                    Brezza
+                                    <%=  product.category.name %>
                                 </span>
-                        <small class="text-muted">Categoría</small>
-                        <a href="#" class="product-name"> Producto</a>
+                        <small class="text-muted"><% product.tags.each do |tag|%><%= link_to (tag.name+' '), productos_path(:tag => tag.name)%><% end %></small>
+                        <a href="#" class="product-name"> <%= product.name %></a>
 
 
 
                         <div class="small m-t-xs">
-                            Many desktop publishing packages and web page editors now.
+                            <%= product.description %>
                         </div>
                         <div class="m-t text-righ">
-
-                            <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                            <%= link_to product do %>
+                                <span class="btn btn-xs btn-outline btn-primary">Detalle <i class="fa fa-long-arrow-right"></i> </span>
+                            <%end %>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-<div class="col-md-3">
-            <div class="ibox">
-                <div class="ibox-content product-box">
-
-                    <div >
-                        <%= image_tag 'alicehome.jpg', class: "img-responsive" %>
-                    </div>
-                    <div class="product-desc">
-                                <span class="product-price">
-                                    Brezza
-                                </span>
-                        <small class="text-muted">Categoría</small>
-                        <a href="products/detail" class="product-name"> WeVS</a>
-
-
-
-                        <div class="small m-t-xs">
-                            Software de valoración de Páginas Web. Con nuestro WeVS podrás conocer el valor real de tu sitio.
-                        </div>
-                        <div class="m-t text-righ">
-
-                            <a href="products/detail" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="ibox">
-                <div class="ibox-content product-box">
-
-                    <div >
-                        <%= image_tag 'p3.jpg', class: "img-responsive" %>
-                    </div>
-                    <div class="product-desc">
-                                <span class="product-price">
-                                    Brezza
-                                </span>
-                        <small class="text-muted">Categoría</small>
-                        <a href="#" class="product-name"> Producto</a>
-
-
-
-                        <div class="small m-t-xs">
-                            Many desktop publishing packages and web page editors now.
-                        </div>
-                        <div class="m-t text-righ">
-
-                            <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-       <div class="col-md-3">
-            <div class="ibox">
-                <div class="ibox-content product-box">
-
-                    <div >
-                        <%= image_tag 'p4.jpg', class: "img-responsive" %>
-                    </div>
-                    <div class="product-desc">
-                                <span class="product-price">
-                                    Brezza
-                                </span>
-                        <small class="text-muted">Categoría</small>
-                        <a href="#" class="product-name"> Producto</a>
-
-
-
-                        <div class="small m-t-xs">
-                            Many desktop publishing packages and web page editors now.
-                        </div>
-                        <div class="m-t text-righ">
-
-                            <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="ibox">
-                <div class="ibox-content product-box">
-
-                    <div class="product-imitation">
-                        [ INFO ]
-                    </div>
-                    <div class="product-desc">
-                                <span class="product-price">
-                                    Brezza
-                                </span>
-                        <small class="text-muted">Category</small>
-                        <a href="#" class="product-name"> Product</a>
-
-
-
-                        <div class="small m-t-xs">
-                            Many desktop publishing packages and web page editors now.
-                        </div>
-                        <div class="m-t text-righ">
-
-                            <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="ibox">
-                <div class="ibox-content product-box">
-
-                    <div class="product-imitation">
-                        [ INFO ]
-                    </div>
-                    <div class="product-desc">
-                                <span class="product-price">
-                                    Brezza
-                                </span>
-                        <small class="text-muted">Category</small>
-                        <a href="#" class="product-name"> Product</a>
-
-
-
-                        <div class="small m-t-xs">
-                            Many desktop publishing packages and web page editors now.
-                        </div>
-                        <div class="m-t text-righ">
-
-                            <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="ibox">
-                <div class="ibox-content product-box">
-
-                    <div class="product-imitation">
-                        [ INFO ]
-                    </div>
-                    <div class="product-desc">
-                                <span class="product-price">
-                                    Brezza
-                                </span>
-                        <small class="text-muted">Category</small>
-                        <a href="#" class="product-name"> Product</a>
-
-
-
-                        <div class="small m-t-xs">
-                            Many desktop publishing packages and web page editors now.
-                        </div>
-                        <div class="m-t text-righ">
-
-                            <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="ibox">
-                <div class="ibox-content product-box">
-
-                    <div class="product-imitation">
-                        [ INFO ]
-                    </div>
-                    <div class="product-desc">
-                                <span class="product-price">
-                                    Brezza
-                                </span>
-                        <small class="text-muted">Category</small>
-                        <a href="#" class="product-name"> Product</a>
-
-
-
-                        <div class="small m-t-xs">
-                            Many desktop publishing packages and web page editors now.
-                        </div>
-                        <div class="m-t text-righ">
-
-                            <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <% end %>
+     
+        
 
     </div>
     

@@ -39,11 +39,11 @@
                 <i class="fa fa-desktop"></i> <span class="nav-label">Panel</span>
                 <% end %>
             </li>
-                        <li> 
-                <%= link_to "#" do %>
+            <li class="<%= (is_active_controller('sliders') || is_active_controller('benefits') || is_active_controller('lilpros')  )  %>">
+                <%= link_to "" do %>
                         <i class="fa fa-cogs"></i> <span class="nav-label">Gestión de Contenido</span><span class="fa arrow"></span>
                 <% end %>
-                <ul class="nav nav-second-level">
+                <ul class="nav nav-second-level collapse <%#= (is_active_controller('sliders', 'in') || is_active_controller('benefits', 'in') ) %>">
                     <li class="<%= 'active' if current_page?('/sliders') %>">
                         <%= link_to sliders_path do %>
                         <i class="fa fa-photo"></i> <span class="nav-label">Sliders</span>
@@ -88,13 +88,18 @@
                 </ul>
             </li>
 
-            <li class="<%= 'active' if current_page?('/areas') %>">
-                <%= link_to "" do %>
-                <i class="fa fa-tags"></i> <span class="nav-label">Tags/Categorías</span>
+            <li class="<%= 'active' if current_page?('/categories') %>">
+                <%= link_to categories_path do %>
+                <i class="fa fa-tags"></i> <span class="nav-label">Categorías</span>
                 <% end %>
             </li>
-            <li class="<%= 'active' if current_page?('/productos') %>">
-                <%= link_to "" do %>
+             <li class="<%= 'active' if current_page?('/Etiquetas') %>">
+                <%= link_to tags_path do %>
+                <i class="fa fa-tags"></i> <span class="nav-label">Etiquetas</span>
+                <% end %>
+            </li>
+            <li class="<%= 'active' if current_page?('/products') %>">
+                <%= link_to products_path do %>
                 <i class="fa fa-briefcase"></i> <span class="nav-label">Productos</span>
                 <% end %>
             </li>

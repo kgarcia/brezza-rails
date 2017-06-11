@@ -13,8 +13,7 @@ class ApplicationController < ActionController::Base
   end
   
   def set_meta
-    set_meta_tags title: 'Administración',
-              site: 'Brezza Project',
+    set_meta_tags title: controller_name.titleize+' | Administración',
               site: 'Brezza Project',
               description: 'Administración de Brezza Project',
               keywords: 'Brezza Project S.A., crowfunding ,crowlending,emprendimiento, proyectos, multiplataforma, venezuela, Brezza Project S.A.',
