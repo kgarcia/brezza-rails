@@ -9,10 +9,11 @@
             <a href="/categories">Listado</a>
          </li>
          <li class="active">
-            
-           
+            <% if @category.new_record? %>
+            <strong class="text-blue">Registrar Categoría</strong>
+            <% else %>
             <strong class="text-blue">Editar Categoría</strong>
-           
+            <% end %>
          </li>
       </ol>
    </div>

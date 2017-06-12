@@ -90,6 +90,8 @@ gem 'devise-i18n'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+
+gem 'bootstrap-datepicker-rails'
 gem 'meta-tags'
 gem 'wow-rails'
 gem 'mixitup_rails'
@@ -105,3 +107,6 @@ gem 'bootstrap-colorpicker-rails'
 
 gem 'jquery-minicolors-rails'
 gem "jquery-fileupload-rails"
+gem 'social-share-button'
+gem 'hover-rails'
+gem 'tinymce-rails'

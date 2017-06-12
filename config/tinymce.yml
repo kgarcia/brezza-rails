@@ -1,0 +1,22 @@
+toolbar:
+  - styleselect | bold italic | undo redo | alignleft aligncenter alignright alignjustify | formatselect fontsizeselect
+  - cut copy paste pastetext | image | link unlink | indent blockquote removeformat subscript superscript hr bullist numlist charmap insertdatetime
+  -  print preview code anchor pagebreak searchreplace
+plugins:
+  - image
+  - link
+  - hr
+  - lists
+  - charmap
+  - paste
+  - print
+  - preview
+  - pagebreak
+  - searchreplace
+  - visualblocks
+  - visualchars
+  - code
+  - fullscreen
+  - insertdatetime
+  - nonbreaking
+  

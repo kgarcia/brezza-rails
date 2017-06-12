@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607023309) do
+ActiveRecord::Schema.define(version: 20170612084810) do
 
   create_table "allies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -134,6 +134,15 @@ ActiveRecord::Schema.define(version: 20170607023309) do
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
   end
 
+  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "description"
+    t.string   "answer"
+    t.integer  "product_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["product_id"], name: "index_questions_on_product_id", using: :btree
+  end
+
   create_table "sliders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.string   "description"
@@ -228,4 +237,5 @@ ActiveRecord::Schema.define(version: 20170607023309) do
   add_foreign_key "product_tags", "products"
   add_foreign_key "product_tags", "tags"
   add_foreign_key "products", "categories"
+  add_foreign_key "questions", "products"
 end

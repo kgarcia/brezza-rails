@@ -1,3 +1,27 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'base/variables';
+
+.faq-item{
+	    	padding: 10px 20px;
+	    	.faq-question{
+	    		color: $navy;
+	    	}
+	        .btn-pregunta{
+				background-color: $navy;
+				border-radius: 50%;
+				height: 40px;
+				width: 40px;
+				color: #FFFFFF;	
+				i{
+					position: relative;
+					right: 2px;
+					bottom: 4px;
+				}
+	        }
+	        .btn:hover, .btn:focus, .btn.focus {
+			  color: $lazur;
+			  text-decoration: none;
+			}
+	        }

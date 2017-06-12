@@ -74,7 +74,7 @@
                               Buscar imagen... <input  name="slider[fondo]" id="slider_fondo" type="file" hidden>
                               </label>
                               <% if !@slider.new_record? %>
-                              <%= image_tag @slider.fondo.url(:medium), :class => "img-responsive" , :size => "300x226" , :title => "Imagen de fondo para el slider principal"%>
+                              <%= image_tag @slider.fondo.url(:medium), :class => "img-responsive" , :width=>"300", :height=>"300"  , :title => "Imagen de fondo para el slider principal"%>
                               <% end %>
                            </div>
                         </div>
@@ -86,7 +86,7 @@
                               Buscar imagen... <input  name="slider[imagen]" id="slider_imagen" type="file" hidden>
                               </label>
                               <% if !@slider.new_record? %>
-                              <%= image_tag @slider.imagen.url(:medium), :class => "img-responsive" , :size => "300x226" , :title => "Imagen del slider principal" %>
+                              <%= image_tag @slider.imagen.url(:medium), :class => "img-responsive" , :width=>"300", :height=>"300" , :title => "Imagen del slider principal" %>
                               <%end%>
                            </div>
                         </div>

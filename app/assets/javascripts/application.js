@@ -13,6 +13,7 @@
 //= require jquery/jquery-3.1.1.min.js
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker
 //= require metisMenu/jquery.metisMenu.js
 //= require pace/pace.min.js
 //= require slimscroll/jquery.slimscroll.min.js
@@ -26,6 +27,9 @@
 //= require toastr
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
+//= require social-share-button
+//= require tinymce
+//= require tinymce-jquery
 //= require turbolinks
 //= require_tree .
 

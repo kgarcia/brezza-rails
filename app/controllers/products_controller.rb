@@ -35,6 +35,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    render :layout => 'empty'
   end
 
   # GET /products/new

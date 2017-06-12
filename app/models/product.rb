@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   has_many :product_tags
   has_many :tags, through: :product_tags
   has_many :pictures
+  has_many :questions
   has_attached_file :thumb, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :thumb, content_type: /\Aimage\/.*\z/
   

@@ -43,8 +43,8 @@ class HomeController < ApplicationController
     @ally = Ally.first
     @mensaje = Mensaje.new
     @tags = Tag.all
-    @lilpro = Lilpro.last
-    @contact = Contact.last
+    @lilpro = Lilpro.first
+    @contact = Contact.first
     @categories = Category.all
     @products = Product.order("RAND()").limit(8)
     render :layout => "empty"

@@ -1,46 +1,81 @@
-<%= form_for(testimonial) do |f| %>
-  <% if testimonial.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(testimonial.errors.count, "error") %> No pudo ser guardado este registro:</h2>
+<div class="row wrapper border-bottom white-bg page-heading">
+   <div class="col-lg-10">
+      <h2 class="text-dark-blue"><strong>Testimonios</strong></h2>
+      <ol class="breadcrumb">
+         <li>
+            <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+         </li>
+         <li>
+            <a href="/testimonials">Listado</a>
+         </li>
+         <li class="active">
+            <% if @testimonial.new_record? %>
+            <strong class="text-blue">Registrar Testimonio</strong>
+            <% else %>
+            <strong class="text-blue">Editar Testimonio</strong>
+            <% end %>
+         </li>
+      </ol>
+   </div>
+</div>
+<div class="wrapper wrapper-content">
+   <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+         <div class="ibox float-e-margins">
+            <div class="ibox-title">
+               <h4 class="text-dark-blue"><strong>Testimonios</strong></h4>
+            </div>
+            <div class="ibox-content">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <%= form_for @testimonial , :html => {:multipart => true } do |f| %>
+                     <% if @testimonial.errors.any? %>
+                     <div id="error_explanation">
+                        <h2><%= pluralize(testimonial.errors.count, "error") %> prohibited this description from being saved:</h2>
+                        <ul>
+                           <% @testimonial.errors.full_messages.each do |message| %>
+                           <li><%= message %></li>
+                           <% end %>
+                        </ul>
+                     </div>
+                     <% end %>
+                     <div class="form-group">
+                        <label class="control-label">Cita<label for="testimonial_quote" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                        <%= f.text_area :quote,:required => true, :class => "form-control" %>
+                     </div>
+                     <div class="form-group">
+                        <label class="control-label">Autor<label for="testimonial_autor" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                        <%= f.text_field :autor,:required => true, :class => "form-control" %>
+                     </div>
+                     <div class="form-group">
+                          <label class="control-label">Fecha<label for="testimonial_date" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                          <input type="text" value="<%= @testimonial.date %>" class="form-control" data-provide='datepicker' id="testimonial_date" name="testimonial[date]" placeholder="MM/DD/YYYY">
+                          
+                     </div>
+                     
 
-      <ul>
-      <% testimonial.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
- <div class="form-group">
-        <label class="control-label">Cita<label for="testimonial_quote" class="control-label error" style="margin-bottom: 0px;"></label></label>
-        <%= f.text_area :quote,:required => true, :class => "form-control" %>
-  </div>
-  
- <div class="form-group">
-        <label class="control-label">Autor<label for="testimonial_autor" class="control-label error" style="margin-bottom: 0px;"></label></label>
-        <%= f.text_field :autor,:required => true, :class => "form-control" %>
-  </div>
-
- <div class="form-group">
-        <label class="control-label">Fecha<label for="testimonial_date" class="control-label error" style="margin-bottom: 0px;"></label></label>
-        <%= f.text_field :date,:required => true, :class => "form-control" %>
-  </div>
-
-
-  <div class="form-group">
-                  <div class="col-lg-offset-3 col-lg-2">
-                    <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
+                     </br></br>
+                     <div class="form-group">
+                        <div class="col-lg-offset-3 col-lg-2">
+                           <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
+                        </div>
+                        <% if (@testimonial.new_record?) %>
+                        <div class="col-lg-2">
+                           <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
+                        </div>
+                        <% end %>
+                        <div class="col-lg-2">
+                           <%= link_to 'Atrás', testimonials_path, :class => "btn btn-sm btn-default" %>
+                        </div>
+                     </div>
+                     <% end %>
                   </div>
-                  <% if (@testimonial.new_record?) %>
-                    <div class="col-lg-2">
-                      <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
-                    </div>
-                  <% end %>
-                  <div class="col-lg-2">
-                    <%= link_to 'Atrás', testimonials_path, :class => "btn btn-sm btn-default" %>
-                  </div>
-  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-sm-2"></div>
+   </div>
+</div>
 
-
-<% end %>

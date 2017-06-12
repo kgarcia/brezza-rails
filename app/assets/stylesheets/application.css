@@ -15,9 +15,12 @@
  *= require steps/jquery.steps.css
  *= require style
  *= require bootstrap-colorpicker
+ *= require bootstrap-datepicker3
  *= require jquery.minicolors
  *= require select2
-*= require select2-bootstrap
+ *= require select2-bootstrap
+ *= require social-share-button
+ *= require hover
  */
 
 .navy-line {
