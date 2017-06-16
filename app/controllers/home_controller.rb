@@ -1,10 +1,16 @@
 class HomeController < ApplicationController
+  before_action :set_meta
   def index
     @mainTitle = "Welcome in Inspinia Rails Seed Project"
     @mainDesc = "It is an application skeleton for a typical Ruby on Rails web app. You can use it to quickly bootstrap your webapp projects and dev/prod environment."
   end
 
   def minor
+    if user_signed_in?
+      @products = current_user.products
+    else
+      @products = Product.all
+    end
     render :layout => "admin"
   end
 
@@ -57,12 +63,18 @@ class HomeController < ApplicationController
     @category = Category.new(:name => "Productos")#, :banner => "landing/header_one.jpg")
     @products = Product.all
     if params[:tag]
-      @category = Tag.where(:name => params[:tag]).take
-      @products = @category.products
-    else
-      if params[:category]
-        @category = Category.where(:name => params[:category]).take
+      if Tag.where(:name => params[:tag].gsub(/\s+/, " ")).exists?
+        @category = Tag.where(:name => params[:tag]).take
         @products = @category.products
+        
+      end
+    else
+      if params[:cate]
+        
+        if Category.where(:name => params[:cate].gsub(/\s+/, " ")).exists?
+          @category = Category.where(:name => params[:cate]).take
+          @products = @category.products
+        end
       end
     end
     render :layout => "front"

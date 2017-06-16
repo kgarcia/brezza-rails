@@ -30,6 +30,11 @@
 //= require social-share-button
 //= require tinymce
 //= require tinymce-jquery
+//= require nested_form_fields
+//= require jquery.knob
+//= require jquery.peity
+//= require chosen-jquery
+//= require footable/footable.min.js
 //= require turbolinks
 //= require_tree .
 

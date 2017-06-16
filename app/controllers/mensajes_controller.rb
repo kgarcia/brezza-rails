@@ -31,7 +31,8 @@ class MensajesController < ApplicationController
 
     respond_to do |format|
       if @mensaje.save
-        format.html { redirect_to "/home/inicio", notice: 'Su mensaje ha sido enviado exitosamente, en breve lo atenderemos.' }
+        ExampleMailer.sample_email(current_user, @mensaje).deliver_now
+        format.html { redirect_to root_path, notice: 'Su mensaje ha sido enviado exitosamente, en breve lo atenderemos.' }
         format.json { render action: 'show', status: :created, location: @mensaje }
       else
         format.html { render action: 'new' }

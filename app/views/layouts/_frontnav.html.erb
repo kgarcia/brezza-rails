@@ -1,4 +1,4 @@
-<div class="navbar-wrapper" >
+<div class="navbar-wrapper">
    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
          <div class="navbar-header page-scroll">
@@ -9,20 +9,22 @@
             <span class="icon-bar"></span>
             </button>
             <a class="" href="/">
-            <img width="240" height="70" class="navbar-brand" src="<%= image_url '/assets/logo/brezza-logo.png' %>">
+            <img width="240" height="40" class="navbar-brand" src="<%= image_url '/assets/logo/brezza-logo.png' %>">
             </a>
          </div>
          <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-               <li><a class="page-scroll" href="/#page-top">Inicio</a></li>
-               <li><a class="page-scroll" href="/#productos">Productos</a></li>
-               <li><a class="page-scroll" href="/#team">Nosotros</a></li>
-               <li><a class="page-scroll" href="/#pricing">Únete</a></li>
-               <li><a class="page-scroll" href="/#contact">Contacto</a></li>
+               <li><a class="page-scroll" href="#page-top">Inicio</a></li>
+               <li><a class="page-scroll" href="#productos">Productos</a></li>
+               <li><a class="page-scroll" href="#team">Nosotros</a></li>
+               <li><a class="page-scroll" href="#pricing">Únete</a></li>
+               <li><a class="page-scroll" href="#contact">Contacto</a></li>
                <% if user_signed_in? %>
                <li><%= link_to "Administración", home_minor_path, :class => "page-scroll" %></li>
                <%else %>
-               <li><%= link_to "Iniciar Sesión", new_user_session_path, :class => "page-scroll" %></li>
+               <li><a class="page-scroll" data-toggle="modal" data-target="#myModal7">Iniciar Sesión</a>
+                  <%#= link_to "Iniciar Sesión", new_user_session_path, :class => "page-scroll" %>
+               </li>
                <%end %>
             </ul>
          </div>

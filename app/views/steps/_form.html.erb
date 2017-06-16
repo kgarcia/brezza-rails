@@ -33,7 +33,7 @@
 
 
 
-<%= form_for(step) do |f| %>
+<%= form_for @step, html: { multipart: true } do |f| %>
   <% if step.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(step.errors.count, "error") %> prohibited this step from being saved:</h2>
@@ -45,37 +45,59 @@
       </ul>
     </div>
   <% end %>
+<div class="form-group">
+        <label class="control-label">Titulo 1<label for="step_title0" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :title0,:required => true, :class => "form-control" %>
+  </div>
 
  <div class="form-group">
-        <label class="control-label">Titulo 1<label for="step_title1" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <label class="control-label">Descripción 1<label for="step_description0" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :description ,:required => true, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+        <label class="control-label">Imagen 1<label for="step_img" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.file_field :img %>
+  </div>
+ <div class="form-group">
+        <label class="control-label">Titulo 2<label for="step_title1" class="control-label error" style="margin-bottom: 0px;"></label></label>
         <%= f.text_field :title1,:required => true, :class => "form-control" %>
   </div>
 
  <div class="form-group">
-        <label class="control-label">Descripción 1<label for="step_description1" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <label class="control-label">Descripción 2<label for="step_description1" class="control-label error" style="margin-bottom: 0px;"></label></label>
         <%= f.text_field :description1,:required => true, :class => "form-control" %>
   </div>
-
  <div class="form-group">
-        <label class="control-label">Titulo 2<label for="step_title2" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <label class="control-label">Imagen 2<label for="step_img1" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.file_field :img1 %>
+  </div>
+ <div class="form-group">
+        <label class="control-label">Titulo 3<label for="step_title2" class="control-label error" style="margin-bottom: 0px;"></label></label>
         <%= f.text_field :title2,:required => true, :class => "form-control" %>
   </div>
 
  <div class="form-group">
-        <label class="control-label">Descripción 2<label for="step_description2" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <label class="control-label">Descripción 3<label for="step_description2" class="control-label error" style="margin-bottom: 0px;"></label></label>
         <%= f.text_field :description2,:required => true, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+        <label class="control-label">Imagen 3<label for="step_img2" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.file_field :img2 %>
   </div>
   
  <div class="form-group">
-        <label class="control-label">Titulo 3<label for="step_title3" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <label class="control-label">Titulo 4<label for="step_title3" class="control-label error" style="margin-bottom: 0px;"></label></label>
         <%= f.text_field :title3,:required => true, :class => "form-control" %>
   </div>
 
  <div class="form-group">
-        <label class="control-label">Descripción 1<label for="step_description3" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <label class="control-label">Descripción 4<label for="step_description3" class="control-label error" style="margin-bottom: 0px;"></label></label>
         <%= f.text_field :description3,:required => true, :class => "form-control" %>
   </div>
-
+<div class="form-group">
+        <label class="control-label">Imagen 4<label for="step_img3" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.file_field :img3 %>
+  </div>
  <div class="form-group">
         <label class="control-label">Titulo 4<label for="step_title4" class="control-label error" style="margin-bottom: 0px;"></label></label>
         <%= f.text_field :title4,:required => true, :class => "form-control" %>
@@ -85,7 +107,10 @@
         <label class="control-label">Descripción 4<label for="step_description4" class="control-label error" style="margin-bottom: 0px;"></label></label>
         <%= f.text_field :description4,:required => true, :class => "form-control" %>
   </div>
-
+ <div class="form-group">
+        <label class="control-label">Imagen 4<label for="step_img3" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.file_field :img4 %>
+  </div>
   <div class="form-group">
                   <div class="col-lg-offset-3 col-lg-2">
                     <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>

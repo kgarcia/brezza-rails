@@ -21,7 +21,7 @@
               </h4>
           </div>
           <div class="ibox-content">
-            <%= link_to "Registar", new_category_path, :class => "btn btn-primary btn-sm", style: 'position: absolute; z-index: 9999; margin-top: -30px;'%>
+            <%#= link_to "Registar", new_category_path, :class => "btn btn-primary btn-sm", style: 'position: absolute; z-index: 9999; margin-top: -30px;'%>
 
   <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
   <thead>
@@ -42,7 +42,7 @@
         <td><%= category.fronttext %></td>
         <td><%= category.icon %></td>
         <td><%= link_to 'Editar', edit_category_path(category) , :class => "btn btn-warning btn-sm" %></td>
-        <td><%= link_to 'Eliminar', category, method: :delete , :class => "btn btn-danger btn-sm", data: { confirm: '¿Está seguro que desea eliminar la categoría?' } %></td>
+        <td><%#= link_to 'Eliminar', category, method: :delete , :class => "btn btn-danger btn-sm", data: { confirm: '¿Está seguro que desea eliminar la categoría?' } %></td>
 
       </tr>
     <% end %>

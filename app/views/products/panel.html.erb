@@ -1,0 +1,120 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+   <div class="col-sm-4">
+      <h2>Project list</h2>
+      <ol class="breadcrumb">
+         <li>
+            <a href="#">Administración</a>
+         </li>
+         <li class="active">
+            <strong>Mis Alianzas</strong>
+         </li>
+      </ol>
+   </div>
+</div>
+<div class="row">
+   <div class="col-lg-7">
+      <div class="wrapper wrapper-content animated fadeInUp" style="padding: 30px 0px;">
+         <div class="ibox">
+            <div class="ibox-title">
+               <h5>Todos los productos de los que eres aliado</h5>
+               <div class="ibox-tools">
+                  <a href="/productos" class="btn btn-primary btn-xs">Ver más productos</a>
+               </div>
+            </div>
+            <div class="ibox-content">
+               <div class="project-list">
+                  <table class="table table-hover">
+                     <tbody>
+                        <% @products.each do |product| %>
+                        <tr>
+                           <td class="project-status">
+                              <span class="label label-primary">Active</span>
+                           </td>
+                           <td class="project-title">
+                              <%= link_to product.name, avance_path(product) %> 
+                              <br />
+                              <small>Creado el <%= product.created_at %></small>
+                           </td>
+                           <td class="project-completion">
+                              <small>Completación: <% if !product.progresses.last.nil? %><%= product.progresses.last.progress.to_s %><%end%></small>
+                              <div class="progress progress-mini">
+                                 <div style="width: <% if !product.progresses.last.nil? %><%= product.progresses.last.progress.to_s %><%end%>%;" class="progress-bar"></div>
+                              </div>
+                           </td>
+                           <td class="project-people">
+                              <a href=""><img alt="image" class="img-circle" src="<%= image_path('p3.jpg') %>"></a>
+                              <a href=""><img alt="image" class="img-circle" src="<%= image_path('p1.jpg') %>"></a>
+                              <a href=""><img alt="image" class="img-circle" src="<%= image_path('p2.jpg') %>"></a>
+                              <a href=""><img alt="image" class="img-circle" src="<%= image_path('p4.jpg') %>"></a>
+                              <a href=""><img alt="image" class="img-circle" src="<%= image_path('p5.jpg') %>"></a>
+                           </td>
+                           <td class="project-actions">
+                              <%= link_to  avance_path(product), class: "btn btn-white btn-sm" do %> 
+                              <i class="fa fa-folder"></i> Ver
+                              <% end %>
+                           </td>
+                        </tr>
+                        <% end %>
+                     </tbody>
+                  </table>
+                  
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="col-lg-5">
+      <div class="wrapper wrapper-content animated fadeInUp" style="padding: 30px 0px;">
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <div class="ibox float-e-margins">
+                              <div class="ibox-title">
+                                 <h4 class="text-dark-blue">
+                                    <strong>Listado: Solicitudes de Alianza</strong>
+                                 </h4>
+                              </div>
+                              <div class="ibox-content">
+                                 <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+                                    <thead>
+                                       <tr>
+                                          <th>Solicitante</th>
+                                          <th>Producto</th>
+                                          <th>Tipo</th>
+                                          <th></th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                       <% @alliances.each do |alliance| %>
+                                       <tr>
+                                          <td><%= alliance.user.firstname+' '+alliance.user.lastname %></td>
+                                          <td><%= alliance.product.name %></td>
+                                          <td>
+                                             <%= case alliance.allytype # a_variable is the variable we want to compare
+                                                when 1    #compare to 1
+                                                   "Técnico" 
+                                                when 2    #compare to 2
+                                                  "Financiero"
+                                                else
+                                                  "Comercial"
+                                                end %>
+                                          </td>
+                                          <td><%= link_to "", aprobar_path(alliance, :approval => true), :title => "Aprobar" , :style => "background: #5cb85c", :class => "btn btn-primary btn-sm fa fa-check", data: { confirm: '¿Está seguro que desea aprobar la solicitud?' } %>
+                                          <%= link_to '', aprobar_path(alliance, :approval => false) , :title => "Rechazar" ,   :class => "btn btn-danger btn-sm fa fa-ban", data: { confirm: '¿Está seguro que desea rechazar la solicitud?' } %></td>
+                                       </tr>
+                                       <% end %>
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+   </div>
+</div>
+
+<div class="row">
+   <div class="col-lg-12">
+      
+   </div>
+</div>

@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-
+  layout "notempty"
   # GET /resource/sign_up
   # def new
   #   super
@@ -60,11 +60,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def sign_up_params
-    params.require(:user).permit(:firstname, :lastname, :phone, :address, :email, :password, :password_confirmation)
+    params.require(:user).permit(:firstname, :lastname, :phone, :address, :email, :password, :password_confirmation, :country, :city, :cv, :document, :avatar)
   end
 
   def account_update_params
-    params.require(:user).permit(:firstname, :lastname, :phone, :address, :email, :password, :password_confirmation, :current_password)
+    params.require(:user).permit(:firstname, :lastname, :phone, :address, :email, :password, :password_confirmation, :current_password, :country, :city, :cv, :document, :avatar)
   end
 
 end

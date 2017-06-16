@@ -1,19 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+      <h2 class="text-dark-blue"><strong>Mensaje</strong></h2>
+      <ol class="breadcrumb">
+        <li>
+          <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+        </li>
+        <li>
+          <a href="/mensajes">Listado</a>
+        </li>
+        <li class="active">
+          <% if @mensaje.new_record? %>
+            <strong class="text-blue">Registrar Mensaje</strong>
+          <% else %>
+            <strong class="text-blue">Editar Mensaje</strong>
+          <% end %>
+        </li>
+    </ol>
+  </div>
+</div>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @mensaje.nombre %>
-</p>
+<div class="wrapper wrapper-content">
+  <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h4 class="text-dark-blue"><strong>Mensaje</strong></h4>
+          
+        </div>
+        <div class="ibox-content">
+          <h3>Usted ha recibido un mensaje de: <%= @mensaje.nombre %></h3><small> A través de: <%= @mensaje.correo %></small>
+          </br></br></br></br><h3><i class="fa fa-mail"></i>Mensaje:</h3>
+          <p><%= @mensaje.mensaje %></p>
+          <div class = " row text-center">
+            <td><%= link_to 'Eliminar', @mensaje, method: :delete,:class => "btn btn-danger btn-sm", data: { confirm: '¿Está seguro que desea eliminar el slider?' } %></td>&#160;&#160;
+            <td><%= link_to 'Back', mensajes_path, :class => "btn btn-default btn-sm" %></td>
+          </div>
+        </div>
+  </div>
+</div>
 
-<p>
-  <strong>Correo:</strong>
-  <%= @mensaje.correo %>
-</p>
-
-<p>
-  <strong>Mensaje:</strong>
-  <%= @mensaje.mensaje %>
-</p>
-
-<%= link_to 'Edit', edit_mensaje_path(@mensaje) %> |
-<%= link_to 'Back', mensajes_path %>

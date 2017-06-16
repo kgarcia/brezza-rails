@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @progress.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @progress.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @progress.status %>
+</p>
+
+<p>
+  <strong>Progress:</strong>
+  <%= @progress.progress %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @progress.product %>
+</p>
+
+<%= link_to 'Edit', edit_progress_path(@progress) %> |
+<%= link_to 'Back', progresses_path %>

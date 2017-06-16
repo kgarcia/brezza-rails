@@ -101,8 +101,7 @@ gem 'carrierwave'
 gem "select2-rails"
 gem 'sitemap_generator'
 gem 'toastr-rails'
-
-
+gem 'jquery-knob-rails', '~> 1.2', '>= 1.2.13'
 gem 'bootstrap-colorpicker-rails'
 
 gem 'jquery-minicolors-rails'
@@ -110,3 +109,9 @@ gem "jquery-fileupload-rails"
 gem 'social-share-button'
 gem 'hover-rails'
 gem 'tinymce-rails'
+gem 'nested_form_fields'
+gem 'country_select'
+gem 'city-state'
+gem 'chosen-rails'
+gem 'jquery-peity-rails'
+gem 'footable-rails'

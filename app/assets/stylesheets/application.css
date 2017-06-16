@@ -20,7 +20,9 @@
  *= require select2
  *= require select2-bootstrap
  *= require social-share-button
+ *= require chosen
  *= require hover
+ *= require footable/footable.bootstrap.min.css
  */
 
 .navy-line {
@@ -28,4 +30,7 @@
   height: 1px;
   margin: 60px auto 0;
   border-bottom: 2px solid #00257b;
+}
+.footable-filtering-search .input-group .input-group-btn .btn-primary{
+	min-width: 0px;
 }

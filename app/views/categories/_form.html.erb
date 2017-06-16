@@ -56,7 +56,7 @@
 
                      <div class="form-group">
                         <label class="control-label">Icono<label for="category_icon" class="control-label error" style="margin-bottom: 0px;"></label></label>
-                        <select class="fa" name="category[icon]" id="category_icon">
+                        <select class="fa btn btn-default" name="category[icon]" id="category_icon">
                               <% if !@category.new_record? %>
                               <option value="<%= @category.icon %>"><%= category.icon %></option>
                               <% end %>

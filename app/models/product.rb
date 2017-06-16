@@ -2,8 +2,12 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :product_tags
   has_many :tags, through: :product_tags
+   has_many :alliances
+  has_many :users, through: :alliances
   has_many :pictures
+  has_many :progresses
   has_many :questions
+   accepts_nested_attributes_for :questions, allow_destroy: true
   has_attached_file :thumb, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :thumb, content_type: /\Aimage\/.*\z/
   

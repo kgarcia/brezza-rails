@@ -7,7 +7,9 @@
                         <a class="page-scroll" href="/"><img alt="image" class="img-responsive" style="margin-top: -25px" src="<%= image_url '/assets/bz2.png' %>"/></a>
                     </span><br>
                     <span>
-                        <center><img alt="image" align="middle" width="30%" class="img-circle img-responsive" src="<%= image_url '/assets/landing/ss.jpg' %>"/></center>
+                        <% if user_signed_in? %>
+                        <center><img alt="image" align="middle" width="30%" class="img-circle img-responsive" src="<%= image_url current_user.avatar.url %>"/></center>
+                        <% end %>
                     </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="clear">
@@ -34,12 +36,12 @@
                 <i class="fa fa-laptop"></i> <span class="nav-label">Ver Página</span>
                 <% end %>
             </li>
-            <li class="<%= 'active' if current_page?('/home/minor') %>">
-                <%= link_to "/home/minor" do %>
+            <li class="<%= 'active' if current_page?('/panel') %>">
+                <%= link_to panel_path do %>
                 <i class="fa fa-desktop"></i> <span class="nav-label">Panel</span>
                 <% end %>
             </li>
-            <li class="<%= (is_active_controller('sliders') || is_active_controller('benefits') || is_active_controller('lilpros')  )  %>">
+            <li class="active">
                 <%= link_to "" do %>
                         <i class="fa fa-cogs"></i> <span class="nav-label">Gestión de Contenido</span><span class="fa arrow"></span>
                 <% end %>

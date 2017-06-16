@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612084810) do
+ActiveRecord::Schema.define(version: 20170616093949) do
+
+  create_table "alliances", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "product_id"
+    t.integer  "user_id"
+    t.integer  "allytype"
+    t.boolean  "approval"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_alliances_on_product_id", using: :btree
+    t.index ["user_id"], name: "index_alliances_on_user_id", using: :btree
+  end
 
   create_table "allies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -67,15 +78,18 @@ ActiveRecord::Schema.define(version: 20170612084810) do
   end
 
   create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "description", limit: 65535
+    t.text     "description",   limit: 65535
     t.string   "name"
     t.string   "address"
     t.string   "phone"
     t.string   "twitter"
     t.string   "facebook"
     t.string   "instagram"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.text     "polpriv",       limit: 65535
+    t.text     "prospectiva",   limit: 65535
+    t.text     "escalabilidad", limit: 65535
   end
 
   create_table "lilpros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -134,12 +148,23 @@ ActiveRecord::Schema.define(version: 20170612084810) do
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
   end
 
+  create_table "progresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.text     "description", limit: 65535
+    t.string   "status"
+    t.integer  "progress"
+    t.integer  "product_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["product_id"], name: "index_progresses_on_product_id", using: :btree
+  end
+
   create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "description"
-    t.string   "answer"
+    t.text     "answer",      limit: 65535
     t.integer  "product_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["product_id"], name: "index_questions_on_product_id", using: :btree
   end
 
@@ -170,8 +195,35 @@ ActiveRecord::Schema.define(version: 20170612084810) do
     t.string   "description3"
     t.string   "title4"
     t.string   "description4"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "title0"
+    t.string   "description"
+    t.string   "img"
+    t.string   "img1"
+    t.string   "img2"
+    t.string   "img3"
+    t.string   "img4"
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
+    t.string   "img1_file_name"
+    t.string   "img1_content_type"
+    t.integer  "img1_file_size"
+    t.datetime "img1_updated_at"
+    t.string   "img2_file_name"
+    t.string   "img2_content_type"
+    t.integer  "img2_file_size"
+    t.datetime "img2_updated_at"
+    t.string   "img3_file_name"
+    t.string   "img3_content_type"
+    t.integer  "img3_file_size"
+    t.datetime "img3_updated_at"
+    t.string   "img4_file_name"
+    t.string   "img4_content_type"
+    t.integer  "img4_file_size"
+    t.datetime "img4_updated_at"
   end
 
   create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -210,6 +262,21 @@ ActiveRecord::Schema.define(version: 20170612084810) do
     t.string   "address"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+    t.string   "cv_file_name"
+    t.string   "cv_content_type"
+    t.integer  "cv_file_size"
+    t.datetime "cv_updated_at"
+    t.string   "country"
+    t.string   "state"
+    t.string   "city"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -233,9 +300,12 @@ ActiveRecord::Schema.define(version: 20170612084810) do
     t.datetime "image_updated_at"
   end
 
+  add_foreign_key "alliances", "products"
+  add_foreign_key "alliances", "users"
   add_foreign_key "pictures", "products"
   add_foreign_key "product_tags", "products"
   add_foreign_key "product_tags", "tags"
   add_foreign_key "products", "categories"
+  add_foreign_key "progresses", "products"
   add_foreign_key "questions", "products"
 end

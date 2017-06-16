@@ -40,14 +40,6 @@
             <!-- Main view  -->
             <%= yield %>
 
-            <% unless flash.empty? %>
-        	  <script type="text/javascript">
-        	      <% flash.each do |f| %>
-        	      <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'success').gsub('warning','warning').gsub('info','info') %>
-        	     	 toastr['<%= type %>']('<%= f[1] %>');
-        	      <% end %>
-        	  </script>
-        	<% end %>
               
             <!-- Footer -->
             <%= render 'layouts/footer' %>
@@ -65,6 +57,21 @@
         <!-- Include javascript per-view -->
         <!-- For demo purpose we include javascript in view but you can easily start SeedProject and organize it with Rails asset pipeline as you want -->
         <%= yield :javascript %>
+        
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.table').footable({
+      "paging": {
+        "enabled": true,
+        "size": 5
+      },
+      "filtering": {
+        "enabled": true
+      }
+    });
+  });
+
+</script>
 </body>
 
 

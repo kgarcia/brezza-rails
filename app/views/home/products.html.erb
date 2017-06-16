@@ -1,62 +1,48 @@
+<% if !@category.banner_file_name.nil? %>
 <%= image_tag @category.banner.url, style: "width: 100%; max-height: 130px;" %>
-
-
+<% else %>
+<%= image_tag 'landing/header_one.jpg', style: "width: 100%; max-height: 130px;" %>
+<% end %>
 <div class="row wrapper border-bottom white-bg page-heading" >
-    <div class="col-lg-10">
-        <h2>Brezza <%= @category.name %></h2>
-        <ol class="breadcrumb">
-            <li>
-                <a href="/">Inicio</a>
-            </li>
-            <li class="active">
-                <strong><%= @category.name %></strong>
-            </li>
-        </ol>
-    </div>
-    <div class="col-lg-2">
-
-
-    </div>
+   <div class="col-lg-10">
+      <h2>Brezza <%= @category.name %></h2>
+      <ol class="breadcrumb">
+         <li>
+            <a href="/">Inicio</a>
+         </li>
+         <li class="active">
+            <strong><%= @category.name %></strong>
+         </li>
+      </ol>
+   </div>
 </div>
 <div class="wrapper wrapper-content animated fadeInRight container">
-    <div class="row">
-        <% @products.each do |product| %>
-        <div class="col-md-3">
-            <div class="ibox">
-                <div class="ibox-content product-box">
-
-                    <div >
-                        <%= image_tag product.thumb.url, class: "img-responsive" %>
-                    </div>
-                    <div class="product-desc">
-                                <span class="product-price">
-                                    <%=  product.category.name %>
-                                </span>
-                        <small class="text-muted"><% product.tags.each do |tag|%><%= link_to (tag.name+' '), productos_path(:tag => tag.name)%><% end %></small>
-                        <a href="#" class="product-name"> <%= product.name %></a>
-
-
-
-                        <div class="small m-t-xs">
-                            <%= product.description %>
-                        </div>
-                        <div class="m-t text-righ">
-                            <%= link_to product do %>
-                                <span class="btn btn-xs btn-outline btn-primary">Detalle <i class="fa fa-long-arrow-right"></i> </span>
-                            <%end %>
-                        </div>
-                    </div>
-                </div>
+   <div class="row">
+      <% @products.each do |product| %>
+      <div class="col-md-3">
+         <div class="ibox">
+            <div class="ibox-content product-box">
+               <div >
+                  <%= image_tag product.thumb.url, class: "img-responsive" %>
+               </div>
+               <div class="product-desc">
+                  <span class="product-price">
+                  <%=  product.category.name %>
+                  </span>
+                  <% product.tags.each do |tag|%><span class="label label-primary hvr-fade hvr-grow"><%= link_to (tag.name+' '), productos_path(:tag => tag.name), :style=>"color: white"%></span> &#160;<% end %> 
+                  <a href="#" class="product-name"> <%= product.name %></a>
+                  <div class="small m-t-xs">
+                     <%= product.description %>
+                  </div>
+                  <div class="m-t text-righ">
+                     <%= link_to product do %>
+                     <span class="btn btn-xs btn-outline btn-primary">Detalle <i class="fa fa-long-arrow-right"></i> </span>
+                     <%end %>
+                  </div>
+               </div>
             </div>
-        </div>
-        <% end %>
-     
-        
-
-    </div>
-    
-
-
-
-
+         </div>
+      </div>
+      <% end %>
+   </div>
 </div>

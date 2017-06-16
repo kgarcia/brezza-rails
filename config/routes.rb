@@ -1,4 +1,5 @@
 Myapp::Application.routes.draw do
+  resources :progresses
   resources :questions
   resources :pictures
   resources :products
@@ -16,18 +17,21 @@ Myapp::Application.routes.draw do
   resources :mensajes
   get "home/index"
   get "home/minor"
-  get "home/inicio"
+  #get "home/inicio"
   get "home/home"
   get "login",  to: "home#login"
   get "productos", to: "home#products"
   get "detail", to:"home#detail"
   get "aliarse", to: "home#aliarse"
-
+  get 'products/:id/avance', to: 'products#avance', as: :avance
+  get 'products/:id/alianza', to: 'products#create_alianza', as: :alianza
+  get 'panel', to: 'products#panel', as: :panel
+  get 'aprobar/:id', to: 'products#aprobar', as: :aprobar
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-root to: 'home#soon'
+  root to: 'home#inicio'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

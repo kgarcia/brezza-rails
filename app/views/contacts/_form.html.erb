@@ -1,4 +1,39 @@
-<%= form_for(contact) do |f| %>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+      <h2 class="text-dark-blue"><strong>Sección de contacto</strong></h2>
+      <ol class="breadcrumb">
+        <li>
+          <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+        </li>
+        <li>
+          <a href="/contacts">Listado</a>
+        </li>
+        <li class="active">
+          <% if @contact.new_record? %>
+            <strong class="text-blue">Registrar</strong>
+          <% else %>
+            <strong class="text-blue">Editar</strong>
+          <% end %>
+        </li>
+    </ol>
+  </div>
+</div>
+<div class="wrapper wrapper-content">
+  <div class="row">   
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h4 class="text-dark-blue"><strong>Sección de contacto </strong></h4>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-sm-12">
+
+
+
+
+<%= form_for @contact , :html => {:multipart => true } do |f| %>
   <% if contact.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
@@ -10,43 +45,103 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <label class="control-label">Descripción<label for="contact_description" class="control-label error" style="margin-bottom: 0px;"></label></label>
+    <%= f.text_field :description ,:required => true, :class => "form-control", :placeholder =>"Descripción de la sección" %>
   </div>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+                     
+                     
+                     
+                     
+                     
+  <div class="navy-line"></div></br></br>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label class="control-label">Nombre <label for="contact_name" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :name ,:required => true, :class => "form-control", :placeholder =>"Nombre de la empresa" %>
+      </div>
+    
+     <div class="form-group">
+        <label class="control-label">Dirección<label for="contact_address" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :address ,:required => true, :class => "form-control", :placeholder =>"Ubicación de la empresa" %>
+      </div>
+    
+      <div class="form-group">
+        <label class="control-label">Teléfono<label for="contact_phone" class="control-label error" style="margin-bottom: 0px;"></label></label>
+        <%= f.text_field :phone ,:required => true, :class => "form-control", :placeholder =>"Teléfono de contacto de la empresa"  %>
+      </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+          <label class="control-label">Twitter <i class="fa fa-twitter"></i>
+          <label for="contact_twitter" class="control-label error" style="margin-bottom: 0px;"></label></label>
+          <%= f.text_field :twitter ,:required => true, :class => "form-control"  %>
+        </div>
+      
+        <div class="form-group">
+          <label class="control-label">Facebook <i class="fa fa-facebook"></i>
+          <label for="contact_facebook" class="control-label error" style="margin-bottom: 0px;"></label></label>
+          <%= f.text_field :facebook ,:required => true, :class => "form-control"  %>
+        </div>
+      
+        <div class="form-group">
+          <label class="control-label">Instagram <i class="fa fa-instagram"></i>
+          <label for="contact_instagram" class="control-label error" style="margin-bottom: 0px;"></label></label>
+          <%= f.text_field :instagram ,:required => true, :class => "form-control"  %>
+        </div>
+    </div>
   </div>
+  <div class="navy-line"></div></br></br>
+  <div class="row">
+    <%= tinymce_assets %>
+       <div class="field">
+         
+        <%= f.label :Politicas_de_privacidad %>
+        <%= f.text_area :polpriv, :required => true, :class => "form-control tinymce", :language => "es" %>
+        
+      </div>
+    <%= tinymce %>
+    </br>
+    <%= tinymce_assets %> 
+      <div class="field">
+         
+        <%= f.label :Prospectiva %>
+        <%= f.text_area :prospectiva , :required => true, :class => "form-control tinymce", :language => "es"%>
+         
+      </div>
+    <%= tinymce %>
+    </br>
+    <%= tinymce_assets %>
+      <div class="field">
+         
+        <%= f.label :Escalabilidad %>
+        <%= f.text_area :escalabilidad, :required => true, :class => "form-control tinymce", :language => "es" %>
+        
+      </div>
+    <%= tinymce %>
+  </div>
+  </br></br>
+  <div class="form-group">
+                        <div class="col-lg-offset-3 col-lg-2">
+                           <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
+                        </div>
+                        <% if (@contact.new_record?) %>
+                        <div class="col-lg-2">
+                           <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
+                        </div>
+                        <% end %>
+                        <div class="col-lg-2">
+                           <%= link_to 'Atrás', contacts_path, :class => "btn btn-sm btn-default" %>
+                        </div>
+                     </div>
+                     <% end %>
 
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
   </div>
-
-  <div class="field">
-    <%= f.label :phone %>
-    <%= f.text_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= f.label :twitter %>
-    <%= f.text_field :twitter %>
-  </div>
-
-  <div class="field">
-    <%= f.label :facebook %>
-    <%= f.text_field :facebook %>
-  </div>
-
-  <div class="field">
-    <%= f.label :instagram %>
-    <%= f.text_field :instagram %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

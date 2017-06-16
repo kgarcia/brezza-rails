@@ -38,6 +38,12 @@
                      <p align="center"><%= @contact.instagram %></p>
                    </div>
                  </div>
+                 <div class="navy-line"></div></br></br>
+                 <div class="row">
+                     <p align="center"><%= truncate(@contact.polpriv , length: 250).html_safe %></p>
+                     <p align="center"><%= truncate(@contact.prospectiva.html_safe , length: 250) %></p>
+                     <p align="center"><%=truncate(@contact.escalabilidad.html_safe , length: 250) %></p>
+                 </div>
                </div> 
                
             </div>

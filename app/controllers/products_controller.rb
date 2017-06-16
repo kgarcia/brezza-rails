@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:avance, :show, :edit, :update, :destroy]
   before_action :set_meta
   layout "admin"
   # GET /products
@@ -35,7 +35,55 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    render :layout => 'empty'
+    
+    render :layout => 'front'
+  end
+  
+ 
+  
+  def panel
+    if user_signed_in?
+      @products = current_user.products
+    else
+      @products = Product.all
+    end
+    @alliances = Alliance.where(:approval => nil)
+    render :layout => "admin"
+  end
+
+  def avance
+    
+  end
+  
+  def create_alianza
+    #raise params.to_json
+    @alliance = Alliance.new
+    @alliance.user_id = current_user.id
+    @alliance.product_id = params[:id]
+    @alliance.allytype = params[:type]
+    #@alliance.approval = false
+    respond_to do |format|
+      if @alliance.save
+        format.html { redirect_to :back, notice: 'Alianza solicitada.' }
+        format.json { render :index, status: :created, location: @alliance }
+      else
+        format.html { render :show }
+        format.json { render json: @alliance.errors, status: :unprocessable_entity }
+      end
+    end
+    
+  end
+  
+  def aprobar
+    @alliance = Alliance.find(params[:id])
+    @alliance.approval = params[:approval]
+    respond_to do |format|
+      if @alliance.save
+        format.html { redirect_to :back, notice: 'Alianza aprobada exitosamente.' }
+      else
+        format.html { render :back }
+      end
+    end
   end
 
   # GET /products/new
@@ -133,6 +181,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :detail, :author, :category_id, :amount, :thumb, :picture_data)
+      params.require(:product).permit(:name, :description, :detail, :author, :category_id, :amount, :thumb, :picture_data, questions_attributes:[:description, :answer,:_destroy,:id])
     end
 end

@@ -1,57 +1,56 @@
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-10">
+   <div class="col-lg-10">
       <h2 class="text-dark-blue"><strong>Productos</strong></h2>
       <ol class="breadcrumb">
-        <li>
-          <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
-        </li>
-        <li class="active">
+         <li>
+            <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+         </li>
+         <li class="active">
             <strong class="text-blue">Listado</strong>
-        </li>
-    </ol>
-  </div>
+         </li>
+      </ol>
+   </div>
 </div>
 <div class="wrapper wrapper-content">
-    <div class="row">
+   <div class="row">
       <div class="col-sm-12">
-        <div class="ibox float-e-margins">
-          <div class="ibox-title">
-              <h4 class="text-dark-blue">
-                <strong>Listado: Productos</strong>
-              </h4>
-          </div>
-          <div class="ibox-content">
-            <%= link_to "Registrar", new_product_path, :class => "btn btn-primary btn-sm", style: 'position: absolute; z-index: 9999; margin-top: -30px;'%>
-
-  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Descripción</th>
-      <th>Autor</th>
-      <th>Categoría</th>
-      <th>Monto</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.description %></td>
-        <td><%= product.author %></td>
-        <td><%= product.category.name %></td>
-        <td><%= product.amount %></td>
-        <td><%= link_to 'Ver', product, :class => "btn btn-primary btn-sm" %></td>
-        <td><%= link_to 'Editar', edit_product_path(product) , :class => "btn btn-warning btn-sm" %></td>
-        <td><%= link_to 'Eliminar', product, method: :delete , :class => "btn btn-danger btn-sm", data: { confirm: '¿Está seguro que desea eliminar el producto?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-          </div>
-        </div>
-      </div> 
-  </div>
+         <div class="ibox float-e-margins">
+            <div class="ibox-title">
+               <h4 class="text-dark-blue">
+                  <strong>Listado: Productos</strong>
+               </h4>
+            </div>
+            <div class="ibox-content">
+               <%= link_to "Registrar", new_product_path, :class => "btn btn-primary btn-sm", style: 'position: absolute; z-index: 9999; margin-top: -30px;'%>
+               <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+                  <thead>
+                     <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Autor</th>
+                        <th>Categoría</th>
+                        <th>Monto</th>
+                        <th colspan="3"></th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <% @products.each do |product| %>
+                     <tr>
+                        <td><%= product.name %></td>
+                        <td><%= product.description %></td>
+                        <td><%= product.author %></td>
+                        <td><%= product.category.name %></td>
+                        <td><%= product.amount %></td>
+                        <td><%= link_to 'Ver', product, :class => "btn btn-primary btn-sm" %></td>
+                        <td><%= link_to 'Avance', avance_path(product), :class => "btn btn-primary btn-sm" %></td>
+                        <td><%= link_to 'Editar', edit_product_path(product) , :class => "btn btn-warning btn-sm" %></td>
+                        <td><%= link_to 'Eliminar', product, method: :delete , :class => "btn btn-danger btn-sm", data: { confirm: '¿Está seguro que desea eliminar el producto?' } %></td>
+                     </tr>
+                     <% end %>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>
