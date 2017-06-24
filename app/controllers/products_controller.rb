@@ -42,6 +42,7 @@ class ProductsController < ApplicationController
  
   
   def panel
+    @pins = Pin.all
     if user_signed_in?
       @products = current_user.products
     else
@@ -91,6 +92,7 @@ class ProductsController < ApplicationController
     @product = Product.new
     @categories = Category.all
     @tags = Tag.all
+    
   end
 
   # GET /products/1/edit
@@ -146,7 +148,9 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-    @product.tags = params[:e1]
+    if params[:e1]
+      @product.tags = params[:e1]
+    end
     respond_to do |format|
       if @product.update(product_params)
         if params[:picture_data]
@@ -176,7 +180,7 @@ class ProductsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params[:id])
+      @product = Product.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

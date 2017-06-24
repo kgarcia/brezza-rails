@@ -20,7 +20,7 @@
                <li><a class="page-scroll" href="#pricing">Únete</a></li>
                <li><a class="page-scroll" href="#contact">Contacto</a></li>
                <% if user_signed_in? %>
-               <li><%= link_to "Administración", home_minor_path, :class => "page-scroll" %></li>
+               <li><%= link_to "Administración", panel_path, :class => "page-scroll" %></li>
                <%else %>
                <li><a class="page-scroll" data-toggle="modal" data-target="#myModal7">Iniciar Sesión</a>
                   <%#= link_to "Iniciar Sesión", new_user_session_path, :class => "page-scroll" %>

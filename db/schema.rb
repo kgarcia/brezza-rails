@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616093949) do
+ActiveRecord::Schema.define(version: 20170621082116) do
 
   create_table "alliances", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "product_id"
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 20170616093949) do
     t.string   "banner_content_type"
     t.integer  "banner_file_size"
     t.datetime "banner_updated_at"
+    t.string   "slug"
+    t.index ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
   end
 
   create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -90,6 +92,26 @@ ActiveRecord::Schema.define(version: 20170616093949) do
     t.text     "polpriv",       limit: 65535
     t.text     "prospectiva",   limit: 65535
     t.text     "escalabilidad", limit: 65535
+  end
+
+  create_table "direccions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "ciudad"
+    t.string   "estado"
+    t.string   "pais"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "friendly_id_slugs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
 
   create_table "lilpros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -123,6 +145,13 @@ ActiveRecord::Schema.define(version: 20170616093949) do
     t.index ["product_id"], name: "index_pictures_on_product_id", using: :btree
   end
 
+  create_table "pins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.string   "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "product_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "product_id"
     t.integer  "tag_id"
@@ -145,7 +174,9 @@ ActiveRecord::Schema.define(version: 20170616093949) do
     t.string   "thumb_content_type"
     t.integer  "thumb_file_size"
     t.datetime "thumb_updated_at"
+    t.string   "slug"
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
+    t.index ["slug"], name: "index_products_on_slug", unique: true, using: :btree
   end
 
   create_table "progresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -235,6 +266,8 @@ ActiveRecord::Schema.define(version: 20170616093949) do
     t.string   "banner_content_type"
     t.integer  "banner_file_size"
     t.datetime "banner_updated_at"
+    t.string   "slug"
+    t.index ["slug"], name: "index_tags_on_slug", unique: true, using: :btree
   end
 
   create_table "testimonials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

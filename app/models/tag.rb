@@ -3,4 +3,6 @@ class Tag < ApplicationRecord
   validates_attachment_content_type :banner, content_type: /\Aimage\/.*\z/
   has_many :product_tags
   has_many :products, through: :product_tags
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 end

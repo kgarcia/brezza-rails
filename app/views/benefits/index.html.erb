@@ -1,15 +1,15 @@
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-10">
+   <div class="col-lg-10">
       <h2 class="text-dark-blue"><strong>Beneficios</strong></h2>
       <ol class="breadcrumb">
-        <li>
-          <a href="<%= url_for :controller => 'home', :action => 'inicio' %>">Inicio</a>
-        </li>
-        <li class="active">
+         <li>
+            <a href="/panel">Inicio</a>
+         </li>
+         <li class="active">
             <strong class="text-blue">Listado</strong>
-        </li>
-    </ol>
-  </div>
+         </li>
+      </ol>
+   </div>
 </div>
 <div class="wrapper wrapper-content">
    <div class="row">
@@ -26,39 +26,39 @@
                   <br>
                   <div class="row">
                      <div class="col-md-offset-2 col-md-8">
-                     <h2 class="text-center">Descripción de la sección:</h2>
-                     <p><%= @benefit.description %></p>
+                        <h2 class="text-center">Descripción de la sección</h2>
+                        <p class="text-center"><%= @benefit.description %></p>
                      </div>
                   </div>
-                  <div class="navy-line"></div><br>
+                  <div class="navy-line"></div>
+                  <br>
                   <div class="row">
-                    <div class="col-md-offset-2 col-md-4">
-                       <h2><%= @benefit.title1 %></h2>
-                       <i class="fa <%= @benefit.icon1 %> fa-3x pull-right"></i>
-                       <p><%= @benefit.desc1 %></p>
-                    </div>
-                    <div class="col-md-offset-1 col-md-4">
-                       <h2><%= @benefit.title2 %></h2>
-                       <i class="fa <%= @benefit.icon2 %> fa-3x pull-right"></i>
-                       <p><%= @benefit.desc2 %></p>
-                    </div>
+                     <div class="col-md-offset-2 col-md-4">
+                        <h2><%= @benefit.title1 %></h2>
+                        <i class="fa <%= @benefit.icon1 %> fa-3x pull-right"></i>
+                        <p><%= @benefit.desc1 %></p>
+                     </div>
+                     <div class="col-md-offset-1 col-md-4">
+                        <h2><%= @benefit.title2 %></h2>
+                        <i class="fa <%= @benefit.icon2 %> fa-3x pull-right"></i>
+                        <p><%= @benefit.desc2 %></p>
+                     </div>
                   </div>
                   <br><br>
                   <div class="row">
-                    <div class="col-md-offset-2 col-md-4">
-                       <h2><%= @benefit.title3 %></h2>
-                       <i class="fa <%= @benefit.icon3 %> fa-3x pull-right"></i>
-                       <p><%= @benefit.desc3 %></p>
-                    </div>
-                    <div class="col-md-offset-1 col-md-4">
-                       <h2><%= @benefit.title4 %></h2>
-                       <i class="fa <%= @benefit.icon4 %> fa-3x pull-right"></i>
-                       <p><%= @benefit.desc4 %></p>
-                    </div>
+                     <div class="col-md-offset-2 col-md-4">
+                        <h2><%= @benefit.title3 %></h2>
+                        <i class="fa <%= @benefit.icon3 %> fa-3x pull-right"></i>
+                        <p><%= @benefit.desc3 %></p>
+                     </div>
+                     <div class="col-md-offset-1 col-md-4">
+                        <h2><%= @benefit.title4 %></h2>
+                        <i class="fa <%= @benefit.icon4 %> fa-3x pull-right"></i>
+                        <p><%= @benefit.desc4 %></p>
+                     </div>
                   </div>
                   <br>
                </div>
-               
             </div>
          </div>
       </div>

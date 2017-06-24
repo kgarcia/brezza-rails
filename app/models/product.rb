@@ -7,6 +7,8 @@ class Product < ApplicationRecord
   has_many :pictures
   has_many :progresses
   has_many :questions
+      extend FriendlyId
+  friendly_id :name, use: :slugged
    accepts_nested_attributes_for :questions, allow_destroy: true
   has_attached_file :thumb, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :thumb, content_type: /\Aimage\/.*\z/
@@ -35,8 +37,10 @@ class Product < ApplicationRecord
   
   def save_tags
     ProductTag.where(:product_id => self.id).destroy_all
-    @tags.each do |tag_id|
-      ProductTag.find_or_create_by(tag_id: tag_id, product_id: self.id)
+    if !@tags.nil?
+      @tags.each do |tag_id|
+        ProductTag.find_or_create_by(tag_id: tag_id, product_id: self.id)
+      end
     end
   end
 end

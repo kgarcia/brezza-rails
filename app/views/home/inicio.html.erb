@@ -20,7 +20,7 @@
                <li><a class="page-scroll" href="#pricing">Únete</a></li>
                <li><a class="page-scroll" href="#contact">Contacto</a></li>
                <% if user_signed_in? %>
-               <li><%= link_to "Administración", home_minor_path, :class => "page-scroll" %></li>
+               <li><%= link_to "Administración", panel_path, :class => "page-scroll" %></li>
                <%else %>
                <li><a class="page-scroll" data-toggle="modal" data-target="#myModal7">Iniciar Sesión</a>
                   <%#= link_to "Iniciar Sesión", new_user_session_path, :class => "page-scroll" %>
@@ -90,7 +90,7 @@
       <% if @numslider2 == 0 %>
       <div class="item active">
          <div class="container">
-            <div class="carousel-caption" style="color: <%= slider.color %>">
+            <div class="carousel-caption col-md-6" style="color: <%= slider.color %>">
                <h1><%= slider.title%>
                </h1>
                <p><%= slider.description %></p>
@@ -108,7 +108,7 @@
       <% else %>
       <div class="item">
          <div class="container">
-            <div class="carousel-caption" style="color: <%= slider.color %>">
+            <div class="carousel-caption col-md-6" style="color: <%= slider.color %>">
                <h1><%= slider.title%>
                </h1>
                <p><%= slider.description %></p>
@@ -251,11 +251,16 @@
                <%= link_to product do %>
                <div class="portfolio <% product.tags.each do |tag|%><%= tag.name+' '%><% end %>" data-cat="<% product.tags.each do |tag|%><%=tag.name+' '%><% end %>">
                   <div class="portfolio-wrapper">
-                     <img src="<%= image_url product.thumb.url %>" alt="<%= product.name %>" />
+                     <% if !product.thumb_file_name.nil? %>
+                        <%= image_tag product.thumb.url, class: "img-responsive",:alt => "product.name"  %>
+                     <% else %>
+                        <%= image_tag 'p5', class: "img-responsive" ,:alt => "product.name"  %>
+                     <% end %>
+                     
                      <div class="label">
-                        <div class="label-text">
-                           <a class="text-title"><%= product.name %></a> 
-                           <span class="text-category"><% product.tags.each do |tag|%><%= link_to (tag.name+' '), productos_path(:tag => tag.name)%><% end %></span>
+                        <div class="label-text" >
+                           <a class="text-title" style="color:white !important"><%= product.name %></a> 
+                           <span class="text-category" style="color:white !important"><% product.tags.each do |tag|%><%= link_to (tag.name+' '), productos_path(:tag => tag.name)%><% end %></span>
                         </div>
                         <div class="label-bg"> </div>
                      </div>
@@ -673,11 +678,11 @@
                   Síguenos en nuestras redes sociales
                </p>
                <ul class="list-inline social-icon">
-                  <li><a target="_blank" href="<%= @contact.twitter %>/"><i class="fa fa-twitter"></i></a>
+                  <li><a target="_blank" href="<%= @contact.twitter %>" title="Visitanos en Twitter"><i class="fa fa-twitter"></i></a>
                   </li>
-                  <li><a target="_blank" href="<%= @contact.facebook %>"><i class="fa fa-facebook"></i></a>
+                  <li><a target="_blank" href="<%= @contact.facebook %>" title="Visitanos en Facebook" ><i class="fa fa-facebook"></i></a>
                   </li>
-                  <li><a target="_blank" href="<%= @contact.instagram %>"><i class="fa fa-instagram"></i></a>
+                  <li><a target="_blank" href="<%= @contact.instagram %>" title="Siguenos en Instagram"><i class="fa fa-instagram"></i></a>
                   </li>
                </ul>
             </div>

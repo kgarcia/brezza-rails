@@ -3,6 +3,8 @@ class ContactsController < ApplicationController
   before_action :set_meta
   layout "admin"
   
+  
+  
   # GET /contacts
   # GET /contacts.json
   def index
@@ -30,7 +32,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to contacts_url, notice: 'Contact was successfully created.' }
+        format.html { redirect_to contacts_url, notice: 'Ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @contact }
       else
         format.html { render :new }
@@ -44,7 +46,7 @@ class ContactsController < ApplicationController
   def update
     respond_to do |format|
       if @contact.update(contact_params)
-        format.html { redirect_to contacts_url, notice: 'Contact was successfully updated.' }
+        format.html { redirect_to contacts_url, notice: 'Ha sido actualizada su información de contacto exitosamente.' }
         format.json { render :show, status: :ok, location: @contact }
       else
         format.html { render :edit }
@@ -58,7 +60,7 @@ class ContactsController < ApplicationController
   def destroy
     @contact.destroy
     respond_to do |format|
-      format.html { redirect_to contacts_url, notice: 'Contact was successfully destroyed.' }
+      format.html { redirect_to contacts_url, notice: 'Ha sido eliminada exitosamente.' }
       format.json { head :no_content }
     end
   end

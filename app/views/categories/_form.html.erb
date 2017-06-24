@@ -3,7 +3,7 @@
       <h2 class="text-dark-blue"><strong>Categoría</strong></h2>
       <ol class="breadcrumb">
          <li>
-            <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+            <a href="/panel">Inicio</a>
          </li>
          <li>
             <a href="/categories">Listado</a>
@@ -50,12 +50,12 @@
                      </div>
 
                      <div class="form-group">
-                        <label class="control-label">Texto Inicio <label for="category_fronttext" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                        <label class="control-label">Texto inicio <label for="category_fronttext" class="control-label error" style="margin-bottom: 0px;"></label></label>
                         <%= f.text_field :fronttext,:required => true, :class => "form-control" %>
                      </div>
 
                      <div class="form-group">
-                        <label class="control-label">Icono<label for="category_icon" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                        <label class="control-label">Ícono<label for="category_icon" class="control-label error" style="margin-bottom: 0px;"></label></label>
                         <select class="fa btn btn-default" name="category[icon]" id="category_icon">
                               <% if !@category.new_record? %>
                               <option value="<%= @category.icon %>"><%= category.icon %></option>

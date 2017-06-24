@@ -1,4 +1,8 @@
 Myapp::Application.routes.draw do
+  get 'profile/index'
+
+  get 'details/:id', to:'profile#details',as: :profile_show
+
   resources :progresses
   resources :questions
   resources :pictures

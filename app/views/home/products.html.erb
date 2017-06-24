@@ -21,9 +21,13 @@
       <% @products.each do |product| %>
       <div class="col-md-3">
          <div class="ibox">
-            <div class="ibox-content product-box">
+            <div class="samesize ibox-content product-box">
                <div >
-                  <%= image_tag product.thumb.url, class: "img-responsive" %>
+                  <% if !product.thumb_file_name.nil? %>
+                  <%= image_tag product.thumb.url, class: "img-responsive samesize2" %>
+                  <% else %>
+                  <%= image_tag 'p1', class: "img-responsive samesize2" %>
+                  <% end %>
                </div>
                <div class="product-desc">
                   <span class="product-price">
@@ -36,8 +40,51 @@
                   </div>
                   <div class="m-t text-righ">
                      <%= link_to product do %>
-                     <span class="btn btn-xs btn-outline btn-primary">Detalle <i class="fa fa-long-arrow-right"></i> </span>
+                     <span class="btn btn-xs btn-outline btn-success">Detalle <i class="fa fa-long-arrow-right"></i> </span>
                      <%end %>
+                     <% if user_signed_in? %>
+               <div class="btn-group">
+                  <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">Solicitar alianza <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                     <% if !Alliance.where(:user_id => current_user.id, :product_id => product.id, :allytype => 1, :approval => [nil, true] ).exists? %>
+                     <li><%= link_to 'Técnica', alianza_path(product, :type => 1), class: "font-bold" %></li>
+                     <% else %>
+                     <li>
+                        
+                        <a href="javascript:AlertIt();" class="fa fa-check font-bold">Técnica</a>
+                     </li>
+                     <% end %>
+                     <% if !Alliance.where(:user_id => current_user.id, :product_id => product.id, :allytype => 2, :approval => [nil, true] ).exists? %>
+                     <li><%= link_to 'Financiera', alianza_path(product, :type => 2), class: "font-bold" %></li>
+                     <% else %>
+                     <li>
+                      
+                        <a href="javascript:AlertIt();" class="fa fa-check">Financiera</a>
+                     </li>
+                     <% end %>
+                     
+                     <% if !Alliance.where(:user_id => current_user.id, :product_id => product.id, :allytype => 3, :approval => [nil, true] ).exists? %>
+                     <li><%= link_to 'Comercial', alianza_path(product, :type => 3), class: "font-bold" %></li>
+                     <% else %>
+                     <li>
+                        <script type="text/javascript">
+                           function AlertIt() {
+                           var answer = confirm ("Ya tienes este tipo de alianza.")
+                           if (answer)
+                          ;
+                           }
+                        </script>
+                        <a href="javascript:AlertIt();" class="fa fa-check">Comercial</a>
+                     </li>
+                     <% end %>
+                     
+                  </ul>
+               </div>
+               <% else %>
+               <%= link_to new_user_session_path do %>
+               <button class="btn btn-default btn-sm"><i class="fa fa-user"></i> Registrarse</button>
+               <% end %>
+               <% end %>
                   </div>
                </div>
             </div>

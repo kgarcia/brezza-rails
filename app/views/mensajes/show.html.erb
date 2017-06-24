@@ -22,11 +22,11 @@
 <div class="wrapper wrapper-content">
   <div class="ibox float-e-margins">
         <div class="ibox-title">
-          <h4 class="text-dark-blue"><strong>Mensaje</strong></h4>
+          <h4 class="text-dark-blue"><strong>Ver mensaje</strong></h4>
           
         </div>
         <div class="ibox-content">
-          <h3>Usted ha recibido un mensaje de: <%= @mensaje.nombre %></h3><small> A través de: <%= @mensaje.correo %></small>
+          <h3>Usted ha recibido un mensaje de: <%= @mensaje.nombre %></h3><span class="pull-right"><%= @mensaje.created_at %></span><small> A través de: <%= @mensaje.correo %></small>
           </br></br></br></br><h3><i class="fa fa-mail"></i>Mensaje:</h3>
           <p><%= @mensaje.mensaje %></p>
           <div class = " row text-center">

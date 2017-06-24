@@ -29,7 +29,9 @@
       <th>Nombre</th>
       <th>Correo</th>
       <th>Mensaje</th>
-      <th colspan="2"></th>
+      <th>Fecha</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -39,10 +41,9 @@
         <td><%= mensaje.nombre %></td>
         <td><%= mensaje.correo %></td>
         <td><%= mensaje.mensaje %></td>
+        <td><%= mensaje.created_at %></td>
         <td><%= link_to 'Ver', mensaje, :class => "btn btn-primary btn-sm" %></td>
-        
         <td><%= link_to 'Eliminar', mensaje, method: :delete,:class => "btn btn-danger btn-sm", data: { confirm: '¿Está seguro que desea eliminar el slider?' } %></td>
-
       </tr>
     <% end %>
   </tbody>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <%= display_meta_tags %>
+      <!-- Include style per-controller - vendor plugins -->
+      
+      <%= csrf_meta_tags %>
+   </head>
+   <body class="gray-bg">
+      <div class="preloader" id="preloader"><span class="preloader-gif"></span></div>
+      <!-- Main view  -->
+      <%= yield %>
+      <!-- Include javascript per-controller - vendor plugins -->
+  
+      <!-- For demo purpose we include javascript in view but you can easily start SeedProject and organize it with Rails asset pipeline as you want -->
+      <%= yield :javascript %>
+   </body>
+</html>

@@ -1,316 +1,300 @@
-  <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-10">
+<div class="row wrapper border-bottom white-bg page-heading">
+   <div class="col-lg-10">
       <h2 class="text-dark-blue"><strong>Beneficios</strong></h2>
       <ol class="breadcrumb">
-        <li>
-          <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
-        </li>
-        <li>
-          <a href="/benefits">Listado</a>
-        </li>
-        <li class="active">
-          <% if @benefit.new_record? %>
+         <li>
+            <a href="/panel">Inicio</a>
+         </li>
+         <li>
+            <a href="/benefits">Listado</a>
+         </li>
+         <li class="active">
+            <% if @benefit.new_record? %>
             <strong class="text-blue">Registrar</strong>
-          <% else %>
+            <% else %>
             <strong class="text-blue">Editar</strong>
-          <% end %>
-        </li>
-    </ol>
-  </div>
-</div>
-<div class="wrapper wrapper-content">
-  <div class="row">   
-    <div class="col-sm-2"></div>
-    <div class="col-sm-8">
-      <div class="ibox float-e-margins">
-        <div class="ibox-title">
-          <h4 class="text-dark-blue"><strong>Beneficios</strong></h4>
-        </div>
-        <div class="ibox-content">
-          <div class="row">
-            <div class="col-sm-12">
-
-
-
-
-<%= form_for @benefit , :html => {:multipart => true } do |f| %>
-  <% if benefit.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(benefit.errors.count, "error") %> prohibited this benefit from being saved:</h2>
-
-      <ul>
-      <% benefit.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
- <div class="form-group">
-       <label class="control-label">Descripción de la sección:<label for="slider_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
-       <%= f.text_field :description,:required => true, :class => "form-control" %>
- </div>
- <div class="navy-line"></div></br>
-
-
-<div class="row">
-   <div class="col-lg-offset-1 col-lg-5 ">
-      <div class="form-group">
-         <label class="control-label">Beneficio 1 <label for="benefit_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
-         <%= f.text_field :title1,:required => true, :class => "form-control" %>
-      </div>
-      <div class="form-group">
-         <label class="control-label">Descripción <label for="benefit_desc" class="control-label error" style="margin-bottom: 0px;"></label></label>
-         <%= f.text_area :desc1,:required => true, :class => "form-control" %>
-      </div>
-      <div class="field">
-                           <%= f.label :Icono %>
-                           <select class="fa btn btn-default " name="benefit[icon1]" id="benefit_icon1">
-                              <% if !@benefit.new_record? %>
-                              <option value="<%= @benefit.icon1 %>"><%= @benefit.icon1 %></option>
-                              <% end %>
-                              <option value="fa-handshake-o"> &#xf2b5; fa-handshake-o </option>
-                              <option value="fa-id-card-o"> &#xf2c3; fa-id-card-o </option>
-                           	<option value="fa-user-circle"> &#xf2bd;  fa-user-circle </option>
-                           	<option value="fa-area-chart"> &#xf1fe;  fa-area-chart</option>
-                           	<option value="fa-balance-scale"> &#xf24e; fa-balance-scale </option>
-                           	<option value="fa-bar-chart"> &#xf080;  fa-bar-chart</option>
-                           	<option value="fa-ban"> &#xf05e; fa-ban</option>
-                           	<option value="fa-barcode"> &#xf02a; fa-barcode </option>
-                           	<option value="fa-bolt"> &#xf0e7; fa-bolt</option>
-                           	<option value="fa-book"> &#xf02d; fa-book</option>
-                           	<option value="fa-calendar"> &#xf073; fa-calenda</option>
-                           	<option value="fa-calendar-check-o"> &#xf274; fa-calendar-check-o </option>
-                           	<option value="fa-check"> &#xf00c; fa-check </option>
-                           	<option value="fa-check-square-o"> &#xf046; fa-check-square-o </option>
-                           	<option value="fa-clock-o"> &#xf017; fa-clock-o </option>
-                           	<option value="fa-cloud-upload"> &#xf0ee; fa-cloud-upload </option>
-                           	<option value="fa-cloud-download"> &#xf0ed; fa-cloud-download </option>
-                           	<option value="fa-code-fork"> &#xf126; fa-code-fork </option>
-                           	<option value="fa-coffee"> &#xf0f4; fa-coffee </option>
-                           	<option value="fa-cogs"> &#xf085; fa-cogs</option>
-                           	<option value="fa-compass"> &#xf14e; fa-compass  </option>
-                           	<option value="fa-credit-card"> &#xf09d;  fa-credit-card</option>
-                           	<option value="fa-diamond"> &#xf219; fa-diamond </option>
-                           	<option value="fa-file-archive-o"> &#xf1c6;  fa-file-archive-o</option>
-                           	<option value="fa-globe"> &#xf0ac; fa-globe</option>
-                           	<option value="fa-users"> &#xf0c0; fa-users </option>
-                           	<option value="fa-leaf"> &#xf06c; fa-leaf</option>
-                           	<option value="fa-lock"> &#xf023; fa-lock</option>
-                           	<option value="fa-line-chart"> &#xf201; fa-line-chart</option>
-                           	<option value="fa-lightbulb-o"> &#xf0eb;  fa-lightbulb-o </option>
-                           	<option value="fa-mobile"> &#xf10b; fa-mobile </option>
-                           	<option value="fa-pie-chart"> &#xf200;  fa-pie-chart</option>
-                           	<option value="fa-plug"> &#xf1e6; fa-plug</option>
-                           	<option value="fa-share-alt"> &#xf1e0; fa-share-alt</option>f
-                           	<option value="fa-star"> &#xf005; fa-strar</option>
-                           	<option value="fa-user-o"> &#xf2c0;  fa-user-o</option>
-                           	<option value="fa-file-o"> &#xf016;  fa-file-o</option>
-                           </select>
-                        </div>
-   
-   </div> 
-   <div class="col-lg-5">
-      <div class="form-group">
-         <label class="control-label">Beneficio 2 <label for="benefit_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
-         <%= f.text_field :title2,:required => true, :class => "form-control" %>
-      </div>
-      <div class="form-group">
-         <label class="control-label">Descripción <label for="benefitr_desc" class="control-label error" style="margin-bottom: 0px;"></label></label>
-         <%= f.text_area :desc2,:required => true, :class => "form-control" %>
-      </div>
-      <div class="field">
-                           <%= f.label :Icono %>
-                           <select class="fa btn btn-default" name="benefit[icon2]" id="benefit_icon2">
-                              <% if !@benefit.new_record? %>
-                              <option value="<%= @benefit.icon2 %>"><%= @benefit.icon2 %></option>
-                              <% end %>
-                              <option value="fa-handshake-o"> &#xf2b5; fa-handshake-o </option>
-                              <option value="fa-id-card-o"> &#xf2c3; fa-id-card-o </option>
-                           	<option value="fa-user-circle"> &#xf2bd;  fa-user-circle </option>
-                           	<option value="fa-area-chart"> &#xf1fe;  fa-area-chart</option>
-                           	<option value="fa-balance-scale"> &#xf24e; fa-balance-scale </option>
-                           	<option value="fa-bar-chart"> &#xf080;  fa-bar-chart</option>
-                           	<option value="fa-ban"> &#xf05e; fa-ban</option>
-                           	<option value="fa-barcode"> &#xf02a; fa-barcode </option>
-                           	<option value="fa-bolt"> &#xf0e7; fa-bolt</option>
-                           	<option value="fa-book"> &#xf02d; fa-book</option>
-                           	<option value="fa-calendar"> &#xf073; fa-calenda</option>
-                           	<option value="fa-calendar-check-o"> &#xf274; fa-calendar-check-o </option>
-                           	<option value="fa-check"> &#xf00c; fa-check </option>
-                           	<option value="fa-check-square-o"> &#xf046; fa-check-square-o </option>
-                           	<option value="fa-clock-o"> &#xf017; fa-clock-o </option>
-                           	<option value="fa-cloud-upload"> &#xf0ee; fa-cloud-upload </option>
-                           	<option value="fa-cloud-download"> &#xf0ed; fa-cloud-download </option>
-                           	<option value="fa-code-fork"> &#xf126; fa-code-fork </option>
-                           	<option value="fa-coffee"> &#xf0f4; fa-coffee </option>
-                           	<option value="fa-cogs"> &#xf085; fa-cogs</option>
-                           	<option value="fa-compass"> &#xf14e; fa-compass  </option>
-                           	<option value="fa-credit-card"> &#xf09d;  fa-credit-card</option>
-                           	<option value="fa-diamond"> &#xf219; fa-diamond </option>
-                           	<option value="fa-file-archive-o"> &#xf1c6;  fa-file-archive-o</option>
-                           	<option value="fa-globe"> &#xf0ac; fa-globe</option>
-                           	<option value="fa-users"> &#xf0c0; fa-users </option>
-                           	<option value="fa-leaf"> &#xf06c; fa-leaf</option>
-                           	<option value="fa-lock"> &#xf023; fa-lock</option>
-                           	<option value="fa-line-chart"> &#xf201; fa-line-chart</option>
-                           	<option value="fa-lightbulb-o"> &#xf0eb;  fa-lightbulb-o </option>
-                           	<option value="fa-mobile"> &#xf10b; fa-mobile </option>
-                           	<option value="fa-pie-chart"> &#xf200;  fa-pie-chart</option>
-                           	<option value="fa-plug"> &#xf1e6; fa-plug</option>
-                           	<option value="fa-share-alt"> &#xf1e0; fa-share-alt</option>f
-                           	<option value="fa-star"> &#xf005; fa-strar</option>
-                           	<option value="fa-user-o"> &#xf2c0;  fa-user-o</option>
-                           	<option value="fa-file-o"> &#xf016;  fa-file-o</option>
-                           </select>
-                        </div>
-      
+            <% end %>
+         </li>
+      </ol>
    </div>
 </div>
-
-</br></br></br>
-<div class="row">
-   <div class="col-lg-offset-1 col-lg-5">
-      <div class="form-group">
-         <label class="control-label">Beneficio 3 <label for="benefit_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
-         <%= f.text_field :title3,:required => true, :class => "form-control" %>
-      </div>
-      <div class="form-group">
-         <label class="control-label">Descripción <label for="benefitr_desc" class="control-label error" style="margin-bottom: 0px;"></label></label>
-         <%= f.text_area :desc3,:required => true, :class => "form-control" %>
-      </div>
-      <div class="field">
-                           <%= f.label :Icono %>
-                           <select class="fa btn btn-default" name="benefit[icon3]" id="benefit_icon3">
-                              <% if !@benefit.new_record? %>
-                              <option value="<%= @benefit.icon3 %>"><%= @benefit.icon3 %></option>
-                              <% end %>
-                              <option value="fa-handshake-o"> &#xf2b5; fa-handshake-o </option>
-                              <option value="fa-id-card-o"> &#xf2c3; fa-id-card-o </option>
-                           	<option value="fa-user-circle"> &#xf2bd;  fa-user-circle </option>
-                           	<option value="fa-area-chart"> &#xf1fe;  fa-area-chart</option>
-                           	<option value="fa-balance-scale"> &#xf24e; fa-balance-scale </option>
-                           	<option value="fa-bar-chart"> &#xf080;  fa-bar-chart</option>
-                           	<option value="fa-ban"> &#xf05e; fa-ban</option>
-                           	<option value="fa-barcode"> &#xf02a; fa-barcode </option>
-                           	<option value="fa-bolt"> &#xf0e7; fa-bolt</option>
-                           	<option value="fa-book"> &#xf02d; fa-book</option>
-                           	<option value="fa-calendar"> &#xf073; fa-calenda</option>
-                           	<option value="fa-calendar-check-o"> &#xf274; fa-calendar-check-o </option>
-                           	<option value="fa-check"> &#xf00c; fa-check </option>
-                           	<option value="fa-check-square-o"> &#xf046; fa-check-square-o </option>
-                           	<option value="fa-clock-o"> &#xf017; fa-clock-o </option>
-                           	<option value="fa-cloud-upload"> &#xf0ee; fa-cloud-upload </option>
-                           	<option value="fa-cloud-download"> &#xf0ed; fa-cloud-download </option>
-                           	<option value="fa-code-fork"> &#xf126; fa-code-fork </option>
-                           	<option value="fa-coffee"> &#xf0f4; fa-coffee </option>
-                           	<option value="fa-cogs"> &#xf085; fa-cogs</option>
-                           	<option value="fa-compass"> &#xf14e; fa-compass  </option>
-                           	<option value="fa-credit-card"> &#xf09d;  fa-credit-card</option>
-                           	<option value="fa-diamond"> &#xf219; fa-diamond </option>
-                           	<option value="fa-file-archive-o"> &#xf1c6;  fa-file-archive-o</option>
-                           	<option value="fa-globe"> &#xf0ac; fa-globe</option>
-                           	<option value="fa-users"> &#xf0c0; fa-users </option>
-                           	<option value="fa-leaf"> &#xf06c; fa-leaf</option>
-                           	<option value="fa-lock"> &#xf023; fa-lock</option>
-                           	<option value="fa-line-chart"> &#xf201; fa-line-chart</option>
-                           	<option value="fa-lightbulb-o"> &#xf0eb;  fa-lightbulb-o </option>
-                           	<option value="fa-mobile"> &#xf10b; fa-mobile </option>
-                           	<option value="fa-pie-chart"> &#xf200;  fa-pie-chart</option>
-                           	<option value="fa-plug"> &#xf1e6; fa-plug</option>
-                           	<option value="fa-share-alt"> &#xf1e0; fa-share-alt</option>f
-                           	<option value="fa-star"> &#xf005; fa-strar</option>
-                           	<option value="fa-user-o"> &#xf2c0;  fa-user-o</option>
-                           	<option value="fa-file-o"> &#xf016;  fa-file-o</option>
-                           </select>
+<div class="wrapper wrapper-content">
+   <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+         <div class="ibox float-e-margins">
+            <div class="ibox-title">
+               <h4 class="text-dark-blue"><strong>Beneficios</strong></h4>
+            </div>
+            <div class="ibox-content">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <%= form_for @benefit , :html => {:multipart => true } do |f| %>
+                     <% if benefit.errors.any? %>
+                     <div id="error_explanation">
+                        <h2><%= pluralize(benefit.errors.count, "error") %> prohibited this benefit from being saved:</h2>
+                        <ul>
+                           <% benefit.errors.full_messages.each do |message| %>
+                           <li><%= message %></li>
+                           <% end %>
+                        </ul>
+                     </div>
+                     <% end %>
+                     <div class="form-group">
+                        <label class="control-label">Descripción de la sección:<label for="slider_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                        <%= f.text_field :description,:required => true, :class => "form-control" %>
+                     </div>
+                     <div class="navy-line"></div>
+                     </br>
+                     <div class="row">
+                        <div class="col-lg-offset-1 col-lg-5 ">
+                           <div class="form-group">
+                              <label class="control-label">Beneficio 1 <label for="benefit_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                              <%= f.text_field :title1,:required => true, :class => "form-control" %>
+                           </div>
+                           <div class="form-group">
+                              <label class="control-label">Descripción <label for="benefit_desc" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                              <%= f.text_area :desc1,:required => true, :class => "form-control" %>
+                           </div>
+                           <div class="field">
+                              <%= f.label :Icono %>
+                              <select class="fa btn btn-default " name="benefit[icon1]" id="benefit_icon1">
+                                 <% if !@benefit.new_record? %>
+                                 <option value="<%= @benefit.icon1 %>"><%= @benefit.icon1 %></option>
+                                 <% end %>
+                                 <option value="fa-handshake-o"> &#xf2b5; fa-handshake-o </option>
+                                 <option value="fa-id-card-o"> &#xf2c3; fa-id-card-o </option>
+                                 <option value="fa-user-circle"> &#xf2bd;  fa-user-circle </option>
+                                 <option value="fa-area-chart"> &#xf1fe;  fa-area-chart</option>
+                                 <option value="fa-balance-scale"> &#xf24e; fa-balance-scale </option>
+                                 <option value="fa-bar-chart"> &#xf080;  fa-bar-chart</option>
+                                 <option value="fa-ban"> &#xf05e; fa-ban</option>
+                                 <option value="fa-barcode"> &#xf02a; fa-barcode </option>
+                                 <option value="fa-bolt"> &#xf0e7; fa-bolt</option>
+                                 <option value="fa-book"> &#xf02d; fa-book</option>
+                                 <option value="fa-calendar"> &#xf073; fa-calenda</option>
+                                 <option value="fa-calendar-check-o"> &#xf274; fa-calendar-check-o </option>
+                                 <option value="fa-check"> &#xf00c; fa-check </option>
+                                 <option value="fa-check-square-o"> &#xf046; fa-check-square-o </option>
+                                 <option value="fa-clock-o"> &#xf017; fa-clock-o </option>
+                                 <option value="fa-cloud-upload"> &#xf0ee; fa-cloud-upload </option>
+                                 <option value="fa-cloud-download"> &#xf0ed; fa-cloud-download </option>
+                                 <option value="fa-code-fork"> &#xf126; fa-code-fork </option>
+                                 <option value="fa-coffee"> &#xf0f4; fa-coffee </option>
+                                 <option value="fa-cogs"> &#xf085; fa-cogs</option>
+                                 <option value="fa-compass"> &#xf14e; fa-compass  </option>
+                                 <option value="fa-credit-card"> &#xf09d;  fa-credit-card</option>
+                                 <option value="fa-diamond"> &#xf219; fa-diamond </option>
+                                 <option value="fa-file-archive-o"> &#xf1c6;  fa-file-archive-o</option>
+                                 <option value="fa-globe"> &#xf0ac; fa-globe</option>
+                                 <option value="fa-users"> &#xf0c0; fa-users </option>
+                                 <option value="fa-leaf"> &#xf06c; fa-leaf</option>
+                                 <option value="fa-lock"> &#xf023; fa-lock</option>
+                                 <option value="fa-line-chart"> &#xf201; fa-line-chart</option>
+                                 <option value="fa-lightbulb-o"> &#xf0eb;  fa-lightbulb-o </option>
+                                 <option value="fa-mobile"> &#xf10b; fa-mobile </option>
+                                 <option value="fa-pie-chart"> &#xf200;  fa-pie-chart</option>
+                                 <option value="fa-plug"> &#xf1e6; fa-plug</option>
+                                 <option value="fa-share-alt"> &#xf1e0; fa-share-alt</option>
+                                 f
+                                 <option value="fa-star"> &#xf005; fa-strar</option>
+                                 <option value="fa-user-o"> &#xf2c0;  fa-user-o</option>
+                                 <option value="fa-file-o"> &#xf016;  fa-file-o</option>
+                              </select>
+                           </div>
                         </div>
-      
-   </div> 
-   <div class="col-lg-5">
-      <div class="form-group">
-         <label class="control-label">Beneficio 4 <label for="benefit_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
-         <%= f.text_field :title4,:required => true, :class => "form-control" %>
-      </div>
-      <div class="form-group">
-         <label class="control-label">Descripción <label for="benefitr_desc" class="control-label error" style="margin-bottom: 0px;"></label></label>
-         <%= f.text_area :desc4,:required => true, :class => "form-control" %>
-      </div>
-      <div class="field">
-                           <%= f.label :Icono %>
-                           <select class="fa btn btn-default" name="benefit[icon4]" id="benefit_icon4">
-                              <% if !@benefit.new_record? %>
-                              <option value="<%= @benefit.icon4 %>"><%= @benefit.icon4 %></option>
-                              <% end %>
-                              <option value="fa-handshake-o"> &#xf2b5; fa-handshake-o </option>
-                              <option value="fa-id-card-o"> &#xf2c3; fa-id-card-o </option>
-                           	<option value="fa-user-circle"> &#xf2bd;  fa-user-circle </option>
-                           	<option value="fa-area-chart"> &#xf1fe;  fa-area-chart</option>
-                           	<option value="fa-balance-scale"> &#xf24e; fa-balance-scale </option>
-                           	<option value="fa-bar-chart"> &#xf080;  fa-bar-chart</option>
-                           	<option value="fa-ban"> &#xf05e; fa-ban</option>
-                           	<option value="fa-barcode"> &#xf02a; fa-barcode </option>
-                           	<option value="fa-bolt"> &#xf0e7; fa-bolt</option>
-                           	<option value="fa-book"> &#xf02d; fa-book</option>
-                           	<option value="fa-calendar"> &#xf073; fa-calenda</option>
-                           	<option value="fa-calendar-check-o"> &#xf274; fa-calendar-check-o </option>
-                           	<option value="fa-check"> &#xf00c; fa-check </option>
-                           	<option value="fa-check-square-o"> &#xf046; fa-check-square-o </option>
-                           	<option value="fa-clock-o"> &#xf017; fa-clock-o </option>
-                           	<option value="fa-cloud-upload"> &#xf0ee; fa-cloud-upload </option>
-                           	<option value="fa-cloud-download"> &#xf0ed; fa-cloud-download </option>
-                           	<option value="fa-code-fork"> &#xf126; fa-code-fork </option>
-                           	<option value="fa-coffee"> &#xf0f4; fa-coffee </option>
-                           	<option value="fa-cogs"> &#xf085; fa-cogs</option>
-                           	<option value="fa-compass"> &#xf14e; fa-compass  </option>
-                           	<option value="fa-credit-card"> &#xf09d;  fa-credit-card</option>
-                           	<option value="fa-diamond"> &#xf219; fa-diamond </option>
-                           	<option value="fa-file-archive-o"> &#xf1c6;  fa-file-archive-o</option>
-                           	<option value="fa-globe"> &#xf0ac; fa-globe</option>
-                           	<option value="fa-users"> &#xf0c0; fa-users </option>
-                           	<option value="fa-leaf"> &#xf06c; fa-leaf</option>
-                           	<option value="fa-lock"> &#xf023; fa-lock</option>
-                           	<option value="fa-line-chart"> &#xf201; fa-line-chart</option>
-                           	<option value="fa-lightbulb-o"> &#xf0eb;  fa-lightbulb-o </option>
-                           	<option value="fa-mobile"> &#xf10b; fa-mobile </option>
-                           	<option value="fa-pie-chart"> &#xf200;  fa-pie-chart</option>
-                           	<option value="fa-plug"> &#xf1e6; fa-plug</option>
-                           	<option value="fa-share-alt"> &#xf1e0; fa-share-alt</option>f
-                           	<option value="fa-star"> &#xf005; fa-strar</option>
-                           	<option value="fa-user-o"> &#xf2c0;  fa-user-o</option>
-                           	<option value="fa-file-o"> &#xf016;  fa-file-o</option>
-                           </select>
+                        <div class="col-lg-5">
+                           <div class="form-group">
+                              <label class="control-label">Beneficio 2 <label for="benefit_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                              <%= f.text_field :title2,:required => true, :class => "form-control" %>
+                           </div>
+                           <div class="form-group">
+                              <label class="control-label">Descripción <label for="benefitr_desc" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                              <%= f.text_area :desc2,:required => true, :class => "form-control" %>
+                           </div>
+                           <div class="field">
+                              <%= f.label :Icono %>
+                              <select class="fa btn btn-default" name="benefit[icon2]" id="benefit_icon2">
+                                 <% if !@benefit.new_record? %>
+                                 <option value="<%= @benefit.icon2 %>"><%= @benefit.icon2 %></option>
+                                 <% end %>
+                                 <option value="fa-handshake-o"> &#xf2b5; fa-handshake-o </option>
+                                 <option value="fa-id-card-o"> &#xf2c3; fa-id-card-o </option>
+                                 <option value="fa-user-circle"> &#xf2bd;  fa-user-circle </option>
+                                 <option value="fa-area-chart"> &#xf1fe;  fa-area-chart</option>
+                                 <option value="fa-balance-scale"> &#xf24e; fa-balance-scale </option>
+                                 <option value="fa-bar-chart"> &#xf080;  fa-bar-chart</option>
+                                 <option value="fa-ban"> &#xf05e; fa-ban</option>
+                                 <option value="fa-barcode"> &#xf02a; fa-barcode </option>
+                                 <option value="fa-bolt"> &#xf0e7; fa-bolt</option>
+                                 <option value="fa-book"> &#xf02d; fa-book</option>
+                                 <option value="fa-calendar"> &#xf073; fa-calenda</option>
+                                 <option value="fa-calendar-check-o"> &#xf274; fa-calendar-check-o </option>
+                                 <option value="fa-check"> &#xf00c; fa-check </option>
+                                 <option value="fa-check-square-o"> &#xf046; fa-check-square-o </option>
+                                 <option value="fa-clock-o"> &#xf017; fa-clock-o </option>
+                                 <option value="fa-cloud-upload"> &#xf0ee; fa-cloud-upload </option>
+                                 <option value="fa-cloud-download"> &#xf0ed; fa-cloud-download </option>
+                                 <option value="fa-code-fork"> &#xf126; fa-code-fork </option>
+                                 <option value="fa-coffee"> &#xf0f4; fa-coffee </option>
+                                 <option value="fa-cogs"> &#xf085; fa-cogs</option>
+                                 <option value="fa-compass"> &#xf14e; fa-compass  </option>
+                                 <option value="fa-credit-card"> &#xf09d;  fa-credit-card</option>
+                                 <option value="fa-diamond"> &#xf219; fa-diamond </option>
+                                 <option value="fa-file-archive-o"> &#xf1c6;  fa-file-archive-o</option>
+                                 <option value="fa-globe"> &#xf0ac; fa-globe</option>
+                                 <option value="fa-users"> &#xf0c0; fa-users </option>
+                                 <option value="fa-leaf"> &#xf06c; fa-leaf</option>
+                                 <option value="fa-lock"> &#xf023; fa-lock</option>
+                                 <option value="fa-line-chart"> &#xf201; fa-line-chart</option>
+                                 <option value="fa-lightbulb-o"> &#xf0eb;  fa-lightbulb-o </option>
+                                 <option value="fa-mobile"> &#xf10b; fa-mobile </option>
+                                 <option value="fa-pie-chart"> &#xf200;  fa-pie-chart</option>
+                                 <option value="fa-plug"> &#xf1e6; fa-plug</option>
+                                 <option value="fa-share-alt"> &#xf1e0; fa-share-alt</option>
+                                 f
+                                 <option value="fa-star"> &#xf005; fa-strar</option>
+                                 <option value="fa-user-o"> &#xf2c0;  fa-user-o</option>
+                                 <option value="fa-file-o"> &#xf016;  fa-file-o</option>
+                              </select>
+                           </div>
                         </div>
-   
-   </div>   
-</div>
-
-
- 
-
-  </br></br>
-  
-  <div class="form-group">
-                  <div class="col-lg-offset-3 col-lg-2">
-                    <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
+                     </div>
+                     </br></br></br>
+                     <div class="row">
+                        <div class="col-lg-offset-1 col-lg-5">
+                           <div class="form-group">
+                              <label class="control-label">Beneficio 3 <label for="benefit_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                              <%= f.text_field :title3,:required => true, :class => "form-control" %>
+                           </div>
+                           <div class="form-group">
+                              <label class="control-label">Descripción <label for="benefitr_desc" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                              <%= f.text_area :desc3,:required => true, :class => "form-control" %>
+                           </div>
+                           <div class="field">
+                              <%= f.label :Icono %>
+                              <select class="fa btn btn-default" name="benefit[icon3]" id="benefit_icon3">
+                                 <% if !@benefit.new_record? %>
+                                 <option value="<%= @benefit.icon3 %>"><%= @benefit.icon3 %></option>
+                                 <% end %>
+                                 <option value="fa-handshake-o"> &#xf2b5; fa-handshake-o </option>
+                                 <option value="fa-id-card-o"> &#xf2c3; fa-id-card-o </option>
+                                 <option value="fa-user-circle"> &#xf2bd;  fa-user-circle </option>
+                                 <option value="fa-area-chart"> &#xf1fe;  fa-area-chart</option>
+                                 <option value="fa-balance-scale"> &#xf24e; fa-balance-scale </option>
+                                 <option value="fa-bar-chart"> &#xf080;  fa-bar-chart</option>
+                                 <option value="fa-ban"> &#xf05e; fa-ban</option>
+                                 <option value="fa-barcode"> &#xf02a; fa-barcode </option>
+                                 <option value="fa-bolt"> &#xf0e7; fa-bolt</option>
+                                 <option value="fa-book"> &#xf02d; fa-book</option>
+                                 <option value="fa-calendar"> &#xf073; fa-calenda</option>
+                                 <option value="fa-calendar-check-o"> &#xf274; fa-calendar-check-o </option>
+                                 <option value="fa-check"> &#xf00c; fa-check </option>
+                                 <option value="fa-check-square-o"> &#xf046; fa-check-square-o </option>
+                                 <option value="fa-clock-o"> &#xf017; fa-clock-o </option>
+                                 <option value="fa-cloud-upload"> &#xf0ee; fa-cloud-upload </option>
+                                 <option value="fa-cloud-download"> &#xf0ed; fa-cloud-download </option>
+                                 <option value="fa-code-fork"> &#xf126; fa-code-fork </option>
+                                 <option value="fa-coffee"> &#xf0f4; fa-coffee </option>
+                                 <option value="fa-cogs"> &#xf085; fa-cogs</option>
+                                 <option value="fa-compass"> &#xf14e; fa-compass  </option>
+                                 <option value="fa-credit-card"> &#xf09d;  fa-credit-card</option>
+                                 <option value="fa-diamond"> &#xf219; fa-diamond </option>
+                                 <option value="fa-file-archive-o"> &#xf1c6;  fa-file-archive-o</option>
+                                 <option value="fa-globe"> &#xf0ac; fa-globe</option>
+                                 <option value="fa-users"> &#xf0c0; fa-users </option>
+                                 <option value="fa-leaf"> &#xf06c; fa-leaf</option>
+                                 <option value="fa-lock"> &#xf023; fa-lock</option>
+                                 <option value="fa-line-chart"> &#xf201; fa-line-chart</option>
+                                 <option value="fa-lightbulb-o"> &#xf0eb;  fa-lightbulb-o </option>
+                                 <option value="fa-mobile"> &#xf10b; fa-mobile </option>
+                                 <option value="fa-pie-chart"> &#xf200;  fa-pie-chart</option>
+                                 <option value="fa-plug"> &#xf1e6; fa-plug</option>
+                                 <option value="fa-share-alt"> &#xf1e0; fa-share-alt</option>
+                                 f
+                                 <option value="fa-star"> &#xf005; fa-strar</option>
+                                 <option value="fa-user-o"> &#xf2c0;  fa-user-o</option>
+                                 <option value="fa-file-o"> &#xf016;  fa-file-o</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="col-lg-5">
+                           <div class="form-group">
+                              <label class="control-label">Beneficio 4 <label for="benefit_title" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                              <%= f.text_field :title4,:required => true, :class => "form-control" %>
+                           </div>
+                           <div class="form-group">
+                              <label class="control-label">Descripción <label for="benefitr_desc" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                              <%= f.text_area :desc4,:required => true, :class => "form-control" %>
+                           </div>
+                           <div class="field">
+                              <%= f.label :Icono %>
+                              <select class="fa btn btn-default" name="benefit[icon4]" id="benefit_icon4">
+                                 <% if !@benefit.new_record? %>
+                                 <option value="<%= @benefit.icon4 %>"><%= @benefit.icon4 %></option>
+                                 <% end %>
+                                 <option value="fa-handshake-o"> &#xf2b5; fa-handshake-o </option>
+                                 <option value="fa-id-card-o"> &#xf2c3; fa-id-card-o </option>
+                                 <option value="fa-user-circle"> &#xf2bd;  fa-user-circle </option>
+                                 <option value="fa-area-chart"> &#xf1fe;  fa-area-chart</option>
+                                 <option value="fa-balance-scale"> &#xf24e; fa-balance-scale </option>
+                                 <option value="fa-bar-chart"> &#xf080;  fa-bar-chart</option>
+                                 <option value="fa-ban"> &#xf05e; fa-ban</option>
+                                 <option value="fa-barcode"> &#xf02a; fa-barcode </option>
+                                 <option value="fa-bolt"> &#xf0e7; fa-bolt</option>
+                                 <option value="fa-book"> &#xf02d; fa-book</option>
+                                 <option value="fa-calendar"> &#xf073; fa-calenda</option>
+                                 <option value="fa-calendar-check-o"> &#xf274; fa-calendar-check-o </option>
+                                 <option value="fa-check"> &#xf00c; fa-check </option>
+                                 <option value="fa-check-square-o"> &#xf046; fa-check-square-o </option>
+                                 <option value="fa-clock-o"> &#xf017; fa-clock-o </option>
+                                 <option value="fa-cloud-upload"> &#xf0ee; fa-cloud-upload </option>
+                                 <option value="fa-cloud-download"> &#xf0ed; fa-cloud-download </option>
+                                 <option value="fa-code-fork"> &#xf126; fa-code-fork </option>
+                                 <option value="fa-coffee"> &#xf0f4; fa-coffee </option>
+                                 <option value="fa-cogs"> &#xf085; fa-cogs</option>
+                                 <option value="fa-compass"> &#xf14e; fa-compass  </option>
+                                 <option value="fa-credit-card"> &#xf09d;  fa-credit-card</option>
+                                 <option value="fa-diamond"> &#xf219; fa-diamond </option>
+                                 <option value="fa-file-archive-o"> &#xf1c6;  fa-file-archive-o</option>
+                                 <option value="fa-globe"> &#xf0ac; fa-globe</option>
+                                 <option value="fa-users"> &#xf0c0; fa-users </option>
+                                 <option value="fa-leaf"> &#xf06c; fa-leaf</option>
+                                 <option value="fa-lock"> &#xf023; fa-lock</option>
+                                 <option value="fa-line-chart"> &#xf201; fa-line-chart</option>
+                                 <option value="fa-lightbulb-o"> &#xf0eb;  fa-lightbulb-o </option>
+                                 <option value="fa-mobile"> &#xf10b; fa-mobile </option>
+                                 <option value="fa-pie-chart"> &#xf200;  fa-pie-chart</option>
+                                 <option value="fa-plug"> &#xf1e6; fa-plug</option>
+                                 <option value="fa-share-alt"> &#xf1e0; fa-share-alt</option>
+                                 f
+                                 <option value="fa-star"> &#xf005; fa-strar</option>
+                                 <option value="fa-user-o"> &#xf2c0;  fa-user-o</option>
+                                 <option value="fa-file-o"> &#xf016;  fa-file-o</option>
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+                     </br></br>
+                     <div class="form-group">
+                        <div class="col-lg-offset-3 col-lg-2">
+                           <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
+                        </div>
+                        <% if (@benefit.new_record?) %>
+                        <div class="col-lg-2">
+                           <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
+                        </div>
+                        <% end %>
+                        <div class="col-lg-2">
+                           <%= link_to 'Atrás', benefits_path, :class => "btn btn-sm btn-default" %>
+                        </div>
+                     </div>
+                     <% end %>
                   </div>
-                  <% if (@benefit.new_record?) %>
-                    <div class="col-lg-2">
-                      <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
-                    </div>
-                  <% end %>
-                  <div class="col-lg-2">
-                    <%= link_to 'Atrás', benefits_path, :class => "btn btn-sm btn-default" %>
-                  </div>
-                </div>
-
-<% end %>
-
- </div>
-          </div>
-        </div>
+               </div>
+            </div>
+         </div>
       </div>
-    </div>
-    <div class="col-sm-2"></div>
-  </div>
+      <div class="col-sm-2"></div>
+   </div>
 </div>
-
